@@ -210,7 +210,11 @@ with morning:
     else:
         st.markdown('<div class="mp-hero"><div class="mp-eyebrow">AI Market Brief</div><div class="mp-big">Waiting for the next trading-day analysis</div><div class="mp-muted">The report engine will populate the morning thesis on an NSE trading day. MarketPilot will not invent a view when the market is closed or fresh evidence is unavailable.</div></div>',unsafe_allow_html=True)
     st.markdown('<div class="mp-section">Market structure</div>',unsafe_allow_html=True)
-    levels=report.get("levels",{}); st.dataframe(pd.DataFrame([levels]),use_container_width=True,hide_index=True) if levels else st.caption("Technical structure will populate after the next scheduled pre-market run.")
+    levels=report.get("levels",{})
+    if levels:
+        st.dataframe(pd.DataFrame([levels]),use_container_width=True,hide_index=True)
+    else:
+        st.caption("Technical structure will populate after the next scheduled pre-market run.")
     st.markdown('<div class="mp-section">Sector pulse</div>',unsafe_allow_html=True)
     sectors=report.get("sectors",[])
     if sectors: st.dataframe(pd.DataFrame(sectors).rename(columns={"sector":"Sector","avg_change_pct":"Avg 1D %","members":"Members"}),use_container_width=True,hide_index=True)
