@@ -127,7 +127,51 @@ def _breadth() -> dict:
     dec = sum(x["Change %"] < 0 for x in rows)
     unchanged = len(rows) - adv - dec
     ratio = round(adv / dec, 2) if dec else (float(adv) if adv else 0.0)
+    rows.sort(key=lambda x: x["Change %"], reverse=True)
     return {"advancers": adv, "decliners": dec, "unchanged": unchanged, "total": len(rows), "breadth_ratio": ratio, "rows": rows}
+
+
+def _synthesis(score: int, bias: str, vwap: float | None, last: float, or_state: str,
+               momentum: float, trend: str, vol_ratio: float | None, breadth: dict,
+               levels: dict) -> dict:
+    """Translate computed signals into a concise, evidence-only live read."""
+    bull = 0
+    bear = 0
+    evidence = []
+    if vwap is not None:
+        if last > vwap: bull += 1; evidence.append("price above VWAP")
+        else: bear += 1; evidence.append("price below VWAP")
+    if "BREAKOUT" in or_state: bull += 2; evidence.append("opening-range breakout")
+    elif "BREAKDOWN" in or_state: bear += 2; evidence.append("opening-range breakdown")
+    if momentum > 0.15: bull += 1; evidence.append("positive 15m momentum")
+    elif momentum < -0.15: bear += 1; evidence.append("negative 15m momentum")
+    if trend == "UPTREND": bull += 1; evidence.append("rising short-term trend")
+    elif trend == "DOWNTREND": bear += 1; evidence.append("falling short-term trend")
+    if breadth["advancers"] > breadth["decliners"]: bull += 1; evidence.append("watchlist breadth positive")
+    elif breadth["decliners"] > breadth["advancers"]: bear += 1; evidence.append("watchlist breadth negative")
+
+    if bias == "BULLISH": headline = "Buyers are in control"
+    elif bias == "BEARISH": headline = "Sellers are in control"
+    else: headline = "Market is in balance"
+
+    if abs(bull - bear) <= 1:
+        headline = "Signals are mixed — wait for confirmation"
+    elif bias == "NEUTRAL":
+        headline = "Direction is developing — confirmation needed"
+
+    nearest = None
+    if levels:
+        candidates = [x for x in (levels.get("recent_resistance"), levels.get("recent_support")) if x]
+        if candidates:
+            nearest = min(candidates, key=lambda x: abs(x - last))
+    return {
+        "headline": headline,
+        "detail": "; ".join(evidence[:5]) if evidence else "Not enough independent structure signals.",
+        "bull_count": bull,
+        "bear_count": bear,
+        "nearest_level": nearest,
+        "volume_confirming": bool(vol_ratio is not None and vol_ratio >= 1.5),
+    }
 
 
 def fetch_intraday() -> dict:
@@ -206,6 +250,7 @@ def fetch_intraday() -> dict:
     elif or_low and last < or_low: or_state = "BREAKDOWN BELOW OR"
     else: or_state = "INSIDE OPENING RANGE"
 
+    synthesis = _synthesis(score, bias, vwap, last, or_state, momentum, trend, vol_ratio, breadth, levels)
     return {
         "available": True,
         "as_of": datetime.now(IST).strftime("%Y-%m-%d %H:%M IST"),
@@ -229,4 +274,5 @@ def fetch_intraday() -> dict:
         "bias": bias,
         "confidence": confidence,
         "reasons": reasons,
+        "synthesis": synthesis,
     }
