@@ -34,6 +34,9 @@ st.markdown("""
 .stApp{background:#070b12;color:#e7edf5}.block-container{max-width:1500px;padding-top:1.2rem}
 .mp-title{font-family:Georgia,serif;font-size:2.7rem;font-weight:700}.mp-sub{color:#8d9aab;letter-spacing:.12em;text-transform:uppercase;font-size:.7rem}
 .card{background:#0d131d;border:1px solid #202b3a;border-radius:15px;padding:16px;min-height:105px}.label{color:#8290a3;font-size:.65rem;text-transform:uppercase;letter-spacing:.12em}.value{font-family:Georgia,serif;font-size:1.5rem;margin-top:5px}.muted{color:#8d9aab}.ticker{overflow:hidden;border:1px solid #202b3a;border-radius:12px;background:#0d131d;padding:10px;white-space:nowrap}.track{display:inline-block;padding-left:100%;animation:scroll 180s linear infinite}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+/* Hide Streamlit's automatic page list so the branded Intelligence Suite below is the only navigation. */
+[data-testid="stSidebarNav"]{display:none}
+.mp-nav-title{font-size:.72rem;color:#8290a3;letter-spacing:.12em;font-weight:700;margin-top:.35rem}
 </style>
 """, unsafe_allow_html=True)
 
@@ -86,11 +89,20 @@ def news_data():
             pass
     return items[:28]
 
-# Streamlit's automatic multipage navigation already provides the Intelligence Suite.
-# Keep the sidebar clean and avoid duplicating every page with manual st.page_link calls.
+# Branded navigation: this replaces Streamlit's automatic page menu.
 with st.sidebar:
     st.markdown("## ◈ MarketPilot")
-    st.caption("INTELLIGENCE SUITE")
+    st.markdown('<div class="mp-nav-title">INTELLIGENCE SUITE</div>', unsafe_allow_html=True)
+    st.page_link("app.py", label="Main Dashboard", icon="🏠")
+    st.page_link("pages/1_Stock_Intelligence.py", label="Stock Intelligence", icon="📊")
+    st.page_link("pages/2_Catalyst_Radar.py", label="Catalyst Radar", icon="⚡")
+    st.page_link("pages/3_Market_Regime.py", label="Market Regime", icon="🌐")
+    st.page_link("pages/4_Institutional_Flow.py", label="Institutional Flow", icon="🏦")
+    st.page_link("pages/5_Options_Intelligence.py", label="Options Intelligence", icon="📐")
+    st.page_link("pages/6_Intraday_Market_Structure.py", label="Intraday Market Structure", icon="⚡")
+    st.page_link("pages/7_Sector_Intelligence.py", label="Sector Intelligence", icon="🏭")
+    st.page_link("pages/8_Performance_Tracker.py", label="Performance Tracker", icon="📈")
+    st.page_link("pages/9_Thesis_Calibration.py", label="Thesis Calibration", icon="🎯")
 
 status=market_status(); now=datetime.now(IST); report=load_json(DATA_FILE,{})
 raw_news=news_data(); news_intel=enrich_news(raw_news); indices=index_data(); watchlist=load_json(WATCHLIST_FILE,DEFAULT_WATCHLIST)
