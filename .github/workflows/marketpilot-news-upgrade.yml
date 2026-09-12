@@ -1,4 +1,4 @@
-name: MarketPilot News Upgrade
+name: MarketPilot Validation
 
 on:
   push:
@@ -6,58 +6,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  upgrade-news-ui:
-    if: ${{ !startsWith(github.event.head_commit.message, 'MarketPilot automated:') }}
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Add claim status to News Intelligence
-        shell: python
-        run: |
-          from pathlib import Path
-          import re
-
-          p = Path("app.py")
-          s = p.read_text(encoding="utf-8")
-
-          s = s.replace(
-              '"Verification":verification_badge(item.get("verification")),"Evidence":f\'{score}/100 · {evidence_label(score)}\',',
-              '"Verification":verification_badge(item.get("verification")),"Claim Status":item.get("claim_status","INSUFFICIENT EVIDENCE"),"Evidence":f\'{score}/100 · {evidence_label(score)}\',',
-              1
-          )
-
-          old = '''        avg_score=round(sum(scores)/len(scores)) if scores else 0; strong=sum(s>=75 for s in scores); conflicts=sum(x.get("verification")=="CONFLICTING" for x in checked)
-        st.markdown(f'<div class="news-summary"><div class="news-stat"><div class="news-stat-label">Avg evidence strength</div><div class="news-stat-value">{avg_score}/100</div></div><div class="news-stat"><div class="news-stat-label">Strong evidence stories</div><div class="news-stat-value">{strong}</div></div><div class="news-stat"><div class="news-stat-label">Conflicting stories</div><div class="news-stat-value">{conflicts}</div></div></div>',unsafe_allow_html=True)'''
-          new = '''        avg_score=round(sum(scores)/len(scores)) if scores else 0; strong=sum(s>=75 for s in scores); conflicts=sum(x.get("verification")=="CONFLICTING" for x in checked); supported=sum(x.get("claim_status")=="SUPPORTED" for x in news_intel); disputed=sum(x.get("claim_status")=="DISPUTED" for x in news_intel); insufficient=sum(x.get("claim_status")=="INSUFFICIENT EVIDENCE" for x in news_intel)
-        st.markdown(f'<div class="news-summary"><div class="news-stat"><div class="news-stat-label">Avg evidence strength</div><div class="news-stat-value">{avg_score}/100</div></div><div class="news-stat"><div class="news-stat-label">Supported claims</div><div class="news-stat-value">{supported}</div></div><div class="news-stat"><div class="news-stat-label">Disputed claims</div><div class="news-stat-value">{disputed}</div></div><div class="news-stat"><div class="news-stat-label">Insufficient evidence</div><div class="news-stat-value">{insufficient}</div></div></div>',unsafe_allow_html=True)'''
-          if old in s:
-              s=s.replace(old,new,1)
-
-          old2 = '''            score=int(item.get("evidence_score",10)); sources=item.get("verification_sources",[]); source_text=" · ".join(sources) if sources else "No independent sources found"
-            with st.expander(f'{i:02d} · {verification_badge(item.get("verification"))} · Evidence {score}/100 · {item.get("title","")}'):
-                st.markdown(f'<div class="news-evidence"><div class="news-evidence-title">Evidence strength · {evidence_label(score)}</div><div class="news-evidence-head">{score}/100</div><div class="news-evidence-meta"><b>Publisher:</b> {html.escape(item.get("publisher","Unknown publisher"))}<br><b>Independent sources:</b> {html.escape(source_text)}<br><b>Impact:</b> {html.escape(item.get("impact","NEUTRAL"))} · <b>Affected:</b> {html.escape(item.get("affected","MARKET"))}<br><b>Why:</b> {html.escape(item.get("verification_detail",""))}</div></div>',unsafe_allow_html=True)'''
-          new2 = '''            score=int(item.get("evidence_score",10)); sources=item.get("verification_sources",[]); source_text=" · ".join(sources) if sources else "No independent sources found"; claim=item.get("claim_status","INSUFFICIENT EVIDENCE"); claim_detail=item.get("claim_status_detail","")
-            with st.expander(f'{i:02d} · {claim} · {verification_badge(item.get("verification"))} · Evidence {score}/100 · {item.get("title","")}'):
-                st.markdown(f'<div class="news-evidence"><div class="news-evidence-title">Claim status · {html.escape(claim)}</div><div class="news-evidence-head">Evidence {score}/100 · {evidence_label(score)}</div><div class="news-evidence-meta"><b>Claim assessment:</b> {html.escape(claim_detail)}<br><b>Publisher:</b> {html.escape(item.get("publisher","Unknown publisher"))}<br><b>Independent sources:</b> {html.escape(source_text)}<br><b>Impact:</b> {html.escape(item.get("impact","NEUTRAL"))} · <b>Affected:</b> {html.escape(item.get("affected","MARKET"))}<br><b>Why:</b> {html.escape(item.get("verification_detail",""))}</div></div>',unsafe_allow_html=True)'''
-          if old2 in s:
-              s=s.replace(old2,new2,1)
-
-          p.write_text(s,encoding="utf-8")
-
-      - name: Commit upgrade
-        shell: bash
-        run: |
-          git config user.name "MarketPilot Bot"
-          git config user.email "marketpilot-bot@users.noreply.github.com"
-          git add app.py
-          if git diff --cached --quiet; then
-            echo "No changes needed"
-            exit 0
-          fi
-          git commit -m "MarketPilot automated: show supported disputed claims"
-          git push
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate Python syntax
+        run: python -m py_compile app.py news_intelligence.py
