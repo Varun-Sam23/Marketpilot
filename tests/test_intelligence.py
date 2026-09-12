@@ -1,6 +1,7 @@
 import unittest
 
 from agent_orchestrator import AgentResult, build_chief_input
+from agent_runtime import assess, challenge_agents
 from ai_brain import _fallback
 from news_intelligence import claim_status, evidence_score, similarity
 
@@ -32,6 +33,7 @@ class NewsIntelligenceTests(unittest.TestCase):
         packet = build_chief_input({}, [], [], [], [], {}, {"agents": {}})
         self.assertTrue(packet["governance"]["conflicts_must_be_reported"])
         self.assertTrue(packet["governance"]["no_order_execution"])
+        self.assertTrue(packet["governance"]["no_fabrication"])
 
     def test_ai_fallback_is_safe(self):
         result = _fallback({"rule_bias": "NEUTRAL", "decision": {"score": 50, "bias": "NEUTRAL", "confidence": "LOW"}}, "TEST")
@@ -44,6 +46,21 @@ class NewsIntelligenceTests(unittest.TestCase):
         self.assertEqual(result["agent"], "Test Agent")
         self.assertEqual(result["status"], "READY")
         self.assertEqual(result["data"]["x"], 1)
+
+    def test_agent_self_check_flags_missing_evidence(self):
+        result = assess("Technical Agent", {"trend_vs_20d": "UNKNOWN", "trend_vs_50d": "UNKNOWN"})
+        self.assertEqual(result["evidence_state"], "INSUFFICIENT")
+        self.assertTrue(result["needs_retry"])
+
+    def test_agent_challenge_detects_conflict(self):
+        results = {
+            "Technical Agent": {"data": {"trend_vs_20d": "ABOVE"}},
+            "Options Agent": {"data": {"oi_bias": "BEARISH"}},
+            "Risk Agent": {"data": {"flags": []}},
+        }
+        conflicts = challenge_agents(results)
+        self.assertTrue(conflicts)
+        self.assertIn("Options Agent", conflicts[0]["agents"])
 
 
 if __name__ == "__main__":
