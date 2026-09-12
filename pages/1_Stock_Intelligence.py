@@ -5,8 +5,10 @@ import pandas as pd
 import streamlit as st
 
 from watchlist_intelligence import rank_watchlist
+from menu import render_sidebar
 
 st.set_page_config(page_title="MarketPilot · Stock Intelligence", page_icon="🎯", layout="wide")
+render_sidebar()
 
 DATA_FILE = Path("data/latest.json")
 
