@@ -40,7 +40,7 @@ st.markdown("""
 .section{font-family:Georgia,serif;font-size:1.18rem;margin:16px 0 8px}.meta{float:right;font-family:Arial,sans-serif;color:#718096;font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;margin-top:5px}
 .ticker{overflow:hidden;border:1px solid #202c3c;border-radius:11px;background:#0b1119;padding:9px;white-space:nowrap;margin:8px 0 16px}.track{display:inline-block;padding-left:100%;animation:scroll 150s linear infinite}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 .change{min-height:150px}.change-item{padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem;line-height:1.35}.change-item:first-child{border-top:0}.change-value{font-size:.85rem;font-weight:800}.risk-row{padding:7px 0;border-top:1px solid #1d2938}.risk-row:first-child{border-top:0}
-.evidence-wrap{border:1px solid #202c3c;border-radius:12px;overflow:hidden;background:#0b1119}.evidence-table{width:100%;border-collapse:collapse;font-size:.73rem}.evidence-table th{text-align:left;padding:9px 10px;background:#171b25;color:#8492a4;font-weight:600;border-bottom:1px solid #263344}.evidence-table td{padding:8px 10px;border-bottom:1px solid #1d2938;color:#dce3ec;vertical-align:top}.evidence-table tr:last-child td{border-bottom:0}.status-supported{color:#64d39a;font-weight:700}.status-disputed{color:#ff7b83;font-weight:700}.status-insufficient{color:#ffd45c;font-weight:700}.status-dot{font-size:.9rem;margin-right:5px}.evidence-num{font-variant-numeric:tabular-nums;white-space:nowrap}.evidence-headline{min-width:320px;line-height:1.35}
+.evidence-wrap{border:1px solid #202c3c;border-radius:12px;overflow:hidden;background:#0b1119}.evidence-table{width:100%;border-collapse:collapse;font-size:.72rem;table-layout:fixed}.evidence-table th{text-align:left;padding:9px 10px;background:#171b25;color:#8492a4;font-weight:600;border-bottom:1px solid #263344}.evidence-table td{padding:9px 10px;border-bottom:1px solid #1d2938;color:#dce3ec;vertical-align:top}.evidence-table tr:last-child td{border-bottom:0}.status-supported{color:#64d39a;font-weight:700}.status-disputed{color:#ff7b83;font-weight:700}.status-insufficient{color:#ffd45c;font-weight:700}.status-dot{font-size:.9rem;margin-right:5px;vertical-align:-1px}.status-cell{white-space:nowrap;font-size:.67rem}.evidence-num{font-variant-numeric:tabular-nums;white-space:nowrap}.evidence-headline{line-height:1.35;word-wrap:break-word}.evidence-headline-title{font-size:.76rem;color:#e7edf5;font-weight:600;line-height:1.4}.evidence-gist{color:#91a0b2;font-size:.68rem;line-height:1.45;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.evidence-point{display:block}.evidence-point::before{content:"• ";color:#64748b}
 </style>
 """,unsafe_allow_html=True)
 
@@ -81,6 +81,27 @@ def watch_data(tickers):
         except Exception:pass
     return pd.DataFrame(rows)
 
+def clean_news_text(value):
+    text=re.sub(r"<[^>]+>"," ",str(value or ""))
+    text=html.unescape(text)
+    return re.sub(r"\s+"," ",text).strip()
+
+def key_news_points(summary,headline):
+    text=clean_news_text(summary)
+    if not text or text.lower()==clean_news_text(headline).lower():
+        return []
+    text=re.sub(r"^(?:\s*[-–—|]\s*)+","",text).strip()
+    sentences=re.split(r"(?<=[.!?])\s+",text)
+    points=[]
+    for sentence in sentences:
+        sentence=sentence.strip(" -–—|")
+        if sentence and sentence.lower()!=headline.lower():
+            points.append(sentence)
+        if len(points)==2:break
+    if not points and text:
+        points=[text]
+    return [p[:210].rstrip(" .") + ("…" if len(p)>210 else ".") for p in points[:2]]
+
 @st.cache_data(ttl=60,show_spinner=False)
 def raw_news():
     items=[]
@@ -93,7 +114,7 @@ def raw_news():
                 if not publisher:
                     m=re.search(r"\s+-\s+([^-]+)$",title);publisher=m.group(1).strip() if m else "Unknown publisher"
                 title=re.sub(r"\s+-\s+([^-]+)$","",title).strip()
-                items.append({"title":title,"publisher":publisher,"published":e.get("published","")})
+                items.append({"title":title,"publisher":publisher,"published":e.get("published","") or e.get("updated","") ,"summary":e.get("summary") or e.get("description") or ""})
         except Exception:pass
     return items[:28]
 
@@ -175,13 +196,16 @@ with t3:
     rows=[]
     for x in news[:24]:
         status_value=x.get("claim_status","INSUFFICIENT EVIDENCE");dot={"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(status_value,"🟡");title=re.sub(r"^(🟢|🔴|🟡)\s*(SUPPORTED|DISPUTED|INSUFFICIENT EVIDENCE)\s*·\s*","",str(x.get("title","")))
-        rows.append({"dot":dot,"status":status_value,"headline":title,"verification":x.get("verification","UNVERIFIED"),"evidence":x.get("evidence_score",10),"sources":x.get("evidence_count",0),"publisher":x.get("publisher","Unknown")})
+        points=key_news_points(x.get("summary",""),title)
+        rows.append({"dot":dot,"status":status_value,"headline":title,"points":points,"verification":x.get("verification","UNVERIFIED"),"evidence":x.get("evidence_score",10),"sources":x.get("evidence_count",0),"publisher":x.get("publisher","Unknown")})
     if rows:
         trs=[]
         for r in rows:
             cls={"SUPPORTED":"status-supported","DISPUTED":"status-disputed","INSUFFICIENT EVIDENCE":"status-insufficient"}.get(r["status"],"neutral")
-            trs.append(f'<tr><td class="{cls}"><span class="status-dot">{r["dot"]}</span>{html.escape(str(r["status"]))}</td><td class="evidence-headline">{html.escape(str(r["headline"]))}</td><td>{html.escape(str(r["verification"]))}</td><td class="evidence-num">{html.escape(str(r["evidence"]))}</td><td class="evidence-num">{html.escape(str(r["sources"]))}</td><td>{html.escape(str(r["publisher"]))}</td></tr>')
-        table='<div class="evidence-wrap"><table class="evidence-table"><thead><tr><th>Status</th><th>Headline</th><th>Verification</th><th>Evidence</th><th>Sources</th><th>Publisher</th></tr></thead><tbody>'+''.join(trs)+'</tbody></table></div>'
+            points_html=''.join(f'<span class="evidence-point">{html.escape(p)}</span>' for p in r["points"]) or '<span class="evidence-point">Source summary unavailable; open the publisher for full context.</span>'
+            headline_html=f'<div class="evidence-headline-title">{html.escape(str(r["headline"]))}</div><div class="evidence-gist">{points_html}</div>'
+            trs.append(f'<tr><td class="{cls} status-cell"><span class="status-dot">{r["dot"]}</span>{html.escape(str(r["status"]))}</td><td class="evidence-headline">{headline_html}</td><td>{html.escape(str(r["verification"]))}</td><td class="evidence-num">{html.escape(str(r["evidence"]))}</td><td class="evidence-num">{html.escape(str(r["sources"]))}</td><td>{html.escape(str(r["publisher"]))}</td></tr>')
+        table='<div class="evidence-wrap"><table class="evidence-table"><colgroup><col style="width:170px"><col style="width:52%"><col style="width:125px"><col style="width:72px"><col style="width:72px"><col style="width:125px"></colgroup><thead><tr><th>Status</th><th>Headline · Key Points</th><th>Verification</th><th>Evidence</th><th>Sources</th><th>Publisher</th></tr></thead><tbody>'+''.join(trs)+'</tbody></table></div>'
         st.markdown(table,unsafe_allow_html=True)
     else:st.info("No current headlines available.")
 
