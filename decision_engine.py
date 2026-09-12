@@ -1,7 +1,8 @@
 """MarketPilot decision engine.
 
-Converts the existing evidence pack into a transparent 0-100 market setup score.
-This is decision support, not a trading signal or probability forecast.
+Converts the evidence pack into a transparent 0-100 market setup score.
+News is weighted by claim status so unverified headlines do not influence the
+score as strongly as independently supported reporting.
 """
 
 
@@ -27,18 +28,15 @@ def score_setup(levels, snapshots, sectors, news):
                 score += 8; up += 1; factors.append("NIFTY above 20D SMA")
             else:
                 score -= 8; down += 1; factors.append("NIFTY below 20D SMA")
-
         if close is not None and sma50:
             if close > sma50:
                 score += 5; up += 1; factors.append("NIFTY above 50D SMA")
             else:
                 score -= 5; down += 1; factors.append("NIFTY below 50D SMA")
-
         if ret20 > 2:
             score += 7; up += 1; factors.append("20D momentum positive")
         elif ret20 < -2:
             score -= 7; down += 1; factors.append("20D momentum negative")
-
         if rsi is not None:
             if 55 <= rsi <= 68:
                 score += 5; up += 1; factors.append("RSI in constructive momentum zone")
@@ -74,12 +72,42 @@ def score_setup(levels, snapshots, sectors, news):
         elif breadth <= 0.33:
             score -= 5; down += 1; factors.append("Sector participation is weak")
 
-    positive_news = sum(1 for x in news or [] if x.get("impact") == "POSITIVE")
-    negative_news = sum(1 for x in news or [] if x.get("impact") == "NEGATIVE")
-    if positive_news >= negative_news + 3:
-        score += 4; up += 1; factors.append("News tone is net positive")
-    elif negative_news >= positive_news + 3:
-        score -= 4; down += 1; factors.append("News tone is net negative")
+    # Evidence-aware news weighting.
+    # Supported/corroborated stories get full weight; insufficient evidence gets
+    # only a small influence; disputed stories are ignored rather than treated
+    # as directional truth.
+    supported_positive = supported_negative = 0.0
+    disputed = insufficient = 0
+    for item in news or []:
+        status = item.get("claim_status", "INSUFFICIENT EVIDENCE")
+        impact = item.get("impact")
+        if status == "DISPUTED":
+            disputed += 1
+            continue
+        if status == "SUPPORTED":
+            weight = 1.0
+        elif status == "CORROBORATED":
+            weight = 0.85
+        else:
+            weight = 0.25
+            insufficient += 1
+        if impact == "POSITIVE":
+            supported_positive += weight
+        elif impact == "NEGATIVE":
+            supported_negative += weight
+
+    news_balance = supported_positive - supported_negative
+    if news_balance >= 3:
+        score += 4; up += 1; factors.append("Evidence-weighted news tone is net positive")
+    elif news_balance <= -3:
+        score -= 4; down += 1; factors.append("Evidence-weighted news tone is net negative")
+    elif supported_positive or supported_negative:
+        factors.append("News tone is mixed after evidence weighting")
+
+    if disputed:
+        factors.append(f"{disputed} disputed news claim(s) excluded from directional scoring")
+    if insufficient:
+        factors.append(f"{insufficient} insufficient-evidence story/stories given reduced weight")
 
     score = round(clamp(score), 1)
     if score >= 65:
@@ -102,10 +130,6 @@ def score_setup(levels, snapshots, sectors, news):
     else:
         regime = "MIXED / RANGE"
 
-    bull_trigger = "NIFTY holds above its 20D SMA and Bank Nifty confirms strength."
-    bear_trigger = "NIFTY loses its 20D SMA while volatility expands."
-    invalidation = "The morning view is invalidated when the price structure and volatility move materially against the evidence pack."
-
     return {
         "score": score,
         "bias": bias,
@@ -114,8 +138,8 @@ def score_setup(levels, snapshots, sectors, news):
         "positive_factors": up,
         "negative_factors": down,
         "evidence": factors[:10],
-        "bull_trigger": bull_trigger,
-        "bear_trigger": bear_trigger,
-        "invalidation": invalidation,
-        "methodology": "Transparent rule-weighted evidence score. It is not a probability and does not imply a guaranteed market direction.",
+        "bull_trigger": "NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+        "bear_trigger": "NIFTY loses its 20D SMA while volatility expands.",
+        "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+        "methodology": "Transparent rule-weighted evidence score. News direction is weighted by claim status; disputed claims are excluded and insufficient-evidence claims receive reduced weight. This is not a probability or trading recommendation.",
     }
