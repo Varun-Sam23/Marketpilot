@@ -42,7 +42,7 @@ st.markdown("""
 .mp-small {font-size: .82rem; color: #6b7280;}
 .mp-pill {display:inline-block; padding:.25rem .55rem; border-radius:999px; border:1px solid rgba(128,128,128,.25); font-size:.78rem; margin-right:.35rem;}
 .mp-news-wrap {width:100%; overflow:hidden; border:1px solid rgba(128,128,128,.22); border-radius:14px; background:rgba(128,128,128,.08); padding:10px 0; margin:8px 0 4px;}
-.mp-news-track {display:inline-block; white-space:nowrap; padding-left:100%; animation:mp-scroll 240s linear infinite; font-size:15px;}
+.mp-news-track {display:inline-block; white-space:nowrap; padding-left:100%; animation:mp-scroll 180s linear infinite; font-size:15px;}
 .mp-news-track:hover {animation-play-state:paused; cursor:default;}
 .mp-news-item {display:inline-block; margin-right:28px;}
 .mp-news-item small {opacity:.68;}
