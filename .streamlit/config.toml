@@ -1,0 +1,12 @@
+[theme]
+base="light"
+primaryColor="#9A7B35"
+backgroundColor="#F4F1EA
+secondaryBackgroundColor="#EAE5DB"
+textColor="#202633"
+font="sans-serif"
+headingFont="serif"
+baseFontSize=16
+headingFontWeights=[650,600,550]
+linkUnderline=false
+borderRadius="0.8rem"
