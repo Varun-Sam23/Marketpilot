@@ -3,8 +3,10 @@ import streamlit as st
 import yfinance as yf
 
 from market_regime import classify_regime
+from menu import render_sidebar
 
 st.set_page_config(page_title="MarketPilot · Market Regime", page_icon="◈", layout="wide")
+render_sidebar()
 
 @st.cache_data(ttl=300, show_spinner=False)
 def nifty_snapshot():
