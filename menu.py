@@ -7,7 +7,7 @@ NAV = [
     ("pages/3_Market_Regime.py", "Market Regime", "🌐"),
     ("pages/4_Institutional_Flow.py", "Institutional Flow", "🏦"),
     ("pages/5_Options_Intelligence.py", "Options Intelligence", "📐"),
-    ("pages/6_Intraday_Market_Structure.py", "LIVE MARKET", "⚡"),
+    ("pages/6_Live_Market.py", "LIVE MARKET", "⚡"),
     ("pages/7_Sector_Intelligence.py", "Sector Intelligence", "🏭"),
     ("pages/8_Performance_Tracker.py", "Performance Tracker", "📈"),
     ("pages/9_Thesis_Calibration.py", "Thesis Calibration", "🎯"),
