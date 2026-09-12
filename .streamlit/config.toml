@@ -18,3 +18,6 @@ greenColor="#59B987"
 blueColor="#7FA7C9"
 yellowColor="#C9A85B"
 grayColor="#8F9BAA"
+
+[client]
+showSidebarNavigation = false
