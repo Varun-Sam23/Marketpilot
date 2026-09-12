@@ -36,9 +36,9 @@ st.markdown("""
 .stApp{background:#070b12;color:#e7edf5}.block-container{max-width:1500px;padding-top:1rem;padding-bottom:2rem}
 .mp-hero{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px}.mp-title{font-family:Georgia,serif;font-size:2.35rem;font-weight:700;line-height:1}.mp-sub{color:#8290a3;letter-spacing:.13em;text-transform:uppercase;font-size:.64rem;margin-top:8px}.mp-time{text-align:right;color:#8290a3;font-size:.72rem}.mp-status{display:inline-block;border:1px solid #2b3a4d;background:#0d131d;border-radius:999px;padding:5px 10px;color:#dce5ef;font-size:.68rem;font-weight:700;letter-spacing:.08em}
 .card{background:linear-gradient(145deg,#0e151f,#0b1119);border:1px solid #202c3c;border-radius:14px;padding:14px 15px;min-height:94px}.card:hover{border-color:#35465d}.label{color:#7f8da0;font-size:.61rem;text-transform:uppercase;letter-spacing:.12em}.value{font-family:Georgia,serif;font-size:1.42rem;margin-top:5px}.muted{color:#8492a4;font-size:.72rem}.positive{color:#64d39a}.negative{color:#ff7b83}.neutral{color:#c5ced9}
-.deck{display:flex;gap:8px;align-items:center;background:#0b1119;border:1px solid #202c3c;border-radius:12px;padding:7px 10px;margin:8px 0 12px}.deck-label{font-size:.61rem;letter-spacing:.11em;color:#718096;text-transform:uppercase;margin-right:5px}.deck-item{font-size:.72rem;color:#cdd6e0;border-right:1px solid #263344;padding-right:10px}.deck-item:last-child{border:0}.dot{font-size:.7rem}
+.deck{display:flex;gap:8px;align-items:center;background:#0b1119;border:1px solid #202c3c;border-radius:12px;padding:7px 10px;margin:8px 0 12px;overflow-x:auto}.deck-label{font-size:.61rem;letter-spacing:.11em;color:#718096;text-transform:uppercase;margin-right:5px}.deck-item{font-size:.72rem;color:#cdd6e0;border-right:1px solid #263344;padding-right:10px;white-space:nowrap}.deck-item:last-child{border:0}.dot{font-size:.7rem}
 .ticker{overflow:hidden;border:1px solid #202c3c;border-radius:11px;background:#0b1119;padding:9px;white-space:nowrap;margin:7px 0 15px}.track{display:inline-block;padding-left:100%;animation:scroll 150s linear infinite}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin:5px 0 8px}.section-title{font-family:Georgia,serif;font-size:1.12rem}.section-meta{font-size:.65rem;color:#718096;letter-spacing:.08em;text-transform:uppercase}.signal{background:#0d141e;border:1px solid #202c3c;border-radius:12px;padding:12px}.signal .big{font-family:Georgia,serif;font-size:1.65rem}.signal .small{font-size:.68rem;color:#8290a3;text-transform:uppercase;letter-spacing:.1em}.bar{height:5px;background:#202b39;border-radius:5px;margin-top:9px;overflow:hidden}.bar>div{height:100%;background:#8090a4;border-radius:5px}.insight{background:#0d141e;border-left:3px solid #66788f;border-radius:9px;padding:11px 13px;margin-bottom:8px}.newsrow{padding:8px 0;border-bottom:1px solid #1b2634}.newsstatus{font-size:.64rem;font-weight:700;letter-spacing:.06em}.newstitle{font-size:.79rem;color:#dce3ec}.newssource{font-size:.64rem;color:#738195;margin-top:3px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:5px 0 8px}.section-title{font-family:Georgia,serif;font-size:1.12rem}.section-meta{font-size:.65rem;color:#718096;letter-spacing:.08em;text-transform:uppercase}.signal{background:#0d141e;border:1px solid #202c3c;border-radius:12px;padding:12px}.signal .big{font-family:Georgia,serif;font-size:1.65rem}.signal .small{font-size:.68rem;color:#8290a3;text-transform:uppercase;letter-spacing:.1em}.bar{height:5px;background:#202b39;border-radius:5px;margin-top:9px;overflow:hidden}.bar>div{height:100%;background:#8090a4;border-radius:5px}.insight{background:#0d141e;border-left:3px solid #66788f;border-radius:9px;padding:11px 13px;margin-bottom:8px}.newsrow{padding:8px 0;border-bottom:1px solid #1b2634}.newsstatus{font-size:.64rem;font-weight:700;letter-spacing:.06em}.newstitle{font-size:.79rem;color:#dce3ec}.newssource{font-size:.64rem;color:#738195;margin-top:3px}.alertbox{background:#0d141e;border:1px solid #263446;border-radius:12px;padding:13px 15px}.mini{font-size:.68rem;color:#718096;text-transform:uppercase;letter-spacing:.1em}
 [data-testid="stDataFrame"]{border:1px solid #202c3c;border-radius:10px}.stTabs [data-baseweb="tab-list"]{gap:4px}.stTabs [data-baseweb="tab"]{font-size:.75rem}.stTabs [aria-selected="true"]{font-weight:700}
 </style>
 """, unsafe_allow_html=True)
@@ -116,6 +116,13 @@ def news_data():
     return items[:28]
 
 
+def safe_score(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 status = market_status()
 now = datetime.now(IST)
 report = load_json(DATA_FILE, {})
@@ -126,6 +133,19 @@ watchlist = load_json(WATCHLIST_FILE, DEFAULT_WATCHLIST)
 wl = watchlist_data(tuple(watchlist))
 st_autorefresh(interval=60_000, key="marketpilot_refresh")
 
+ai = report.get("ai_analysis", {}) or {}
+decision = report.get("decision", {}) or {}
+bias = decision.get("bias") or ai.get("bias") or report.get("verdict") or "WAIT"
+confidence = decision.get("confidence") or ai.get("confidence") or report.get("confidence") or "N/A"
+regime = decision.get("market_regime") or ai.get("market_regime") or "—"
+score = decision.get("score", "—")
+score_num = safe_score(score)
+
+supported = sum(x.get("claim_status") == "SUPPORTED" for x in news_intel)
+disputed = sum(x.get("claim_status") == "DISPUTED" for x in news_intel)
+insufficient = sum(x.get("claim_status") == "INSUFFICIENT EVIDENCE" for x in news_intel)
+strong = sum(int(x.get("evidence_score", 10)) >= 75 for x in news_intel)
+
 # ── Header / command deck ─────────────────────────────────────────────────────
 st.markdown(f"""
 <div class="mp-hero">
@@ -133,13 +153,6 @@ st.markdown(f"""
   <div class="mp-time"><span class="mp-status">{'● LIVE' if status == 'MARKET LIVE' else '○ CLOSED'}</span><br>{now.strftime('%A · %d %B %Y')}<br>{now.strftime('%H:%M:%S')} IST</div>
 </div>
 """, unsafe_allow_html=True)
-
-ai = report.get("ai_analysis", {}) or {}
-decision = report.get("decision", {}) or {}
-bias = decision.get("bias") or ai.get("bias") or report.get("verdict") or "WAIT"
-confidence = decision.get("confidence") or ai.get("confidence") or report.get("confidence") or "N/A"
-regime = decision.get("market_regime") or ai.get("market_regime") or "—"
-score = decision.get("score", "—")
 
 st.markdown(f"""
 <div class="deck"><span class="deck-label">COMMAND DECK</span>
@@ -151,12 +164,17 @@ st.markdown(f"""
 <span class="deck-item">AUTO REFRESH <b>60s</b></span></div>
 """, unsafe_allow_html=True)
 
-# ── KPI strip ──────────────────────────────────────────────────────────────────
-supported = sum(x.get("claim_status") == "SUPPORTED" for x in news_intel)
-disputed = sum(x.get("claim_status") == "DISPUTED" for x in news_intel)
-insufficient = sum(x.get("claim_status") == "INSUFFICIENT EVIDENCE" for x in news_intel)
-strong = sum(int(x.get("evidence_score", 10)) >= 75 for x in news_intel)
+# ── Decision headline ──────────────────────────────────────────────────────────
+headline_cls = "positive" if str(bias).upper() == "BULLISH" else "negative" if str(bias).upper() == "BEARISH" else "neutral"
+thesis = ai.get("thesis") or report.get("summary") or "No current thesis is recorded."
+score_label = f"{score_num:.0f}/100" if score_num is not None else "N/A"
+left, right = st.columns([1.6, 1])
+with left:
+    st.markdown(f'<div class="alertbox"><div class="mini">AI MARKET VERDICT · EVIDENCE WEIGHTED</div><div style="font-family:Georgia,serif;font-size:1.65rem;font-weight:800" class="{headline_cls}">{html.escape(str(bias))} · {score_label}</div><div style="margin-top:5px;color:#aab5c3;font-size:.86rem">{html.escape(str(thesis))}</div></div>', unsafe_allow_html=True)
+with right:
+    st.markdown(f'<div class="alertbox"><div class="mini">RISK POSTURE</div><div style="font-size:1.2rem;font-weight:800">{html.escape(str(regime))}</div><div class="muted">Confidence: {html.escape(str(confidence))} · Supported: {supported} · Disputed: {disputed}</div></div>', unsafe_allow_html=True)
 
+# ── KPI strip ──────────────────────────────────────────────────────────────────
 kpis = [
     ("Decision Score", score, "Evidence-weighted", "neutral"),
     ("Supported Claims", supported, f"of {len(news_intel)} stories", "positive"),
@@ -186,6 +204,46 @@ if not indices.empty:
 else:
     st.info("Public index feed is currently unavailable. No values are estimated.")
 
+# ── Intelligence pulse: what changed + catalysts + risk ───────────────────────
+st.markdown('<div class="section-head"><div class="section-title">Intelligence Pulse</div><div class="section-meta">What changed · catalysts · risk</div></div>', unsafe_allow_html=True)
+pulse_a, pulse_b, pulse_c = st.columns([1.15, 1.35, 1.0])
+
+current_news_keys = [f"{x.get('title','')}|{x.get('publisher','')}" for x in news_intel[:20]]
+previous_news_keys = st.session_state.get("mp_previous_news", [])
+new_items = [x for x in news_intel[:20] if f"{x.get('title','')}|{x.get('publisher','')}" not in previous_news_keys]
+st.session_state["mp_previous_news"] = current_news_keys
+with pulse_a:
+    st.markdown('<div class="card"><div class="label">SINCE LAST REFRESH</div>', unsafe_allow_html=True)
+    if not previous_news_keys:
+        st.markdown('<div class="value neutral">INITIAL SNAPSHOT</div><div class="muted">Change tracking starts after this refresh.</div>', unsafe_allow_html=True)
+    elif new_items:
+        st.markdown(f'<div class="value positive">{len(new_items)} NEW</div><div class="muted">Newly surfaced headlines</div>', unsafe_allow_html=True)
+        for x in new_items[:3]: st.markdown(f'• {html.escape(x.get("title", ""))[:105]}')
+    else:
+        st.markdown('<div class="value neutral">NO CHANGE</div><div class="muted">No new headline in the current feed set.</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+with pulse_b:
+    st.markdown('<div class="card"><div class="label">TOP CATALYSTS</div>', unsafe_allow_html=True)
+    catalysts = sorted(news_intel, key=lambda x: (safe_score(x.get("evidence_score", 0)) or 0), reverse=True)[:4]
+    if catalysts:
+        for x in catalysts:
+            status_badge = {"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(x.get("claim_status"),"🟡")
+            st.markdown(f'{status_badge} **{html.escape(x.get("title", ""))[:110]}**<div class="muted">{html.escape(x.get("publisher", "Unknown"))} · evidence {x.get("evidence_score", 10)}/100</div>', unsafe_allow_html=True)
+    else: st.markdown('<div class="muted">No catalyst headlines available.</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+with pulse_c:
+    st.markdown('<div class="card"><div class="label">RISK MONITOR</div>', unsafe_allow_html=True)
+    vix = None
+    if not indices.empty and "INDIA VIX" in indices["Index"].values:
+        vix = indices.loc[indices["Index"] == "INDIA VIX", "Session %"].iloc[0]
+    risk_items = [
+        ("News dispute", f"{disputed} claims", "negative" if disputed else "positive"),
+        ("Evidence gap", f"{insufficient} claims", "neutral"),
+        ("India VIX move", f"{vix:+.2f}%" if vix is not None else "N/A", "negative" if vix is not None and vix > 0 else "neutral"),
+    ]
+    for label, value, cls in risk_items: st.markdown(f'<div class="muted">{label}</div><div style="font-weight:800" class="{cls}">{value}</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
 # ── Intelligence core ─────────────────────────────────────────────────────────
 tab1, tab2, tab3 = st.tabs(["⚡ INTELLIGENCE CORE", "📈 MARKET BOARD", "📰 EVIDENCE MONITOR"])
 
@@ -193,15 +251,9 @@ with tab1:
     left, right = st.columns([1.05, 1.45])
     with left:
         st.markdown('<div class="section-head"><div class="section-title">Decision Radar</div><div class="section-meta">Current thesis</div></div>', unsafe_allow_html=True)
-        score_num = None
-        try:
-            score_num = max(0, min(100, float(score)))
-        except (TypeError, ValueError):
-            pass
         display_score = f"{score_num:.0f}" if score_num is not None else "—"
         fill = score_num if score_num is not None else 0
         st.markdown(f'<div class="signal"><div class="small">Market Bias</div><div class="big">{html.escape(str(bias))}</div><div class="muted">Confidence: {html.escape(str(confidence))} · Regime: {html.escape(str(regime))}</div><div class="bar"><div style="width:{fill}%"></div></div><div class="muted" style="margin-top:5px">Decision score <b>{display_score}/100</b></div></div>', unsafe_allow_html=True)
-        thesis = ai.get("thesis") or report.get("summary") or "No current thesis is recorded."
         st.markdown(f'<div class="insight"><b>Thesis</b><br><span class="muted">{html.escape(str(thesis))}</span></div>', unsafe_allow_html=True)
         levels = report.get("levels", {}) or {}
         if levels:
