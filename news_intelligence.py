@@ -110,4 +110,8 @@ def enrich_news(items):
         ver,lab,detail,sources,signals=targeted_cross_check(item["title"],item.get("publisher","")); status,status_detail=claim_status(ver,sources,signals)
         item.update({"verification":ver,"verification_label":lab,"verification_detail":detail,"verification_sources":sources,"evidence_score":evidence_score(ver,len(sources)),"evidence_count":len(sources),"claim_status":status,"claim_status_detail":status_detail})
         item["verification_detail"] += f" Claim assessment: {status}. {status_detail} Evidence strength: {item['evidence_score']}/100."
+        # Surface the claim assessment directly in the existing News Intelligence table.
+        # This keeps the classification visible even while older UI deployments are still using the legacy columns.
+        prefix={"SUPPORTED":"🟢 SUPPORTED","DISPUTED":"🔴 DISPUTED","INSUFFICIENT EVIDENCE":"🟡 INSUFFICIENT EVIDENCE"}.get(status,"🟡 INSUFFICIENT EVIDENCE")
+        item["title"]=f"{prefix} · {item['title']}"
     return out
