@@ -1,7 +1,7 @@
 """MarketPilot AI reasoning layer.
 
-Uses the Gemini API when GEMINI_API_KEY is available. Without a key it returns
-an explicit fallback state instead of pretending that AI analysis was performed.
+Uses Google's stable Gemini 2.5 Flash model when GEMINI_API_KEY is available.
+Without a key or when the API fails, returns an explicit fallback state.
 """
 
 import json
@@ -9,12 +9,16 @@ import os
 import re
 from typing import Any
 
-MODEL = "gemini-3.8-flash"
+MODEL = "gemini-2.5-flash"
 
 SYSTEM_INSTRUCTIONS = """You are MarketPilot, a cautious Indian-market decision-support analyst.
 You do NOT place orders and you must not present certainty or guaranteed predictions.
-Use only the supplied market data and supplied news headlines. Do not invent facts,
-prices, events, support levels, or statistics.
+Use only the supplied market data and supplied news. Do not invent facts, prices,
+events, support levels, targets, probabilities, or statistics.
+
+Your task is to produce a concise pre-market intelligence brief for an Indian market
+participant. Separate evidence from interpretation. Prefer a conditional thesis over
+a directional call when evidence conflicts.
 
 Return VALID JSON ONLY with this exact top-level structure:
 {
@@ -35,7 +39,8 @@ Return VALID JSON ONLY with this exact top-level structure:
   ]
 }
 
-Keep the analysis concise, evidence-based, and suitable for a 9:30 AM pre-market dashboard.
+Keep it concise enough to fit on a 9:30 AM dashboard. Do not give a direct buy/sell
+instruction. Use levels supplied in the input rather than inventing precise ones.
 """
 
 
@@ -53,28 +58,35 @@ def _extract_json(text: str) -> dict[str, Any] | None:
     return None
 
 
+def _fallback(payload: dict[str, Any], status: str, error: str | None = None) -> dict[str, Any]:
+    result = {
+        "enabled": False,
+        "status": status,
+        "provider": "Gemini",
+        "model": MODEL,
+        "market_regime": "UNKNOWN",
+        "bias": payload.get("rule_bias", "NEUTRAL"),
+        "confidence": "LOW",
+        "thesis": "AI reasoning is unavailable for this run. Use the rule-based evidence and verify live data.",
+        "bull_case": "Unavailable for this run.",
+        "base_case": payload.get("summary", "Use the rule-based framework."),
+        "bear_case": "Unavailable for this run.",
+        "key_levels": [],
+        "invalidation": "Re-evaluate the thesis when live price action confirms or rejects the important levels.",
+        "drivers": payload.get("signals", []),
+        "risks": [],
+        "watchlist_focus": [],
+        "news_impact": [],
+    }
+    if error:
+        result["error"] = error[:300]
+    return result
+
+
 def analyze(payload: dict[str, Any]) -> dict[str, Any]:
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     if not api_key:
-        return {
-            "enabled": False,
-            "status": "AI KEY NOT CONFIGURED",
-            "provider": "Gemini",
-            "model": MODEL,
-            "market_regime": "UNKNOWN",
-            "bias": payload.get("rule_bias", "NEUTRAL"),
-            "confidence": "LOW",
-            "thesis": "AI reasoning is not enabled yet. The dashboard is showing the deterministic market framework.",
-            "bull_case": "Configure GEMINI_API_KEY to generate an AI bull case.",
-            "base_case": "Use the rule-based evidence shown on the dashboard.",
-            "bear_case": "Configure GEMINI_API_KEY to generate an AI bear case.",
-            "key_levels": [],
-            "invalidation": "Re-evaluate the thesis when the live market breaks the identified levels.",
-            "drivers": payload.get("signals", []),
-            "risks": [],
-            "watchlist_focus": [],
-            "news_impact": [],
-        }
+        return _fallback(payload, "AI KEY NOT CONFIGURED")
 
     try:
         from google import genai
@@ -83,33 +95,25 @@ def analyze(payload: dict[str, Any]) -> dict[str, Any]:
         prompt = SYSTEM_INSTRUCTIONS + "\n\nMARKET INPUT:\n" + json.dumps(
             payload, ensure_ascii=False, indent=2
         )
-        response = client.interactions.create(model=MODEL, input=prompt)
-        result = _extract_json(response.output_text)
+
+        response = client.models.generate_content(
+            model=MODEL,
+            contents=prompt,
+            config={
+                "temperature": 0.2,
+                "response_mime_type": "application/json",
+            },
+        )
+
+        result = _extract_json(response.text or "")
         if not result:
             raise ValueError("Gemini returned non-JSON output")
+
         result["enabled"] = True
         result["status"] = "AI ANALYSIS READY"
         result["provider"] = "Gemini"
         result["model"] = MODEL
         return result
+
     except Exception as exc:
-        return {
-            "enabled": False,
-            "status": "AI ANALYSIS ERROR",
-            "provider": "Gemini",
-            "model": MODEL,
-            "error": str(exc)[:300],
-            "market_regime": "UNKNOWN",
-            "bias": payload.get("rule_bias", "NEUTRAL"),
-            "confidence": "LOW",
-            "thesis": "AI reasoning failed for this run. Use the rule-based evidence and verify live data.",
-            "bull_case": "Unavailable for this run.",
-            "base_case": "Use the rule-based framework.",
-            "bear_case": "Unavailable for this run.",
-            "key_levels": [],
-            "invalidation": "Re-evaluate the thesis using live market confirmation.",
-            "drivers": payload.get("signals", []),
-            "risks": ["AI analysis unavailable"],
-            "watchlist_focus": [],
-            "news_impact": [],
-        }
+        return _fallback(payload, "AI ANALYSIS ERROR", str(exc))
