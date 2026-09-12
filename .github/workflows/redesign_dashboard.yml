@@ -1,0 +1,30 @@
+name: Apply MarketPilot redesign
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  redesign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build redesigned dashboard
+        run: python scripts/redesign_app.py
+
+      - name: Validate Python files
+        run: python -m py_compile app.py news_intelligence.py
+
+      - name: Commit and remove redesign helper
+        run: |
+          git config user.name "marketpilot-bot"
+          git config user.email "marketpilot-bot@users.noreply.github.com"
+          rm -f scripts/redesign_app.py .github/workflows/redesign_dashboard.yml
+          git add -A
+          git commit -m "Redesign MarketPilot with classic editorial theme"
+          git push
