@@ -9,10 +9,8 @@ AI interpretation second.
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from time import perf_counter
 
-from decision_engine import score_setup
 from institutional_flow import fetch_fii_dii, summarize_flow
 from intraday_intelligence import fetch_intraday
-from news_intelligence import enrich_news
 from options_intelligence import analyse_option_chain, fetch_option_chain
 from watchlist_intelligence import rank_watchlist
 
@@ -38,11 +36,11 @@ def _run_agent(name, fn):
 
 
 def run_specialists(*, levels, snapshots, sectors, watchlist, news_items):
-    """Run eight specialist agents concurrently and return one evidence pack."""
+    """Run nine specialist agents concurrently and return one evidence pack."""
     tasks = {
         "Market Agent": lambda: {"snapshot": snapshots, "levels": levels},
         "Technical Agent": lambda: _technical(levels),
-        "News Agent": lambda: enrich_news(news_items[:24]),
+        "News Agent": lambda: news_items[:24],
         "Institutional Agent": lambda: _institutional(),
         "Options Agent": lambda: _options(),
         "Intraday Agent": lambda: fetch_intraday(),
@@ -77,8 +75,6 @@ def _options():
     summary = analyse_option_chain(result)
     if not summary.get("available"):
         return summary
-    # Keep the inter-agent packet JSON-friendly; the page-specific engine still
-    # has access to the full DataFrames when it fetches options directly.
     return {
         "available": True,
         "symbol": summary.get("symbol"),
