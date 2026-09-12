@@ -18,6 +18,7 @@ import yfinance as yf
 from ai_brain import analyze
 from decision_engine import score_setup
 from news_intelligence import enrich_news
+from watchlist_intelligence import rank_watchlist
 
 OUT = Path("data/latest.json")
 HISTORY = Path("data/history.json")
@@ -237,6 +238,7 @@ def run():
     verdict, confidence, reasons = rule_bias(levels, snapshots)
     news = news_items()
     watchlist = watchlist_snapshot()
+    watchlist_intelligence = rank_watchlist(watchlist, news)
     sectors = sector_snapshot()
     decision = score_setup(levels, snapshots, sectors, news)
 
@@ -244,7 +246,8 @@ def run():
         "date_ist": now.strftime("%Y-%m-%d"), "test_mode": force_test,
         "rule_bias": verdict, "rule_confidence": confidence, "signals": reasons,
         "levels": levels, "market_snapshot": snapshots, "sectors": sectors,
-        "news": news, "watchlist": watchlist, "decision": decision,
+        "news": news, "watchlist": watchlist, "watchlist_intelligence": watchlist_intelligence,
+        "decision": decision,
     }
     ai_result = analyze(payload)
     if force_test:
@@ -257,7 +260,8 @@ def run():
         "verdict": verdict, "confidence": confidence,
         "summary": f"Rule-based evidence suggests a {verdict.lower()} starting framework. The Decision Engine scores the evidence separately.",
         "signals": reasons, "levels": levels, "global": snapshots, "news": news,
-        "watchlist": watchlist, "sectors": sectors, "decision": decision, "ai_analysis": ai_result,
+        "watchlist": watchlist, "watchlist_intelligence": watchlist_intelligence,
+        "sectors": sectors, "decision": decision, "ai_analysis": ai_result,
     }
     OUT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     if not force_test:
