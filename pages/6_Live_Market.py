@@ -1,3 +1,4 @@
+import html
 import streamlit as st
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -22,8 +23,6 @@ st.markdown("""
 """,unsafe_allow_html=True)
 
 IST=ZoneInfo("Asia/Kolkata")
-# The WebSocket runs independently; the UI refreshes frequently to surface its
-# latest cached tick without creating a new market-data connection each rerun.
 st_autorefresh(interval=2000, key="live-market-refresh")
 now=datetime.now(IST)
 data=fetch_intraday()
