@@ -1,0 +1,68 @@
+name: Apply MarketPilot dashboard polish
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    if: github.event.head_commit.message != 'Remove one-off dashboard polish workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Apply dashboard polish
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('app.py')
+          s = p.read_text(encoding='utf-8')
+
+          if 'from news_intelligence import enrich_news' not in s:
+              s = s.replace('from streamlit_autorefresh import st_autorefresh\n', 'from streamlit_autorefresh import st_autorefresh\nfrom news_intelligence import enrich_news\n')
+
+          if 'news_intel = enrich_news(raw_news)' not in s:
+              s = s.replace('news = live_news()\n', 'raw_news = live_news()\nnews = raw_news\nnews_intel = enrich_news(raw_news)\n', 1)
+
+          old_card = 'col.markdown(f\'<div class="mp-card"><div class="mp-kicker">{name}</div><div class="mp-value">{last}</div><div class="mp-small">From open: {chg}</div></div>\', unsafe_allow_html=True)'
+          new_card = 'detail_label = "Last session:" if status == "MARKET CLOSED" else "From open:"\n    col.markdown(f\'<div class="mp-card"><div class="mp-kicker">{name}</div><div class="mp-value">{last}</div><div class="mp-small">{detail_label} {chg}</div></div>\', unsafe_allow_html=True)'
+          if old_card in s and 'detail_label = "Last session:"' not in s:
+              s = s.replace(old_card, new_card, 1)
+
+          old_tabs = 'tab_morning, tab_live, tab_history = st.tabs(["🌅 Morning Intelligence", "⚡ Live Market", "📓 Performance"])'
+          new_tabs = 'tab_morning, tab_live, tab_history, tab_news = st.tabs(["🌅 Morning Intelligence", "⚡ Live Market", "📓 Performance", "📰 News Intelligence"])'
+          if old_tabs in s:
+              s = s.replace(old_tabs, new_tabs, 1)
+
+          marker = '\nwith tab_history:\n'
+          news_block = '''\nwith tab_news:\n    st.subheader("📰 News Intelligence")\n    st.caption("Verification is evidence-based. MarketPilot distinguishes corroboration from certainty.")\n    if news_intel:\n        ndf = pd.DataFrame(news_intel)\n        keep = [c for c in ["title", "verification_label", "impact", "affected", "publisher", "published", "verification_detail", "impact_reason"] if c in ndf.columns]\n        ndf = ndf[keep].rename(columns={\n            "title": "Headline",\n            "verification_label": "Verification",\n            "impact": "Impact",\n            "affected": "Affected",\n            "publisher": "Publisher",\n            "published": "Published",\n            "verification_detail": "Evidence",\n            "impact_reason": "Impact reasoning",\n        })\n        st.dataframe(ndf, use_container_width=True, hide_index=True)\n    else:\n        st.info("No live news available from the free feeds right now.")\n\n'''
+          if marker in s and 'with tab_news:' not in s:
+              s = s.replace(marker, news_block + marker, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit app changes
+        shell: bash
+        run: |
+          git config user.name "marketpilot-bot"
+          git config user.email "marketpilot-bot@users.noreply.github.com"
+          git add app.py
+          if git diff --cached --quiet; then
+            echo "No dashboard changes needed"
+          else
+            git commit -m "Polish closed-day dashboard and add news intelligence tab"
+            git push
+          fi
+
+      - name: Remove one-off workflow
+        shell: bash
+        run: |
+          git rm .github/workflows/polish_dashboard2.yml
+          git commit -m "Remove one-off dashboard polish workflow"
+          git push
