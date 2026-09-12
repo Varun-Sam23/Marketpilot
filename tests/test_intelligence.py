@@ -1,7 +1,7 @@
 import unittest
 
 from agent_orchestrator import AgentResult, build_chief_input
-from agent_runtime import assess, challenge_agents
+from agent_runtime import assess, challenge_agents, debate_agents
 from ai_brain import _fallback
 from news_intelligence import claim_status, evidence_score, similarity
 
@@ -61,6 +61,18 @@ class NewsIntelligenceTests(unittest.TestCase):
         conflicts = challenge_agents(results)
         self.assertTrue(conflicts)
         self.assertIn("Options Agent", conflicts[0]["agents"])
+
+    def test_debate_layer_is_bounded_and_structured(self):
+        results = {
+            "Technical Agent": {"data": {"trend_vs_20d": "ABOVE"}},
+            "Options Agent": {"data": {"oi_bias": "BEARISH"}},
+            "Risk Agent": {"data": {"flags": []}},
+        }
+        debates = debate_agents(results, max_debates=5)
+        self.assertEqual(len(debates), 1)
+        self.assertEqual(debates[0]["severity"], "HIGH")
+        self.assertEqual(debates[0]["resolution"], "PENDING_CHIEF")
+        self.assertEqual(debates[0]["response_required"], "TARGET_MUST_CONFIRM_OR_REVISE")
 
 
 if __name__ == "__main__":
