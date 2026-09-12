@@ -1,4 +1,8 @@
 import streamlit as st
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+import pandas_market_calendars as mcal
 
 from intraday_intelligence import fetch_intraday
 
@@ -22,6 +26,21 @@ st.markdown('<div class="mp-sub">NIFTY 5-minute structure · VWAP · Opening Ran
 
 if st.button("↻ Refresh intraday data"):
     st.cache_data.clear()
+
+# Do not confuse a normal exchange closure with a broken market-data feed.
+# NSE equities do not trade on Saturdays, Sundays or declared exchange holidays.
+IST = ZoneInfo("Asia/Kolkata")
+now = datetime.now(IST)
+nse = mcal.get_calendar("NSE")
+is_trading_day = not nse.schedule(start_date=now.date(), end_date=now.date()).empty
+
+if not is_trading_day:
+    st.info(
+        f"🏁 **NSE market is closed today — {now.strftime('%A, %d %B %Y')}.** "
+        "Intraday 5-minute data is therefore not expected. MarketPilot will resume intraday analysis on the next NSE trading session."
+    )
+    st.caption("Market status is determined from the NSE trading calendar; this is not a market-data feed error.")
+    st.stop()
 
 data = fetch_intraday()
 
