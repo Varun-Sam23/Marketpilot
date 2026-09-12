@@ -90,7 +90,7 @@ def news_data():
 with st.sidebar:
     st.markdown("## ◈ MarketPilot")
     st.caption("INTELLIGENCE SUITE")
-    st.page_link("app.py", label="Main Dashboard", icon="◈")
+    st.page_link("app.py", label="Main Dashboard", icon="🏠")
     st.page_link("pages/1_Stock_Intelligence.py", label="Stock Intelligence", icon="📊")
     st.page_link("pages/2_Catalyst_Radar.py", label="Catalyst Radar", icon="⚡")
     st.page_link("pages/3_Market_Regime.py", label="Market Regime", icon="🌐")
@@ -120,7 +120,7 @@ if news_intel:
     for x in news_intel[:12]:
         badge={"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(x.get("claim_status"),"🟡")
         parts.append(f"{badge} {html.escape(x.get('title',''))} · {html.escape(x.get('publisher','Unknown'))}")
-    st.markdown('<div class="ticker"><div class="track">'+' &nbsp; ◆ &nbsp; '.join(parts)+'</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="ticker"><div class="track">'+' &nbsp; ◆ &nbsp; '.join(parts)+'</div></div>',unsafe_allow_html=True)
 
 if not indices.empty:
     cols=st.columns(len(indices))
