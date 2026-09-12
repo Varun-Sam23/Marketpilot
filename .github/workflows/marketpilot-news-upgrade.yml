@@ -8,9 +8,17 @@ on:
 permissions:
   contents: read
 
+# Prevent stale validation runs from piling up in the Actions queue.
+concurrency:
+  group: marketpilot-validation-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    # Pin the runner image instead of relying on ubuntu-latest while its runner
+    # pool is experiencing queue delays.
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
