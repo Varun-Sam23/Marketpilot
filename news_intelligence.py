@@ -60,6 +60,14 @@ def infer_affected(title):
     scores={sector:sum(token in text for token in tokens) for sector,tokens in mapping.items()}; best=max(scores,key=scores.get)
     return best if scores[best] else "MARKET"
 
+def evidence_score(verification, source_count, conflict=False):
+    """Conservative evidence score: measures corroboration strength, not probability that a claim is true."""
+    if verification=="CONFLICTING": return 35
+    if verification=="CROSS_CHECKED": return min(90, 55 + max(0, source_count-2)*10)
+    if verification=="CORROBORATED": return min(75, 45 + max(0, source_count-1)*10)
+    if verification=="SINGLE_SOURCE": return 30
+    return 10
+
 def targeted_cross_check(headline, current_publisher=""):
     """Use a fresh Google News query to look for independent reporting and contradictions.
     This is an evidence cross-check, not a claim of truth. Fail closed when the web feed is unavailable.
@@ -105,7 +113,7 @@ def enrich_news(items):
         else:
             ver,lab,detail="UNVERIFIED","UNVERIFIED","Publisher could not be established from the feed metadata or headline."
         impact,impact_reason=classify_impact(headline)
-        out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat()})
+        out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat(),"evidence_score":evidence_score(ver,len(names))})
     # Targeted cross-check only the first few live headlines to keep refreshes fast and fail closed.
     for item in out[:8]:
         ver,lab,detail,sources=targeted_cross_check(item["title"],item.get("publisher",""))
@@ -113,4 +121,8 @@ def enrich_news(items):
         item["verification_label"] = lab
         item["verification_detail"] = detail
         item["verification_sources"] = sources
+        item["evidence_score"] = evidence_score(ver,len(sources))
+        item["evidence_count"] = len(sources)
+        if sources:
+            item["verification_detail"] += f" Evidence strength: {item['evidence_score']}/100."
     return out
