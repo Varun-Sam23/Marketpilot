@@ -11,6 +11,7 @@ NAV = [
     ("pages/7_Sector_Intelligence.py", "Sector Intelligence", "🏭"),
     ("pages/8_Performance_Tracker.py", "Performance Tracker", "📈"),
     ("pages/9_Thesis_Calibration.py", "Thesis Calibration", "🎯"),
+    ("pages/10_Agent_Command_Center.py", "Agent Command Center", "🤖"),
 ]
 
 
