@@ -16,6 +16,7 @@ import pandas_market_calendars as mcal
 import yfinance as yf
 
 from ai_brain import analyze
+from news_intelligence import enrich_news
 
 OUT = Path("data/latest.json")
 HISTORY = Path("data/history.json")
@@ -170,10 +171,17 @@ def news_items():
         try:
             feed = feedparser.parse(url)
             for entry in feed.entries[:6]:
-                items.append({"title": entry.get("title", ""), "source": source, "published": entry.get("published", ""), "link": entry.get("link", "")})
+                source_name = entry.get("source", {}).get("title", "") if isinstance(entry.get("source"), dict) else ""
+                items.append({
+                    "title": entry.get("title", ""),
+                    "source": source,
+                    "publisher": source_name,
+                    "published": entry.get("published", ""),
+                    "link": entry.get("link", ""),
+                })
         except Exception:
             pass
-    return items[:24]
+    return enrich_news(items[:24])
 
 
 def rule_bias(levels, snapshots):
