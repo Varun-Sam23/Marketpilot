@@ -1,0 +1,40 @@
+name: Repair MarketPilot redesign
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Repair redesign helper delimiters
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/redesign_app.py')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace("APP = r'''", 'APP = r"""', 1)
+          s = s.replace("\n'''\n\nCONFIG =", '\n"""\n\nCONFIG =', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Build and validate redesign
+        run: |
+          python scripts/redesign_app.py
+          python -m py_compile app.py news_intelligence.py
+
+      - name: Commit final redesign and remove helpers
+        run: |
+          git config user.name "marketpilot-bot"
+          git config user.email "marketpilot-bot@users.noreply.github.com"
+          rm -f scripts/redesign_app.py .github/workflows/redesign_dashboard.yml .github/workflows/repair_redesign.yml
+          git add -A
+          git commit -m "Apply modern classic MarketPilot redesign"
+          git push
