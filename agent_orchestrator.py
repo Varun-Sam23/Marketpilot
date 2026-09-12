@@ -3,7 +3,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from time import perf_counter
 
-from agent_runtime import attach_governance, challenge_agents
+from agent_runtime import attach_governance, debate_agents
 from research_engine import research_claim
 
 
@@ -46,7 +46,7 @@ def _research_news(news_items):
 
 
 def run_specialists(*, levels, snapshots, sectors, watchlist, news_items):
-    """Run specialists concurrently, self-check, research and challenge evidence."""
+    """Run specialists concurrently, research evidence, self-check and debate."""
     tasks = {
         "Market Agent": lambda: {"snapshot": snapshots, "levels": levels},
         "Technical Agent": lambda: _technical(levels),
@@ -64,17 +64,19 @@ def run_specialists(*, levels, snapshots, sectors, watchlist, news_items):
         for future in as_completed(futures):
             result = future.result()
             results[result["agent"]] = result
-    challenges = challenge_agents(results)
+    debates = debate_agents(results, max_debates=5)
     return {
         "agents": results,
         "agent_count": len(tasks),
         "ready_count": sum(r["status"] == "READY" for r in results.values()),
         "error_count": sum(r["status"] == "ERROR" for r in results.values()),
         "execution": "PARALLEL",
-        "autonomous_protocol": "v3_research",
+        "autonomous_protocol": "v4_research_debate",
         "self_checks": sum(bool(r.get("self_check")) for r in results.values()),
-        "challenges": challenges,
-        "challenge_count": len(challenges),
+        "debates": debates,
+        "challenges": debates,
+        "challenge_count": len(debates),
+        "debate_count": len(debates),
     }
 
 
@@ -122,4 +124,4 @@ def _risk(levels, snapshots, sectors):
 
 def build_chief_input(levels, snapshots, sectors, watchlist, news, decision, specialists):
     """Create the evidence packet for the final Chief Intelligence Agent."""
-    return {"market": {"levels": levels, "snapshots": snapshots}, "sectors": sectors, "watchlist": watchlist, "news": news, "decision": decision, "specialists": specialists, "governance": {"rule": "Specialists investigate, self-check, independently research, challenge conflicting evidence, then the Chief adjudicates.", "no_order_execution": True, "conflicts_must_be_reported": True, "no_fabrication": True}}
+    return {"market": {"levels": levels, "snapshots": snapshots}, "sectors": sectors, "watchlist": watchlist, "news": news, "decision": decision, "specialists": specialists, "governance": {"rule": "Specialists investigate, self-check, independently research, debate conflicting evidence, then the Chief adjudicates.", "no_order_execution": True, "conflicts_must_be_reported": True, "no_fabrication": True}}
