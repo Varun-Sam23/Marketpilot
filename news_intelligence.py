@@ -1,5 +1,7 @@
 from datetime import datetime, timezone
+import html
 import re
+from functools import lru_cache
 from urllib.parse import urlparse, quote_plus
 import feedparser
 
@@ -73,6 +75,35 @@ def claim_status(verification, sources, impact_signals):
         return "INSUFFICIENT EVIDENCE","Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification."
     return "INSUFFICIENT EVIDENCE","No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone."
 
+def clean_summary(value, headline):
+    text=re.sub(r"<[^>]+>"," ",str(value or ""))
+    text=html.unescape(text)
+    text=re.sub(r"\s+"," ",text).strip(" -–—|")
+    if not text or text.lower()==(headline or "").strip().lower(): return ""
+    return text
+
+@lru_cache(maxsize=128)
+def story_summary(headline, current_publisher=""):
+    """Find a source-provided article summary rather than repeating the headline."""
+    try:
+        query=quote_plus('"'+(headline or "")[:180]+'"')
+        url=f"https://news.google.com/rss/search?q={query}&hl=en-IN&gl=IN&ceid=IN:en"
+        feed=feedparser.parse(url)
+        candidates=[]
+        for entry in feed.entries[:8]:
+            entry_title,entry_publisher=publisher_from_title(entry.get("title", ""))
+            src=entry.get("source")
+            if isinstance(src,dict): entry_publisher=str(src.get("title") or src.get("name") or entry_publisher).strip()
+            summary=clean_summary(entry.get("summary") or entry.get("description") or "", headline)
+            if not summary: continue
+            same_pub=bool(current_publisher and entry_publisher and entry_publisher.lower()==current_publisher.lower())
+            candidates.append((same_pub,len(summary),summary))
+        if candidates:
+            candidates.sort(key=lambda x:(x[0],x[1]),reverse=True)
+            return candidates[0][2]
+    except Exception: pass
+    return ""
+
 def targeted_cross_check(headline, current_publisher=""):
     try:
         query=quote_plus('"'+headline[:180]+'"'); url=f"https://news.google.com/rss/search?q={query}&hl=en-IN&gl=IN&ceid=IN:en"; feed=feedparser.parse(url)
@@ -105,15 +136,22 @@ def enrich_news(items):
         elif name!="Unknown publisher": ver,lab,detail="SINGLE_SOURCE","SINGLE SOURCE","Only one publisher currently carries this story cluster in the live feeds."
         else: ver,lab,detail="UNVERIFIED","UNVERIFIED","Publisher could not be established from the feed metadata or headline."
         impact,impact_reason=classify_impact(headline)
+        summary=str(item.get("summary") or "")
+        if idx<12 and (not clean_summary(summary,headline)):
+            fetched=story_summary(headline,name)
+            if fetched: summary=fetched
         if ver=="CORROBORATED":
             base_claim="SUPPORTED"; base_detail="The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation."
         else:
             base_claim="INSUFFICIENT EVIDENCE"; base_detail="Independent evidence is not yet strong enough for a supported classification."
-        out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat(),"evidence_score":evidence_score(ver,len(names)),"evidence_count":0,"claim_status":base_claim,"claim_status_detail":base_detail})
+        out.append({**item,"title":headline,"summary":summary,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat(),"evidence_score":evidence_score(ver,len(names)),"evidence_count":0,"claim_status":base_claim,"claim_status_detail":base_detail})
     for item in out[:8]:
         ver,lab,detail,sources,signals=targeted_cross_check(item["title"],item.get("publisher","")); status,status_detail=claim_status(ver,sources,signals)
         item.update({"verification":ver,"verification_label":lab,"verification_detail":detail,"verification_sources":sources,"evidence_score":evidence_score(ver,len(sources)),"evidence_count":len(sources),"claim_status":status,"claim_status_detail":status_detail})
         item["verification_detail"] += f" Claim assessment: {status}. {status_detail} Evidence strength: {item['evidence_score']}/100."
+        if not clean_summary(item.get("summary",""),item["title"]):
+            fetched=story_summary(item["title"],item.get("publisher",""))
+            if fetched: item["summary"]=fetched
     for item in out:
         status=item.get("claim_status","INSUFFICIENT EVIDENCE")
         prefix={"SUPPORTED":"🟢 SUPPORTED","DISPUTED":"🔴 DISPUTED","INSUFFICIENT EVIDENCE":"🟡 INSUFFICIENT EVIDENCE"}.get(status,"🟡 INSUFFICIENT EVIDENCE")
