@@ -68,9 +68,12 @@ def enrich_news(items):
             _,n,d=publisher_identity(items[j])
             if d: domains.add(d)
             if n and n!="Unknown publisher": names.add(n)
-        if len(domains)>=2 or len(names)>=2: ver,lab,detail="CORROBORATED","✅ CORROBORATED",f"Similar reporting found across {max(len(domains),len(names))} publisher sources."
-        elif name!="Unknown publisher": ver,lab,detail="SINGLE_SOURCE","⚠️ SINGLE SOURCE","Only one publisher currently carries this story cluster."
-        else: ver,lab,detail="UNVERIFIED","⚠️ UNVERIFIED","Publisher could not be established from the feed metadata or headline."
+        if len(domains)>=2 or len(names)>=2:
+            ver,lab,detail="CORROBORATED","✅ CORROBORATED","Similar reporting found across multiple publisher identities. This is corroboration, not proof that every claim in the story is factually correct."
+        elif name!="Unknown publisher":
+            ver,lab,detail="SINGLE_SOURCE","⚠️ SINGLE SOURCE","Only one publisher currently carries this story cluster. The claim has not been independently corroborated."
+        else:
+            ver,lab,detail="UNVERIFIED","⚠️ UNVERIFIED","Publisher could not be established from the feed metadata or headline, so the claim cannot currently be independently assessed."
         impact,impact_reason=classify_impact(headline)
         out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat()})
     return out
