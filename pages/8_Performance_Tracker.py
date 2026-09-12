@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
 from performance_intelligence import fetch_performance
+from menu import render_sidebar
+
 st.set_page_config(page_title="Performance Tracker | MarketPilot", page_icon="📈", layout="wide")
+render_sidebar()
 st.markdown("""<style>.stApp{background:#070b12;color:#e7edf5}.block-container{padding-top:1.5rem;max-width:1500px}.mp-title{font-size:2rem;font-weight:800;letter-spacing:-.03em}.mp-sub{color:#8d9aab;margin-bottom:1.2rem}.card{background:#0d131d;border:1px solid #202b3a;border-radius:14px;padding:16px;min-height:105px}.label{color:#8290a3;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.55rem;font-weight:750;margin-top:5px}</style>""",unsafe_allow_html=True)
 st.markdown('<div class="mp-title">📈 Thesis Performance</div>',unsafe_allow_html=True)
 st.markdown('<div class="mp-sub">Did MarketPilot\'s directional framework actually work? · Historical accuracy · Outcome tracking · Calibration</div>',unsafe_allow_html=True)
