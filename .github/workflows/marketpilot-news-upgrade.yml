@@ -23,4 +23,5 @@ jobs:
       - name: Validate Python syntax
         run: python -m py_compile app.py engine.py decision_engine.py news_intelligence.py watchlist_intelligence.py ai_brain.py intraday_intelligence.py sector_intelligence.py performance_intelligence.py calibration_intelligence.py institutional_flow.py options_intelligence.py pages/*.py tests/*.py
       - name: Import core modules
-        run: python -c "import engine, decision_engine, news_intelligence, watchlist_intelligence, ai_brain, intraday_intelligence, sector_intelligence, performance_intelligence, calibration_intelligence, institutional_flow, options_intelligence; print('Core module imports: OK')"
+        run: |
+          python -c 'import engine, decision_engine, news_intelligence, watchlist_intelligence, ai_brain, intraday_intelligence, sector_intelligence, performance_intelligence, calibration_intelligence, institutional_flow, options_intelligence; print("Core module imports: OK")'
