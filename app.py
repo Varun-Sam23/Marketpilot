@@ -42,8 +42,9 @@ st.markdown("""
 .mp-small {font-size: .82rem; color: #6b7280;}
 .mp-pill {display:inline-block; padding:.25rem .55rem; border-radius:999px; border:1px solid rgba(128,128,128,.25); font-size:.78rem; margin-right:.35rem;}
 .mp-news-wrap {width:100%; overflow:hidden; border:1px solid rgba(128,128,128,.22); border-radius:14px; background:rgba(128,128,128,.08); padding:10px 0; margin:8px 0 4px;}
-.mp-news-track {display:inline-block; white-space:nowrap; padding-left:100%; animation:mp-scroll 65s linear infinite; font-size:14px;}
-.mp-news-item {display:inline-block; margin-right:22px;}
+.mp-news-track {display:inline-block; white-space:nowrap; padding-left:100%; animation:mp-scroll 240s linear infinite; font-size:15px;}
+.mp-news-track:hover {animation-play-state:paused; cursor:default;}
+.mp-news-item {display:inline-block; margin-right:28px;}
 .mp-news-item small {opacity:.68;}
 @keyframes mp-scroll {from {transform:translateX(0);} to {transform:translateX(-100%);}}
 .mp-verify {font-size:12px; color:#6b7280; margin-top:4px; margin-bottom:10px;}
@@ -151,7 +152,7 @@ def verify_headline(item, all_news):
     """Use cross-source evidence rather than claiming certainty.
 
     CORROBORATED means multiple independent feeds carry substantially similar
-    information. UNVERIFIED means only one feed currently reports it. CONFLICTING
+    information. UNVERIFIED means only one current feed reports it. CONFLICTING
     is reserved for materially inconsistent headlines in the same topic cluster.
     """
     similar = []
@@ -173,7 +174,7 @@ def render_live_news_ticker(news):
         return
 
     ticker_items = []
-    for item in news[:18]:
+    for item in news[:12]:
         status, badge, _ = verify_headline(item, news)
         title = html.escape(item.get("title", ""))
         source = html.escape(item.get("source", ""))
@@ -185,7 +186,7 @@ def render_live_news_ticker(news):
         '<div class="mp-news-wrap"><div class="mp-news-track">' +
         ' &nbsp; • &nbsp; '.join(ticker_items) +
         '</div></div>'
-        '<div class="mp-verify">Verification is evidence-based. CORROBORATED means similar reporting exists across multiple feeds; UNVERIFIED means it is currently single-source. MarketPilot does not claim absolute truth from headlines alone.</div>',
+        '<div class="mp-verify">Verification is evidence-based. CORROBORATED means similar reporting exists across multiple feeds; UNVERIFIED means it is currently single-source. MarketPilot does not claim absolute truth from headlines alone. Hover over the ticker to pause it.</div>',
         unsafe_allow_html=True,
     )
 
