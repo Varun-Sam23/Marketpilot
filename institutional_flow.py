@@ -1,19 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from typing import Any
 
 import pandas as pd
-
-try:
-    import requests
-except Exception:  # pragma: no cover
-    requests = None
-
+import requests
 
 NSE_URL = "https://www.nseindia.com/api/fiidiiTradeReact"
-
 
 @dataclass
 class FlowResult:
@@ -32,20 +25,27 @@ def _headers() -> dict[str, str]:
     }
 
 
+def _number(value: Any) -> float | None:
+    try:
+        if value is None or value == "":
+            return None
+        return float(str(value).replace(",", "").strip())
+    except (TypeError, ValueError):
+        return None
+
+
 def fetch_fii_dii(timeout: int = 12) -> FlowResult:
-    """Fetch the latest available NSE FII/DII cash-market activity.
+    """Fetch NSE's latest FII/FPI and DII cash-market activity.
 
-    The function is deliberately conservative: if NSE cannot be reached or the
-    response cannot be parsed, it returns an unavailable result rather than
-    inventing or silently reusing stale numbers.
+    NSE currently returns one record per category, with fields such as
+    category, date, buyValue, sellValue and netValue. Older variants may expose
+    combined FII/DII fields, so both shapes are supported.
     """
-    if requests is None:
-        return FlowResult(False, message="requests is unavailable in this environment.")
-
     try:
         session = requests.Session()
         session.headers.update(_headers())
-        session.get("https://www.nseindia.com/", timeout=timeout)
+        home = session.get("https://www.nseindia.com/", timeout=timeout)
+        home.raise_for_status()
         response = session.get(NSE_URL, timeout=timeout)
         response.raise_for_status()
         payload = response.json()
@@ -57,52 +57,63 @@ def fetch_fii_dii(timeout: int = 12) -> FlowResult:
         return FlowResult(False, message="NSE returned no FII/DII records.")
 
     rows: list[dict[str, Any]] = []
+    # Current NSE shape: [{category: 'FII/FPI', date, buyValue, sellValue, netValue}, ...]
+    current: dict[str, dict[str, Any]] = {}
     for item in records:
         if not isinstance(item, dict):
             continue
+        category = str(item.get("category") or item.get("Category") or "").upper()
         date = item.get("date") or item.get("Date") or item.get("tradeDate")
-        fii_buy = item.get("fiiBuyValue") or item.get("buyValueFII") or item.get("FII BUY")
-        fii_sell = item.get("fiiSellValue") or item.get("sellValueFII") or item.get("FII SELL")
-        fii_net = item.get("fiiNetValue") or item.get("netValueFII") or item.get("FII NET")
-        dii_buy = item.get("diiBuyValue") or item.get("buyValueDII") or item.get("DII BUY")
-        dii_sell = item.get("diiSellValue") or item.get("sellValueDII") or item.get("DII SELL")
-        dii_net = item.get("diiNetValue") or item.get("netValueDII") or item.get("DII NET")
+        if category in {"FII/FPI", "FII", "FPI"}:
+            current["fii"] = {
+                "date": str(date or ""), "fii_buy": _number(item.get("buyValue")),
+                "fii_sell": _number(item.get("sellValue")), "fii_net": _number(item.get("netValue")),
+            }
+        elif category == "DII":
+            current["dii"] = {
+                "date": str(date or ""), "dii_buy": _number(item.get("buyValue")),
+                "dii_sell": _number(item.get("sellValue")), "dii_net": _number(item.get("netValue")),
+            }
 
-        def number(value: Any) -> float | None:
-            try:
-                if value is None or value == "":
-                    return None
-                return float(str(value).replace(",", "").strip())
-            except (TypeError, ValueError):
-                return None
-
-        row = {
-            "date": str(date or ""),
-            "fii_buy": number(fii_buy), "fii_sell": number(fii_sell), "fii_net": number(fii_net),
-            "dii_buy": number(dii_buy), "dii_sell": number(dii_sell), "dii_net": number(dii_net),
-        }
-        if any(row[k] is not None for k in row if k != "date"):
-            rows.append(row)
+    if current.get("fii") or current.get("dii"):
+        base = current.get("fii", {}).copy()
+        base.update(current.get("dii", {}))
+        base.setdefault("date", current.get("dii", {}).get("date", ""))
+        base.setdefault("fii_buy", None); base.setdefault("fii_sell", None); base.setdefault("fii_net", None)
+        base.setdefault("dii_buy", None); base.setdefault("dii_sell", None); base.setdefault("dii_net", None)
+        rows = [base]
+    else:
+        # Legacy/alternate shape with one row containing FII/DII fields.
+        for item in records:
+            if not isinstance(item, dict):
+                continue
+            row = {
+                "date": str(item.get("date") or item.get("Date") or item.get("tradeDate") or ""),
+                "fii_buy": _number(item.get("fiibuy") or item.get("fiiBuy") or item.get("fiiBuyValue")),
+                "fii_sell": _number(item.get("fiisell") or item.get("fiiSell") or item.get("fiiSellValue")),
+                "fii_net": _number(item.get("fiinet") or item.get("fiiNet") or item.get("fiiNetValue")),
+                "dii_buy": _number(item.get("diibuy") or item.get("diiBuy") or item.get("diiBuyValue")),
+                "dii_sell": _number(item.get("diisell") or item.get("diiSell") or item.get("diiSellValue")),
+                "dii_net": _number(item.get("diinet") or item.get("diiNet") or item.get("diiNetValue")),
+            }
+            if any(row[k] is not None for k in row if k != "date"):
+                rows.append(row)
 
     if not rows:
-        return FlowResult(False, message="NSE response format changed; no usable FII/DII values found.")
+        return FlowResult(False, message="NSE response contained no recognizable FII/FPI or DII values.")
 
     df = pd.DataFrame(rows)
-    if "date" in df:
-        parsed = pd.to_datetime(df["date"], errors="coerce", dayfirst=True)
-        df = df.assign(_date=parsed).sort_values("_date", ascending=False, na_position="last")
-        rows = df.drop(columns=["_date"]).to_dict("records")
+    parsed = pd.to_datetime(df["date"], errors="coerce", dayfirst=True)
+    df = df.assign(_date=parsed).sort_values("_date", ascending=False, na_position="last")
+    rows = df.drop(columns=["_date"]).to_dict("records")
+    latest_date = str(rows[0].get("date", ""))
 
-    latest_date = rows[0].get("date", "")
     freshness = None
-    try:
-        latest = pd.to_datetime(latest_date, errors="coerce", dayfirst=True)
-        if pd.notna(latest):
-            freshness = max(0, (pd.Timestamp.now().normalize() - latest.normalize()).days)
-    except Exception:
-        pass
+    latest = pd.to_datetime(latest_date, errors="coerce", dayfirst=True)
+    if pd.notna(latest):
+        freshness = max(0, (pd.Timestamp.now().normalize() - latest.normalize()).days)
 
-    return FlowResult(True, date=str(latest_date), rows=rows, freshness_days=freshness)
+    return FlowResult(True, date=latest_date, rows=rows, freshness_days=freshness)
 
 
 def summarize_flow(result: FlowResult) -> dict[str, Any]:
@@ -110,25 +121,14 @@ def summarize_flow(result: FlowResult) -> dict[str, Any]:
         return {"available": False, "message": result.message}
 
     df = pd.DataFrame(result.rows)
-    numeric = ["fii_net", "dii_net"]
-    for col in numeric:
-        if col not in df:
-            df[col] = pd.NA
+    for col in ["fii_net", "dii_net"]:
+        df[col] = pd.to_numeric(df.get(col), errors="coerce")
     df["combined_net"] = df["fii_net"].fillna(0) + df["dii_net"].fillna(0)
-
     recent = df.head(5)
     fii_5d = recent["fii_net"].sum(min_count=1)
     dii_5d = recent["dii_net"].sum(min_count=1)
     combined_5d = recent["combined_net"].sum(min_count=1)
-
-    fii_today = df.iloc[0]["fii_net"]
-    dii_today = df.iloc[0]["dii_net"]
-    combined_today = df.iloc[0]["combined_net"]
-
-    def tone(value: Any) -> str:
-        if pd.isna(value) or value == 0:
-            return "NEUTRAL"
-        return "BUYING" if value > 0 else "SELLING"
+    fii_today, dii_today = df.iloc[0]["fii_net"], df.iloc[0]["dii_net"]
 
     if pd.isna(combined_5d):
         regime = "INSUFFICIENT DATA"
@@ -139,13 +139,15 @@ def summarize_flow(result: FlowResult) -> dict[str, Any]:
     else:
         regime = "DIVERGENT FLOWS"
 
+    def tone(value: Any) -> str:
+        if pd.isna(value) or value == 0:
+            return "NEUTRAL"
+        return "BUYING" if value > 0 else "SELLING"
+
     return {
-        "available": True,
-        "date": result.date,
-        "freshness_days": result.freshness_days,
-        "today": {"fii_net": fii_today, "dii_net": dii_today, "combined_net": combined_today},
+        "available": True, "date": result.date, "freshness_days": result.freshness_days,
+        "today": {"fii_net": fii_today, "dii_net": dii_today, "combined_net": df.iloc[0]["combined_net"]},
         "five_day": {"fii_net": fii_5d, "dii_net": dii_5d, "combined_net": combined_5d},
-        "fii_tone": tone(fii_today), "dii_tone": tone(dii_today),
-        "regime": regime,
+        "fii_tone": tone(fii_today), "dii_tone": tone(dii_today), "regime": regime,
         "rows": result.rows[:10],
     }
