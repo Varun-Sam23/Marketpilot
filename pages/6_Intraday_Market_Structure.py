@@ -6,8 +6,10 @@ import pandas_market_calendars as mcal
 import pandas as pd
 
 from intraday_intelligence import fetch_intraday
+from menu import render_sidebar
 
 st.set_page_config(page_title="Intraday Market Structure | MarketPilot", page_icon="⚡", layout="wide")
+render_sidebar()
 
 st.markdown("""
 <style>
