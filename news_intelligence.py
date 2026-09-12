@@ -20,24 +20,18 @@ def publisher_from_title(title):
 
 def publisher_identity(item):
     raw=item.get("title","").strip(); headline,title_pub=publisher_from_title(raw)
-    explicit=str(item.get("publisher") or "").strip()
-    source=item.get("source")
-    source_name=""
+    explicit=str(item.get("publisher") or "").strip(); source=item.get("source"); source_name=""
     if isinstance(source,dict): source_name=str(source.get("title") or source.get("name") or "").strip()
     elif source and not str(source).lower().endswith("markets"): source_name=str(source).strip()
     name=explicit or source_name or title_pub or "Unknown publisher"
     if name.lower()=="news.google.com": name=title_pub or "Unknown publisher"
-    domain=""
     known={"reuters":"reuters.com","business standard":"business-standard.com","businessstandard":"business-standard.com","economic times":"economictimes.indiatimes.com","livemint":"livemint.com","moneycontrol":"moneycontrol.com","ndtv profit":"ndtvprofit.com","cnbc tv18":"cnbctv18.com","financial express":"financialexpress.com","hindustan times":"hindustantimes.com"}
-    if name.lower() in known: domain=known[name.lower()]
-    return headline,name,domain
+    return headline,name,known.get(name.lower(),"")
 
-def words(text):
-    return set(re.sub(r"[^a-z0-9 ]"," ",(text or "").lower()).split())
+def words(text): return set(re.sub(r"[^a-z0-9 ]"," ",(text or "").lower()).split())
 
 def similarity(a,b):
-    wa,wb=words(a),words(b)
-    return len(wa&wb)/max(1,len(wa|wb)) if wa and wb else 0
+    wa,wb=words(a),words(b); return len(wa&wb)/max(1,len(wa|wb)) if wa and wb else 0
 
 def cluster_headlines(items):
     clusters=[]; clean=[publisher_from_title(x.get("title", ""))[0] for x in items]
@@ -61,41 +55,42 @@ def infer_affected(title):
     return best if scores[best] else "MARKET"
 
 def evidence_score(verification, source_count, conflict=False):
-    """Conservative evidence score: measures corroboration strength, not probability that a claim is true."""
+    """Corroboration strength, not probability that a claim is true."""
     if verification=="CONFLICTING": return 35
-    if verification=="CROSS_CHECKED": return min(90, 55 + max(0, source_count-2)*10)
-    if verification=="CORROBORATED": return min(75, 45 + max(0, source_count-1)*10)
+    if verification=="CROSS_CHECKED": return min(90,55+max(0,source_count-2)*10)
+    if verification=="CORROBORATED": return min(75,45+max(0,source_count-1)*10)
     if verification=="SINGLE_SOURCE": return 30
     return 10
 
+def claim_status(verification, sources, impact_signals):
+    """Conservative claim assessment. It never labels a headline TRUE solely because publishers repeat it."""
+    count=len(sources); pos=impact_signals.count("POSITIVE"); neg=impact_signals.count("NEGATIVE")
+    if verification=="CONFLICTING" or (pos and neg and abs(pos-neg)<=1):
+        return "DISPUTED","Independent reporting exists, but the available signals disagree. Treat the claim as disputed until a primary or authoritative source resolves the conflict."
+    if count>=2:
+        return "SUPPORTED","The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation."
+    if count==1:
+        return "INSUFFICIENT EVIDENCE","Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification."
+    return "INSUFFICIENT EVIDENCE","No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone."
+
 def targeted_cross_check(headline, current_publisher=""):
-    """Use a fresh Google News query to look for independent reporting and contradictions.
-    This is an evidence cross-check, not a claim of truth. Fail closed when the web feed is unavailable.
-    """
     try:
-        query=quote_plus('"' + headline[:180] + '"')
-        url=f"https://news.google.com/rss/search?q={query}&hl=en-IN&gl=IN&ceid=IN:en"
-        feed=feedparser.parse(url)
+        query=quote_plus('"'+headline[:180]+'"'); url=f"https://news.google.com/rss/search?q={query}&hl=en-IN&gl=IN&ceid=IN:en"; feed=feedparser.parse(url)
         sources=[]; impacts=[]
         for entry in feed.entries[:8]:
-            title,name=publisher_from_title(entry.get("title", ""))
-            src=entry.get("source")
+            title,name=publisher_from_title(entry.get("title", "")); src=entry.get("source")
             if isinstance(src,dict): name=str(src.get("title") or src.get("name") or name).strip()
             if not name or name.lower()=="news.google.com": continue
             if current_publisher and name.lower()==current_publisher.lower(): continue
             if any(name.lower()==s.lower() for s in sources): continue
-            sources.append(name)
-            impacts.append(classify_impact(title)[0])
+            sources.append(name); impacts.append(classify_impact(title)[0])
         if len(sources)>=2:
             pos=impacts.count("POSITIVE"); neg=impacts.count("NEGATIVE")
-            if pos and neg and abs(pos-neg)<=1:
-                return "CONFLICTING","CONFLICTING REPORTS",f"Fresh search found {len(sources)} independent publishers, but their headline signals conflict. Manual review is required.",sources
-            return "CROSS_CHECKED","CROSS-CHECKED",f"Fresh search found independent reporting from {len(sources)} additional publishers. This supports the existence of the reported event but does not prove every detail.",sources
-        if len(sources)==1:
-            return "SINGLE_SOURCE","SINGLE SOURCE","Only one additional publisher was found in the targeted search. Independent confirmation remains limited.",sources
-    except Exception:
-        pass
-    return "UNVERIFIED","UNVERIFIED","Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified.",[]
+            if pos and neg and abs(pos-neg)<=1: return "CONFLICTING","CONFLICTING REPORTS","Fresh search found independent publishers, but their headline signals conflict.",sources,impacts
+            return "CROSS_CHECKED","CROSS-CHECKED",f"Fresh search found independent reporting from {len(sources)} additional publishers.",sources,impacts
+        if len(sources)==1: return "SINGLE_SOURCE","SINGLE SOURCE","Only one additional publisher was found in the targeted search.",sources,impacts
+    except Exception: pass
+    return "UNVERIFIED","UNVERIFIED","Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified.",[],[]
 
 def enrich_news(items):
     if not items: return []
@@ -106,23 +101,13 @@ def enrich_news(items):
             _,n,d=publisher_identity(items[j])
             if d: domains.add(d)
             if n and n!="Unknown publisher": names.add(n)
-        if len(domains)>=2 or len(names)>=2:
-            ver,lab,detail="CORROBORATED","CORROBORATED","Similar reporting is already present across multiple publisher identities in the live feeds. This is corroboration, not proof of factual accuracy."
-        elif name!="Unknown publisher":
-            ver,lab,detail="SINGLE_SOURCE","SINGLE SOURCE","Only one publisher currently carries this story cluster in the live feeds."
-        else:
-            ver,lab,detail="UNVERIFIED","UNVERIFIED","Publisher could not be established from the feed metadata or headline."
+        if len(domains)>=2 or len(names)>=2: ver,lab,detail="CORROBORATED","CORROBORATED","Similar reporting is present across multiple publisher identities in the live feeds."
+        elif name!="Unknown publisher": ver,lab,detail="SINGLE_SOURCE","SINGLE SOURCE","Only one publisher currently carries this story cluster in the live feeds."
+        else: ver,lab,detail="UNVERIFIED","UNVERIFIED","Publisher could not be established from the feed metadata or headline."
         impact,impact_reason=classify_impact(headline)
-        out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat(),"evidence_score":evidence_score(ver,len(names))})
-    # Targeted cross-check only the first few live headlines to keep refreshes fast and fail closed.
+        out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat(),"evidence_score":evidence_score(ver,len(names)),"evidence_count":0,"claim_status":"INSUFFICIENT EVIDENCE"})
     for item in out[:8]:
-        ver,lab,detail,sources=targeted_cross_check(item["title"],item.get("publisher",""))
-        item["verification"] = ver
-        item["verification_label"] = lab
-        item["verification_detail"] = detail
-        item["verification_sources"] = sources
-        item["evidence_score"] = evidence_score(ver,len(sources))
-        item["evidence_count"] = len(sources)
-        if sources:
-            item["verification_detail"] += f" Evidence strength: {item['evidence_score']}/100."
+        ver,lab,detail,sources,signals=targeted_cross_check(item["title"],item.get("publisher","")); status,status_detail=claim_status(ver,sources,signals)
+        item.update({"verification":ver,"verification_label":lab,"verification_detail":detail,"verification_sources":sources,"evidence_score":evidence_score(ver,len(sources)),"evidence_count":len(sources),"claim_status":status,"claim_status_detail":status_detail})
+        item["verification_detail"] += f" Claim assessment: {status}. {status_detail} Evidence strength: {item['evidence_score']}/100."
     return out
