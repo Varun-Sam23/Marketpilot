@@ -13,7 +13,7 @@ def publisher_domain(url):
     except Exception: return ""
 
 def publisher_from_title(title):
-    text=(title or "").strip(); m=re.search(r"\\s+-\\s+([^-]+)$",text)
+    text=(title or "").strip(); m=re.search(r"\s+-\s+([^-]+)$", text)
     if not m: return text,""
     return text[:m.start()].strip() or text,m.group(1).strip()
 
@@ -28,7 +28,7 @@ def publisher_identity(item):
     if name.lower()=="news.google.com": name=title_pub or "Unknown publisher"
     domain=""
     known={"reuters":"reuters.com","business standard":"business-standard.com","businessstandard":"business-standard.com","economic times":"economictimes.indiatimes.com","livemint":"livemint.com","moneycontrol":"moneycontrol.com","ndtv profit":"ndtvprofit.com","cnbc tv18":"cnbctv18.com","financial express":"financialexpress.com","hindustan times":"hindustantimes.com"}
-    if domain=="" and name.lower() in known: domain=known[name.lower()]
+    if not domain and name.lower() in known: domain=known[name.lower()]
     return headline,name,domain
 
 def words(text):
@@ -65,7 +65,7 @@ def enrich_news(items):
     for idx,item in enumerate(items):
         headline,name,domain=publisher_identity(item); cid,cluster=belong[idx]; domains=set(); names=set()
         for j in cluster:
-            _,n,d=publisher_identity(items[j]);
+            _,n,d=publisher_identity(items[j])
             if d: domains.add(d)
             if n and n!="Unknown publisher": names.add(n)
         if len(domains)>=2 or len(names)>=2: ver,lab,detail="CORROBORATED","✅ CORROBORATED",f"Similar reporting found across {max(len(domains),len(names))} publisher sources."
