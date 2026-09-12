@@ -16,6 +16,7 @@ import pandas_market_calendars as mcal
 import yfinance as yf
 
 from ai_brain import analyze
+from decision_engine import score_setup
 from news_intelligence import enrich_news
 
 OUT = Path("data/latest.json")
@@ -66,7 +67,12 @@ def write_closed_report(reason):
         "generated_at": now.strftime("%Y-%m-%d %H:%M:%S %Z"),
         "market_status": "MARKET CLOSED", "verdict": "WAIT", "confidence": "N/A",
         "summary": reason, "signals": [], "levels": {}, "global": [], "news": [],
-        "watchlist": [], "sectors": [],
+        "watchlist": [], "sectors": [], "decision": {
+            "score": 50, "bias": "WAIT", "confidence": "N/A", "regime": "MARKET CLOSED",
+            "positive_factors": 0, "negative_factors": 0, "evidence": [],
+            "bull_trigger": "", "bear_trigger": "", "invalidation": "",
+            "methodology": "No score is produced while the market is closed.",
+        },
         "ai_analysis": {"enabled": False, "status": "MARKET CLOSED", "bias": "WAIT", "confidence": "N/A",
                         "market_regime": "UNKNOWN", "thesis": "No market thesis generated because the NSE cash market is closed.",
                         "bull_case": "", "base_case": "", "bear_case": "", "key_levels": [],
@@ -210,7 +216,8 @@ def append_history(report):
         history.append({
             "date_ist": report.get("date_ist"), "generated_at": report.get("generated_at"),
             "rule_bias": report.get("verdict"), "rule_confidence": report.get("confidence"),
-            "ai": report.get("ai_analysis", {}), "levels": report.get("levels", {}),
+            "ai": report.get("ai_analysis", {}), "decision": report.get("decision", {}),
+            "levels": report.get("levels", {}),
         })
         HISTORY.write_text(json.dumps(history[-90:], indent=2, ensure_ascii=False), encoding="utf-8")
     except Exception:
@@ -231,12 +238,13 @@ def run():
     news = news_items()
     watchlist = watchlist_snapshot()
     sectors = sector_snapshot()
+    decision = score_setup(levels, snapshots, sectors, news)
 
     payload = {
         "date_ist": now.strftime("%Y-%m-%d"), "test_mode": force_test,
         "rule_bias": verdict, "rule_confidence": confidence, "signals": reasons,
         "levels": levels, "market_snapshot": snapshots, "sectors": sectors,
-        "news": news, "watchlist": watchlist,
+        "news": news, "watchlist": watchlist, "decision": decision,
     }
     ai_result = analyze(payload)
     if force_test:
@@ -247,9 +255,9 @@ def run():
         "date_ist": now.strftime("%Y-%m-%d"), "generated_at": now.strftime("%Y-%m-%d %H:%M:%S %Z"),
         "market_status": "AI TEST MODE" if force_test else "PRE-MARKET INTELLIGENCE",
         "verdict": verdict, "confidence": confidence,
-        "summary": f"Rule-based evidence suggests a {verdict.lower()} starting framework. AI interpretation is supplied separately.",
+        "summary": f"Rule-based evidence suggests a {verdict.lower()} starting framework. The Decision Engine scores the evidence separately.",
         "signals": reasons, "levels": levels, "global": snapshots, "news": news,
-        "watchlist": watchlist, "sectors": sectors, "ai_analysis": ai_result,
+        "watchlist": watchlist, "sectors": sectors, "decision": decision, "ai_analysis": ai_result,
     }
     OUT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     if not force_test:
