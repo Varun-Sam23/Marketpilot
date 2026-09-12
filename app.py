@@ -10,6 +10,7 @@ import pandas_market_calendars as mcal
 import streamlit as st
 import yfinance as yf
 from streamlit_autorefresh import st_autorefresh
+from news_intelligence import enrich_news
 
 st.set_page_config(page_title="MarketPilot", page_icon="📈", layout="wide", initial_sidebar_state="collapsed")
 
@@ -211,7 +212,9 @@ report = load_json(DATA_FILE, {})
 ai = report.get("ai_analysis", {})
 status = market_status_text()
 now = datetime.now(IST)
-news = live_news()
+raw_news = live_news()
+news = raw_news
+news_intel = enrich_news(raw_news)
 
 st.markdown('<div class="mp-title">📈 MarketPilot</div>', unsafe_allow_html=True)
 st.markdown('<div class="mp-sub">Your Indian-market intelligence command center • research & decision support only</div>', unsafe_allow_html=True)
@@ -226,7 +229,8 @@ for col, (name, ticker) in zip([c1, c2, c3, c4], cards):
     row = lookup.get(ticker)
     last = f"{row['last']:,.2f}" if row is not None else "—"
     chg = f"{row['from_open_pct']:+.2f}%" if row is not None else "—"
-    col.markdown(f'<div class="mp-card"><div class="mp-kicker">{name}</div><div class="mp-value">{last}</div><div class="mp-small">From open: {chg}</div></div>', unsafe_allow_html=True)
+    detail_label = "Last session:" if status == "MARKET CLOSED" else "From open:"
+    col.markdown(f'<div class="mp-card"><div class="mp-kicker">{name}</div><div class="mp-value">{last}</div><div class="mp-small">{detail_label} {chg}</div></div>', unsafe_allow_html=True)
 
 st.write("")
 
@@ -235,7 +239,7 @@ st.subheader("📡 Live News")
 st.caption(f"Auto-refresh: 60 seconds • Last refresh: {now.strftime('%H:%M:%S IST')}")
 render_live_news_ticker(news)
 
-tab_morning, tab_live, tab_history = st.tabs(["🌅 Morning Intelligence", "⚡ Live Market", "📓 Performance"])
+tab_morning, tab_live, tab_history, tab_news = st.tabs(["🌅 Morning Intelligence", "⚡ Live Market", "📓 Performance", "📰 News Intelligence"])
 
 with tab_morning:
     st.subheader("AI Market Brief")
@@ -313,6 +317,27 @@ with tab_live:
     st.subheader("📰 Full live news")
     st.caption(f"Last refresh: {now.strftime('%H:%M:%S IST')}")
     render_news_cards(news)
+
+with tab_news:
+    st.subheader("📰 News Intelligence")
+    st.caption("Verification is evidence-based. MarketPilot distinguishes corroboration from certainty.")
+    if news_intel:
+        ndf = pd.DataFrame(news_intel)
+        keep = [c for c in ["title", "verification_label", "impact", "affected", "publisher", "published", "verification_detail", "impact_reason"] if c in ndf.columns]
+        ndf = ndf[keep].rename(columns={
+            "title": "Headline",
+            "verification_label": "Verification",
+            "impact": "Impact",
+            "affected": "Affected",
+            "publisher": "Publisher",
+            "published": "Published",
+            "verification_detail": "Evidence",
+            "impact_reason": "Impact reasoning",
+        })
+        st.dataframe(ndf, use_container_width=True, hide_index=True)
+    else:
+        st.info("No live news available from the free feeds right now.")
+
 
 with tab_history:
     st.subheader("📓 MarketPilot journal")
