@@ -105,13 +105,21 @@ def enrich_news(items):
         elif name!="Unknown publisher": ver,lab,detail="SINGLE_SOURCE","SINGLE SOURCE","Only one publisher currently carries this story cluster in the live feeds."
         else: ver,lab,detail="UNVERIFIED","UNVERIFIED","Publisher could not be established from the feed metadata or headline."
         impact,impact_reason=classify_impact(headline)
-        out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat(),"evidence_score":evidence_score(ver,len(names)),"evidence_count":0,"claim_status":"INSUFFICIENT EVIDENCE"})
+        if ver=="CORROBORATED":
+            base_claim="SUPPORTED"
+            base_detail="The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation."
+        else:
+            base_claim="INSUFFICIENT EVIDENCE"
+            base_detail="Independent evidence is not yet strong enough for a supported classification."
+        out.append({**item,"title":headline,"publisher":name,"publisher_domain":domain,"cluster_id":cid,"verification":ver,"verification_label":lab,"verification_detail":detail,"impact":impact,"impact_reason":impact_reason,"affected":infer_affected(headline),"checked_at_utc":datetime.now(timezone.utc).isoformat(),"evidence_score":evidence_score(ver,len(names)),"evidence_count":0,"claim_status":base_claim,"claim_status_detail":base_detail})
+    # Deep, targeted cross-checks remain limited to the highest-priority stories so refreshes stay responsive.
     for item in out[:8]:
         ver,lab,detail,sources,signals=targeted_cross_check(item["title"],item.get("publisher","")); status,status_detail=claim_status(ver,sources,signals)
         item.update({"verification":ver,"verification_label":lab,"verification_detail":detail,"verification_sources":sources,"evidence_score":evidence_score(ver,len(sources)),"evidence_count":len(sources),"claim_status":status,"claim_status_detail":status_detail})
         item["verification_detail"] += f" Claim assessment: {status}. {status_detail} Evidence strength: {item['evidence_score']}/100."
-        # Surface the claim assessment directly in the existing News Intelligence table.
-        # This keeps the classification visible even while older UI deployments are still using the legacy columns.
+    # Every story gets an explicit claim classification; only the first 8 receive the deeper cross-check above.
+    for item in out:
+        status=item.get("claim_status","INSUFFICIENT EVIDENCE")
         prefix={"SUPPORTED":"🟢 SUPPORTED","DISPUTED":"🔴 DISPUTED","INSUFFICIENT EVIDENCE":"🟡 INSUFFICIENT EVIDENCE"}.get(status,"🟡 INSUFFICIENT EVIDENCE")
         item["title"]=f"{prefix} · {item['title']}"
     return out
