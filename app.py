@@ -126,6 +126,7 @@ def live_news():
                 items.append({
                     "title": entry.get("title", "").strip(),
                     "source": source,
+                    "publisher": (entry.get("source", {}).get("title", "") if isinstance(entry.get("source", {}), dict) else "") or source,
                     "published": entry.get("published", ""),
                     "link": entry.get("link", ""),
                 })
