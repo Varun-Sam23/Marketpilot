@@ -2,6 +2,7 @@ import streamlit as st
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import pandas as pd
+from streamlit_autorefresh import st_autorefresh
 from intraday_intelligence import fetch_intraday
 from menu import render_sidebar
 
@@ -16,10 +17,14 @@ st.markdown("""
 .card{background:linear-gradient(180deg,#0d141e,#0a1018);border:1px solid #1e2a39;border-radius:12px;padding:14px;min-height:94px}
 .label{color:#77869a;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em}.value{font-size:1.42rem;font-weight:800;margin-top:5px}.good{color:#58d68d}.bad{color:#ff6b6b}.neutral{color:#f4c95d}
 .livebox{background:#0b121b;border:1px solid #263446;border-radius:14px;padding:18px;margin:14px 0}.livehead{font-size:.7rem;color:#7e8da1;letter-spacing:.13em;text-transform:uppercase}.headline{font-size:1.5rem;font-weight:850;margin:6px 0}.evidence{color:#aab5c3;font-size:.9rem}.chip{display:inline-block;border:1px solid #29384a;border-radius:20px;padding:4px 9px;margin:8px 6px 0 0;font-size:.72rem;color:#9daaba}
+.feed{background:#09141a;border:1px solid #1d3a31;border-radius:10px;padding:9px 12px;margin:8px 0;font-size:.7rem;color:#8ea19a}.feed strong{color:#62d69a}
 </style>
 """,unsafe_allow_html=True)
 
 IST=ZoneInfo("Asia/Kolkata")
+# The WebSocket runs independently; the UI refreshes frequently to surface its
+# latest cached tick without creating a new market-data connection each rerun.
+st_autorefresh(interval=2000, key="live-market-refresh")
 now=datetime.now(IST)
 data=fetch_intraday()
 if not data.get("available"):
@@ -31,13 +36,22 @@ mode=data.get("mode","LIVE")
 mode_date=datetime.fromisoformat(data["session_date"]).strftime("%a, %d %b %Y")
 status="● LIVE SESSION" if mode=="LIVE" else "● LAST SESSION"
 status_cls="good" if mode=="LIVE" else "neutral"
+feed=data.get("live_feed",{}) or {}
+feed_live=str(feed.get("status","")) == "LIVE"
 
 st.markdown(f'''<div class="hero"><div><div class="mp-title">⚡ LIVE MARKET</div><div class="mp-sub">NIFTY structure terminal · VWAP · Opening Range · Momentum · Volume · Breadth</div></div><div><div class="{status_cls}">{status}</div><div>{mode_date} · Updated {now.strftime('%H:%M:%S IST')}</div></div></div>''',unsafe_allow_html=True)
 
-if st.button("↻ REFRESH",use_container_width=False):
-    st.cache_data.clear(); st.rerun()
+if st.button("↻ REFRESH NOW",use_container_width=False):
+    st.rerun()
 if mode!="LIVE":
     st.info(f"📌 **LAST SESSION MODE** — NSE is closed. Showing the latest available trading session: {mode_date}. Historical values are never labelled live.")
+
+if feed_live:
+    st.markdown(f'<div class="feed"><strong>● REAL-TIME WEBSOCKET CONNECTED</strong> · Upstox V3 · {feed.get("quote_count",0)} instruments streaming · {feed.get("ticks",0)} feed updates · last tick {html.escape(str(feed.get("last_tick_at","—")))} </div>',unsafe_allow_html=True)
+elif feed.get("status")=="NOT_CONFIGURED":
+    st.info("Real-time WebSocket is installed but not configured yet. Add UPSTOX_ACCESS_TOKEN to the deployment secrets to activate tick-level updates. The existing Yahoo historical feed remains the fallback.")
+else:
+    st.warning(f"Real-time WebSocket status: {feed.get('status','UNKNOWN')}. MarketPilot is using the safe fallback until the live stream is healthy.")
 
 bias=data["bias"]
 cls="good" if bias=="BULLISH" else "bad" if bias=="BEARISH" else "neutral"
