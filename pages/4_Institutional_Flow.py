@@ -2,8 +2,10 @@ import streamlit as st
 import pandas as pd
 
 from institutional_flow import fetch_fii_dii, summarize_flow
+from menu import render_sidebar
 
 st.set_page_config(page_title="Institutional Flow | MarketPilot", page_icon="🏦", layout="wide")
+render_sidebar()
 
 st.markdown("""
 <style>
