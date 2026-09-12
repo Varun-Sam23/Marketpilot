@@ -1,8 +1,9 @@
 """Intraday market-structure intelligence for MarketPilot.
 
-Uses the latest available NIFTY 5-minute session. During a live session the
-output is LIVE; on weekends/holidays/stale feeds it becomes LAST SESSION.
-No synthetic market values are generated.
+Uses the latest available NIFTY 5-minute session plus a live tick override when
+an Upstox V3 WebSocket is configured. During a live session the output is LIVE;
+on weekends/holidays/stale feeds it becomes LAST SESSION. No synthetic market
+values are generated.
 """
 from __future__ import annotations
 
@@ -11,6 +12,8 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import yfinance as yf
+
+from realtime_market_data import live_quote, status as live_status
 
 IST = ZoneInfo("Asia/Kolkata")
 NIFTY = "^NSEI"
@@ -162,10 +165,24 @@ def fetch_intraday() -> dict:
         prior_date = prior.index.date[-1]
         prev_close = float(prior[prior.index.date == prior_date]["Close"].iloc[-1])
 
+    # The WebSocket is authoritative for the live last price when configured.
+    # Historical candles still provide the rolling structure used for VWAP,
+    # opening range and trend until a dedicated tick-to-candle aggregator is added.
+    live = live_quote("NIFTY")
+    feed = live_status()
+    if live and mode == "LIVE":
+        live_last = live.get("ltp")
+        if live_last is not None:
+            last = float(live_last)
+            if live.get("prev_close"):
+                prev_close = float(live["prev_close"])
+
     or_high, or_low = _opening_range(h)
     vwap = _vwap(h)
     vol_ratio, volume_spike = _volume_stats(h)
     momentum, trend, breadth, levels = _momentum(h, 3), _trend(h), _breadth(), _levels(h)
+    if levels:
+        levels["last"] = round(last, 2)
     points, reasons, components = 50, [], {}
 
     if vwap is not None:
@@ -195,4 +212,4 @@ def fetch_intraday() -> dict:
     if or_high and last > or_high: or_state = "BREAKOUT ABOVE OR"
     elif or_low and last < or_low: or_state = "BREAKDOWN BELOW OR"
     else: or_state = "INSIDE OPENING RANGE"
-    return {"available": True, "mode": mode, "session_date": session_date.isoformat(), "as_of": h.index[-1].strftime("%Y-%m-%d %H:%M IST"), "source": "Yahoo Finance market-data feed", "source_url": "https://finance.yahoo.com/", "last": round(last, 2), "session_change_pct": round(_pct(last, prev_close), 2) if prev_close else None, "vwap": round(vwap, 2) if vwap is not None else None, "vwap_distance_pct": round(_pct(last, vwap), 2) if vwap else None, "opening_range_high": round(or_high, 2) if or_high is not None else None, "opening_range_low": round(or_low, 2) if or_low is not None else None, "opening_range_state": or_state, "volume_ratio": vol_ratio, "volume_spike_6bar": volume_spike, "momentum_15m_pct": round(momentum, 2), "trend": trend, "breadth": breadth, "levels": levels, "components": components, "score": score, "bias": bias, "confidence": confidence, "reasons": reasons, "synthesis": _synthesis(score, bias, vwap, last, or_state, momentum, trend, vol_ratio, breadth, levels)}
+    return {"available": True, "mode": mode, "session_date": session_date.isoformat(), "as_of": live.get("received_at") if live else h.index[-1].strftime("%Y-%m-%d %H:%M IST"), "source": "Upstox V3 WebSocket + Yahoo Finance historical candles" if live else "Yahoo Finance market-data feed", "live_feed": feed, "source_url": "https://upstox.com/developer/api-documentation/v3/get-market-data-feed/" if live else "https://finance.yahoo.com/", "last": round(last, 2), "session_change_pct": round(_pct(last, prev_close), 2) if prev_close else None, "vwap": round(vwap, 2) if vwap is not None else None, "vwap_distance_pct": round(_pct(last, vwap), 2) if vwap else None, "opening_range_high": round(or_high, 2) if or_high is not None else None, "opening_range_low": round(or_low, 2) if or_low is not None else None, "opening_range_state": or_state, "volume_ratio": vol_ratio, "volume_spike_6bar": volume_spike, "momentum_15m_pct": round(momentum, 2), "trend": trend, "breadth": breadth, "levels": levels, "components": components, "score": score, "bias": bias, "confidence": confidence, "reasons": reasons, "synthesis": _synthesis(score, bias, vwap, last, or_state, momentum, trend, vol_ratio, breadth, levels)}
