@@ -97,13 +97,22 @@ def clean_summary(value, headline):
 
 
 def useful_summary(text, headline):
-    """Reject feed snippets that merely repeat the headline or publisher name."""
+    """Reject boilerplate, headline repetition, and non-article feed snippets."""
     text=clean_summary(text, headline)
     if not text: return ""
-    hwords=words(headline)
-    swords=words(text)
+    normalized=text.lower()
+    boilerplate=(
+        "comprehensive up-to-date news coverage, aggregated from sources all over the world by google news",
+        "comprehensive up to date news coverage, aggregated from sources all over the world by google news",
+        "google news",
+    )
+    if any(phrase in normalized for phrase in boilerplate):
+        return ""
+    hwords=words(headline); swords=words(text)
     overlap=len(hwords & swords)/max(1,len(hwords)) if hwords else 0
     if len(swords)<8 or overlap>=0.88:
+        return ""
+    if normalized.rstrip(" .") in {"news", "latest news", "market news"}:
         return ""
     return text
 
