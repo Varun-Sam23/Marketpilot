@@ -4,6 +4,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from time import perf_counter
 
 from agent_runtime import attach_governance, challenge_agents
+from research_engine import research_claim
 
 
 class AgentResult(dict):
@@ -26,12 +27,30 @@ def _run_agent(name, fn):
         return attach_governance(name, AgentResult.error(name, exc, (perf_counter() - started) * 1000))
 
 
+def _research_news(news_items):
+    """Let the News Agent discover, read and corroborate its own claims."""
+    enriched = []
+    for item in news_items[:6]:
+        row = dict(item)
+        research = research_claim(
+            row.get("title", ""),
+            primary_url=row.get("link", ""),
+            primary_publisher=row.get("publisher", ""),
+            max_sources=4,
+        )
+        row["research"] = research
+        row["research_state"] = research.get("evidence_state", "INSUFFICIENT")
+        row["research_confidence"] = research.get("confidence", "LOW")
+        enriched.append(row)
+    return enriched
+
+
 def run_specialists(*, levels, snapshots, sectors, watchlist, news_items):
-    """Run specialists concurrently, self-check them, then challenge their evidence."""
+    """Run specialists concurrently, self-check, research and challenge evidence."""
     tasks = {
         "Market Agent": lambda: {"snapshot": snapshots, "levels": levels},
         "Technical Agent": lambda: _technical(levels),
-        "News Agent": lambda: news_items[:24],
+        "News Agent": lambda: _research_news(news_items),
         "Institutional Agent": lambda: _institutional(),
         "Options Agent": lambda: _options(),
         "Intraday Agent": lambda: _intraday(),
@@ -52,7 +71,7 @@ def run_specialists(*, levels, snapshots, sectors, watchlist, news_items):
         "ready_count": sum(r["status"] == "READY" for r in results.values()),
         "error_count": sum(r["status"] == "ERROR" for r in results.values()),
         "execution": "PARALLEL",
-        "autonomous_protocol": "v2",
+        "autonomous_protocol": "v3_research",
         "self_checks": sum(bool(r.get("self_check")) for r in results.values()),
         "challenges": challenges,
         "challenge_count": len(challenges),
@@ -103,4 +122,4 @@ def _risk(levels, snapshots, sectors):
 
 def build_chief_input(levels, snapshots, sectors, watchlist, news, decision, specialists):
     """Create the evidence packet for the final Chief Intelligence Agent."""
-    return {"market": {"levels": levels, "snapshots": snapshots}, "sectors": sectors, "watchlist": watchlist, "news": news, "decision": decision, "specialists": specialists, "governance": {"rule": "Specialists investigate, self-check, challenge conflicting evidence, then the Chief adjudicates.", "no_order_execution": True, "conflicts_must_be_reported": True, "no_fabrication": True}}
+    return {"market": {"levels": levels, "snapshots": snapshots}, "sectors": sectors, "watchlist": watchlist, "news": news, "decision": decision, "specialists": specialists, "governance": {"rule": "Specialists investigate, self-check, independently research, challenge conflicting evidence, then the Chief adjudicates.", "no_order_execution": True, "conflicts_must_be_reported": True, "no_fabrication": True}}
