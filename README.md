@@ -1,44 +1,61 @@
-# MarketPilot V1
+# MarketPilot
 
-A free, Chromebook-friendly market intelligence dashboard.
+A free, Chromebook-friendly Indian-market intelligence command center.
 
-## What it does
+## Design
 
-- Builds a pre-market report from previous-session data and overnight news.
-- Displays NIFTY, BANK NIFTY, SENSEX, India VIX and global cues.
-- Tracks a starter watchlist.
-- Refreshes live snapshots every 60 seconds while the dashboard is open.
-- Does not connect to a broker and cannot place orders.
-- Stores the morning report in `data/latest.json`.
+MarketPilot is built around a simple workflow:
 
-## Free deployment
+**Before the market opens** → build evidence from previous sessions + global cues + overnight news → generate a structured AI thesis.
 
-Recommended: GitHub + Streamlit Community Cloud.
+**During market hours** → refresh market snapshots and live news while the dashboard is open.
 
-1. Create a GitHub repository named `marketpilot`.
-2. Upload all files from this folder.
-3. Make the repository public if you want to use GitHub Actions without consuming private-repo minutes.
-4. In Streamlit Community Cloud, create a new app from the repository and select `app.py`.
-5. The app will receive a `streamlit.app` URL that works in Chrome on a Chromebook.
-6. In GitHub Actions, run the "MarketPilot pre-market report" workflow manually once to test it.
-7. The scheduled workflow runs at 09:00 IST on weekdays. Extend `engine.py` with exchange-calendar checks before relying on it for holiday skipping.
+**After the market** → preserve the morning thesis in a journal so future versions can score thesis vs. outcome.
 
-## Important free-data limitation
+## Dashboard
 
-Free/public market feeds are not guaranteed exchange-grade real-time feeds and may be delayed or temporarily unavailable. The dashboard displays source-derived information and should not be treated as a live trading terminal.
+### Morning Intelligence
+- AI bias and market regime
+- Confidence
+- Bull / Base / Bear cases
+- Key levels and invalidation
+- Drivers and risks
+- Technical snapshot
+- Sector pulse
+- Overnight / pre-market headlines
 
-## Optional AI layer
+### Live Market
+- NIFTY 50, BANK NIFTY, SENSEX, India VIX
+- Watchlist
+- Live-news feed
+- 60-second refresh while the browser tab is open
 
-V1 uses deterministic analysis so it works with no paid API. A future version can add a free-tier Gemini API key for richer natural-language reasoning. Keep API keys in Streamlit/GitHub secrets, never in source code.
+### Performance
+- Morning thesis journal
+- Date, rule bias, AI bias, regime and confidence
+- Outcome scoring is planned for the next iteration
 
-## Next upgrades
+## Automation
 
-- NSE holiday calendar check
-- Better pre-market/opening-gap logic
-- FII/DII data
-- Options/OI and PCR
-- Sector heatmap
-- Per-stock technical setup
-- News impact scoring
-- Morning thesis vs. end-of-day outcome tracking
-- Optional Gemini reasoning layer
+GitHub Actions prepares the morning report on weekdays around 09:00 IST. The engine checks the NSE trading calendar and produces a `MARKET CLOSED` report on weekends or NSE holidays.
+
+The repository stores the latest report in `data/latest.json` and the morning thesis history in `data/history.json`.
+
+## AI
+
+The AI layer uses Google's stable `gemini-2.5-flash` model when `GEMINI_API_KEY` is available. The key must be stored as a GitHub Actions secret, never in source code.
+
+## Free-data caveat
+
+Free/public market feeds are useful for research but are not guaranteed exchange-grade or tick-by-tick. Data can be delayed, incomplete, rate-limited or temporarily unavailable. MarketPilot is decision support only and never places orders.
+
+## Planned upgrades
+
+- FII/DII activity
+- NIFTY and BANK NIFTY option-chain/OI analysis
+- PCR and major strike levels
+- richer sector/index coverage
+- opening-range and VWAP analysis
+- end-of-day thesis evaluator
+- historical accuracy and calibration
+- configurable watchlists and alerts
