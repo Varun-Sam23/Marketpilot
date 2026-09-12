@@ -10,10 +10,11 @@ import streamlit as st
 import yfinance as yf
 from streamlit_autorefresh import st_autorefresh
 
-st.set_page_config(page_title="MarketPilot", page_icon="📈", layout="wide")
+st.set_page_config(page_title="MarketPilot", page_icon="📈", layout="wide", initial_sidebar_state="collapsed")
 
 DATA_FILE = Path("data/latest.json")
 WATCHLIST_FILE = Path("data/watchlist.json")
+HISTORY_FILE = Path("data/history.json")
 IST = ZoneInfo("Asia/Kolkata")
 NSE_CALENDAR = mcal.get_calendar("NSE")
 
@@ -24,9 +25,23 @@ DEFAULT_WATCHLIST = [
 
 NEWS_FEEDS = [
     ("India Markets", "https://news.google.com/rss/search?q=India%20stock%20market%20NSE%20Nifty&hl=en-IN&gl=IN&ceid=IN:en"),
-    ("RBI / Economy", "https://news.google.com/rss/search?q=RBI%20India%20economy&hl=en-IN&gl=IN&ceid=IN:en"),
-    ("Indian Companies", "https://news.google.com/rss/search?q=Indian%20stocks%20earnings%20companies&hl=en-IN&gl=IN&ceid=IN:en"),
+    ("RBI / Economy", "https://news.google.com/rss/search?q=RBI%20India%20economy%20markets&hl=en-IN&gl=IN&ceid=IN:en"),
+    ("Indian Companies", "https://news.google.com/rss/search?q=Indian%20stocks%20earnings%20results%20companies&hl=en-IN&gl=IN&ceid=IN:en"),
+    ("Global Markets", "https://news.google.com/rss/search?q=US%20markets%20Asia%20markets%20Fed%20oil%20geopolitics&hl=en-IN&gl=IN&ceid=IN:en"),
 ]
+
+st.markdown("""
+<style>
+.main .block-container {padding-top: 1.4rem; max-width: 1400px;}
+.mp-title {font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0;}
+.mp-sub {color: #6b7280; margin-top: 0.15rem; margin-bottom: 1.1rem;}
+.mp-card {padding: 1rem 1.1rem; border: 1px solid rgba(128,128,128,.22); border-radius: 16px; min-height: 112px;}
+.mp-kicker {font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; color: #6b7280;}
+.mp-value {font-size: 1.45rem; font-weight: 750; margin-top: .2rem;}
+.mp-small {font-size: .82rem; color: #6b7280;}
+.mp-pill {display:inline-block; padding:.25rem .55rem; border-radius:999px; border:1px solid rgba(128,128,128,.25); font-size:.78rem; margin-right:.35rem;}
+</style>
+""", unsafe_allow_html=True)
 
 
 def load_json(path, default):
@@ -51,32 +66,41 @@ def market_status_text():
 
 
 @st.cache_data(ttl=60, show_spinner=False)
-def market_data(tickers):
+def quote_snapshot(tickers):
     rows = []
     for ticker in tickers:
         try:
-            h = yf.Ticker(ticker).history(period="5d", interval="1d", auto_adjust=False)
-            if len(h) >= 2:
-                prev = float(h["Close"].iloc[-2])
+            h = yf.Ticker(ticker).history(period="1d", interval="5m", auto_adjust=False)
+            if not h.empty:
                 last = float(h["Close"].iloc[-1])
-                pct = (last / prev - 1) * 100
-                rows.append({"ticker": ticker, "last": last, "change_pct": pct})
+                first = float(h["Open"].iloc[0])
+                rows.append({"ticker": ticker, "last": last, "from_open_pct": ((last / first) - 1) * 100 if first else 0})
         except Exception:
             pass
     return pd.DataFrame(rows)
 
 
 @st.cache_data(ttl=60, show_spinner=False)
-def intraday_snapshot(tickers):
+def watchlist_data(tickers):
     rows = []
     for ticker in tickers:
         try:
-            h = yf.Ticker(ticker).history(period="1d", interval="5m", auto_adjust=False)
-            if len(h):
+            h = yf.Ticker(ticker).history(period="3mo", interval="1d", auto_adjust=False)
+            if len(h) >= 22:
                 last = float(h["Close"].iloc[-1])
-                first = float(h["Open"].iloc[0])
-                pct = (last / first - 1) * 100 if first else 0
-                rows.append({"ticker": ticker, "last": last, "from_open_pct": pct})
+                prev = float(h["Close"].iloc[-2])
+                sma20 = float(h["Close"].tail(20).mean())
+                return20 = ((last / float(h["Close"].iloc[-21])) - 1) * 100
+                vol = float(h["Volume"].iloc[-1])
+                avgvol = float(h["Volume"].tail(20).mean())
+                rows.append({
+                    "Stock": ticker.replace(".NS", ""),
+                    "Last": round(last, 2),
+                    "1D %": round(((last / prev) - 1) * 100, 2),
+                    "20D %": round(return20, 2),
+                    "vs 20D SMA %": round(((last / sma20) - 1) * 100, 2),
+                    "Vol / 20D": round(vol / avgvol, 2) if avgvol else None,
+                })
         except Exception:
             pass
     return pd.DataFrame(rows)
@@ -88,170 +112,176 @@ def live_news():
     for source, url in NEWS_FEEDS:
         try:
             feed = feedparser.parse(url)
-            for entry in feed.entries[:8]:
+            for entry in feed.entries[:7]:
                 items.append({
-                    "title": entry.get("title", ""),
+                    "title": entry.get("title", "").strip(),
                     "source": source,
                     "published": entry.get("published", ""),
                     "link": entry.get("link", ""),
                 })
         except Exception:
             pass
-    return items[:20]
+    return items[:24]
 
 
-def load_morning_report():
-    return load_json(DATA_FILE, {
-        "generated_at": None,
-        "market_status": "No pre-market report has been generated yet.",
-        "verdict": "WAIT",
-        "confidence": "Low",
-        "summary": "Run the GitHub Action or refresh after the first scheduled run.",
-        "signals": [],
-        "levels": {},
-        "global": [],
-        "news": [],
-        "watchlist": [],
-        "ai_analysis": {},
-    })
+def fmt_change(x):
+    if x is None:
+        return ""
+    return f"{x:+.2f}%"
 
 
-report = load_morning_report()
-current_status = market_status_text()
+report = load_json(DATA_FILE, {})
+ai = report.get("ai_analysis", {})
+status = market_status_text()
 now = datetime.now(IST)
 
-st.title("📈 MarketPilot")
-st.caption("Pre-market intelligence + live market/news monitoring • No order execution")
+st.markdown('<div class="mp-title">📈 MarketPilot</div>', unsafe_allow_html=True)
+st.markdown('<div class="mp-sub">Your Indian-market intelligence command center • research & decision support only</div>', unsafe_allow_html=True)
 
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("Market status", current_status)
-col2.metric("Morning report", report.get("verdict", "WAIT"))
-col3.metric("Report time", report.get("generated_at", "Not generated"))
-col4.metric("Mode", "Decision support only")
+# ─────────────── top pulse ───────────────
+indices = quote_snapshot(["^NSEI", "^NSEBANK", "^BSESN", "^INDIAVIX"])
+lookup = {r["ticker"]: r for _, r in indices.iterrows()} if not indices.empty else {}
 
-st.info(
-    "The morning report forms a hypothesis from previous sessions and overnight information. "
-    "Live market values and news below refresh approximately every 60 seconds while this page is open."
-)
+cards = [
+    ("NIFTY 50", "^NSEI"),
+    ("BANK NIFTY", "^NSEBANK"),
+    ("SENSEX", "^BSESN"),
+    ("INDIA VIX", "^INDIAVIX"),
+]
 
-st.subheader("🧠 MarketPilot AI Brain")
-ai = report.get("ai_analysis", {})
-if ai.get("enabled"):
-    st.success(f"AI analysis ready • {ai.get('provider', 'Gemini')} {ai.get('model', '')}")
-    a, b, c = st.columns(3)
-    a.metric("AI bias", ai.get("bias", "UNKNOWN"))
-    b.metric("Market regime", ai.get("market_regime", "UNKNOWN"))
-    c.metric("AI confidence", ai.get("confidence", "LOW"))
+st.caption(f"{status} • {now.strftime('%d %b %Y, %H:%M:%S IST')}")
+c1, c2, c3, c4 = st.columns(4)
+for col, (name, ticker) in zip([c1, c2, c3, c4], cards):
+    row = lookup.get(ticker)
+    last = f"{row['last']:,.2f}" if row is not None else "—"
+    chg = fmt_change(row["from_open_pct"]) if row is not None else "—"
+    col.markdown(f'<div class="mp-card"><div class="mp-kicker">{name}</div><div class="mp-value">{last}</div><div class="mp-small">From open: {chg}</div></div>', unsafe_allow_html=True)
 
-    st.write("**Thesis**")
-    st.write(ai.get("thesis", ""))
+st.write("")
 
-    x, y, z = st.columns(3)
-    with x:
-        st.write("**🟢 Bull case**")
-        st.write(ai.get("bull_case", ""))
-    with y:
-        st.write("**🟡 Base case**")
-        st.write(ai.get("base_case", ""))
-    with z:
-        st.write("**🔴 Bear case**")
-        st.write(ai.get("bear_case", ""))
+# ─────────────── navigation ───────────────
+tab_morning, tab_live, tab_history = st.tabs(["🌅 Morning Intelligence", "⚡ Live Market", "📓 Performance"])
 
-    st.write("**Key levels**")
-    for level in ai.get("key_levels", []):
-        st.write("•", level)
+with tab_morning:
+    st.subheader("AI Market Brief")
+    if ai.get("enabled"):
+        a, b, c, d = st.columns(4)
+        a.metric("AI Bias", ai.get("bias", "UNKNOWN"))
+        b.metric("Regime", ai.get("market_regime", "UNKNOWN"))
+        c.metric("Confidence", ai.get("confidence", "LOW"))
+        d.metric("Rule Bias", report.get("verdict", "WAIT"))
 
-    st.write("**Invalidation**")
-    st.write(ai.get("invalidation", ""))
+        st.info(ai.get("thesis", ""))
+        x, y, z = st.columns(3)
+        with x:
+            st.markdown("### 🟢 Bull case")
+            st.write(ai.get("bull_case", ""))
+        with y:
+            st.markdown("### 🟡 Base case")
+            st.write(ai.get("base_case", ""))
+        with z:
+            st.markdown("### 🔴 Bear case")
+            st.write(ai.get("bear_case", ""))
 
-    d1, d2 = st.columns(2)
-    with d1:
-        st.write("**Drivers**")
-        for item in ai.get("drivers", []):
-            st.write("•", item)
-    with d2:
-        st.write("**Risks**")
-        for item in ai.get("risks", []):
-            st.write("•", item)
-else:
-    status = ai.get("status", "AI KEY NOT CONFIGURED")
-    st.warning(
-        f"{status}. Add the GEMINI_API_KEY GitHub secret to enable the AI Market Brain. "
-        "Until then, MarketPilot continues using the deterministic framework."
-    )
+        st.markdown("### 🎯 Key levels & invalidation")
+        for level in ai.get("key_levels", []):
+            st.write("•", level)
+        st.warning(ai.get("invalidation", ""))
 
-st.subheader("📌 Morning framework")
-a, b = st.columns([1, 2])
-with a:
-    st.metric("Rule-based bias", report.get("verdict", "WAIT"))
-    st.write("Confidence:", report.get("confidence", "Low"))
-with b:
-    st.write(report.get("summary", ""))
+        x, y = st.columns(2)
+        with x:
+            st.markdown("### Drivers")
+            for item in ai.get("drivers", []):
+                st.write("•", item)
+        with y:
+            st.markdown("### Risks")
+            for item in ai.get("risks", []):
+                st.write("•", item)
+    else:
+        st.warning(ai.get("status", "AI ANALYSIS NOT AVAILABLE"))
 
-if report.get("signals"):
-    st.write("**Key signals**")
-    for s in report["signals"]:
-        st.write("•", s)
+    st.subheader("📊 Technical snapshot")
+    levels = report.get("levels", {})
+    if levels:
+        st.dataframe(pd.DataFrame([levels]), use_container_width=True, hide_index=True)
+    else:
+        st.caption("No technical snapshot is stored for today yet.")
 
-st.subheader("🎯 Key levels")
-levels = report.get("levels", {})
-if levels:
-    st.dataframe(pd.DataFrame([levels]), use_container_width=True, hide_index=True)
-else:
-    st.caption("Levels will appear after the scheduled pre-market analysis runs.")
+    st.subheader("🏭 Sector pulse")
+    sectors = report.get("sectors", [])
+    if sectors:
+        sdf = pd.DataFrame(sectors).rename(columns={"sector": "Sector", "avg_change_pct": "Avg 1D %", "members": "Members"})
+        sdf["Avg 1D %"] = sdf["Avg 1D %"].round(2)
+        st.dataframe(sdf, use_container_width=True, hide_index=True)
+    else:
+        st.caption("Sector data will appear after the next trading-day report.")
 
-st.subheader("🌍 Global cues")
-global_items = report.get("global", [])
-if global_items:
-    st.dataframe(pd.DataFrame(global_items), use_container_width=True, hide_index=True)
-else:
-    st.caption("No cached global snapshot yet.")
+    st.subheader("📰 Overnight / pre-market news")
+    pre_news = report.get("news", [])
+    if pre_news:
+        for item in pre_news[:12]:
+            title = item.get("title", "")
+            link = item.get("link", "")
+            if link:
+                st.markdown(f"**[{title}]({link})** — {item.get('source','')}")
+            else:
+                st.markdown(f"**{title}** — {item.get('source','')}")
+    else:
+        st.caption("No cached pre-market headlines.")
 
-st.subheader("📰 Live news")
-news = live_news()
-st.caption(f"News refresh: {now.strftime('%H:%M:%S IST')}")
-if news:
-    for item in news[:15]:
-        title = item.get("title", "").strip()
-        source = item.get("source", "")
-        published = item.get("published", "")
-        link = item.get("link", "")
-        if link:
-            st.markdown(f"**[{title}]({link})**  \n{source} — {published}")
-        else:
-            st.markdown(f"**{title}**  \n{source} — {published}")
-else:
-    st.caption("Live news unavailable from the free feeds right now.")
+with tab_live:
+    st.subheader("⚡ Live market monitor")
+    if indices.empty:
+        st.warning("Live market snapshot unavailable from the free feed right now.")
+    else:
+        ldf = indices.copy()
+        ldf["ticker"] = ldf["ticker"].replace({"^NSEI": "NIFTY 50", "^NSEBANK": "BANK NIFTY", "^BSESN": "SENSEX", "^INDIAVIX": "INDIA VIX"})
+        ldf["last"] = ldf["last"].round(2)
+        ldf["from_open_pct"] = ldf["from_open_pct"].round(2)
+        st.dataframe(ldf, use_container_width=True, hide_index=True)
 
-st.subheader("📊 Live market snapshot")
-indices = ["^NSEI", "^NSEBANK", "^BSESN", "^INDIAVIX"]
-live = intraday_snapshot(indices)
-if not live.empty:
-    live["ticker"] = live["ticker"].replace({
-        "^NSEI": "NIFTY 50", "^NSEBANK": "BANK NIFTY",
-        "^BSESN": "SENSEX", "^INDIAVIX": "INDIA VIX"
-    })
-    live["last"] = live["last"].round(2)
-    live["from_open_pct"] = live["from_open_pct"].round(2)
-    st.dataframe(live, use_container_width=True, hide_index=True)
-else:
-    st.warning("Live snapshot unavailable from the free data source right now.")
+    st.subheader("👀 Watchlist")
+    watchlist = load_json(WATCHLIST_FILE, DEFAULT_WATCHLIST)
+    wdf = watchlist_data(tuple(watchlist))
+    if not wdf.empty:
+        st.dataframe(wdf.sort_values("1D %", ascending=False), use_container_width=True, hide_index=True)
+    else:
+        st.caption("Watchlist data unavailable right now.")
 
-st.subheader("👀 Watchlist")
-watchlist = load_json(WATCHLIST_FILE, DEFAULT_WATCHLIST)
-watch = market_data(watchlist)
-if not watch.empty:
-    watch["ticker"] = watch["ticker"].str.replace(".NS", "", regex=False)
-    watch["last"] = watch["last"].round(2)
-    watch["change_pct"] = watch["change_pct"].round(2)
-    st.dataframe(watch.sort_values("change_pct", ascending=False), use_container_width=True, hide_index=True)
-else:
-    st.caption("Watchlist data unavailable right now.")
+    st.subheader("📰 Live news")
+    news = live_news()
+    st.caption(f"Last refresh: {now.strftime('%H:%M:%S IST')}")
+    if news:
+        for item in news[:18]:
+            title = item.get("title", "")
+            link = item.get("link", "")
+            if link:
+                st.markdown(f"**[{title}]({link})**  \n{item.get('source','')} — {item.get('published','')}")
+            else:
+                st.markdown(f"**{title}**  \n{item.get('source','')} — {item.get('published','')}")
+    else:
+        st.caption("Live news unavailable from the free feeds right now.")
+
+with tab_history:
+    st.subheader("📓 MarketPilot journal")
+    history = load_json(HISTORY_FILE, [])
+    if history:
+        rows = []
+        for item in history:
+            ai_item = item.get("ai", {}) or {}
+            rows.append({
+                "Date": item.get("date_ist", ""),
+                "Rule bias": item.get("rule_bias", ""),
+                "AI bias": ai_item.get("bias", ""),
+                "Regime": ai_item.get("market_regime", ""),
+                "Confidence": ai_item.get("confidence", ""),
+            })
+        st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+        st.caption("This journal records the morning thesis. Outcome scoring will be added once we build the end-of-day evaluator.")
+    else:
+        st.info("No trading-day history yet. The first trading-day run will create the first journal entry.")
 
 st.divider()
-st.caption(
-    "Data from free/public sources can be delayed, incomplete, or temporarily unavailable. "
-    "This dashboard is for research and education, not financial advice."
-)
+st.caption("Free/public data can be delayed, incomplete, or temporarily unavailable. MarketPilot never places orders and is not financial advice.")
 
 st_autorefresh(interval=60_000, key="marketpilot_refresh")
