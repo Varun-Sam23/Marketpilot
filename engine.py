@@ -1,10 +1,8 @@
 """
-MarketPilot pre-market engine V1.1.1.
+MarketPilot pre-market engine V2.
 
-Adds:
-- India Standard Time timestamps
-- NSE trading-day/holiday detection
-- A clear MARKET CLOSED report on non-trading days
+Collects previous-session/global/news data and builds a pre-market report.
+Adds optional Gemini AI reasoning when GEMINI_API_KEY is configured.
 """
 
 import json
@@ -16,6 +14,8 @@ import feedparser
 import pandas as pd
 import pandas_market_calendars as mcal
 import yfinance as yf
+
+from ai_brain import analyze
 
 OUT = Path("data/latest.json")
 OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -53,19 +53,12 @@ NEWS_FEEDS = [
 ]
 
 WATCHLIST = [
-    "RELIANCE.NS",
-    "HDFCBANK.NS",
-    "ICICIBANK.NS",
-    "SBIN.NS",
-    "INFY.NS",
-    "TCS.NS",
-    "TATAMOTORS.NS",
-    "ITC.NS",
+    "RELIANCE.NS", "HDFCBANK.NS", "ICICIBANK.NS", "SBIN.NS",
+    "INFY.NS", "TCS.NS", "TATAMOTORS.NS", "ITC.NS",
 ]
 
 
 def is_nse_trading_day(day=None):
-    """Return True when day is an NSE cash-market trading session."""
     day = day or datetime.now(IST).date()
     schedule = NSE_CALENDAR.schedule(start_date=day, end_date=day)
     return not schedule.empty
@@ -84,21 +77,21 @@ def write_closed_report(reason):
         "global": [],
         "news": [],
         "watchlist": [],
+        "ai_analysis": {
+            "enabled": False,
+            "status": "MARKET CLOSED",
+            "bias": "WAIT",
+            "confidence": "N/A",
+            "thesis": "No market thesis generated because the NSE cash market is closed.",
+        },
     }
-    OUT.write_text(
-        json.dumps(report, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    OUT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(report, indent=2, ensure_ascii=False))
 
 
 def hist(ticker, period="3mo", interval="1d"):
     try:
-        return yf.Ticker(ticker).history(
-            period=period,
-            interval=interval,
-            auto_adjust=False,
-        )
+        return yf.Ticker(ticker).history(period=period, interval=interval, auto_adjust=False)
     except Exception:
         return pd.DataFrame()
 
@@ -114,14 +107,12 @@ def index_snapshot():
         if len(h) >= 2:
             close = float(h["Close"].iloc[-1])
             prev = float(h["Close"].iloc[-2])
-            out.append(
-                {
-                    "name": name,
-                    "ticker": ticker,
-                    "last": round(close, 2),
-                    "change_pct": round(pct(close, prev), 2),
-                }
-            )
+            out.append({
+                "name": name,
+                "ticker": ticker,
+                "last": round(close, 2),
+                "change_pct": round(pct(close, prev), 2),
+            })
     return out
 
 
@@ -129,19 +120,12 @@ def nifty_levels():
     h = hist("^NSEI", "3mo", "1d")
     if len(h) < 10:
         return {}
-
     c = h["Close"]
-    last = float(c.iloc[-1])
-    prior = float(c.iloc[-2])
-
     return {
-        "NIFTY close": round(last, 2),
-        "Previous close": round(prior, 2),
+        "NIFTY close": round(float(c.iloc[-1]), 2),
+        "Previous close": round(float(c.iloc[-2]), 2),
         "20D SMA": round(float(c.tail(20).mean()), 2),
-        "50D SMA": round(
-            float(c.tail(50).mean()) if len(c) >= 50 else float(c.mean()),
-            2,
-        ),
+        "50D SMA": round(float(c.tail(50).mean()) if len(c) >= 50 else float(c.mean()), 2),
         "20D high": round(float(h["High"].tail(20).max()), 2),
         "20D low": round(float(h["Low"].tail(20).min()), 2),
     }
@@ -152,7 +136,6 @@ def make_verdict(levels, snapshots):
     n = by.get("NIFTY 50", {})
     b = by.get("BANK NIFTY", {})
     v = by.get("INDIA VIX", {})
-
     score = 0
     reasons = []
 
@@ -185,24 +168,13 @@ def make_verdict(levels, snapshots):
             score += 1
             reasons.append("India VIX fell sharply; volatility pressure eased.")
 
-    verdict = (
-        "BULLISH" if score >= 2
-        else "BEARISH" if score <= -2
-        else "NEUTRAL"
-    )
-
-    confidence = (
-        "Higher" if abs(score) >= 3
-        else "Moderate" if abs(score) == 2
-        else "Low"
-    )
-
+    verdict = "BULLISH" if score >= 2 else "BEARISH" if score <= -2 else "NEUTRAL"
+    confidence = "Higher" if abs(score) >= 3 else "Moderate" if abs(score) == 2 else "Low"
     summary = (
         f"Current evidence points to a {verdict.lower()} starting hypothesis. "
         "This is a pre-market framework, not a prediction or trade signal. "
         "The thesis should be re-evaluated when the live market confirms or rejects key levels."
     )
-
     return verdict, confidence, summary, reasons
 
 
@@ -212,14 +184,12 @@ def news_items():
         try:
             feed = feedparser.parse(url)
             for entry in feed.entries[:6]:
-                items.append(
-                    {
-                        "title": entry.get("title", ""),
-                        "source": source,
-                        "published": entry.get("published", ""),
-                        "link": entry.get("link", ""),
-                    }
-                )
+                items.append({
+                    "title": entry.get("title", ""),
+                    "source": source,
+                    "published": entry.get("published", ""),
+                    "link": entry.get("link", ""),
+                })
         except Exception:
             pass
     return items[:15]
@@ -234,15 +204,12 @@ def watchlist_snapshot():
             prev = float(h["Close"].iloc[-2])
             vol = float(h["Volume"].iloc[-1])
             avgvol = float(h["Volume"].tail(5).mean())
-
-            rows.append(
-                {
-                    "ticker": ticker,
-                    "last": round(last, 2),
-                    "change_pct": round(pct(last, prev), 2),
-                    "volume_vs_5d_avg": round(vol / avgvol, 2) if avgvol else None,
-                }
-            )
+            rows.append({
+                "ticker": ticker,
+                "last": round(last, 2),
+                "change_pct": round(pct(last, prev), 2),
+                "volume_vs_5d_avg": round(vol / avgvol, 2) if avgvol else None,
+            })
     return rows
 
 
@@ -251,8 +218,7 @@ def run():
 
     if not is_nse_trading_day(now.date()):
         write_closed_report(
-            f"NSE cash market is closed today "
-            f"({now.strftime('%A, %d %B %Y')}). "
+            f"NSE cash market is closed today ({now.strftime('%A, %d %B %Y')}). "
             "No pre-market trading analysis was generated."
         )
         return
@@ -260,24 +226,37 @@ def run():
     snapshots = index_snapshot()
     levels = nifty_levels()
     verdict, confidence, summary, reasons = make_verdict(levels, snapshots)
+    news = news_items()
+    watchlist = watchlist_snapshot()
+
+    ai_payload = {
+        "date_ist": now.strftime("%Y-%m-%d"),
+        "rule_bias": verdict,
+        "rule_confidence": confidence,
+        "summary": summary,
+        "signals": reasons,
+        "levels": levels,
+        "market_snapshot": snapshots,
+        "news": news,
+        "watchlist": watchlist,
+    }
+    ai_result = analyze(ai_payload)
 
     report = {
         "generated_at": now.strftime("%Y-%m-%d %H:%M:%S %Z"),
-        "market_status": "Pre-market intelligence report",
+        "market_status": "PRE-MARKET INTELLIGENCE",
         "verdict": verdict,
         "confidence": confidence,
         "summary": summary,
         "signals": reasons,
         "levels": levels,
         "global": snapshots,
-        "news": news_items(),
-        "watchlist": watchlist_snapshot(),
+        "news": news,
+        "watchlist": watchlist,
+        "ai_analysis": ai_result,
     }
 
-    OUT.write_text(
-        json.dumps(report, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    OUT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(report, indent=2, ensure_ascii=False))
 
 
