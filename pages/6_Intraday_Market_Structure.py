@@ -2,7 +2,6 @@ import streamlit as st
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-import pandas_market_calendars as mcal
 import pandas as pd
 
 from intraday_intelligence import fetch_intraday
@@ -25,31 +24,37 @@ st.markdown("""
 
 IST=ZoneInfo("Asia/Kolkata")
 now=datetime.now(IST)
-st.markdown(f'''<div class="hero"><div><div class="mp-title">⚡ LIVE MARKET</div><div class="mp-sub">Real-time structure terminal · NIFTY · VWAP · Opening Range · Momentum · Volume · Breadth</div></div><div><div class="status">● MARKET STRUCTURE</div><div class="time">{now.strftime('%d %b %Y · %H:%M:%S IST')}</div></div></div>''',unsafe_allow_html=True)
+data=fetch_intraday()
+
+if not data.get("available"):
+    st.markdown(f'''<div class="hero"><div><div class="mp-title">⚡ LIVE MARKET</div><div class="mp-sub">Real-time structure terminal · NIFTY · VWAP · Opening Range · Momentum · Volume · Breadth</div></div><div><div class="status">● MARKET STRUCTURE</div><div class="time">{now.strftime('%d %b %Y · %H:%M:%S IST')}</div></div></div>''',unsafe_allow_html=True)
+    st.warning(data.get("message","Market structure data unavailable."))
+    st.caption(f"Source: {data.get('source','Unknown')}. MarketPilot never fabricates missing market values.")
+    st.stop()
+
+mode=data.get("mode","LIVE")
+mode_label="● LIVE SESSION" if mode=="LIVE" else "● LAST SESSION"
+mode_cls="good" if mode=="LIVE" else "neutral"
+mode_date=datetime.fromisoformat(data["session_date"]).strftime("%a, %d %b %Y")
+
+st.markdown(f'''<div class="hero"><div><div class="mp-title">⚡ LIVE MARKET</div><div class="mp-sub">NIFTY structure terminal · VWAP · Opening Range · Momentum · Volume · Breadth</div></div><div><div class="status {mode_cls}">{mode_label}</div><div class="time">Viewing {mode_date} · Updated {now.strftime('%H:%M:%S IST')}</div></div></div>''',unsafe_allow_html=True)
 
 c1,c2=st.columns([1,5])
 with c1:
-    if st.button("↻ REFRESH",use_container_width=True): st.cache_data.clear()
+    if st.button("↻ REFRESH",use_container_width=True):
+        st.cache_data.clear()
+        st.rerun()
 with c2:
-    st.caption("Auto-refresh is controlled by the dashboard refresh cycle. Public/free market data may be delayed.")
-
-nse=mcal.get_calendar("NSE")
-if nse.schedule(start_date=now.date(),end_date=now.date()).empty:
-    st.info(f"🏁 **NSE market is closed today — {now.strftime('%A, %d %B %Y')}.** Live structure will resume on the next trading session.")
-    st.caption("The exchange calendar is checked first, so a holiday/weekend is never presented as a data-feed failure.")
-    st.stop()
-
-data=fetch_intraday()
-if not data.get("available"):
-    st.warning(data.get("message","Intraday data unavailable."))
-    st.caption(f"Source: {data.get('source','Unknown')}. MarketPilot never fabricates missing intraday values.")
-    st.stop()
+    if mode=="LIVE":
+        st.caption("LIVE mode · Public/free market data may be delayed. Refresh to request the latest feed snapshot.")
+    else:
+        st.info(f"📌 **LAST SESSION MODE** — NSE is not trading today. The terminal is showing the latest available session ({mode_date}) instead of a blank screen. Nothing here is labelled live.")
 
 bias=data["bias"]
 cls="good" if bias=="BULLISH" else "bad" if bias=="BEARISH" else "neutral"
 syn=data.get("synthesis",{})
 
-st.markdown(f'''<div class="livebox"><div class="livehead">WHAT IS HAPPENING RIGHT NOW?</div><div class="headline {cls}">{syn.get('headline','Structure unavailable')}</div><div class="evidence">{syn.get('detail','No synthesis available.')}</div><span class="chip">Score {data['score']}/100</span><span class="chip">Confidence {data['confidence']}</span><span class="chip">Bull signals {syn.get('bull_count',0)}</span><span class="chip">Bear signals {syn.get('bear_count',0)}</span><span class="chip">Volume {'confirming' if syn.get('volume_confirming') else 'normal'}</span></div>''',unsafe_allow_html=True)
+st.markdown(f'''<div class="livebox"><div class="livehead">WHAT IS HAPPENING {"RIGHT NOW" if mode=="LIVE" else "IN THE LAST SESSION"}?</div><div class="headline {cls}">{syn.get('headline','Structure unavailable')}</div><div class="evidence">{syn.get('detail','No synthesis available.')}</div><span class="chip">{mode}</span><span class="chip">Score {data['score']}/100</span><span class="chip">Confidence {data['confidence']}</span><span class="chip">Bull signals {syn.get('bull_count',0)}</span><span class="chip">Bear signals {syn.get('bear_count',0)}</span><span class="chip">Volume {'confirming' if syn.get('volume_confirming') else 'normal'}</span></div>''',unsafe_allow_html=True)
 
 cols=st.columns(6)
 metrics=[
@@ -63,14 +68,22 @@ metrics=[
 for c,(label,value) in zip(cols,metrics):
     c.markdown(f'<div class="card"><div class="label">{label}</div><div class="value">{value}</div></div>',unsafe_allow_html=True)
 
+st.markdown("### NIFTY structure snapshot")
+levels=data.get("levels",{})
+level_df=pd.DataFrame({"Level":["Session Low","Recent Support","VWAP","Last","Recent Resistance","Session High"],"Value":[levels.get("session_low"),levels.get("recent_support"),data.get("vwap"),data.get("last"),levels.get("recent_resistance"),levels.get("session_high")]})
+level_df=level_df.dropna()
+if not level_df.empty:
+    st.bar_chart(level_df.set_index("Level"),height=260)
+st.caption(f"Structure levels are calculated from the displayed {mode.lower()} session. As of {data['as_of']} · source: {data['source']}.")
+
 st.markdown("### Market structure map")
 a,b,c,d=st.columns(4)
 a.metric("Opening Range High",f"{data['opening_range_high']:,.2f}" if data.get("opening_range_high") else "—")
 a.metric("Opening Range Low",f"{data['opening_range_low']:,.2f}" if data.get("opening_range_low") else "—")
-b.metric("Recent Resistance",f"{data['levels'].get('recent_resistance',0):,.2f}")
-b.metric("Recent Support",f"{data['levels'].get('recent_support',0):,.2f}")
-c.metric("Session High",f"{data['levels'].get('session_high',0):,.2f}")
-c.metric("Session Low",f"{data['levels'].get('session_low',0):,.2f}")
+b.metric("Recent Resistance",f"{levels.get('recent_resistance',0):,.2f}")
+b.metric("Recent Support",f"{levels.get('recent_support',0):,.2f}")
+c.metric("Session High",f"{levels.get('session_high',0):,.2f}")
+c.metric("Session Low",f"{levels.get('session_low',0):,.2f}")
 d.metric("VWAP Distance",f"{data['vwap_distance_pct']:+.2f}%" if data.get("vwap_distance_pct") is not None else "—")
 d.metric("Trend",data.get("trend","—"))
 
@@ -86,15 +99,14 @@ if br["total"]:
     with left:
         st.dataframe(heat[["Stock","Change","Signal"]],use_container_width=True,hide_index=True,height=310)
     with right:
-        st.markdown("**Live ranking**")
-        leaders=heat.head(3)
-        laggards=heat.tail(3).sort_values("Change %")
+        st.markdown("**Session ranking**" if mode!="LIVE" else "**Live ranking**")
+        leaders=heat.head(3); laggards=heat.tail(3).sort_values("Change %")
         for _,r in leaders.iterrows(): st.markdown(f"🟢 **{r['Stock']}** &nbsp; {r['Change']}")
         st.divider()
         for _,r in laggards.iterrows(): st.markdown(f"🔴 **{r['Stock']}** &nbsp; {r['Change']}")
     st.caption(f"Watchlist breadth: {br['total']} liquid names. This is a MarketPilot watchlist proxy, not exchange-wide breadth.")
 else:
-    st.info("Watchlist breadth is unavailable from the current intraday feed.")
+    st.info("Watchlist breadth is unavailable from the current market-data feed.")
 
 st.markdown("### Signal engine")
 components=data.get("components",{})
@@ -105,5 +117,5 @@ if not component_df.empty:
 st.markdown("### Evidence ledger")
 for reason in data["reasons"]: st.markdown(f"• {reason}")
 
-st.markdown(f"**Source:** {data['source']} · **As of:** {data['as_of']}")
-st.caption("Decision-support only. The live synthesis is generated exclusively from the displayed VWAP, opening-range, momentum, trend, volume, breadth and level signals. It is not a probability, trade recommendation, or execution signal. Use broker-grade real-time data for execution.")
+st.markdown(f"**Source:** {data['source']} · **Session:** {mode_date} · **As of:** {data['as_of']}")
+st.caption("Decision-support only. LIVE mode uses the latest available market feed; LAST SESSION mode is historical and is never represented as live. The synthesis is generated exclusively from the displayed VWAP, opening-range, momentum, trend, volume, breadth and level signals. It is not a probability, trade recommendation, or execution signal. Use broker-grade real-time data for execution.")
