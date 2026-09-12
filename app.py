@@ -34,9 +34,16 @@ st.markdown("""
 .stApp{background:#070b12;color:#e7edf5}.block-container{max-width:1500px;padding-top:1.2rem}
 .mp-title{font-family:Georgia,serif;font-size:2.7rem;font-weight:700}.mp-sub{color:#8d9aab;letter-spacing:.12em;text-transform:uppercase;font-size:.7rem}
 .card{background:#0d131d;border:1px solid #202b3a;border-radius:15px;padding:16px;min-height:105px}.label{color:#8290a3;font-size:.65rem;text-transform:uppercase;letter-spacing:.12em}.value{font-family:Georgia,serif;font-size:1.5rem;margin-top:5px}.muted{color:#8d9aab}.ticker{overflow:hidden;border:1px solid #202b3a;border-radius:12px;background:#0d131d;padding:10px;white-space:nowrap}.track{display:inline-block;padding-left:100%;animation:scroll 180s linear infinite}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-/* Hide Streamlit's automatic page list so the branded Intelligence Suite below is the only navigation. */
+/* Hide Streamlit's automatic page list. MarketPilot uses the branded Intelligence Suite navigation below. */
 [data-testid="stSidebarNav"]{display:none}
-.mp-nav-title{font-size:.72rem;color:#8290a3;letter-spacing:.12em;font-weight:700;margin-top:.35rem}
+.mp-nav-title{font-family:Arial,sans-serif;font-size:.70rem;color:#8290a3;letter-spacing:.10em;font-weight:600;margin:17px 0 10px 0}
+section[data-testid="stSidebar"]{font-family:Arial,sans-serif}
+section[data-testid="stSidebar"] [data-testid="stPageLink"]{margin:0 !important;padding:0 !important}
+section[data-testid="stSidebar"] [data-testid="stPageLink"] a{min-height:30px !important;height:30px !important;padding:4px 10px !important;margin:1px 0 !important;border-radius:7px !important;font-family:Arial,sans-serif !important;font-size:14px !important;font-weight:500 !important;line-height:21px !important;color:#c7d0dc !important;text-decoration:none !important;gap:8px !important}
+section[data-testid="stSidebar"] [data-testid="stPageLink"] a:hover{background:#182231 !important;color:#f0f4f8 !important}
+section[data-testid="stSidebar"] [data-testid="stPageLink"] a[aria-current="page"]{background:#334154 !important;color:#f4f7fa !important;font-weight:600 !important}
+section[data-testid="stSidebar"] [data-testid="stPageLink"] a span{font-size:16px !important}
+.mp-brand{font-family:Georgia,serif;font-size:17px;font-weight:700;color:#e7edf5;margin:0 0 0 0}
 </style>
 """, unsafe_allow_html=True)
 
@@ -89,9 +96,9 @@ def news_data():
             pass
     return items[:28]
 
-# Branded navigation: this replaces Streamlit's automatic page menu.
+# Branded navigation: intentionally replaces Streamlit's automatic page menu.
 with st.sidebar:
-    st.markdown("## ◈ MarketPilot")
+    st.markdown('<div class="mp-brand">◈ MarketPilot</div>', unsafe_allow_html=True)
     st.markdown('<div class="mp-nav-title">INTELLIGENCE SUITE</div>', unsafe_allow_html=True)
     st.page_link("app.py", label="Main Dashboard", icon="🏠")
     st.page_link("pages/1_Stock_Intelligence.py", label="Stock Intelligence", icon="📊")
