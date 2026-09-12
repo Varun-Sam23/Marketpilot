@@ -1,8 +1,8 @@
-"""Autonomous agent governance for MarketPilot.
+"""Autonomous agent governance and debate for MarketPilot.
 
 This layer gives each specialist a mission, evidence contract, confidence score,
-source awareness and a self-check. It does not invent missing data. Agents may
-mark evidence insufficient and the orchestrator can escalate conflicts.
+source awareness, self-checks and bounded cross-agent debate. It never invents
+missing facts and never executes trades.
 """
 
 from dataclasses import dataclass
@@ -48,7 +48,7 @@ def assess(name: str, data: Any, error: str | None = None) -> dict[str, Any]:
         return {"confidence": "LOW", "evidence_state": "INSUFFICIENT", "missing": missing, "needs_retry": mission.fallback_allowed}
     if name == "News Agent":
         rows = data if isinstance(data, list) else []
-        verified = sum(1 for row in rows if row.get("claim_status") in {"SUPPORTED", "DISPUTED"})
+        verified = sum(1 for row in rows if row.get("research_state") in {"CORROBORATED", "CROSS_CHECKED"})
         return {"confidence": "HIGH" if verified >= 3 else "MEDIUM" if verified else "LOW", "evidence_state": "VERIFIED" if verified else "INSUFFICIENT", "verified_items": verified, "missing": [], "needs_retry": not bool(verified)}
     return {"confidence": "MEDIUM", "evidence_state": "READY", "missing": [], "needs_retry": False}
 
@@ -68,16 +68,62 @@ def attach_governance(name: str, result: dict[str, Any]) -> dict[str, Any]:
     return result
 
 
-def challenge_agents(results: dict[str, dict[str, Any]]) -> list[dict[str, str]]:
-    """Run deterministic cross-agent challenges before the Chief sees evidence."""
-    conflicts: list[dict[str, str]] = []
+def _challenge(challenger: str, target: str, claim: str, trigger: str, severity: str = "MEDIUM") -> dict[str, str]:
+    return {
+        "challenger": challenger,
+        "target": target,
+        "claim": claim,
+        "trigger": trigger,
+        "severity": severity,
+        "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+        "resolution": "PENDING_CHIEF",
+    }
+
+
+def debate_agents(results: dict[str, dict[str, Any]], max_debates: int = 5) -> list[dict[str, str]]:
+    """Run a bounded, evidence-triggered debate between specialist agents.
+
+    This is intentionally deterministic: a debate is created only when two
+    available specialist outputs create a concrete tension. The Chief gets the
+    unresolved challenge and must adjudicate it rather than averaging signals.
+    """
+    debates: list[dict[str, str]] = []
     technical = results.get("Technical Agent", {}).get("data", {})
     options = results.get("Options Agent", {}).get("data", {})
+    intraday = results.get("Intraday Agent", {}).get("data", {})
     risk = results.get("Risk Agent", {}).get("data", {})
+    sectors = results.get("Sector Agent", {}).get("data", {}).get("sectors", [])
+    institutional = results.get("Institutional Agent", {}).get("data", {})
+
     if technical.get("trend_vs_20d") == "ABOVE" and options.get("oi_bias") == "BEARISH":
-        conflicts.append({"agents": "Technical Agent ↔ Options Agent", "issue": "Price trend is above 20D SMA while options positioning is bearish.", "resolution": "Chief must treat this as a live conflict and reduce confidence unless additional evidence resolves it."})
-    if technical.get("trend_vs_20d") == "BELOW" and options.get("oi_bias") == "BULLISH":
-        conflicts.append({"agents": "Technical Agent ↔ Options Agent", "issue": "Price trend is below 20D SMA while options positioning is bullish.", "resolution": "Chief must treat this as a live conflict and reduce confidence unless additional evidence resolves it."})
-    if "VOLATILITY_SPIKE" in (risk.get("flags") or []):
-        conflicts.append({"agents": "Risk Agent", "issue": "Volatility spike detected.", "resolution": "Chief should require stronger confirmation before assigning high confidence."})
-    return conflicts
+        debates.append(_challenge("Options Agent", "Technical Agent", "Options positioning challenges the bullish implication of price trend.", "20D trend is ABOVE while OI bias is BEARISH.", "HIGH"))
+    elif technical.get("trend_vs_20d") == "BELOW" and options.get("oi_bias") == "BULLISH":
+        debates.append(_challenge("Technical Agent", "Options Agent", "Price trend challenges the bullish implication of options positioning.", "20D trend is BELOW while OI bias is BULLISH.", "HIGH"))
+
+    headline = str(intraday.get("headline", ""))
+    if headline and risk.get("flags") and any(x in headline.upper() for x in ("BULL", "BREAKOUT", "STRENGTH")) and "VOLATILITY_SPIKE" in risk.get("flags", []):
+        debates.append(_challenge("Risk Agent", "Intraday Agent", "Volatility conditions challenge a high-confidence intraday strength interpretation.", "Intraday strength coincides with a volatility spike.", "HIGH"))
+
+    positive = [x for x in sectors if (x.get("avg_change_pct") or 0) > 0]
+    negative = [x for x in sectors if (x.get("avg_change_pct") or 0) < 0]
+    if positive and negative and len(positive) <= len(negative):
+        debates.append(_challenge("Risk Agent", "Sector Agent", "Uneven sector participation challenges a broad-market strength conclusion.", "Positive sectors do not represent a broad majority.", "MEDIUM"))
+
+    if institutional and institutional.get("net_fii") is not None and institutional.get("net_fii") < 0:
+        debates.append(_challenge("Institutional Agent", "Market Agent", "Negative FII flow challenges an unqualified bullish market snapshot.", "FII net flow is negative in the available institutional data.", "MEDIUM"))
+
+    news = results.get("News Agent", {}).get("data", [])
+    verified = [x for x in news if x.get("research_state") in {"CORROBORATED", "CROSS_CHECKED"}]
+    if len(verified) == 0 and news:
+        debates.append(_challenge("Risk Agent", "News Agent", "News conclusions lack sufficient independent corroboration.", "No news item reached CROSS_CHECKED or CORROBORATED status.", "MEDIUM"))
+
+    return debates[:max_debates]
+
+
+def challenge_agents(results: dict[str, dict[str, Any]]) -> list[dict[str, str]]:
+    """Backward-compatible conflict view derived from the debate layer."""
+    debates = debate_agents(results)
+    return [
+        {"agents": f"{d['challenger']} ↔ {d['target']}", "issue": d["claim"], "resolution": "Chief must adjudicate: " + d["trigger"]}
+        for d in debates
+    ]
