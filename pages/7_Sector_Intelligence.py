@@ -2,8 +2,10 @@ import streamlit as st
 import pandas as pd
 
 from sector_intelligence import fetch_sector_intelligence
+from menu import render_sidebar
 
 st.set_page_config(page_title="Sector Intelligence | MarketPilot", page_icon="🏭", layout="wide")
+render_sidebar()
 
 st.markdown("""
 <style>
