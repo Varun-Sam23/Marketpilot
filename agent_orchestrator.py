@@ -1,16 +1,19 @@
 """MarketPilot multi-agent orchestration layer.
 
-Specialist agents run independently in parallel. They are deliberately small and
-mostly deterministic: raw market calculations stay in the existing intelligence
-engines, while the orchestration layer gives each specialist a clear role and
-returns a structured evidence pack for the Chief Intelligence layer.
+Specialist agents run independently in parallel. Raw calculations stay in the
+existing intelligence engines; agents package evidence for the final reasoning
+layer. The design is intentionally hybrid: deterministic calculations first,
+AI interpretation second.
 """
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from time import perf_counter
 
 from decision_engine import score_setup
+from institutional_flow import fetch_fii_dii, summarize_flow
+from intraday_intelligence import fetch_intraday
 from news_intelligence import enrich_news
+from options_intelligence import analyse_option_chain, fetch_option_chain
 from watchlist_intelligence import rank_watchlist
 
 
@@ -35,24 +38,21 @@ def _run_agent(name, fn):
 
 
 def run_specialists(*, levels, snapshots, sectors, watchlist, news_items):
-    """Run MarketPilot specialist agents concurrently.
-
-    The agents do not make independent trading decisions. They produce evidence
-    that is later consumed by the Decision Engine and Chief Intelligence layer.
-    """
+    """Run eight specialist agents concurrently and return one evidence pack."""
     tasks = {
         "Market Agent": lambda: {"snapshot": snapshots, "levels": levels},
         "Technical Agent": lambda: _technical(levels),
         "News Agent": lambda: enrich_news(news_items[:24]),
-        "Institutional Agent": lambda: {"status": "DELEGATED", "note": "Institutional flow engine remains the source of FII/DII evidence."},
-        "Options Agent": lambda: {"status": "DELEGATED", "note": "Options intelligence engine remains the source of OI/IV/positioning evidence."},
+        "Institutional Agent": lambda: _institutional(),
+        "Options Agent": lambda: _options(),
+        "Intraday Agent": lambda: fetch_intraday(),
         "Sector Agent": lambda: {"sectors": sectors},
         "Watchlist Agent": lambda: rank_watchlist(watchlist, news_items[:24]),
         "Risk Agent": lambda: _risk(levels, snapshots, sectors),
     }
 
     results = {}
-    with ThreadPoolExecutor(max_workers=min(8, len(tasks)), thread_name_prefix="mp-agent") as pool:
+    with ThreadPoolExecutor(max_workers=len(tasks), thread_name_prefix="mp-agent") as pool:
         futures = {pool.submit(_run_agent, name, fn): name for name, fn in tasks.items()}
         for future in as_completed(futures):
             result = future.result()
@@ -67,17 +67,45 @@ def run_specialists(*, levels, snapshots, sectors, watchlist, news_items):
     }
 
 
+def _institutional():
+    result = fetch_fii_dii()
+    return summarize_flow(result)
+
+
+def _options():
+    result = fetch_option_chain("NIFTY")
+    summary = analyse_option_chain(result)
+    if not summary.get("available"):
+        return summary
+    # Keep the inter-agent packet JSON-friendly; the page-specific engine still
+    # has access to the full DataFrames when it fetches options directly.
+    return {
+        "available": True,
+        "symbol": summary.get("symbol"),
+        "expiry": summary.get("expiry"),
+        "spot": summary.get("spot"),
+        "atm": summary.get("atm"),
+        "pcr_oi": summary.get("pcr_oi"),
+        "pcr_volume": summary.get("pcr_volume"),
+        "max_pain": summary.get("max_pain"),
+        "oi_bias": summary.get("oi_bias"),
+        "source": summary.get("source"),
+        "source_url": summary.get("source_url"),
+        "call_resistance": summary["call_resistance"].to_dict("records"),
+        "put_support": summary["put_support"].to_dict("records"),
+    }
+
+
 def _technical(levels):
     if not levels:
         return {"status": "INSUFFICIENT DATA"}
     close = levels.get("NIFTY close")
     sma20 = levels.get("20D SMA")
     sma50 = levels.get("50D SMA")
-    rsi = levels.get("RSI14")
     return {
         "trend_vs_20d": "ABOVE" if close is not None and sma20 and close > sma20 else "BELOW" if close is not None and sma20 else "UNKNOWN",
         "trend_vs_50d": "ABOVE" if close is not None and sma50 and close > sma50 else "BELOW" if close is not None and sma50 else "UNKNOWN",
-        "rsi14": rsi,
+        "rsi14": levels.get("RSI14"),
         "20d_return_pct": levels.get("20D return %"),
         "range_position_pct": levels.get("range_position_%"),
     }
