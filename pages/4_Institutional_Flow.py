@@ -13,6 +13,7 @@ st.markdown("""
 .flow-label { color: #7f8da3; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
 .flow-value { font-size: 27px; font-weight: 700; margin-top: 8px; }
 .flow-sub { color: #8d9bad; font-size: 12px; margin-top: 5px; }
+.source-strip { background:#111a27; border:1px solid #26364b; border-radius:12px; padding:12px 16px; color:#aebbd0; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -29,7 +30,12 @@ if not summary.get("available"):
 
 fresh = summary.get("freshness_days")
 fresh_label = "fresh" if fresh is not None and fresh <= 1 else f"{fresh} days old" if fresh is not None else "freshness unknown"
-st.caption(f"Latest available NSE record: {summary['date']} · Data status: **{fresh_label}**")
+source = summary.get("source", "Unknown")
+source_url = summary.get("source_url", "")
+st.caption(f"Latest available record: {summary['date']} · Data status: **{fresh_label}**")
+st.markdown(f'<div class="source-strip">SOURCE <b>{source}</b> · Provenance is shown explicitly because NSE can block hosted server requests. The dashboard will never hide a fallback source.</div>', unsafe_allow_html=True)
+if source_url:
+    st.caption(f"Source reference: {source_url}")
 
 
 def fmt(v):
