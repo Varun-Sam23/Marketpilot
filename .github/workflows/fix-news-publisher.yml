@@ -1,0 +1,60 @@
+name: Fix news publisher metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'Fix news publisher metadata')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Fix publisher attribution and verification
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          app = Path('app.py')
+          s = app.read_text(encoding='utf-8')
+          old = '"source": source,\n                    "published": entry.get("published", ""),'
+          new = '"source": source,\n                    "publisher": (entry.get("source", {}).get("title", "") if isinstance(entry.get("source", {}), dict) else "") or source,\n                    "published": entry.get("published", ""),'
+          if old in s and '"publisher": (entry.get("source"' not in s:
+              s = s.replace(old, new, 1)
+          app.write_text(s, encoding='utf-8')
+
+          ni = Path('news_intelligence.py')
+          s = ni.read_text(encoding='utf-8')
+          s = s.replace(
+              'domain = publisher_domain(item.get("link", ""))',
+              'domain = item.get("publisher", "").strip() or publisher_domain(item.get("link", ""))'
+          )
+          s = s.replace(
+              'domains = {publisher_domain(items[j].get("link", "")) for j in cluster}',
+              'domains = {(items[j].get("publisher", "").strip() or publisher_domain(items[j].get("link", ""))) for j in cluster}'
+          )
+          ni.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit fixes
+        shell: bash
+        run: |
+          git config user.name "marketpilot-bot"
+          git config user.email "marketpilot-bot@users.noreply.github.com"
+          git add app.py news_intelligence.py
+          git diff --cached --quiet || git commit -m "Fix news publisher metadata"
+          git push
+
+      - name: Remove this one-off workflow
+        shell: bash
+        run: |
+          git rm .github/workflows/fix-news-publisher.yml
+          git commit -m "Remove one-off news publisher fix workflow"
+          git push
