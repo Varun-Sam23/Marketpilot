@@ -1,4 +1,6 @@
+import html
 import json
+import re
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -29,7 +31,7 @@ st.markdown("""
 <style>
 :root{--bg:#0b1017;--ink:#edf1f5;--muted:#8f9baa;--line:rgba(255,255,255,.085);--gold:#c9a85b}
 [data-testid="stAppViewContainer"]{background:radial-gradient(circle at 85% 0%,rgba(201,168,91,.10),transparent 28%),var(--bg)}
-.main .block-container{max-width:1460px;padding:1.1rem 2.1rem 4rem}.cr-k{font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gold)}.cr-title{font-family:Georgia,serif;font-size:2.5rem;color:var(--ink);margin:.25rem 0}.cr-sub{color:var(--muted);font-size:.8rem;line-height:1.5;max-width:900px}.cr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin:1.2rem 0}.cr-card{border:1px solid var(--line);border-radius:16px;padding:.9rem 1rem;background:rgba(255,255,255,.018)}.cr-label{font-size:.57rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.cr-value{font-family:Georgia,serif;font-size:1.45rem;color:var(--ink);margin-top:.2rem}.cr-hero{border:1px solid var(--line);border-radius:19px;padding:1.1rem;background:linear-gradient(115deg,rgba(201,168,91,.10),rgba(255,255,255,.018));margin:1rem 0}.cr-head{font-family:Georgia,serif;font-size:1.25rem;color:var(--ink)}.cr-meta{font-size:.73rem;color:var(--muted);line-height:1.6}.cr-score{font-family:Georgia,serif;font-size:2.4rem;color:var(--ink)}.cr-divider{height:1px;background:var(--line);margin:.9rem 0}
+.main .block-container{max-width:1460px;padding:1.1rem 2.1rem 4rem}.cr-k{font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gold)}.cr-title{font-family:Georgia,serif;font-size:2.5rem;color:var(--ink);margin:.25rem 0}.cr-sub{color:var(--muted);font-size:.8rem;line-height:1.5;max-width:900px}.cr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin:1.2rem 0}.cr-card{border:1px solid var(--line);border-radius:16px;padding:.9rem 1rem;background:rgba(255,255,255,.018)}.cr-label{font-size:.57rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.cr-value{font-family:Georgia,serif;font-size:1.45rem;color:var(--ink);margin-top:.2rem}.cr-hero{border:1px solid var(--line);border-radius:19px;padding:1.1rem;background:linear-gradient(115deg,rgba(201,168,91,.10),rgba(255,255,255,.018));margin:1rem 0}.cr-head{font-family:Georgia,serif;font-size:1.25rem;color:var(--ink)}.cr-meta{font-size:.73rem;color:var(--muted);line-height:1.6}.cr-score{font-family:Georgia,serif;font-size:2.4rem;color:var(--ink)}.cr-divider{height:1px;background:var(--line);margin:.9rem 0}.cr-news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:.8rem}.cr-news{border:1px solid var(--line);border-radius:16px;padding:1rem;background:rgba(255,255,255,.018);min-height:175px}.cr-news-head{font-family:Georgia,serif;font-size:1rem;line-height:1.4;color:var(--ink);margin:.45rem 0}.cr-gist{color:#b4beca;font-size:.78rem;line-height:1.5;margin:.5rem 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.cr-source{color:var(--muted);font-size:.66rem;line-height:1.5}.impact-high{color:#ff7b83}.impact-medium{color:#ffd45c}.impact-low{color:#8fa0b3}
 </style>
 """, unsafe_allow_html=True)
 
@@ -43,6 +45,13 @@ def parse_dt(value):
         if dt.tzinfo is None:dt=dt.replace(tzinfo=timezone.utc)
         return dt.astimezone(timezone.utc)
     except Exception:return None
+
+def clean_gist(value, headline=""):
+    text=re.sub(r"<[^>]+>"," ",str(value or ""))
+    text=re.sub(r"\s+"," ",text).strip()
+    text=re.sub(r"^(?:\s*[-–—|]\s*)+", "", text)
+    if text and text.lower()!=headline.lower(): return text[:360].rstrip(" .") + ("…" if len(text)>360 else ".")
+    return "The report highlights a market-relevant development that may affect investor sentiment, sector expectations or the stock-specific outlook. Review the source for the full context."
 
 def catalyst_type(text):
     t=text.lower()
@@ -94,7 +103,9 @@ def catalyst_news():
             for e in feed.entries[:8]:
                 title=e.get("title","").strip();dt=parse_dt(e.get("published","") or e.get("updated","") or "")
                 if not title or not dt or now-dt>timedelta(days=4):continue
-                rows.append({"Published":dt.strftime("%d %b %H:%M UTC"),"Type":catalyst_type(title),"Impact":impact(title),"Affected":related_stock(title),"Headline":title,"Publisher":(e.get("source",{}).get("title","") if isinstance(e.get("source"),dict) else ""),"Link":e.get("link","")})
+                publisher=(e.get("source",{}).get("title","") if isinstance(e.get("source"),dict) else "")
+                summary=e.get("summary") or e.get("description") or ""
+                rows.append({"Published":dt.strftime("%d %b %H:%M UTC"),"Type":catalyst_type(title),"Impact":impact(title),"Affected":related_stock(title),"Headline":title,"Gist":clean_gist(summary,title),"Publisher":publisher,"Link":e.get("link","")})
         except Exception:pass
     seen=set();out=[]
     for r in sorted(rows,key=lambda x:(x["Impact"]!="HIGH",x["Impact"]!="MEDIUM",x["Published"]),reverse=False):
@@ -123,15 +134,15 @@ else:st.info("No dated earnings events were exposed by the public calendar for t
 
 st.markdown('<div class="cr-k" style="margin-top:1.5rem">Live catalyst feed · last 4 days</div>',unsafe_allow_html=True)
 if news:
-    display=[]
-    for x in news:
-        display.append({"Published":x["Published"],"Type":x["Type"],"Impact":x["Impact"],"Affected":x["Affected"],"Headline":x["Headline"],"Publisher":x["Publisher"] or "Unknown"})
-    st.dataframe(pd.DataFrame(display),use_container_width=True,hide_index=True)
-    st.markdown('<div class="cr-k" style="margin-top:1.5rem">Catalyst notes</div>',unsafe_allow_html=True)
-    for x in news[:8]:
-        with st.expander(f'{x["Impact"]} · {x["Type"]} · {x["Affected"]} · {x["Headline"]}'):
-            st.write(f'Published: {x["Published"]} · Publisher: {x["Publisher"] or "Unknown"}')
-            if x["Link"]:st.link_button("Open source ↗",x["Link"])
+    st.markdown('<div class="cr-news-grid">',unsafe_allow_html=True)
+    for x in news[:12]:
+        impact_cls={"HIGH":"impact-high","MEDIUM":"impact-medium","LOW":"impact-low"}.get(x["Impact"],"impact-low")
+        publisher=html.escape(x["Publisher"] or "Unknown")
+        headline=html.escape(x["Headline"])
+        gist=html.escape(x["Gist"])
+        meta=f'{html.escape(x["Type"])} · {html.escape(x["Affected"])} · {html.escape(x["Published"])}'
+        st.markdown(f'<div class="cr-news"><div class="cr-k {impact_cls}">{html.escape(x["Impact"])} · {meta}</div><div class="cr-news-head">{headline}</div><div class="cr-gist">{gist}</div><div class="cr-source">{publisher} · <a href="{html.escape(x["Link"])}" target="_blank">Open source ↗</a></div></div>',unsafe_allow_html=True)
+    st.markdown('</div>',unsafe_allow_html=True)
 else:st.info("No recent catalyst headlines were available from the public feeds.")
 
 st.caption("Catalyst Radar is a research filter. It does not estimate the probability or magnitude of a stock move and should be combined with price structure, valuation and primary-source confirmation.")
