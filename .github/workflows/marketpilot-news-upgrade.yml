@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Add source traceability to News Intelligence
+      - name: Add claim status to News Intelligence
         shell: python
         run: |
           from pathlib import Path
@@ -25,34 +25,29 @@ jobs:
           p = Path("app.py")
           s = p.read_text(encoding="utf-8")
 
-          old = '''rows=[]
-          for item in news_intel[:20]:
-              score=int(item.get("evidence_score",10)); count=int(item.get("evidence_count",0)); sources=item.get("verification_sources",[])
-              rows.append({"Headline":item.get("title",""),"Verification":verification_badge(item.get("verification")),"Evidence":f'{score}/100 · {evidence_label(score)}',"Sources":count,"Impact":f'{impact_icon(item.get("impact"))} {item.get("impact","NEUTRAL")}',"Affected":item.get("affected","MARKET"),"Publisher":item.get("publisher","Unknown publisher"),"Published":item.get("published","")})
-          st.dataframe(pd.DataFrame(rows),use_container_width=True,hide_index=True)
-          st.markdown('<div class="mp-section">Evidence desk · top stories</div>',unsafe_allow_html=True)
-          for i,item in enumerate(news_intel[:8],1):
-              score=int(item.get("evidence_score",10)); sources=item.get("verification_sources",[]); source_text=" · ".join(sources) if sources else "No independent sources found"
-              with st.expander(f'{i:02d} · {verification_badge(item.get("verification"))} · Evidence {score}/100 · {item.get("title","")}'):
-                  st.markdown(f'<div class="news-evidence"><div class="news-evidence-title">Evidence strength · {evidence_label(score)}</div><div class="news-evidence-head">{score}/100</div><div class="news-evidence-meta"><b>Publisher:</b> {html.escape(item.get("publisher","Unknown publisher"))}<br><b>Independent sources:</b> {html.escape(source_text)}<br><b>Impact:</b> {html.escape(item.get("impact","NEUTRAL"))} · <b>Affected:</b> {html.escape(item.get("affected","MARKET"))}<br><b>Why:</b> {html.escape(item.get("verification_detail",""))}</div></div>',unsafe_allow_html=True)'''
+          s = s.replace(
+              '"Verification":verification_badge(item.get("verification")),"Evidence":f\'{score}/100 · {evidence_label(score)}\',',
+              '"Verification":verification_badge(item.get("verification")),"Claim Status":item.get("claim_status","INSUFFICIENT EVIDENCE"),"Evidence":f\'{score}/100 · {evidence_label(score)}\',',
+              1
+          )
 
-          new = '''rows=[]
-          for item in news_intel[:20]:
-              score=int(item.get("evidence_score",10)); count=int(item.get("evidence_count",0)); sources=item.get("verification_sources",[])
-              rows.append({"Headline":item.get("title",""),"Verification":verification_badge(item.get("verification")),"Evidence":f'{score}/100 · {evidence_label(score)}',"Sources":count,"Impact":f'{impact_icon(item.get("impact"))} {item.get("impact","NEUTRAL")}',"Affected":item.get("affected","MARKET"),"Publisher":item.get("publisher","Unknown publisher"),"Published":item.get("published","")})
-          st.dataframe(pd.DataFrame(rows),use_container_width=True,hide_index=True)
-          st.markdown('<div class="mp-section">Evidence desk · top stories</div>',unsafe_allow_html=True)
-          for i,item in enumerate(news_intel[:8],1):
-              score=int(item.get("evidence_score",10)); sources=item.get("verification_sources",[]); source_text=" · ".join(sources) if sources else "No independent sources found"; link=item.get("link","")
-              published=item.get("published","") or "Publication time unavailable"
-              source_link=f'<a href="{html.escape(link, quote=True)}" target="_blank" rel="noopener noreferrer">Open original report ↗</a>' if link else '<span>Original report link unavailable</span>'
-              with st.expander(f'{i:02d} · {verification_badge(item.get("verification"))} · Evidence {score}/100 · {item.get("title","")}'):
-                  st.markdown(f'<div class="news-evidence"><div class="news-evidence-title">Evidence strength · {evidence_label(score)}</div><div class="news-evidence-head">{score}/100</div><div class="news-evidence-meta"><b>Publisher:</b> {html.escape(item.get("publisher","Unknown publisher"))}<br><b>Independent sources:</b> {html.escape(source_text)}<br><b>Published:</b> {html.escape(published)}<br><b>Impact:</b> {html.escape(item.get("impact","NEUTRAL"))} · <b>Affected:</b> {html.escape(item.get("affected","MARKET"))}<br><b>Why:</b> {html.escape(item.get("verification_detail",""))}<br><br>{source_link}</div></div>',unsafe_allow_html=True)'''
+          old = '''        avg_score=round(sum(scores)/len(scores)) if scores else 0; strong=sum(s>=75 for s in scores); conflicts=sum(x.get("verification")=="CONFLICTING" for x in checked)
+        st.markdown(f'<div class="news-summary"><div class="news-stat"><div class="news-stat-label">Avg evidence strength</div><div class="news-stat-value">{avg_score}/100</div></div><div class="news-stat"><div class="news-stat-label">Strong evidence stories</div><div class="news-stat-value">{strong}</div></div><div class="news-stat"><div class="news-stat-label">Conflicting stories</div><div class="news-stat-value">{conflicts}</div></div></div>',unsafe_allow_html=True)'''
+          new = '''        avg_score=round(sum(scores)/len(scores)) if scores else 0; strong=sum(s>=75 for s in scores); conflicts=sum(x.get("verification")=="CONFLICTING" for x in checked); supported=sum(x.get("claim_status")=="SUPPORTED" for x in news_intel); disputed=sum(x.get("claim_status")=="DISPUTED" for x in news_intel); insufficient=sum(x.get("claim_status")=="INSUFFICIENT EVIDENCE" for x in news_intel)
+        st.markdown(f'<div class="news-summary"><div class="news-stat"><div class="news-stat-label">Avg evidence strength</div><div class="news-stat-value">{avg_score}/100</div></div><div class="news-stat"><div class="news-stat-label">Supported claims</div><div class="news-stat-value">{supported}</div></div><div class="news-stat"><div class="news-stat-label">Disputed claims</div><div class="news-stat-value">{disputed}</div></div><div class="news-stat"><div class="news-stat-label">Insufficient evidence</div><div class="news-stat-value">{insufficient}</div></div></div>',unsafe_allow_html=True)'''
+          if old in s:
+              s=s.replace(old,new,1)
 
-          if old not in s:
-              raise SystemExit("Target News Intelligence block not found; refusing to modify app.py")
-          s = s.replace(old, new, 1)
-          p.write_text(s, encoding="utf-8")
+          old2 = '''            score=int(item.get("evidence_score",10)); sources=item.get("verification_sources",[]); source_text=" · ".join(sources) if sources else "No independent sources found"
+            with st.expander(f'{i:02d} · {verification_badge(item.get("verification"))} · Evidence {score}/100 · {item.get("title","")}'):
+                st.markdown(f'<div class="news-evidence"><div class="news-evidence-title">Evidence strength · {evidence_label(score)}</div><div class="news-evidence-head">{score}/100</div><div class="news-evidence-meta"><b>Publisher:</b> {html.escape(item.get("publisher","Unknown publisher"))}<br><b>Independent sources:</b> {html.escape(source_text)}<br><b>Impact:</b> {html.escape(item.get("impact","NEUTRAL"))} · <b>Affected:</b> {html.escape(item.get("affected","MARKET"))}<br><b>Why:</b> {html.escape(item.get("verification_detail",""))}</div></div>',unsafe_allow_html=True)'''
+          new2 = '''            score=int(item.get("evidence_score",10)); sources=item.get("verification_sources",[]); source_text=" · ".join(sources) if sources else "No independent sources found"; claim=item.get("claim_status","INSUFFICIENT EVIDENCE"); claim_detail=item.get("claim_status_detail","")
+            with st.expander(f'{i:02d} · {claim} · {verification_badge(item.get("verification"))} · Evidence {score}/100 · {item.get("title","")}'):
+                st.markdown(f'<div class="news-evidence"><div class="news-evidence-title">Claim status · {html.escape(claim)}</div><div class="news-evidence-head">Evidence {score}/100 · {evidence_label(score)}</div><div class="news-evidence-meta"><b>Claim assessment:</b> {html.escape(claim_detail)}<br><b>Publisher:</b> {html.escape(item.get("publisher","Unknown publisher"))}<br><b>Independent sources:</b> {html.escape(source_text)}<br><b>Impact:</b> {html.escape(item.get("impact","NEUTRAL"))} · <b>Affected:</b> {html.escape(item.get("affected","MARKET"))}<br><b>Why:</b> {html.escape(item.get("verification_detail",""))}</div></div>',unsafe_allow_html=True)'''
+          if old2 in s:
+              s=s.replace(old2,new2,1)
+
+          p.write_text(s,encoding="utf-8")
 
       - name: Commit upgrade
         shell: bash
@@ -64,5 +59,5 @@ jobs:
             echo "No changes needed"
             exit 0
           fi
-          git commit -m "MarketPilot automated: add original news links"
+          git commit -m "MarketPilot automated: show supported disputed claims"
           git push
