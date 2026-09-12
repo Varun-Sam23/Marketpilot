@@ -19,4 +19,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate Python syntax
-        run: python -m py_compile app.py engine.py decision_engine.py news_intelligence.py watchlist_intelligence.py ai_brain.py pages/*.py
+        run: python -m py_compile app.py engine.py decision_engine.py news_intelligence.py watchlist_intelligence.py ai_brain.py intraday_intelligence.py sector_intelligence.py pages/*.py
