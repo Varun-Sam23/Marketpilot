@@ -112,6 +112,7 @@ def load_morning_report():
         "global": [],
         "news": [],
         "watchlist": [],
+        "ai_analysis": {},
     })
 
 
@@ -133,16 +134,62 @@ st.info(
     "Live market values and news below refresh approximately every 60 seconds while this page is open."
 )
 
-st.subheader("🧠 Morning Intelligence")
+st.subheader("🧠 MarketPilot AI Brain")
+ai = report.get("ai_analysis", {})
+if ai.get("enabled"):
+    st.success(f"AI analysis ready • {ai.get('provider', 'Gemini')} {ai.get('model', '')}")
+    a, b, c = st.columns(3)
+    a.metric("AI bias", ai.get("bias", "UNKNOWN"))
+    b.metric("Market regime", ai.get("market_regime", "UNKNOWN"))
+    c.metric("AI confidence", ai.get("confidence", "LOW"))
+
+    st.write("**Thesis**")
+    st.write(ai.get("thesis", ""))
+
+    x, y, z = st.columns(3)
+    with x:
+        st.write("**🟢 Bull case**")
+        st.write(ai.get("bull_case", ""))
+    with y:
+        st.write("**🟡 Base case**")
+        st.write(ai.get("base_case", ""))
+    with z:
+        st.write("**🔴 Bear case**")
+        st.write(ai.get("bear_case", ""))
+
+    st.write("**Key levels**")
+    for level in ai.get("key_levels", []):
+        st.write("•", level)
+
+    st.write("**Invalidation**")
+    st.write(ai.get("invalidation", ""))
+
+    d1, d2 = st.columns(2)
+    with d1:
+        st.write("**Drivers**")
+        for item in ai.get("drivers", []):
+            st.write("•", item)
+    with d2:
+        st.write("**Risks**")
+        for item in ai.get("risks", []):
+            st.write("•", item)
+else:
+    status = ai.get("status", "AI KEY NOT CONFIGURED")
+    st.warning(
+        f"{status}. Add the GEMINI_API_KEY GitHub secret to enable the AI Market Brain. "
+        "Until then, MarketPilot continues using the deterministic framework."
+    )
+
+st.subheader("📌 Morning framework")
 a, b = st.columns([1, 2])
 with a:
-    st.metric("Bias", report.get("verdict", "WAIT"))
+    st.metric("Rule-based bias", report.get("verdict", "WAIT"))
     st.write("Confidence:", report.get("confidence", "Low"))
 with b:
     st.write(report.get("summary", ""))
 
 if report.get("signals"):
-    st.subheader("Key signals")
+    st.write("**Key signals**")
     for s in report["signals"]:
         st.write("•", s)
 
@@ -162,8 +209,7 @@ else:
 
 st.subheader("📰 Live news")
 news = live_news()
-news_time = now.strftime("%H:%M:%S IST")
-st.caption(f"News refresh: {news_time}")
+st.caption(f"News refresh: {now.strftime('%H:%M:%S IST')}")
 if news:
     for item in news[:15]:
         title = item.get("title", "").strip()
@@ -171,9 +217,9 @@ if news:
         published = item.get("published", "")
         link = item.get("link", "")
         if link:
-            st.markdown(f"**[{title}]({link})**  \\n{source} — {published}")
+            st.markdown(f"**[{title}]({link})**  \n{source} — {published}")
         else:
-            st.markdown(f"**{title}**  \\n{source} — {published}")
+            st.markdown(f"**{title}**  \n{source} — {published}")
 else:
     st.caption("Live news unavailable from the free feeds right now.")
 
