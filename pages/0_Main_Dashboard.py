@@ -90,6 +90,9 @@ def key_news_points(summary,headline):
     text=clean_news_text(summary)
     if not text or text.lower()==clean_news_text(headline).lower():
         return []
+    normalized=text.lower()
+    if "comprehensive up-to-date news coverage" in normalized or "comprehensive up to date news coverage" in normalized or "aggregated from sources all over the world by google news" in normalized:
+        return []
     text=re.sub(r"^(?:\s*[-–—|]\s*)+","",text).strip()
     sentences=re.split(r"(?<=[.!?])\s+",text)
     points=[]
@@ -114,7 +117,7 @@ def raw_news():
                 if not publisher:
                     m=re.search(r"\s+-\s+([^-]+)$",title);publisher=m.group(1).strip() if m else "Unknown publisher"
                 title=re.sub(r"\s+-\s+([^-]+)$","",title).strip()
-                items.append({"title":title,"publisher":publisher,"published":e.get("published","") or e.get("updated","") ,"summary":e.get("summary") or e.get("description") or ""})
+                items.append({"title":title,"publisher":publisher,"published":e.get("published","") or e.get("updated","") ,"summary":e.get("summary") or e.get("description") or "","link":e.get("link") or ""})
         except Exception:pass
     return items[:28]
 
@@ -202,7 +205,7 @@ with t3:
         trs=[]
         for r in rows:
             cls={"SUPPORTED":"status-supported","DISPUTED":"status-disputed","INSUFFICIENT EVIDENCE":"status-insufficient"}.get(r["status"],"neutral")
-            points_html=''.join(f'<span class="evidence-point">{html.escape(p)}</span>' for p in r["points"]) or '<span class="evidence-point">Source summary unavailable; open the publisher for full context.</span>'
+            points_html=''.join(f'<span class="evidence-point">{html.escape(p)}</span>' for p in r["points"]) or '<span class="evidence-point">Article facts unavailable; open the publisher for full context.</span>'
             headline_html=f'<div class="evidence-headline-title">{html.escape(str(r["headline"]))}</div><div class="evidence-gist">{points_html}</div>'
             trs.append(f'<tr><td class="{cls} status-cell"><span class="status-dot">{r["dot"]}</span>{html.escape(str(r["status"]))}</td><td class="evidence-headline">{headline_html}</td><td>{html.escape(str(r["verification"]))}</td><td class="evidence-num">{html.escape(str(r["evidence"]))}</td><td class="evidence-num">{html.escape(str(r["sources"]))}</td><td>{html.escape(str(r["publisher"]))}</td></tr>')
         table='<div class="evidence-wrap"><table class="evidence-table"><colgroup><col style="width:170px"><col style="width:52%"><col style="width:125px"><col style="width:72px"><col style="width:72px"><col style="width:125px"></colgroup><thead><tr><th>Status</th><th>Headline · Key Points</th><th>Verification</th><th>Evidence</th><th>Sources</th><th>Publisher</th></tr></thead><tbody>'+''.join(trs)+'</tbody></table></div>'
