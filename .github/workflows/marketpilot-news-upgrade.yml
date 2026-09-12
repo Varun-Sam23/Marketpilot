@@ -8,15 +8,13 @@ on:
 permissions:
   contents: read
 
-# Prevent stale validation runs from piling up in the Actions queue.
+# Keep only the newest validation run for the branch.
 concurrency:
   group: marketpilot-validation-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   validate:
-    # Pin the runner image instead of relying on ubuntu-latest while its runner
-    # pool is experiencing queue delays.
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
@@ -27,7 +25,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate Python syntax
-        run: python -m py_compile app.py engine.py decision_engine.py news_intelligence.py news_agent.py watchlist_intelligence.py ai_brain.py intraday_intelligence.py sector_intelligence.py performance_intelligence.py calibration_intelligence.py institutional_flow.py options_intelligence.py pages/*.py tests/*.py
+        run: python -m py_compile app.py engine.py multi_agent_engine.py agent_orchestrator.py decision_engine.py news_intelligence.py news_agent.py watchlist_intelligence.py ai_brain.py intraday_intelligence.py sector_intelligence.py performance_intelligence.py calibration_intelligence.py institutional_flow.py options_intelligence.py pages/*.py tests/*.py
       - name: Install test dependencies
         run: python -m pip install feedparser requests google-genai
       - name: Run regression tests
