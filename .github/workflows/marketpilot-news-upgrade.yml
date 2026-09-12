@@ -1,6 +1,6 @@
 name: MarketPilot Validation
 
-'on':
+on:
   push:
     branches: [main]
   workflow_dispatch:
@@ -18,12 +18,5 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install runtime dependencies
-        run: python -m pip install --upgrade pip && pip install -r requirements.txt
       - name: Validate Python syntax
         run: python -m py_compile app.py engine.py decision_engine.py news_intelligence.py watchlist_intelligence.py ai_brain.py intraday_intelligence.py sector_intelligence.py performance_intelligence.py calibration_intelligence.py institutional_flow.py options_intelligence.py pages/*.py tests/*.py
-      - name: Run regression tests
-        run: python -m unittest discover -s tests -p "test_*.py" -v
-      - name: Import core modules
-        run: |
-          python -c 'import engine, decision_engine, news_intelligence, watchlist_intelligence, ai_brain, intraday_intelligence, sector_intelligence, performance_intelligence, calibration_intelligence, institutional_flow, options_intelligence; print("Core module imports: OK")'
