@@ -2,8 +2,10 @@ import pandas as pd
 import streamlit as st
 
 from options_intelligence import analyse_option_chain, fetch_option_chain
+from menu import render_sidebar
 
 st.set_page_config(page_title="MarketPilot · Options Intelligence", page_icon="⛓️", layout="wide")
+render_sidebar()
 
 st.markdown("""
 <style>
