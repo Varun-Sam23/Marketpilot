@@ -86,20 +86,11 @@ def news_data():
             pass
     return items[:28]
 
-# Explicit links guarantee that the full intelligence suite remains visible even if Streamlit's automatic page menu is stale.
+# Streamlit's automatic multipage navigation already provides the Intelligence Suite.
+# Keep the sidebar clean and avoid duplicating every page with manual st.page_link calls.
 with st.sidebar:
     st.markdown("## ◈ MarketPilot")
     st.caption("INTELLIGENCE SUITE")
-    st.page_link("app.py", label="Main Dashboard", icon="🏠")
-    st.page_link("pages/1_Stock_Intelligence.py", label="Stock Intelligence", icon="📊")
-    st.page_link("pages/2_Catalyst_Radar.py", label="Catalyst Radar", icon="⚡")
-    st.page_link("pages/3_Market_Regime.py", label="Market Regime", icon="🌐")
-    st.page_link("pages/4_Institutional_Flow.py", label="Institutional Flow", icon="🏦")
-    st.page_link("pages/5_Options_Intelligence.py", label="Options Intelligence", icon="📐")
-    st.page_link("pages/6_Intraday_Market_Structure.py", label="Intraday Market Structure", icon="⚡")
-    st.page_link("pages/7_Sector_Intelligence.py", label="Sector Intelligence", icon="🏭")
-    st.page_link("pages/8_Performance_Tracker.py", label="Performance Tracker", icon="📈")
-    st.page_link("pages/9_Thesis_Calibration.py", label="Thesis Calibration", icon="🎯")
 
 status=market_status(); now=datetime.now(IST); report=load_json(DATA_FILE,{})
 raw_news=news_data(); news_intel=enrich_news(raw_news); indices=index_data(); watchlist=load_json(WATCHLIST_FILE,DEFAULT_WATCHLIST)
@@ -120,7 +111,7 @@ if news_intel:
     for x in news_intel[:12]:
         badge={"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(x.get("claim_status"),"🟡")
         parts.append(f"{badge} {html.escape(x.get('title',''))} · {html.escape(x.get('publisher','Unknown'))}")
-    st.markdown('<div class="ticker"><div class="track">'+' &nbsp; ◆ &nbsp; '.join(parts)+'</div></div>',unsafe_allow_html=True)
+    st.markdown('<div class="ticker"><div class="track">'+' &nbsp; ◆ &nbsp; '.join(parts)+'</div></div>', unsafe_allow_html=True)
 
 if not indices.empty:
     cols=st.columns(len(indices))
