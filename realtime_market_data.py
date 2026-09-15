@@ -16,6 +16,8 @@ from datetime import datetime
 from typing import Any
 from zoneinfo import ZoneInfo
 
+import requests
+
 IST = ZoneInfo("Asia/Kolkata")
 
 INSTRUMENTS = {
@@ -242,3 +244,29 @@ def live_quote(symbol: str) -> dict[str, Any] | None:
     with _lock:
         quote = _state["quotes"].get(symbol.upper())
         return dict(quote) if quote else None
+
+
+def upstox_intraday_candles(symbol: str, interval: int) -> list[list[Any]]:
+    """Fetch current-session candles directly from Upstox V3.
+
+    Supported intervals are 1, 5, 15 and 30 minutes. This is the chart-data
+    path for LIVE MARKET; it deliberately does not fall back to Yahoo Finance.
+    """
+    token = os.getenv("UPSTOX_ACCESS_TOKEN", "").strip()
+    if not token:
+        return []
+    if interval not in {1, 5, 15, 30}:
+        return []
+    instrument_key = INSTRUMENTS.get(symbol.upper())
+    if not instrument_key:
+        return []
+    url = f"https://api.upstox.com/v3/historical-candle/intraday/{requests.utils.quote(instrument_key, safe='')}/minutes/{interval}"
+    headers = {"Accept": "application/json", "Authorization": f"Bearer {token}"}
+    try:
+        response = requests.get(url, headers=headers, timeout=5)
+        response.raise_for_status()
+        payload = response.json()
+        candles = payload.get("data", {}).get("candles", [])
+        return candles if isinstance(candles, list) else []
+    except Exception:
+        return []
