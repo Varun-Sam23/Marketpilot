@@ -87,6 +87,7 @@ def run():
         "sectors": sectors,
         "decision": decision,
         "specialist_agents": specialists,
+        "specialists": specialists,
         "ai_analysis": ai_result,
     }
     engine.OUT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
