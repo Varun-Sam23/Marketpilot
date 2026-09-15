@@ -2,6 +2,8 @@ import html
 import streamlit as st
 from urllib.parse import quote
 
+from nse_universe import search_nse_equities
+
 NAV = [
     ("app.py", "Main Dashboard", "🏠"),
     ("pages/1_Stock_Intelligence.py", "Stock Intelligence", "📊"),
@@ -16,63 +18,8 @@ NAV = [
     ("pages/10_Agent_Command_Center.py", "Agent Command Center", "🤖"),
 ]
 
-# MarketPilot's searchable stock universe. Symbols map to the same NSE names
-# used by Market Movers and the Nifty impact engine.
-STOCK_SEARCH_UNIVERSE = {
-    "ADANIENT": "Adani Enterprises",
-    "ADANIPORTS": "Adani Ports & SEZ",
-    "APOLLOHOSP": "Apollo Hospitals",
-    "ASIANPAINT": "Asian Paints",
-    "AXISBANK": "Axis Bank",
-    "BAJAJ-AUTO": "Bajaj Auto",
-    "BAJFINANCE": "Bajaj Finance",
-    "BAJAJFINSV": "Bajaj Finserv",
-    "BEL": "Bharat Electronics",
-    "BHARTIARTL": "Bharti Airtel",
-    "CIPLA": "Cipla",
-    "COALINDIA": "Coal India",
-    "DRREDDY": "Dr. Reddy's Laboratories",
-    "EICHERMOT": "Eicher Motors",
-    "ETERNAL": "Eternal",
-    "GRASIM": "Grasim Industries",
-    "HCLTECH": "HCL Technologies",
-    "HDFCBANK": "HDFC Bank",
-    "HDFCLIFE": "HDFC Life Insurance",
-    "HEROMOTOCO": "Hero MotoCorp",
-    "HINDALCO": "Hindalco Industries",
-    "HINDUNILVR": "Hindustan Unilever",
-    "ICICIBANK": "ICICI Bank",
-    "INDUSINDBK": "IndusInd Bank",
-    "INFY": "Infosys",
-    "ITC": "ITC",
-    "JIOFIN": "Jio Financial Services",
-    "JSWSTEEL": "JSW Steel",
-    "KOTAKBANK": "Kotak Mahindra Bank",
-    "LT": "Larsen & Toubro",
-    "M&M": "Mahindra & Mahindra",
-    "MARUTI": "Maruti Suzuki India",
-    "MAXHEALTH": "Max Healthcare Institute",
-    "NESTLEIND": "Nestle India",
-    "NTPC": "NTPC",
-    "ONGC": "Oil & Natural Gas Corporation",
-    "POWERGRID": "Power Grid Corporation of India",
-    "RELIANCE": "Reliance Industries",
-    "SBILIFE": "SBI Life Insurance",
-    "SBIN": "State Bank of India",
-    "SHRIRAMFIN": "Shriram Finance",
-    "SUNPHARMA": "Sun Pharmaceutical Industries",
-    "TATACONSUM": "Tata Consumer Products",
-    "TATAMOTORS": "Tata Motors",
-    "TATASTEEL": "Tata Steel",
-    "TCS": "Tata Consultancy Services",
-    "TECHM": "Tech Mahindra",
-    "TITAN": "Titan Company",
-    "TRENT": "Trent",
-    "ULTRACEMCO": "UltraTech Cement",
-    "WIPRO": "Wipro",
-}
-
 _ORIGINAL_ST_BUTTON = st.button
+
 
 def _market_mover_button(label, *args, **kwargs):
     key = str(kwargs.get("key", ""))
@@ -83,17 +30,19 @@ def _market_mover_button(label, *args, **kwargs):
         return False
     return _ORIGINAL_ST_BUTTON(label, *args, **kwargs)
 
+
 st.button = _market_mover_button
 
+
 def _render_stock_search():
-    """Render the compact global stock search at the top of the main canvas."""
-    # Streamlit exposes the current browser URL through st.context. Keeping the
-    # search on the dashboard avoids adding another control to every page.
+    """Render the NSE-wide searchable stock bar only on Main Dashboard."""
     try:
-        pathname = st.context.url.split("?", 1)[0].rstrip("/")
+        url = st.context.url
+        pathname = getattr(url, "path", None) or str(url).split("?", 1)[0]
     except Exception:
         pathname = ""
-    if pathname not in {"", "/"} and not pathname.endswith("/app"):
+    pathname = str(pathname).rstrip("/")
+    if pathname and not (pathname.endswith("/Main_Dashboard") or pathname.endswith("/app") or pathname == ""):
         return
 
     st.markdown("""
@@ -105,26 +54,25 @@ def _render_stock_search():
     .mp-search-result a{color:#e7edf5!important;text-decoration:none!important;font-weight:750;font-size:.78rem}
     .mp-search-result a:hover{text-decoration:underline!important;color:#7dd3fc!important}
     .mp-search-symbol{color:#718096;font-size:.65rem;margin-left:8px}
+    .mp-search-count{color:#64748b;font-size:.62rem;margin-top:4px}
     </style>
     """, unsafe_allow_html=True)
-    st.markdown('<div class="mp-search-wrap"><div class="mp-search-title">◈ STOCK SEARCH</div>', unsafe_allow_html=True)
-    query = st.text_input("Search stock", placeholder="Search by stock name or NSE symbol…", label_visibility="collapsed", key="marketpilot-stock-search")
-    query = str(query or "").strip().lower()
+    st.markdown('<div class="mp-search-wrap"><div class="mp-search-title">◈ NSE STOCK SEARCH</div>', unsafe_allow_html=True)
+    query = st.text_input("Search stock", placeholder="Search any NSE stock by company name or symbol…", label_visibility="collapsed", key="marketpilot-stock-search")
+    query = str(query or "").strip()
     if query:
-        matches=[]
-        for symbol,name in STOCK_SEARCH_UNIVERSE.items():
-            if query in symbol.lower() or query in name.lower():
-                matches.append((symbol,name))
+        matches = search_nse_equities(query, limit=8)
         if matches:
-            for symbol,name in matches[:8]:
-                href=f"/Live_Market?terminal={quote(symbol)}"
+            for row in matches:
+                symbol = str(row.get("SYMBOL", ""))
+                name = str(row.get("COMPANY", ""))
+                href = f"/Live_Market?terminal={quote(symbol)}"
                 st.markdown(f'<div class="mp-search-result"><a href="{html.escape(href, quote=True)}">{html.escape(name)} <span class="mp-search-symbol">{html.escape(symbol)}</span></a><span class="mp-search-symbol">OPEN LIVE MARKET →</span></div>', unsafe_allow_html=True)
-            if len(matches)>8:
-                st.caption(f"Showing 8 of {len(matches)} matches. Refine your search.")
+            st.markdown('<div class="mp-search-count">Source: NSE official equity securities list · EQ series</div>', unsafe_allow_html=True)
         else:
-            st.markdown('<div class="mp-search-hint">No matching stock in the current MarketPilot universe.</div>', unsafe_allow_html=True)
+            st.markdown('<div class="mp-search-hint">No NSE equity match found. Try the company name or NSE symbol.</div>', unsafe_allow_html=True)
     else:
-        st.markdown('<div class="mp-search-hint">Search any tracked Nifty 50 stock by name or symbol · results open directly in LIVE MARKET.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="mp-search-hint">Search the full NSE equity universe · results open directly in LIVE MARKET.</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 
