@@ -28,6 +28,7 @@ def render_sidebar():
     [data-testid="stSidebar"] .stPageLink > a:hover{background:#1b2736!important;color:#fff!important}
     [data-testid="stSidebar"] .stPageLink > a[aria-current="page"]{background:#344255!important;color:#fff!important;font-weight:700!important}
     [data-testid="stSidebar"] .stPageLink > a > span:first-child{font-size:16px!important;line-height:18px!important}
+    .verdict{margin-bottom:14px!important}
     </style>
     """, unsafe_allow_html=True)
     with st.sidebar:
