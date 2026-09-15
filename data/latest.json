@@ -1,50 +1,50 @@
 {
   "date_ist": "2026-09-15",
-  "generated_at": "2026-09-15 10:45:37 IST",
+  "generated_at": "2026-09-15 10:50:11 IST",
   "market_status": "PRE-MARKET INTELLIGENCE",
   "verdict": "BEARISH",
   "confidence": "HIGH",
-  "summary": "Chief AI reasoning is unavailable. Use the independently calculated evidence and verify live data.",
+  "summary": "Chief AI reasoning is unavailable; the scenario framework below is generated from the independently calculated evidence.",
   "signals": [
     "Rule-based decision: BEARISH (19.0/100)"
   ],
   "levels": {
-    "NIFTY close": 23351.7,
+    "NIFTY close": 23340.45,
     "Previous close": 23398.1,
-    "5D return %": -1.8,
-    "20D return %": -3.85,
-    "5D SMA": 23458.84,
-    "20D SMA": 23932.0,
-    "50D SMA": 24131.85,
+    "5D return %": -1.84,
+    "20D return %": -3.9,
+    "5D SMA": 23456.59,
+    "20D SMA": 23931.44,
+    "50D SMA": 24131.62,
     "20D high": 24378.6,
     "20D low": 23231.4,
-    "RSI14": 12.01,
-    "range_position_%": 10.5
+    "RSI14": 11.91,
+    "range_position_%": 9.5
   },
   "market_snapshot": [
     {
       "name": "NIFTY 50",
       "ticker": "^NSEI",
-      "last": 23351.95,
-      "change_pct": -0.2
+      "last": 23339.95,
+      "change_pct": -0.25
     },
     {
       "name": "BANK NIFTY",
       "ticker": "^NSEBANK",
-      "last": 56223.6,
-      "change_pct": -0.68
+      "last": 56181.05,
+      "change_pct": -0.75
     },
     {
       "name": "SENSEX",
       "ticker": "^BSESN",
-      "last": 74699.56,
-      "change_pct": -0.11
+      "last": 74720.76,
+      "change_pct": -0.08
     },
     {
       "name": "INDIA VIX",
       "ticker": "^INDIAVIX",
-      "last": 12.73,
-      "change_pct": 3.54
+      "last": 12.81,
+      "change_pct": 4.19
     },
     {
       "name": "S&P 500",
@@ -61,58 +61,58 @@
     {
       "name": "NIKKEI",
       "ticker": "^N225",
-      "last": 63362.89,
-      "change_pct": -0.2
+      "last": 63410.97,
+      "change_pct": -0.13
     },
     {
       "name": "HANG SENG",
       "ticker": "^HSI",
-      "last": 24832.31,
-      "change_pct": -0.34
+      "last": 24827.65,
+      "change_pct": -0.36
     },
     {
       "name": "USD/INR",
       "ticker": "INR=X",
       "last": 95.86,
-      "change_pct": 0.88
+      "change_pct": 0.87
     },
     {
       "name": "CRUDE",
       "ticker": "CL=F",
-      "last": 103.17,
-      "change_pct": 1.76
+      "last": 103.29,
+      "change_pct": 1.87
     },
     {
       "name": "GOLD",
       "ticker": "GC=F",
-      "last": 4343.3,
-      "change_pct": -0.2
+      "last": 4341.8,
+      "change_pct": -0.23
     }
   ],
   "global": [
     {
       "name": "NIFTY 50",
       "ticker": "^NSEI",
-      "last": 23351.95,
-      "change_pct": -0.2
+      "last": 23339.95,
+      "change_pct": -0.25
     },
     {
       "name": "BANK NIFTY",
       "ticker": "^NSEBANK",
-      "last": 56223.6,
-      "change_pct": -0.68
+      "last": 56181.05,
+      "change_pct": -0.75
     },
     {
       "name": "SENSEX",
       "ticker": "^BSESN",
-      "last": 74699.56,
-      "change_pct": -0.11
+      "last": 74720.76,
+      "change_pct": -0.08
     },
     {
       "name": "INDIA VIX",
       "ticker": "^INDIAVIX",
-      "last": 12.73,
-      "change_pct": 3.54
+      "last": 12.81,
+      "change_pct": 4.19
     },
     {
       "name": "S&P 500",
@@ -129,32 +129,32 @@
     {
       "name": "NIKKEI",
       "ticker": "^N225",
-      "last": 63362.89,
-      "change_pct": -0.2
+      "last": 63410.97,
+      "change_pct": -0.13
     },
     {
       "name": "HANG SENG",
       "ticker": "^HSI",
-      "last": 24832.31,
-      "change_pct": -0.34
+      "last": 24827.65,
+      "change_pct": -0.36
     },
     {
       "name": "USD/INR",
       "ticker": "INR=X",
       "last": 95.86,
-      "change_pct": 0.88
+      "change_pct": 0.87
     },
     {
       "name": "CRUDE",
       "ticker": "CL=F",
-      "last": 103.17,
-      "change_pct": 1.76
+      "last": 103.29,
+      "change_pct": 1.87
     },
     {
       "name": "GOLD",
       "ticker": "GC=F",
-      "last": 4343.3,
-      "change_pct": -0.2
+      "last": 4341.8,
+      "change_pct": -0.23
     }
   ],
   "news": [
@@ -173,7 +173,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:15:44.635865+00:00",
+      "checked_at_utc": "2026-09-15T05:20:17.664245+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -197,7 +197,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:15:47.549162+00:00",
+      "checked_at_utc": "2026-09-15T05:20:20.374365+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -212,7 +212,7 @@
       "publisher": "Moneycontrol.com",
       "published": "Mon, 14 Sep 2026 04:30:55 GMT",
       "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
-      "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
+      "summary": "BSE BANKEX Stock Price, BSE Bankex Market Indices, BSE Bankex Price, Stock Performance & Comparison Moneycontrol.com",
       "publisher_domain": "",
       "cluster_id": 1,
       "verification": "CROSS_CHECKED",
@@ -221,7 +221,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:15:49.758027+00:00",
+      "checked_at_utc": "2026-09-15T05:20:23.106171+00:00",
       "evidence_score": 75,
       "evidence_count": 4,
       "claim_status": "SUPPORTED",
@@ -246,20 +246,19 @@
       "cluster_id": 3,
       "verification": "CROSS_CHECKED",
       "verification_label": "CROSS-CHECKED",
-      "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
+      "verification_detail": "Fresh search found independent reporting from 2 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 55/100.",
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:15:51.468409+00:00",
-      "evidence_score": 65,
-      "evidence_count": 3,
+      "checked_at_utc": "2026-09-15T05:20:25.195654+00:00",
+      "evidence_score": 55,
+      "evidence_count": 2,
       "claim_status": "SUPPORTED",
       "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
       "agent_status": "ARTICLE_UNAVAILABLE",
       "verification_sources": [
         "TradingView",
-        "Yahoo Finance Singapore",
-        "Yahoo News Singapore"
+        "Yahoo Finance Singapore"
       ],
       "display_title": "🟢 SUPPORTED · India's Nifty and Sensex diverge following launch of new auction mechanism"
     },
@@ -278,7 +277,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:15:52.296323+00:00",
+      "checked_at_utc": "2026-09-15T05:20:26.046620+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -302,7 +301,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:15:55.001755+00:00",
+      "checked_at_utc": "2026-09-15T05:20:29.061187+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -314,7 +313,7 @@
     {
       "title": "What the RBI Said Today — And What It Means for India’s Economy",
       "source": "RBI / Economy",
-      "publisher": "Investing.com India",
+      "publisher": "in.investing.com",
       "published": "Fri, 05 Jun 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOc09kdzVIUGQtZk92OUtOSjNib1E4M2VCYVhrRFdSenZCc2hINFVfQWRRS2phc0Y2QVhqZFlUNXloeTBQV2VNTTl2UG1IaHktdVB0cXZtbUFHNzNCR2xTZ3I3WEtjMXZlLU9LNk16RDlKeWhFdTltUnZwZ2dvNmtsM0RhY0NVMXBNVjJCZ18waXgzN05BMXl1UzE3a2dIdFVtLUZwMFllVFdfQnM5cFVGeU53?oc=5",
       "summary": "",
@@ -326,7 +325,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T05:15:55.895872+00:00",
+      "checked_at_utc": "2026-09-15T05:20:29.915576+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -350,7 +349,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T05:15:56.734809+00:00",
+      "checked_at_utc": "2026-09-15T05:20:30.877537+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -374,36 +373,13 @@
       "impact": "POSITIVE",
       "impact_reason": "Headline language contains positive market-impact signals.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T05:15:57.600701+00:00",
+      "checked_at_utc": "2026-09-15T05:20:31.740635+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
       "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
       "agent_status": "ARTICLE_UNAVAILABLE",
       "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian economy continues to grow at strong pace, supported by robust domestic demand, prudent macroeconomic policies: RBI | Akashvani News"
-    },
-    {
-      "title": "RBI’s hawkish minutes rattle bond market, put rate hikes in play",
-      "source": "RBI / Economy",
-      "publisher": "theprint.in",
-      "published": "Thu, 20 Aug 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ2N0NnNfTjNVaENMTHl6QWZoWXl1SUlyYVRFNThpVzhQcDNxdktGbUdOQlVSM2FLRFU1Zlk5c3dSYVNPY1VLZmFISjluZC1XUENhTkw3bVc0bkJVM0dXTkwyX0R2a05jcjdGQ01KOHZ5YXY2djEyNGZqLWpxenFhd1JWRkxhTnZyZmliSnZYQ2M1c0tKOG9LOHNGTWpHbHZq0gGmAUFVX3lxTFB5dTdaU25iVnlKZ3d1Vl9EeS1VTXppUUFhMUtwUl93dzNGYUw5UVZ1N1NGRk5WVjhrUS02dWlFVU5tblpoSXlhOW80QldnTmc3VS00MFdBdno1TFpHck1wS1cwNUNjNUlCWUpTSGQ2YzU5Tk5jdzlMNHBXMlptRVd2b3JlV3hicUcwbmk5UzdZdXd2ZWNfTmFsV05hUTh4MF94OURBWFE?oc=5",
-      "summary": "",
-      "publisher_domain": "",
-      "cluster_id": 8,
-      "verification": "SINGLE_SOURCE",
-      "verification_label": "SINGLE SOURCE",
-      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
-      "impact": "NEGATIVE",
-      "impact_reason": "Headline language contains negative market-impact signals.",
-      "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T05:15:58.356449+00:00",
-      "evidence_score": 30,
-      "evidence_count": 0,
-      "claim_status": "INSUFFICIENT EVIDENCE",
-      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
-      "agent_status": "ARTICLE_UNAVAILABLE",
-      "display_title": "🟡 INSUFFICIENT EVIDENCE · RBI’s hawkish minutes rattle bond market, put rate hikes in play"
     },
     {
       "title": "Developed economy needs developed financial markets first: RBI Deputy Governor Jain",
@@ -413,14 +389,14 @@
       "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPaXY5V2swUnBiR0YyUnUzRU10bEdyd0s2cGl6bWRWM2xsaUc1MWZmTEprMnc2aFJCMG9KN1l3bE1VWm1CNVFEWnBvTHRMN1ZtYzQ0UE9Id1BaSGJTQ0RwNG1JWWk5TmNMZ19hSV91RnhUbXJVTW5BMEFxVVB0NHZDeUw2ckIydHVCVTZpb2l1eDRuNC1QWERzVlRfOC05WHctMURZVlRzWXdRNmZBX1BTLVBicTdJSHgxZVUzMF9YMnBKZFluRzJpVHNLQ21faGoyUlNQN196cTJYTDU3S1NaT2s5SmVnUdIB7AFBVV95cUxOa3VqcVFDZjJBbjc1cHlSMkRKS3N5bzBHQkgwZHdfenFJNUY4ZW9hdzZ2dm1sMlJNcGowQmNhaDlhUjJDNzZVeVRROThycTBsYTFCcE1VNHJ4OTFfUXo1c21TTGo3ZmVUZ0NqcU43bzUtZjl5QWU5aUIzWWNBUVU3YjhINFlmYmw3OFMweERkWmpSTE1LMFNuZHBIaTdjUHg0VkhNLWpJOVBseW9oT29EeVB1MDQ4N21UQXNvUjNFbXA1dm1mdEs5aVQ5azVsZHhpTmVvbFpueDlDbm5zR2pMcy1sMTRUR1MwSV9OWg?oc=5",
       "summary": "",
       "publisher_domain": "",
-      "cluster_id": 9,
+      "cluster_id": 8,
       "verification": "SINGLE_SOURCE",
       "verification_label": "SINGLE SOURCE",
       "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T05:15:59.212493+00:00",
+      "checked_at_utc": "2026-09-15T05:20:32.633534+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -429,27 +405,50 @@
       "display_title": "🟡 INSUFFICIENT EVIDENCE · Developed economy needs developed financial markets first: RBI Deputy Governor Jain"
     },
     {
-      "title": "India's April-June GDP growth beats estimates at 7.8%, stays resilient despite Iran war",
+      "title": "RBI’s hawkish minutes rattle bond market, put rate hikes in play",
       "source": "RBI / Economy",
-      "publisher": "newindianexpress.com",
-      "published": "Mon, 31 Aug 2026 07:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOR1AxUVJTazNHa3RadmoxSEZfSG5hNHNlTTh0ams4bUJiX0w1dnJMeHNrZ2pGakpEOVBPT0ROeUMzQWM3cV9iZ0lKcnAtbXByb2lQWlg4SkRGRHY5dXpTc2c2MkRRbkNuU3pIVE9kQldheTVQY2RkZG50dDFhQmRBQ2ZSUjNHVFE0LXUtVTltVE1WOUYwTUVXSFJJZGpMYm4wRTR5WWk2dFB6ZEY0NTdxVThsXzZqNWJISHNwTHZrTUJPQWV0ci1faE1tTWVwYTTSAdwBQVVfeXFMUExNNnhBdkZtemdXZ2x5dDRkOGVCY1N0aUJCTWEtREhHMGFkeEtWZFlTb2t3ckZUOWZ2cnlJZVc2dUZzVkhIVnVZQ2NlZGh3MVFWeEZvb0JGRl9oWk5qY016c1FqeTZkeDE0M1hrczZRdWREWjg1SXB3cUNld1lPYk9meDZISFJwbVZjZXFvMXJwc19rczVlM3pwZU9LUEtWUXlEc0E3OTZFaHNXZHJkRUNOMC1uR1lydWF2ZnJtN1djY2N3dER2SzV5c2dDWUF3TTVzTHF3el8zTl9JNA?oc=5",
-      "summary": "40 of those killed in Amritsar train accident identified, 36 bodies cremated: Officials newindianexpress.com",
+      "publisher": "ThePrint",
+      "published": "Thu, 20 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ2N0NnNfTjNVaENMTHl6QWZoWXl1SUlyYVRFNThpVzhQcDNxdktGbUdOQlVSM2FLRFU1Zlk5c3dSYVNPY1VLZmFISjluZC1XUENhTkw3bVc0bkJVM0dXTkwyX0R2a05jcjdGQ01KOHZ5YXY2djEyNGZqLWpxenFhd1JWRkxhTnZyZmliSnZYQ2M1c0tKOG9LOHNGTWpHbHZq0gGmAUFVX3lxTFB5dTdaU25iVnlKZ3d1Vl9EeS1VTXppUUFhMUtwUl93dzNGYUw5UVZ1N1NGRk5WVjhrUS02dWlFVU5tblpoSXlhOW80QldnTmc3VS00MFdBdno1TFpHck1wS1cwNUNjNUlCWUpTSGQ2YzU5Tk5jdzlMNHBXMlptRVd2b3JlV3hicUcwbmk5UzdZdXd2ZWNfTmFsV05hUTh4MF94OURBWFE?oc=5",
+      "summary": "",
       "publisher_domain": "",
-      "cluster_id": 10,
+      "cluster_id": 9,
       "verification": "SINGLE_SOURCE",
       "verification_label": "SINGLE SOURCE",
       "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
-      "impact": "POSITIVE",
-      "impact_reason": "Headline language contains positive market-impact signals.",
-      "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:16:01.542248+00:00",
+      "impact": "NEGATIVE",
+      "impact_reason": "Headline language contains negative market-impact signals.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-09-15T05:20:33.610693+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
       "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
       "agent_status": "ARTICLE_UNAVAILABLE",
-      "display_title": "🟡 INSUFFICIENT EVIDENCE · India's April-June GDP growth beats estimates at 7.8%, stays resilient despite Iran war"
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · RBI’s hawkish minutes rattle bond market, put rate hikes in play"
+    },
+    {
+      "title": "Foreign investment revival signals confidence in Indian economy: RBI’s State of the Economy article",
+      "source": "RBI / Economy",
+      "publisher": "The Indian Express",
+      "published": "Wed, 22 Jul 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPM1R3M0ZXVm5EaE9yVEtnY0R0YUlTRVk5Y1liY1BzZEVlc1h5cHAtRk9kSTNkZXhEa1I1c19RVmFPN1RUSDh3cHlSc3pwZFowa3lka2t2NlktTk1WS2JjVVlhd2RtX3kyekhfTUgtVml0S05xX21xR2VReXVVYXRORjNIUkc5Nk5uQ2JBV19oeVBVQ3NBYnJIbktXVlhqWTVzVEhoQmlYMG1ZTG0wMjhFbzh30gG4AUFVX3lxTE94R2d2REpXM0hfdWVIMzNoOE9CQTV0S01nUW9TNU5uTHJXamlDYkhQVHpxOGRzVXdvUXZ1d21Oa0JRRzZ4NU1ULXdJbVBvVl95RUJZTXFQd1JHWTVwREtBNWpfMUw1MU5EYUFBMWxTZ2s2STB4bGFDTmZOUHc5bTZSS2lyRW11OWk3MjdnbU9PckVZSTY4VGhYaE5sQ0NtYnJ5TFB2MGN1WEZKZTBUa2NUQ3N2bENzN3g?oc=5",
+      "summary": "As cybercrime losses grow exponentially, Karnataka cops work to curb misuse of banking system The Indian Express",
+      "publisher_domain": "",
+      "cluster_id": 10,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-09-15T05:20:36.918120+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Foreign investment revival signals confidence in Indian economy: RBI’s State of the Economy article"
     },
     {
       "title": "Company Results: Company Quarterly Result, Annual Results, Financial Results",
@@ -466,7 +465,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:16:02.367630+00:00",
+      "checked_at_utc": "2026-09-15T05:20:37.833870+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -489,7 +488,7 @@
       "impact": "POSITIVE",
       "impact_reason": "Headline language contains positive market-impact signals.",
       "affected": "IT",
-      "checked_at_utc": "2026-09-15T05:16:03.210881+00:00",
+      "checked_at_utc": "2026-09-15T05:20:38.911627+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -512,7 +511,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:16:05.571770+00:00",
+      "checked_at_utc": "2026-09-15T05:20:41.629215+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -523,10 +522,10 @@
     {
       "title": "Q1 results this week: Infosys, IndiGo, Paytm, Bajaj Auto, Eternal, Meesho, Adani Power and more",
       "source": "Indian Companies",
-      "publisher": "upstox.com",
+      "publisher": "Upstox",
       "published": "Sat, 18 Jul 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOTWtXMElPblNoNlVHaGxVRDk5S0RxOF9HODFvdVJmN0NxMW13bXNGWWVCaTdMRHA5YS1GVllzeFpyRlhzS3RKYk9IRkpGUWpwc2NBYUVVR2JEQjU1bEJldFo3LUo2QThVVXJOOGgtZEZIMHh3LTYxNUZZTzJ6cnFyYjJDMXhYSzRpbTIxX1cyZkdNb3BTdURDNDljYURuN19GWlpOS2VHc1FycHhQS0g1R3lUQmtid3VRek14VHcwU2NNY0lBcUN6OWppRWR4Z3hQUEZtSnEzOU1wd2dBUUhKOExBRmU?oc=5",
-      "summary": "Five of India’s top-10 most valued firms add ₹1.54 lakh crore in market capitalisation; TCS biggest winner upstox.com",
+      "summary": "Five of India’s top-10 most valued firms add ₹1.54 lakh crore in market capitalisation; TCS biggest winner Upstox",
       "publisher_domain": "",
       "cluster_id": 14,
       "verification": "SINGLE_SOURCE",
@@ -535,7 +534,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "IT",
-      "checked_at_utc": "2026-09-15T05:16:08.337698+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.069882+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -558,7 +557,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:16:08.337782+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070035+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -581,7 +580,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T05:16:08.337832+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070103+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -604,7 +603,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T05:16:08.337917+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070158+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -627,7 +626,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T05:16:08.337964+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070202+00:00",
       "evidence_score": 55,
       "evidence_count": 0,
       "claim_status": "SUPPORTED",
@@ -638,11 +637,11 @@
     {
       "title": "Week Ahead: Aug CPI Inflation, US Fed Verdict, Crude Oil Among Five Key Triggers To Drive D-Street",
       "source": "Global Markets",
-      "publisher": "ndtvprofit.com",
+      "publisher": "NDTV Profit",
       "published": "Sun, 13 Sep 2026 08:21:11 GMT",
       "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNdVpWaDRjaU5JRmJ0b0tsTklDRVN0eFR1SkZXWXVJRk9RUU84Sm1jYlhLWGVGdUd3VmZDa09JcUgyUU1qeDNadDRSZnFxcEtpOEJJV29TM21oZ2I3UEhPd2NJTDFhV1ZPaGU0V1JUdmVLVXpWRHh0Y2c1TFN4dkE1NEtsdlpyUk1VZGFoZVJ5U2dMRTFRSzhkYWhGNDVabExBdk5YNzJ3UlVJN2RnS3Y3Sm5pYklnS0N4bGd0UGJOaVFqbnZtREZ4cUc1c3E2SUMyb3daLWFaeHQ3bU1weWpvTVFsdHgwMzdwUFpRZFQxWTlTWjTSAfsBQVVfeXFMUGI5YmdhdFFCX09VdzJRWERkclY3QU5mandwRE5Ta0lkS3JFV1hsWDlFQ1J3bTdBd05TamMtVXNmR1B3YUNCQ0V6c0lsSUxDcHJqNDhDTktxWUhTVk1Hdk1wSFpwQzJpZGpYa1VsaEk0clIwNmdpYjBiaTBnZWdtdkUwcF9BV0M2VHdodVRjeDNUMFd2TnJWcjF2cTI1WHBueEVGR3JJMW1MNnNSNFVHNnhYTGU3QjJhTnNhcUlFR01XRFBXcHdWWG1nclRwelVYZm9oMGM5WDVNRlcyMDlKOFZON2hCZ0dhb1BnS1FXZnFRbGRRbUgwTG43WE0?oc=5",
       "summary": "",
-      "publisher_domain": "",
+      "publisher_domain": "ndtvprofit.com",
       "cluster_id": 18,
       "verification": "CORROBORATED",
       "verification_label": "CORROBORATED",
@@ -650,7 +649,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T05:16:08.338006+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070246+00:00",
       "evidence_score": 55,
       "evidence_count": 0,
       "claim_status": "SUPPORTED",
@@ -673,7 +672,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T05:16:08.338041+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070283+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -696,7 +695,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T05:16:08.338085+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070323+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -719,7 +718,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T05:16:08.338120+00:00",
+      "checked_at_utc": "2026-09-15T05:20:44.070361+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -731,77 +730,77 @@
   "watchlist": [
     {
       "ticker": "RELIANCE",
-      "last": 1255.0,
-      "change_pct": -0.2,
-      "20D_return_pct": -4.64,
-      "vs_20D_SMA_pct": -3.27,
-      "volume_vs_20D": 0.44,
-      "RSI14": 33.04
+      "last": 1254.4,
+      "change_pct": -0.25,
+      "20D_return_pct": -4.68,
+      "vs_20D_SMA_pct": -3.32,
+      "volume_vs_20D": 0.46,
+      "RSI14": 32.93
     },
     {
       "ticker": "HDFCBANK",
-      "last": 721.45,
-      "change_pct": 1.86,
-      "20D_return_pct": -1.04,
-      "vs_20D_SMA_pct": 1.08,
-      "volume_vs_20D": 1.04,
-      "RSI14": 47.52
+      "last": 720.3,
+      "change_pct": 1.7,
+      "20D_return_pct": -1.19,
+      "vs_20D_SMA_pct": 0.93,
+      "volume_vs_20D": 1.06,
+      "RSI14": 47.01
     },
     {
       "ticker": "ICICIBANK",
-      "last": 1357.5,
-      "change_pct": -1.58,
-      "20D_return_pct": -4.08,
-      "vs_20D_SMA_pct": -4.02,
-      "volume_vs_20D": 0.32,
-      "RSI14": 32.26
+      "last": 1357.2,
+      "change_pct": -1.6,
+      "20D_return_pct": -4.11,
+      "vs_20D_SMA_pct": -4.04,
+      "volume_vs_20D": 0.33,
+      "RSI14": 32.21
     },
     {
       "ticker": "SBIN",
-      "last": 980.6,
-      "change_pct": -1.52,
-      "20D_return_pct": -7.6,
-      "vs_20D_SMA_pct": -4.72,
-      "volume_vs_20D": 0.47,
-      "RSI14": 25.44
+      "last": 981.1,
+      "change_pct": -1.47,
+      "20D_return_pct": -7.55,
+      "vs_20D_SMA_pct": -4.67,
+      "volume_vs_20D": 0.48,
+      "RSI14": 25.53
     },
     {
       "ticker": "INFY",
-      "last": 1085.5,
-      "change_pct": 4.61,
-      "20D_return_pct": -4.77,
-      "vs_20D_SMA_pct": -2.16,
-      "volume_vs_20D": 0.95,
-      "RSI14": 39.18
+      "last": 1088.3,
+      "change_pct": 4.88,
+      "20D_return_pct": -4.53,
+      "vs_20D_SMA_pct": -1.92,
+      "volume_vs_20D": 0.97,
+      "RSI14": 39.8
     },
     {
       "ticker": "TCS",
-      "last": 2302.7,
-      "change_pct": 4.63,
-      "20D_return_pct": -0.45,
-      "vs_20D_SMA_pct": 0.57,
-      "volume_vs_20D": 1.01,
-      "RSI14": 50.65
+      "last": 2307.0,
+      "change_pct": 4.83,
+      "20D_return_pct": -0.27,
+      "vs_20D_SMA_pct": 0.75,
+      "volume_vs_20D": 1.02,
+      "RSI14": 51.07
     },
     {
       "ticker": "ITC",
-      "last": 261.7,
-      "change_pct": 0.71,
-      "20D_return_pct": -4.16,
-      "vs_20D_SMA_pct": -1.41,
-      "volume_vs_20D": 0.34,
-      "RSI14": 37.53
+      "last": 261.0,
+      "change_pct": 0.44,
+      "20D_return_pct": -4.41,
+      "vs_20D_SMA_pct": -1.66,
+      "volume_vs_20D": 0.36,
+      "RSI14": 36.39
     }
   ],
   "watchlist_intelligence": [
     {
       "ticker": "HDFCBANK",
-      "last": 721.45,
-      "change_pct": 1.86,
-      "20D_return_pct": -1.04,
-      "vs_20D_SMA_pct": 1.08,
-      "volume_vs_20D": 1.04,
-      "RSI14": 47.52,
+      "last": 720.3,
+      "change_pct": 1.7,
+      "20D_return_pct": -1.19,
+      "vs_20D_SMA_pct": 0.93,
+      "volume_vs_20D": 1.06,
+      "RSI14": 47.01,
       "research_score": 57.0,
       "research_label": "NEUTRAL",
       "research_confidence": "MEDIUM",
@@ -817,12 +816,12 @@
     },
     {
       "ticker": "TCS",
-      "last": 2302.7,
-      "change_pct": 4.63,
-      "20D_return_pct": -0.45,
-      "vs_20D_SMA_pct": 0.57,
-      "volume_vs_20D": 1.01,
-      "RSI14": 50.65,
+      "last": 2307.0,
+      "change_pct": 4.83,
+      "20D_return_pct": -0.27,
+      "vs_20D_SMA_pct": 0.75,
+      "volume_vs_20D": 1.02,
+      "RSI14": 51.07,
       "research_score": 57.0,
       "research_label": "NEUTRAL",
       "research_confidence": "MEDIUM",
@@ -837,13 +836,34 @@
       "negative_news": 0
     },
     {
+      "ticker": "INFY",
+      "last": 1088.3,
+      "change_pct": 4.88,
+      "20D_return_pct": -4.53,
+      "vs_20D_SMA_pct": -1.92,
+      "volume_vs_20D": 0.97,
+      "RSI14": 39.8,
+      "research_score": 44.0,
+      "research_label": "NEUTRAL",
+      "research_confidence": "MEDIUM",
+      "research_reasons": [
+        "near/below 20D SMA",
+        "negative 20D momentum",
+        "positive latest session"
+      ],
+      "linked_news": 0,
+      "supported_news": 0,
+      "positive_news": 0,
+      "negative_news": 0
+    },
+    {
       "ticker": "ITC",
-      "last": 261.7,
-      "change_pct": 0.71,
-      "20D_return_pct": -4.16,
-      "vs_20D_SMA_pct": -1.41,
-      "volume_vs_20D": 0.34,
-      "RSI14": 37.53,
+      "last": 261.0,
+      "change_pct": 0.44,
+      "20D_return_pct": -4.41,
+      "vs_20D_SMA_pct": -1.66,
+      "volume_vs_20D": 0.36,
+      "RSI14": 36.39,
       "research_score": 39.0,
       "research_label": "NEUTRAL",
       "research_confidence": "MEDIUM",
@@ -857,34 +877,13 @@
       "negative_news": 0
     },
     {
-      "ticker": "INFY",
-      "last": 1085.5,
-      "change_pct": 4.61,
-      "20D_return_pct": -4.77,
-      "vs_20D_SMA_pct": -2.16,
-      "volume_vs_20D": 0.95,
-      "RSI14": 39.18,
-      "research_score": 38.0,
-      "research_label": "RISK",
-      "research_confidence": "MEDIUM",
-      "research_reasons": [
-        "below 20D SMA",
-        "negative 20D momentum",
-        "positive latest session"
-      ],
-      "linked_news": 0,
-      "supported_news": 0,
-      "positive_news": 0,
-      "negative_news": 0
-    },
-    {
       "ticker": "RELIANCE",
-      "last": 1255.0,
-      "change_pct": -0.2,
-      "20D_return_pct": -4.64,
-      "vs_20D_SMA_pct": -3.27,
-      "volume_vs_20D": 0.44,
-      "RSI14": 33.04,
+      "last": 1254.4,
+      "change_pct": -0.25,
+      "20D_return_pct": -4.68,
+      "vs_20D_SMA_pct": -3.32,
+      "volume_vs_20D": 0.46,
+      "RSI14": 32.93,
       "research_score": 29.0,
       "research_label": "RISK",
       "research_confidence": "MEDIUM",
@@ -900,12 +899,12 @@
     },
     {
       "ticker": "ICICIBANK",
-      "last": 1357.5,
-      "change_pct": -1.58,
-      "20D_return_pct": -4.08,
-      "vs_20D_SMA_pct": -4.02,
-      "volume_vs_20D": 0.32,
-      "RSI14": 32.26,
+      "last": 1357.2,
+      "change_pct": -1.6,
+      "20D_return_pct": -4.11,
+      "vs_20D_SMA_pct": -4.04,
+      "volume_vs_20D": 0.33,
+      "RSI14": 32.21,
       "research_score": 24.0,
       "research_label": "RISK",
       "research_confidence": "MEDIUM",
@@ -922,12 +921,12 @@
     },
     {
       "ticker": "SBIN",
-      "last": 980.6,
-      "change_pct": -1.52,
-      "20D_return_pct": -7.6,
-      "vs_20D_SMA_pct": -4.72,
-      "volume_vs_20D": 0.47,
-      "RSI14": 25.44,
+      "last": 981.1,
+      "change_pct": -1.47,
+      "20D_return_pct": -7.55,
+      "vs_20D_SMA_pct": -4.67,
+      "volume_vs_20D": 0.48,
+      "RSI14": 25.53,
       "research_score": 19.0,
       "research_label": "RISK",
       "research_confidence": "MEDIUM",
@@ -946,32 +945,32 @@
   "sectors": [
     {
       "sector": "IT",
-      "avg_change_pct": 4.62,
+      "avg_change_pct": 4.86,
       "members": 2
     },
     {
       "sector": "FMCG",
-      "avg_change_pct": 0.81,
+      "avg_change_pct": 0.73,
       "members": 2
     },
     {
       "sector": "Energy",
-      "avg_change_pct": 0.6,
+      "avg_change_pct": 0.59,
       "members": 2
     },
     {
       "sector": "Pharma",
-      "avg_change_pct": -0.22,
+      "avg_change_pct": -0.41,
       "members": 2
     },
     {
       "sector": "Banking",
-      "avg_change_pct": -0.41,
+      "avg_change_pct": -0.46,
       "members": 3
     },
     {
       "sector": "Auto",
-      "avg_change_pct": -0.62,
+      "avg_change_pct": -0.68,
       "members": 1
     }
   ],
@@ -998,222 +997,19 @@
   },
   "specialists": {
     "agents": {
-      "Sector Agent": {
-        "agent": "Sector Agent",
-        "status": "READY",
-        "elapsed_ms": 0.0,
-        "data": {
-          "sectors": [
-            {
-              "sector": "IT",
-              "avg_change_pct": 4.62,
-              "members": 2
-            },
-            {
-              "sector": "FMCG",
-              "avg_change_pct": 0.81,
-              "members": 2
-            },
-            {
-              "sector": "Energy",
-              "avg_change_pct": 0.6,
-              "members": 2
-            },
-            {
-              "sector": "Pharma",
-              "avg_change_pct": -0.22,
-              "members": 2
-            },
-            {
-              "sector": "Banking",
-              "avg_change_pct": -0.41,
-              "members": 3
-            },
-            {
-              "sector": "Auto",
-              "avg_change_pct": -0.62,
-              "members": 1
-            }
-          ]
-        },
-        "mission": "Assess sector participation and rotation.",
-        "self_check": {
-          "confidence": "MEDIUM",
-          "evidence_state": "READY",
-          "missing": [],
-          "needs_retry": false
-        },
-        "autonomy": {
-          "source_selection": "SPECIALIZED_ENGINE",
-          "self_evaluation": true,
-          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-          "no_fabrication": true
-        }
-      },
-      "Technical Agent": {
-        "agent": "Technical Agent",
-        "status": "READY",
-        "elapsed_ms": 0.0,
-        "data": {
-          "trend_vs_20d": "BELOW",
-          "trend_vs_50d": "BELOW",
-          "rsi14": 12.01,
-          "20d_return_pct": -3.85,
-          "range_position_pct": 10.5
-        },
-        "mission": "Assess trend, momentum and range structure.",
-        "self_check": {
-          "confidence": "MEDIUM",
-          "evidence_state": "READY",
-          "missing": [],
-          "needs_retry": false
-        },
-        "autonomy": {
-          "source_selection": "SPECIALIZED_ENGINE",
-          "self_evaluation": true,
-          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-          "no_fabrication": true
-        }
-      },
-      "Market Agent": {
-        "agent": "Market Agent",
-        "status": "READY",
-        "elapsed_ms": 0.0,
-        "data": {
-          "snapshot": [
-            {
-              "name": "NIFTY 50",
-              "ticker": "^NSEI",
-              "last": 23351.95,
-              "change_pct": -0.2
-            },
-            {
-              "name": "BANK NIFTY",
-              "ticker": "^NSEBANK",
-              "last": 56223.6,
-              "change_pct": -0.68
-            },
-            {
-              "name": "SENSEX",
-              "ticker": "^BSESN",
-              "last": 74699.56,
-              "change_pct": -0.11
-            },
-            {
-              "name": "INDIA VIX",
-              "ticker": "^INDIAVIX",
-              "last": 12.73,
-              "change_pct": 3.54
-            },
-            {
-              "name": "S&P 500",
-              "ticker": "^GSPC",
-              "last": 7619.98,
-              "change_pct": -0.48
-            },
-            {
-              "name": "NASDAQ",
-              "ticker": "^IXIC",
-              "last": 26186.41,
-              "change_pct": -0.56
-            },
-            {
-              "name": "NIKKEI",
-              "ticker": "^N225",
-              "last": 63362.89,
-              "change_pct": -0.2
-            },
-            {
-              "name": "HANG SENG",
-              "ticker": "^HSI",
-              "last": 24832.31,
-              "change_pct": -0.34
-            },
-            {
-              "name": "USD/INR",
-              "ticker": "INR=X",
-              "last": 95.86,
-              "change_pct": 0.88
-            },
-            {
-              "name": "CRUDE",
-              "ticker": "CL=F",
-              "last": 103.17,
-              "change_pct": 1.76
-            },
-            {
-              "name": "GOLD",
-              "ticker": "GC=F",
-              "last": 4343.3,
-              "change_pct": -0.2
-            }
-          ],
-          "levels": {
-            "NIFTY close": 23351.7,
-            "Previous close": 23398.1,
-            "5D return %": -1.8,
-            "20D return %": -3.85,
-            "5D SMA": 23458.84,
-            "20D SMA": 23932.0,
-            "50D SMA": 24131.85,
-            "20D high": 24378.6,
-            "20D low": 23231.4,
-            "RSI14": 12.01,
-            "range_position_%": 10.5
-          }
-        },
-        "mission": "Establish the current index and macro snapshot.",
-        "self_check": {
-          "confidence": "MEDIUM",
-          "evidence_state": "READY",
-          "missing": [],
-          "needs_retry": false
-        },
-        "autonomy": {
-          "source_selection": "SPECIALIZED_ENGINE",
-          "self_evaluation": true,
-          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-          "no_fabrication": true
-        }
-      },
-      "Risk Agent": {
-        "agent": "Risk Agent",
-        "status": "READY",
-        "elapsed_ms": 0.0,
-        "data": {
-          "vix_change_pct": 3.54,
-          "sector_positive_share": 0.5,
-          "flags": []
-        },
-        "mission": "Identify volatility, breadth and evidence-quality risks.",
-        "self_check": {
-          "confidence": "LOW",
-          "evidence_state": "INSUFFICIENT",
-          "missing": [
-            "flags"
-          ],
-          "needs_retry": true
-        },
-        "autonomy": {
-          "source_selection": "SPECIALIZED_ENGINE",
-          "self_evaluation": true,
-          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-          "no_fabrication": true
-        }
-      },
       "Watchlist Agent": {
         "agent": "Watchlist Agent",
         "status": "READY",
-        "elapsed_ms": 0.3,
+        "elapsed_ms": 0.4,
         "data": [
           {
             "ticker": "HDFCBANK",
-            "last": 721.45,
-            "change_pct": 1.86,
-            "20D_return_pct": -1.04,
-            "vs_20D_SMA_pct": 1.08,
-            "volume_vs_20D": 1.04,
-            "RSI14": 47.52,
+            "last": 720.3,
+            "change_pct": 1.7,
+            "20D_return_pct": -1.19,
+            "vs_20D_SMA_pct": 0.93,
+            "volume_vs_20D": 1.06,
+            "RSI14": 47.01,
             "research_score": 57.0,
             "research_label": "NEUTRAL",
             "research_confidence": "MEDIUM",
@@ -1229,12 +1025,12 @@
           },
           {
             "ticker": "TCS",
-            "last": 2302.7,
-            "change_pct": 4.63,
-            "20D_return_pct": -0.45,
-            "vs_20D_SMA_pct": 0.57,
-            "volume_vs_20D": 1.01,
-            "RSI14": 50.65,
+            "last": 2307.0,
+            "change_pct": 4.83,
+            "20D_return_pct": -0.27,
+            "vs_20D_SMA_pct": 0.75,
+            "volume_vs_20D": 1.02,
+            "RSI14": 51.07,
             "research_score": 57.0,
             "research_label": "NEUTRAL",
             "research_confidence": "MEDIUM",
@@ -1249,13 +1045,34 @@
             "negative_news": 0
           },
           {
+            "ticker": "INFY",
+            "last": 1088.3,
+            "change_pct": 4.88,
+            "20D_return_pct": -4.53,
+            "vs_20D_SMA_pct": -1.92,
+            "volume_vs_20D": 0.97,
+            "RSI14": 39.8,
+            "research_score": 44.0,
+            "research_label": "NEUTRAL",
+            "research_confidence": "MEDIUM",
+            "research_reasons": [
+              "near/below 20D SMA",
+              "negative 20D momentum",
+              "positive latest session"
+            ],
+            "linked_news": 0,
+            "supported_news": 0,
+            "positive_news": 0,
+            "negative_news": 0
+          },
+          {
             "ticker": "ITC",
-            "last": 261.7,
-            "change_pct": 0.71,
-            "20D_return_pct": -4.16,
-            "vs_20D_SMA_pct": -1.41,
-            "volume_vs_20D": 0.34,
-            "RSI14": 37.53,
+            "last": 261.0,
+            "change_pct": 0.44,
+            "20D_return_pct": -4.41,
+            "vs_20D_SMA_pct": -1.66,
+            "volume_vs_20D": 0.36,
+            "RSI14": 36.39,
             "research_score": 39.0,
             "research_label": "NEUTRAL",
             "research_confidence": "MEDIUM",
@@ -1269,34 +1086,13 @@
             "negative_news": 0
           },
           {
-            "ticker": "INFY",
-            "last": 1085.5,
-            "change_pct": 4.61,
-            "20D_return_pct": -4.77,
-            "vs_20D_SMA_pct": -2.16,
-            "volume_vs_20D": 0.95,
-            "RSI14": 39.18,
-            "research_score": 38.0,
-            "research_label": "RISK",
-            "research_confidence": "MEDIUM",
-            "research_reasons": [
-              "below 20D SMA",
-              "negative 20D momentum",
-              "positive latest session"
-            ],
-            "linked_news": 0,
-            "supported_news": 0,
-            "positive_news": 0,
-            "negative_news": 0
-          },
-          {
             "ticker": "RELIANCE",
-            "last": 1255.0,
-            "change_pct": -0.2,
-            "20D_return_pct": -4.64,
-            "vs_20D_SMA_pct": -3.27,
-            "volume_vs_20D": 0.44,
-            "RSI14": 33.04,
+            "last": 1254.4,
+            "change_pct": -0.25,
+            "20D_return_pct": -4.68,
+            "vs_20D_SMA_pct": -3.32,
+            "volume_vs_20D": 0.46,
+            "RSI14": 32.93,
             "research_score": 29.0,
             "research_label": "RISK",
             "research_confidence": "MEDIUM",
@@ -1312,12 +1108,12 @@
           },
           {
             "ticker": "ICICIBANK",
-            "last": 1357.5,
-            "change_pct": -1.58,
-            "20D_return_pct": -4.08,
-            "vs_20D_SMA_pct": -4.02,
-            "volume_vs_20D": 0.32,
-            "RSI14": 32.26,
+            "last": 1357.2,
+            "change_pct": -1.6,
+            "20D_return_pct": -4.11,
+            "vs_20D_SMA_pct": -4.04,
+            "volume_vs_20D": 0.33,
+            "RSI14": 32.21,
             "research_score": 24.0,
             "research_label": "RISK",
             "research_confidence": "MEDIUM",
@@ -1334,12 +1130,12 @@
           },
           {
             "ticker": "SBIN",
-            "last": 980.6,
-            "change_pct": -1.52,
-            "20D_return_pct": -7.6,
-            "vs_20D_SMA_pct": -4.72,
-            "volume_vs_20D": 0.47,
-            "RSI14": 25.44,
+            "last": 981.1,
+            "change_pct": -1.47,
+            "20D_return_pct": -7.55,
+            "vs_20D_SMA_pct": -4.67,
+            "volume_vs_20D": 0.48,
+            "RSI14": 25.53,
             "research_score": 19.0,
             "research_label": "RISK",
             "research_confidence": "MEDIUM",
@@ -1369,10 +1165,213 @@
           "no_fabrication": true
         }
       },
+      "Market Agent": {
+        "agent": "Market Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "snapshot": [
+            {
+              "name": "NIFTY 50",
+              "ticker": "^NSEI",
+              "last": 23339.95,
+              "change_pct": -0.25
+            },
+            {
+              "name": "BANK NIFTY",
+              "ticker": "^NSEBANK",
+              "last": 56181.05,
+              "change_pct": -0.75
+            },
+            {
+              "name": "SENSEX",
+              "ticker": "^BSESN",
+              "last": 74720.76,
+              "change_pct": -0.08
+            },
+            {
+              "name": "INDIA VIX",
+              "ticker": "^INDIAVIX",
+              "last": 12.81,
+              "change_pct": 4.19
+            },
+            {
+              "name": "S&P 500",
+              "ticker": "^GSPC",
+              "last": 7619.98,
+              "change_pct": -0.48
+            },
+            {
+              "name": "NASDAQ",
+              "ticker": "^IXIC",
+              "last": 26186.41,
+              "change_pct": -0.56
+            },
+            {
+              "name": "NIKKEI",
+              "ticker": "^N225",
+              "last": 63410.97,
+              "change_pct": -0.13
+            },
+            {
+              "name": "HANG SENG",
+              "ticker": "^HSI",
+              "last": 24827.65,
+              "change_pct": -0.36
+            },
+            {
+              "name": "USD/INR",
+              "ticker": "INR=X",
+              "last": 95.86,
+              "change_pct": 0.87
+            },
+            {
+              "name": "CRUDE",
+              "ticker": "CL=F",
+              "last": 103.29,
+              "change_pct": 1.87
+            },
+            {
+              "name": "GOLD",
+              "ticker": "GC=F",
+              "last": 4341.8,
+              "change_pct": -0.23
+            }
+          ],
+          "levels": {
+            "NIFTY close": 23340.45,
+            "Previous close": 23398.1,
+            "5D return %": -1.84,
+            "20D return %": -3.9,
+            "5D SMA": 23456.59,
+            "20D SMA": 23931.44,
+            "50D SMA": 24131.62,
+            "20D high": 24378.6,
+            "20D low": 23231.4,
+            "RSI14": 11.91,
+            "range_position_%": 9.5
+          }
+        },
+        "mission": "Establish the current index and macro snapshot.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Sector Agent": {
+        "agent": "Sector Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "sectors": [
+            {
+              "sector": "IT",
+              "avg_change_pct": 4.86,
+              "members": 2
+            },
+            {
+              "sector": "FMCG",
+              "avg_change_pct": 0.73,
+              "members": 2
+            },
+            {
+              "sector": "Energy",
+              "avg_change_pct": 0.59,
+              "members": 2
+            },
+            {
+              "sector": "Pharma",
+              "avg_change_pct": -0.41,
+              "members": 2
+            },
+            {
+              "sector": "Banking",
+              "avg_change_pct": -0.46,
+              "members": 3
+            },
+            {
+              "sector": "Auto",
+              "avg_change_pct": -0.68,
+              "members": 1
+            }
+          ]
+        },
+        "mission": "Assess sector participation and rotation.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Technical Agent": {
+        "agent": "Technical Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "trend_vs_20d": "BELOW",
+          "trend_vs_50d": "BELOW",
+          "rsi14": 11.91,
+          "20d_return_pct": -3.9,
+          "range_position_pct": 9.5
+        },
+        "mission": "Assess trend, momentum and range structure.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Risk Agent": {
+        "agent": "Risk Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "vix_change_pct": 4.19,
+          "sector_positive_share": 0.5,
+          "flags": []
+        },
+        "mission": "Identify volatility, breadth and evidence-quality risks.",
+        "self_check": {
+          "confidence": "LOW",
+          "evidence_state": "INSUFFICIENT",
+          "missing": [
+            "flags"
+          ],
+          "needs_retry": true
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
       "Institutional Agent": {
         "agent": "Institutional Agent",
         "status": "READY",
-        "elapsed_ms": 850.5,
+        "elapsed_ms": 565.9,
         "data": {
           "available": true,
           "date": "11-Sep-2026",
@@ -1421,12 +1420,12 @@
       "Intraday Agent": {
         "agent": "Intraday Agent",
         "status": "READY",
-        "elapsed_ms": 1272.1,
+        "elapsed_ms": 1339.8,
         "data": {
           "available": true,
           "mode": "LIVE",
           "session_date": "2026-09-15",
-          "as_of": "2026-09-15 10:45 IST",
+          "as_of": "2026-09-15 10:50 IST",
           "source": "Yahoo Finance market-data feed",
           "live_feed": {
             "provider": "yfinance-fallback",
@@ -1438,7 +1437,7 @@
             "errors": []
           },
           "source_url": "https://finance.yahoo.com/",
-          "last": 23349.2,
+          "last": 23347.9,
           "session_change_pct": -0.21,
           "vwap": null,
           "vwap_distance_pct": null,
@@ -1447,74 +1446,74 @@
           "opening_range_state": "BREAKDOWN BELOW OR",
           "volume_ratio": null,
           "volume_spike_6bar": null,
-          "momentum_15m_pct": -0.07,
+          "momentum_15m_pct": -0.1,
           "trend": "DOWNTREND",
           "breadth": {
-            "advancers": 4,
-            "decliners": 3,
+            "advancers": 2,
+            "decliners": 5,
             "unchanged": 0,
             "total": 7,
-            "breadth_ratio": 1.33,
+            "breadth_ratio": 0.4,
             "rows": [
               {
                 "Stock": "TCS",
-                "Change %": 1.02
-              },
-              {
-                "Stock": "ITC",
-                "Change %": 0.1
+                "Change %": 1.29
               },
               {
                 "Stock": "INFY",
-                "Change %": 0.05
+                "Change %": 0.37
               },
               {
                 "Stock": "RELIANCE",
-                "Change %": 0.03
+                "Change %": -0.02
+              },
+              {
+                "Stock": "ITC",
+                "Change %": -0.1
               },
               {
                 "Stock": "HDFCBANK",
-                "Change %": -0.14
+                "Change %": -0.32
               },
               {
                 "Stock": "SBIN",
-                "Change %": -1.6
+                "Change %": -1.54
               },
               {
                 "Stock": "ICICIBANK",
-                "Change %": -1.69
+                "Change %": -1.71
               }
             ]
           },
           "levels": {
             "session_high": 23588.3,
-            "session_low": 23348.5,
+            "session_low": 23338.4,
             "recent_resistance": 23588.3,
-            "recent_support": 23348.5,
-            "last": 23349.2
+            "recent_support": 23338.4,
+            "last": 23347.9
           },
           "components": {
             "Opening Range": -14,
             "Momentum": 0,
             "Trend": -8,
             "Volume": 0,
-            "Breadth": 7
+            "Breadth": -7
           },
-          "score": 35,
-          "bias": "NEUTRAL",
+          "score": 21,
+          "bias": "BEARISH",
           "confidence": "MEDIUM",
           "reasons": [
             "NIFTY is below the 15-minute opening-range low: breakdown structure.",
-            "15-minute momentum is muted at -0.07%.",
+            "15-minute momentum is muted at -0.10%.",
             "Short-term moving-average structure is falling.",
-            "Watchlist breadth is 4 advancing vs 3 declining."
+            "Watchlist breadth is 2 advancing vs 5 declining."
           ],
           "synthesis": {
-            "headline": "Direction is developing — confirmation needed",
-            "detail": "opening-range breakdown; falling short-term trend; watchlist breadth positive",
-            "bull_count": 1,
-            "bear_count": 3,
-            "nearest_level": 23348.5,
+            "headline": "Sellers are in control",
+            "detail": "opening-range breakdown; falling short-term trend; watchlist breadth negative",
+            "bull_count": 0,
+            "bear_count": 4,
+            "nearest_level": 23338.4,
             "volume_confirming": false
           }
         },
@@ -1535,7 +1534,7 @@
       "Options Agent": {
         "agent": "Options Agent",
         "status": "READY",
-        "elapsed_ms": 2540.8,
+        "elapsed_ms": 2656.3,
         "data": {
           "available": true,
           "symbol": "NIFTY",
@@ -1600,7 +1599,7 @@
       "News Agent": {
         "agent": "News Agent",
         "status": "READY",
-        "elapsed_ms": 3352.4,
+        "elapsed_ms": 3836.8,
         "data": [
           {
             "title": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
@@ -1617,7 +1616,7 @@
             "impact": "NEUTRAL",
             "impact_reason": "No clear directional impact is established from the headline alone.",
             "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T05:15:44.635865+00:00",
+            "checked_at_utc": "2026-09-15T05:20:17.664245+00:00",
             "evidence_score": 10,
             "evidence_count": 0,
             "claim_status": "INSUFFICIENT EVIDENCE",
@@ -1660,7 +1659,7 @@
             "impact": "NEUTRAL",
             "impact_reason": "No clear directional impact is established from the headline alone.",
             "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T05:15:47.549162+00:00",
+            "checked_at_utc": "2026-09-15T05:20:20.374365+00:00",
             "evidence_score": 10,
             "evidence_count": 0,
             "claim_status": "INSUFFICIENT EVIDENCE",
@@ -1694,7 +1693,7 @@
             "publisher": "Moneycontrol.com",
             "published": "Mon, 14 Sep 2026 04:30:55 GMT",
             "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
-            "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
+            "summary": "BSE BANKEX Stock Price, BSE Bankex Market Indices, BSE Bankex Price, Stock Performance & Comparison Moneycontrol.com",
             "publisher_domain": "",
             "cluster_id": 1,
             "verification": "CROSS_CHECKED",
@@ -1703,7 +1702,7 @@
             "impact": "NEUTRAL",
             "impact_reason": "No clear directional impact is established from the headline alone.",
             "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T05:15:49.758027+00:00",
+            "checked_at_utc": "2026-09-15T05:20:23.106171+00:00",
             "evidence_score": 75,
             "evidence_count": 4,
             "claim_status": "SUPPORTED",
@@ -1747,20 +1746,19 @@
             "cluster_id": 3,
             "verification": "CROSS_CHECKED",
             "verification_label": "CROSS-CHECKED",
-            "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
+            "verification_detail": "Fresh search found independent reporting from 2 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 55/100.",
             "impact": "NEUTRAL",
             "impact_reason": "No clear directional impact is established from the headline alone.",
             "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T05:15:51.468409+00:00",
-            "evidence_score": 65,
-            "evidence_count": 3,
+            "checked_at_utc": "2026-09-15T05:20:25.195654+00:00",
+            "evidence_score": 55,
+            "evidence_count": 2,
             "claim_status": "SUPPORTED",
             "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
             "agent_status": "ARTICLE_UNAVAILABLE",
             "verification_sources": [
               "TradingView",
-              "Yahoo Finance Singapore",
-              "Yahoo News Singapore"
+              "Yahoo Finance Singapore"
             ],
             "display_title": "🟢 SUPPORTED · India's Nifty and Sensex diverge following launch of new auction mechanism",
             "research": {
@@ -1798,7 +1796,7 @@
             "impact": "NEUTRAL",
             "impact_reason": "No clear directional impact is established from the headline alone.",
             "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T05:15:52.296323+00:00",
+            "checked_at_utc": "2026-09-15T05:20:26.046620+00:00",
             "evidence_score": 10,
             "evidence_count": 0,
             "claim_status": "INSUFFICIENT EVIDENCE",
@@ -1841,7 +1839,7 @@
             "impact": "NEUTRAL",
             "impact_reason": "No clear directional impact is established from the headline alone.",
             "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T05:15:55.001755+00:00",
+            "checked_at_utc": "2026-09-15T05:20:29.061187+00:00",
             "evidence_score": 10,
             "evidence_count": 0,
             "claim_status": "INSUFFICIENT EVIDENCE",
@@ -1938,42 +1936,42 @@
   "chief_input": {
     "market": {
       "levels": {
-        "NIFTY close": 23351.7,
+        "NIFTY close": 23340.45,
         "Previous close": 23398.1,
-        "5D return %": -1.8,
-        "20D return %": -3.85,
-        "5D SMA": 23458.84,
-        "20D SMA": 23932.0,
-        "50D SMA": 24131.85,
+        "5D return %": -1.84,
+        "20D return %": -3.9,
+        "5D SMA": 23456.59,
+        "20D SMA": 23931.44,
+        "50D SMA": 24131.62,
         "20D high": 24378.6,
         "20D low": 23231.4,
-        "RSI14": 12.01,
-        "range_position_%": 10.5
+        "RSI14": 11.91,
+        "range_position_%": 9.5
       },
       "snapshots": [
         {
           "name": "NIFTY 50",
           "ticker": "^NSEI",
-          "last": 23351.95,
-          "change_pct": -0.2
+          "last": 23339.95,
+          "change_pct": -0.25
         },
         {
           "name": "BANK NIFTY",
           "ticker": "^NSEBANK",
-          "last": 56223.6,
-          "change_pct": -0.68
+          "last": 56181.05,
+          "change_pct": -0.75
         },
         {
           "name": "SENSEX",
           "ticker": "^BSESN",
-          "last": 74699.56,
-          "change_pct": -0.11
+          "last": 74720.76,
+          "change_pct": -0.08
         },
         {
           "name": "INDIA VIX",
           "ticker": "^INDIAVIX",
-          "last": 12.73,
-          "change_pct": 3.54
+          "last": 12.81,
+          "change_pct": 4.19
         },
         {
           "name": "S&P 500",
@@ -1990,130 +1988,130 @@
         {
           "name": "NIKKEI",
           "ticker": "^N225",
-          "last": 63362.89,
-          "change_pct": -0.2
+          "last": 63410.97,
+          "change_pct": -0.13
         },
         {
           "name": "HANG SENG",
           "ticker": "^HSI",
-          "last": 24832.31,
-          "change_pct": -0.34
+          "last": 24827.65,
+          "change_pct": -0.36
         },
         {
           "name": "USD/INR",
           "ticker": "INR=X",
           "last": 95.86,
-          "change_pct": 0.88
+          "change_pct": 0.87
         },
         {
           "name": "CRUDE",
           "ticker": "CL=F",
-          "last": 103.17,
-          "change_pct": 1.76
+          "last": 103.29,
+          "change_pct": 1.87
         },
         {
           "name": "GOLD",
           "ticker": "GC=F",
-          "last": 4343.3,
-          "change_pct": -0.2
+          "last": 4341.8,
+          "change_pct": -0.23
         }
       ]
     },
     "sectors": [
       {
         "sector": "IT",
-        "avg_change_pct": 4.62,
+        "avg_change_pct": 4.86,
         "members": 2
       },
       {
         "sector": "FMCG",
-        "avg_change_pct": 0.81,
+        "avg_change_pct": 0.73,
         "members": 2
       },
       {
         "sector": "Energy",
-        "avg_change_pct": 0.6,
+        "avg_change_pct": 0.59,
         "members": 2
       },
       {
         "sector": "Pharma",
-        "avg_change_pct": -0.22,
+        "avg_change_pct": -0.41,
         "members": 2
       },
       {
         "sector": "Banking",
-        "avg_change_pct": -0.41,
+        "avg_change_pct": -0.46,
         "members": 3
       },
       {
         "sector": "Auto",
-        "avg_change_pct": -0.62,
+        "avg_change_pct": -0.68,
         "members": 1
       }
     ],
     "watchlist": [
       {
         "ticker": "RELIANCE",
-        "last": 1255.0,
-        "change_pct": -0.2,
-        "20D_return_pct": -4.64,
-        "vs_20D_SMA_pct": -3.27,
-        "volume_vs_20D": 0.44,
-        "RSI14": 33.04
+        "last": 1254.4,
+        "change_pct": -0.25,
+        "20D_return_pct": -4.68,
+        "vs_20D_SMA_pct": -3.32,
+        "volume_vs_20D": 0.46,
+        "RSI14": 32.93
       },
       {
         "ticker": "HDFCBANK",
-        "last": 721.45,
-        "change_pct": 1.86,
-        "20D_return_pct": -1.04,
-        "vs_20D_SMA_pct": 1.08,
-        "volume_vs_20D": 1.04,
-        "RSI14": 47.52
+        "last": 720.3,
+        "change_pct": 1.7,
+        "20D_return_pct": -1.19,
+        "vs_20D_SMA_pct": 0.93,
+        "volume_vs_20D": 1.06,
+        "RSI14": 47.01
       },
       {
         "ticker": "ICICIBANK",
-        "last": 1357.5,
-        "change_pct": -1.58,
-        "20D_return_pct": -4.08,
-        "vs_20D_SMA_pct": -4.02,
-        "volume_vs_20D": 0.32,
-        "RSI14": 32.26
+        "last": 1357.2,
+        "change_pct": -1.6,
+        "20D_return_pct": -4.11,
+        "vs_20D_SMA_pct": -4.04,
+        "volume_vs_20D": 0.33,
+        "RSI14": 32.21
       },
       {
         "ticker": "SBIN",
-        "last": 980.6,
-        "change_pct": -1.52,
-        "20D_return_pct": -7.6,
-        "vs_20D_SMA_pct": -4.72,
-        "volume_vs_20D": 0.47,
-        "RSI14": 25.44
+        "last": 981.1,
+        "change_pct": -1.47,
+        "20D_return_pct": -7.55,
+        "vs_20D_SMA_pct": -4.67,
+        "volume_vs_20D": 0.48,
+        "RSI14": 25.53
       },
       {
         "ticker": "INFY",
-        "last": 1085.5,
-        "change_pct": 4.61,
-        "20D_return_pct": -4.77,
-        "vs_20D_SMA_pct": -2.16,
-        "volume_vs_20D": 0.95,
-        "RSI14": 39.18
+        "last": 1088.3,
+        "change_pct": 4.88,
+        "20D_return_pct": -4.53,
+        "vs_20D_SMA_pct": -1.92,
+        "volume_vs_20D": 0.97,
+        "RSI14": 39.8
       },
       {
         "ticker": "TCS",
-        "last": 2302.7,
-        "change_pct": 4.63,
-        "20D_return_pct": -0.45,
-        "vs_20D_SMA_pct": 0.57,
-        "volume_vs_20D": 1.01,
-        "RSI14": 50.65
+        "last": 2307.0,
+        "change_pct": 4.83,
+        "20D_return_pct": -0.27,
+        "vs_20D_SMA_pct": 0.75,
+        "volume_vs_20D": 1.02,
+        "RSI14": 51.07
       },
       {
         "ticker": "ITC",
-        "last": 261.7,
-        "change_pct": 0.71,
-        "20D_return_pct": -4.16,
-        "vs_20D_SMA_pct": -1.41,
-        "volume_vs_20D": 0.34,
-        "RSI14": 37.53
+        "last": 261.0,
+        "change_pct": 0.44,
+        "20D_return_pct": -4.41,
+        "vs_20D_SMA_pct": -1.66,
+        "volume_vs_20D": 0.36,
+        "RSI14": 36.39
       }
     ],
     "news": [
@@ -2132,7 +2130,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:15:44.635865+00:00",
+        "checked_at_utc": "2026-09-15T05:20:17.664245+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2156,7 +2154,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:15:47.549162+00:00",
+        "checked_at_utc": "2026-09-15T05:20:20.374365+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2171,7 +2169,7 @@
         "publisher": "Moneycontrol.com",
         "published": "Mon, 14 Sep 2026 04:30:55 GMT",
         "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
-        "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
+        "summary": "BSE BANKEX Stock Price, BSE Bankex Market Indices, BSE Bankex Price, Stock Performance & Comparison Moneycontrol.com",
         "publisher_domain": "",
         "cluster_id": 1,
         "verification": "CROSS_CHECKED",
@@ -2180,7 +2178,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:15:49.758027+00:00",
+        "checked_at_utc": "2026-09-15T05:20:23.106171+00:00",
         "evidence_score": 75,
         "evidence_count": 4,
         "claim_status": "SUPPORTED",
@@ -2205,20 +2203,19 @@
         "cluster_id": 3,
         "verification": "CROSS_CHECKED",
         "verification_label": "CROSS-CHECKED",
-        "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
+        "verification_detail": "Fresh search found independent reporting from 2 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 55/100.",
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:15:51.468409+00:00",
-        "evidence_score": 65,
-        "evidence_count": 3,
+        "checked_at_utc": "2026-09-15T05:20:25.195654+00:00",
+        "evidence_score": 55,
+        "evidence_count": 2,
         "claim_status": "SUPPORTED",
         "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
         "agent_status": "ARTICLE_UNAVAILABLE",
         "verification_sources": [
           "TradingView",
-          "Yahoo Finance Singapore",
-          "Yahoo News Singapore"
+          "Yahoo Finance Singapore"
         ],
         "display_title": "🟢 SUPPORTED · India's Nifty and Sensex diverge following launch of new auction mechanism"
       },
@@ -2237,7 +2234,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:15:52.296323+00:00",
+        "checked_at_utc": "2026-09-15T05:20:26.046620+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2261,7 +2258,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:15:55.001755+00:00",
+        "checked_at_utc": "2026-09-15T05:20:29.061187+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2273,7 +2270,7 @@
       {
         "title": "What the RBI Said Today — And What It Means for India’s Economy",
         "source": "RBI / Economy",
-        "publisher": "Investing.com India",
+        "publisher": "in.investing.com",
         "published": "Fri, 05 Jun 2026 07:00:00 GMT",
         "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOc09kdzVIUGQtZk92OUtOSjNib1E4M2VCYVhrRFdSenZCc2hINFVfQWRRS2phc0Y2QVhqZFlUNXloeTBQV2VNTTl2UG1IaHktdVB0cXZtbUFHNzNCR2xTZ3I3WEtjMXZlLU9LNk16RDlKeWhFdTltUnZwZ2dvNmtsM0RhY0NVMXBNVjJCZ18waXgzN05BMXl1UzE3a2dIdFVtLUZwMFllVFdfQnM5cFVGeU53?oc=5",
         "summary": "",
@@ -2285,7 +2282,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T05:15:55.895872+00:00",
+        "checked_at_utc": "2026-09-15T05:20:29.915576+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2309,7 +2306,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T05:15:56.734809+00:00",
+        "checked_at_utc": "2026-09-15T05:20:30.877537+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2333,36 +2330,13 @@
         "impact": "POSITIVE",
         "impact_reason": "Headline language contains positive market-impact signals.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T05:15:57.600701+00:00",
+        "checked_at_utc": "2026-09-15T05:20:31.740635+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
         "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
         "agent_status": "ARTICLE_UNAVAILABLE",
         "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian economy continues to grow at strong pace, supported by robust domestic demand, prudent macroeconomic policies: RBI | Akashvani News"
-      },
-      {
-        "title": "RBI’s hawkish minutes rattle bond market, put rate hikes in play",
-        "source": "RBI / Economy",
-        "publisher": "theprint.in",
-        "published": "Thu, 20 Aug 2026 07:00:00 GMT",
-        "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ2N0NnNfTjNVaENMTHl6QWZoWXl1SUlyYVRFNThpVzhQcDNxdktGbUdOQlVSM2FLRFU1Zlk5c3dSYVNPY1VLZmFISjluZC1XUENhTkw3bVc0bkJVM0dXTkwyX0R2a05jcjdGQ01KOHZ5YXY2djEyNGZqLWpxenFhd1JWRkxhTnZyZmliSnZYQ2M1c0tKOG9LOHNGTWpHbHZq0gGmAUFVX3lxTFB5dTdaU25iVnlKZ3d1Vl9EeS1VTXppUUFhMUtwUl93dzNGYUw5UVZ1N1NGRk5WVjhrUS02dWlFVU5tblpoSXlhOW80QldnTmc3VS00MFdBdno1TFpHck1wS1cwNUNjNUlCWUpTSGQ2YzU5Tk5jdzlMNHBXMlptRVd2b3JlV3hicUcwbmk5UzdZdXd2ZWNfTmFsV05hUTh4MF94OURBWFE?oc=5",
-        "summary": "",
-        "publisher_domain": "",
-        "cluster_id": 8,
-        "verification": "SINGLE_SOURCE",
-        "verification_label": "SINGLE SOURCE",
-        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
-        "impact": "NEGATIVE",
-        "impact_reason": "Headline language contains negative market-impact signals.",
-        "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T05:15:58.356449+00:00",
-        "evidence_score": 30,
-        "evidence_count": 0,
-        "claim_status": "INSUFFICIENT EVIDENCE",
-        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
-        "agent_status": "ARTICLE_UNAVAILABLE",
-        "display_title": "🟡 INSUFFICIENT EVIDENCE · RBI’s hawkish minutes rattle bond market, put rate hikes in play"
       },
       {
         "title": "Developed economy needs developed financial markets first: RBI Deputy Governor Jain",
@@ -2372,14 +2346,14 @@
         "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPaXY5V2swUnBiR0YyUnUzRU10bEdyd0s2cGl6bWRWM2xsaUc1MWZmTEprMnc2aFJCMG9KN1l3bE1VWm1CNVFEWnBvTHRMN1ZtYzQ0UE9Id1BaSGJTQ0RwNG1JWWk5TmNMZ19hSV91RnhUbXJVTW5BMEFxVVB0NHZDeUw2ckIydHVCVTZpb2l1eDRuNC1QWERzVlRfOC05WHctMURZVlRzWXdRNmZBX1BTLVBicTdJSHgxZVUzMF9YMnBKZFluRzJpVHNLQ21faGoyUlNQN196cTJYTDU3S1NaT2s5SmVnUdIB7AFBVV95cUxOa3VqcVFDZjJBbjc1cHlSMkRKS3N5bzBHQkgwZHdfenFJNUY4ZW9hdzZ2dm1sMlJNcGowQmNhaDlhUjJDNzZVeVRROThycTBsYTFCcE1VNHJ4OTFfUXo1c21TTGo3ZmVUZ0NqcU43bzUtZjl5QWU5aUIzWWNBUVU3YjhINFlmYmw3OFMweERkWmpSTE1LMFNuZHBIaTdjUHg0VkhNLWpJOVBseW9oT29EeVB1MDQ4N21UQXNvUjNFbXA1dm1mdEs5aVQ5azVsZHhpTmVvbFpueDlDbm5zR2pMcy1sMTRUR1MwSV9OWg?oc=5",
         "summary": "",
         "publisher_domain": "",
-        "cluster_id": 9,
+        "cluster_id": 8,
         "verification": "SINGLE_SOURCE",
         "verification_label": "SINGLE SOURCE",
         "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T05:15:59.212493+00:00",
+        "checked_at_utc": "2026-09-15T05:20:32.633534+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2388,27 +2362,50 @@
         "display_title": "🟡 INSUFFICIENT EVIDENCE · Developed economy needs developed financial markets first: RBI Deputy Governor Jain"
       },
       {
-        "title": "India's April-June GDP growth beats estimates at 7.8%, stays resilient despite Iran war",
+        "title": "RBI’s hawkish minutes rattle bond market, put rate hikes in play",
         "source": "RBI / Economy",
-        "publisher": "newindianexpress.com",
-        "published": "Mon, 31 Aug 2026 07:00:00 GMT",
-        "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOR1AxUVJTazNHa3RadmoxSEZfSG5hNHNlTTh0ams4bUJiX0w1dnJMeHNrZ2pGakpEOVBPT0ROeUMzQWM3cV9iZ0lKcnAtbXByb2lQWlg4SkRGRHY5dXpTc2c2MkRRbkNuU3pIVE9kQldheTVQY2RkZG50dDFhQmRBQ2ZSUjNHVFE0LXUtVTltVE1WOUYwTUVXSFJJZGpMYm4wRTR5WWk2dFB6ZEY0NTdxVThsXzZqNWJISHNwTHZrTUJPQWV0ci1faE1tTWVwYTTSAdwBQVVfeXFMUExNNnhBdkZtemdXZ2x5dDRkOGVCY1N0aUJCTWEtREhHMGFkeEtWZFlTb2t3ckZUOWZ2cnlJZVc2dUZzVkhIVnVZQ2NlZGh3MVFWeEZvb0JGRl9oWk5qY016c1FqeTZkeDE0M1hrczZRdWREWjg1SXB3cUNld1lPYk9meDZISFJwbVZjZXFvMXJwc19rczVlM3pwZU9LUEtWUXlEc0E3OTZFaHNXZHJkRUNOMC1uR1lydWF2ZnJtN1djY2N3dER2SzV5c2dDWUF3TTVzTHF3el8zTl9JNA?oc=5",
-        "summary": "40 of those killed in Amritsar train accident identified, 36 bodies cremated: Officials newindianexpress.com",
+        "publisher": "ThePrint",
+        "published": "Thu, 20 Aug 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ2N0NnNfTjNVaENMTHl6QWZoWXl1SUlyYVRFNThpVzhQcDNxdktGbUdOQlVSM2FLRFU1Zlk5c3dSYVNPY1VLZmFISjluZC1XUENhTkw3bVc0bkJVM0dXTkwyX0R2a05jcjdGQ01KOHZ5YXY2djEyNGZqLWpxenFhd1JWRkxhTnZyZmliSnZYQ2M1c0tKOG9LOHNGTWpHbHZq0gGmAUFVX3lxTFB5dTdaU25iVnlKZ3d1Vl9EeS1VTXppUUFhMUtwUl93dzNGYUw5UVZ1N1NGRk5WVjhrUS02dWlFVU5tblpoSXlhOW80QldnTmc3VS00MFdBdno1TFpHck1wS1cwNUNjNUlCWUpTSGQ2YzU5Tk5jdzlMNHBXMlptRVd2b3JlV3hicUcwbmk5UzdZdXd2ZWNfTmFsV05hUTh4MF94OURBWFE?oc=5",
+        "summary": "",
         "publisher_domain": "",
-        "cluster_id": 10,
+        "cluster_id": 9,
         "verification": "SINGLE_SOURCE",
         "verification_label": "SINGLE SOURCE",
         "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
-        "impact": "POSITIVE",
-        "impact_reason": "Headline language contains positive market-impact signals.",
-        "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:16:01.542248+00:00",
+        "impact": "NEGATIVE",
+        "impact_reason": "Headline language contains negative market-impact signals.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-09-15T05:20:33.610693+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
         "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
         "agent_status": "ARTICLE_UNAVAILABLE",
-        "display_title": "🟡 INSUFFICIENT EVIDENCE · India's April-June GDP growth beats estimates at 7.8%, stays resilient despite Iran war"
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · RBI’s hawkish minutes rattle bond market, put rate hikes in play"
+      },
+      {
+        "title": "Foreign investment revival signals confidence in Indian economy: RBI’s State of the Economy article",
+        "source": "RBI / Economy",
+        "publisher": "The Indian Express",
+        "published": "Wed, 22 Jul 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPM1R3M0ZXVm5EaE9yVEtnY0R0YUlTRVk5Y1liY1BzZEVlc1h5cHAtRk9kSTNkZXhEa1I1c19RVmFPN1RUSDh3cHlSc3pwZFowa3lka2t2NlktTk1WS2JjVVlhd2RtX3kyekhfTUgtVml0S05xX21xR2VReXVVYXRORjNIUkc5Nk5uQ2JBV19oeVBVQ3NBYnJIbktXVlhqWTVzVEhoQmlYMG1ZTG0wMjhFbzh30gG4AUFVX3lxTE94R2d2REpXM0hfdWVIMzNoOE9CQTV0S01nUW9TNU5uTHJXamlDYkhQVHpxOGRzVXdvUXZ1d21Oa0JRRzZ4NU1ULXdJbVBvVl95RUJZTXFQd1JHWTVwREtBNWpfMUw1MU5EYUFBMWxTZ2s2STB4bGFDTmZOUHc5bTZSS2lyRW11OWk3MjdnbU9PckVZSTY4VGhYaE5sQ0NtYnJ5TFB2MGN1WEZKZTBUa2NUQ3N2bENzN3g?oc=5",
+        "summary": "As cybercrime losses grow exponentially, Karnataka cops work to curb misuse of banking system The Indian Express",
+        "publisher_domain": "",
+        "cluster_id": 10,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-09-15T05:20:36.918120+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Foreign investment revival signals confidence in Indian economy: RBI’s State of the Economy article"
       },
       {
         "title": "Company Results: Company Quarterly Result, Annual Results, Financial Results",
@@ -2425,7 +2422,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:16:02.367630+00:00",
+        "checked_at_utc": "2026-09-15T05:20:37.833870+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2448,7 +2445,7 @@
         "impact": "POSITIVE",
         "impact_reason": "Headline language contains positive market-impact signals.",
         "affected": "IT",
-        "checked_at_utc": "2026-09-15T05:16:03.210881+00:00",
+        "checked_at_utc": "2026-09-15T05:20:38.911627+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2471,7 +2468,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:16:05.571770+00:00",
+        "checked_at_utc": "2026-09-15T05:20:41.629215+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2482,10 +2479,10 @@
       {
         "title": "Q1 results this week: Infosys, IndiGo, Paytm, Bajaj Auto, Eternal, Meesho, Adani Power and more",
         "source": "Indian Companies",
-        "publisher": "upstox.com",
+        "publisher": "Upstox",
         "published": "Sat, 18 Jul 2026 07:00:00 GMT",
         "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOTWtXMElPblNoNlVHaGxVRDk5S0RxOF9HODFvdVJmN0NxMW13bXNGWWVCaTdMRHA5YS1GVllzeFpyRlhzS3RKYk9IRkpGUWpwc2NBYUVVR2JEQjU1bEJldFo3LUo2QThVVXJOOGgtZEZIMHh3LTYxNUZZTzJ6cnFyYjJDMXhYSzRpbTIxX1cyZkdNb3BTdURDNDljYURuN19GWlpOS2VHc1FycHhQS0g1R3lUQmtid3VRek14VHcwU2NNY0lBcUN6OWppRWR4Z3hQUEZtSnEzOU1wd2dBUUhKOExBRmU?oc=5",
-        "summary": "Five of India’s top-10 most valued firms add ₹1.54 lakh crore in market capitalisation; TCS biggest winner upstox.com",
+        "summary": "Five of India’s top-10 most valued firms add ₹1.54 lakh crore in market capitalisation; TCS biggest winner Upstox",
         "publisher_domain": "",
         "cluster_id": 14,
         "verification": "SINGLE_SOURCE",
@@ -2494,7 +2491,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "IT",
-        "checked_at_utc": "2026-09-15T05:16:08.337698+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.069882+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2517,7 +2514,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:16:08.337782+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070035+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2540,7 +2537,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T05:16:08.337832+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070103+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2563,7 +2560,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T05:16:08.337917+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070158+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2586,7 +2583,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T05:16:08.337964+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070202+00:00",
         "evidence_score": 55,
         "evidence_count": 0,
         "claim_status": "SUPPORTED",
@@ -2597,11 +2594,11 @@
       {
         "title": "Week Ahead: Aug CPI Inflation, US Fed Verdict, Crude Oil Among Five Key Triggers To Drive D-Street",
         "source": "Global Markets",
-        "publisher": "ndtvprofit.com",
+        "publisher": "NDTV Profit",
         "published": "Sun, 13 Sep 2026 08:21:11 GMT",
         "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNdVpWaDRjaU5JRmJ0b0tsTklDRVN0eFR1SkZXWXVJRk9RUU84Sm1jYlhLWGVGdUd3VmZDa09JcUgyUU1qeDNadDRSZnFxcEtpOEJJV29TM21oZ2I3UEhPd2NJTDFhV1ZPaGU0V1JUdmVLVXpWRHh0Y2c1TFN4dkE1NEtsdlpyUk1VZGFoZVJ5U2dMRTFRSzhkYWhGNDVabExBdk5YNzJ3UlVJN2RnS3Y3Sm5pYklnS0N4bGd0UGJOaVFqbnZtREZ4cUc1c3E2SUMyb3daLWFaeHQ3bU1weWpvTVFsdHgwMzdwUFpRZFQxWTlTWjTSAfsBQVVfeXFMUGI5YmdhdFFCX09VdzJRWERkclY3QU5mandwRE5Ta0lkS3JFV1hsWDlFQ1J3bTdBd05TamMtVXNmR1B3YUNCQ0V6c0lsSUxDcHJqNDhDTktxWUhTVk1Hdk1wSFpwQzJpZGpYa1VsaEk0clIwNmdpYjBiaTBnZWdtdkUwcF9BV0M2VHdodVRjeDNUMFd2TnJWcjF2cTI1WHBueEVGR3JJMW1MNnNSNFVHNnhYTGU3QjJhTnNhcUlFR01XRFBXcHdWWG1nclRwelVYZm9oMGM5WDVNRlcyMDlKOFZON2hCZ0dhb1BnS1FXZnFRbGRRbUgwTG43WE0?oc=5",
         "summary": "",
-        "publisher_domain": "",
+        "publisher_domain": "ndtvprofit.com",
         "cluster_id": 18,
         "verification": "CORROBORATED",
         "verification_label": "CORROBORATED",
@@ -2609,7 +2606,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T05:16:08.338006+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070246+00:00",
         "evidence_score": 55,
         "evidence_count": 0,
         "claim_status": "SUPPORTED",
@@ -2632,7 +2629,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T05:16:08.338041+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070283+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2655,7 +2652,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T05:16:08.338085+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070323+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2678,7 +2675,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T05:16:08.338120+00:00",
+        "checked_at_utc": "2026-09-15T05:20:44.070361+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2710,222 +2707,19 @@
     },
     "specialists": {
       "agents": {
-        "Sector Agent": {
-          "agent": "Sector Agent",
-          "status": "READY",
-          "elapsed_ms": 0.0,
-          "data": {
-            "sectors": [
-              {
-                "sector": "IT",
-                "avg_change_pct": 4.62,
-                "members": 2
-              },
-              {
-                "sector": "FMCG",
-                "avg_change_pct": 0.81,
-                "members": 2
-              },
-              {
-                "sector": "Energy",
-                "avg_change_pct": 0.6,
-                "members": 2
-              },
-              {
-                "sector": "Pharma",
-                "avg_change_pct": -0.22,
-                "members": 2
-              },
-              {
-                "sector": "Banking",
-                "avg_change_pct": -0.41,
-                "members": 3
-              },
-              {
-                "sector": "Auto",
-                "avg_change_pct": -0.62,
-                "members": 1
-              }
-            ]
-          },
-          "mission": "Assess sector participation and rotation.",
-          "self_check": {
-            "confidence": "MEDIUM",
-            "evidence_state": "READY",
-            "missing": [],
-            "needs_retry": false
-          },
-          "autonomy": {
-            "source_selection": "SPECIALIZED_ENGINE",
-            "self_evaluation": true,
-            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-            "no_fabrication": true
-          }
-        },
-        "Technical Agent": {
-          "agent": "Technical Agent",
-          "status": "READY",
-          "elapsed_ms": 0.0,
-          "data": {
-            "trend_vs_20d": "BELOW",
-            "trend_vs_50d": "BELOW",
-            "rsi14": 12.01,
-            "20d_return_pct": -3.85,
-            "range_position_pct": 10.5
-          },
-          "mission": "Assess trend, momentum and range structure.",
-          "self_check": {
-            "confidence": "MEDIUM",
-            "evidence_state": "READY",
-            "missing": [],
-            "needs_retry": false
-          },
-          "autonomy": {
-            "source_selection": "SPECIALIZED_ENGINE",
-            "self_evaluation": true,
-            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-            "no_fabrication": true
-          }
-        },
-        "Market Agent": {
-          "agent": "Market Agent",
-          "status": "READY",
-          "elapsed_ms": 0.0,
-          "data": {
-            "snapshot": [
-              {
-                "name": "NIFTY 50",
-                "ticker": "^NSEI",
-                "last": 23351.95,
-                "change_pct": -0.2
-              },
-              {
-                "name": "BANK NIFTY",
-                "ticker": "^NSEBANK",
-                "last": 56223.6,
-                "change_pct": -0.68
-              },
-              {
-                "name": "SENSEX",
-                "ticker": "^BSESN",
-                "last": 74699.56,
-                "change_pct": -0.11
-              },
-              {
-                "name": "INDIA VIX",
-                "ticker": "^INDIAVIX",
-                "last": 12.73,
-                "change_pct": 3.54
-              },
-              {
-                "name": "S&P 500",
-                "ticker": "^GSPC",
-                "last": 7619.98,
-                "change_pct": -0.48
-              },
-              {
-                "name": "NASDAQ",
-                "ticker": "^IXIC",
-                "last": 26186.41,
-                "change_pct": -0.56
-              },
-              {
-                "name": "NIKKEI",
-                "ticker": "^N225",
-                "last": 63362.89,
-                "change_pct": -0.2
-              },
-              {
-                "name": "HANG SENG",
-                "ticker": "^HSI",
-                "last": 24832.31,
-                "change_pct": -0.34
-              },
-              {
-                "name": "USD/INR",
-                "ticker": "INR=X",
-                "last": 95.86,
-                "change_pct": 0.88
-              },
-              {
-                "name": "CRUDE",
-                "ticker": "CL=F",
-                "last": 103.17,
-                "change_pct": 1.76
-              },
-              {
-                "name": "GOLD",
-                "ticker": "GC=F",
-                "last": 4343.3,
-                "change_pct": -0.2
-              }
-            ],
-            "levels": {
-              "NIFTY close": 23351.7,
-              "Previous close": 23398.1,
-              "5D return %": -1.8,
-              "20D return %": -3.85,
-              "5D SMA": 23458.84,
-              "20D SMA": 23932.0,
-              "50D SMA": 24131.85,
-              "20D high": 24378.6,
-              "20D low": 23231.4,
-              "RSI14": 12.01,
-              "range_position_%": 10.5
-            }
-          },
-          "mission": "Establish the current index and macro snapshot.",
-          "self_check": {
-            "confidence": "MEDIUM",
-            "evidence_state": "READY",
-            "missing": [],
-            "needs_retry": false
-          },
-          "autonomy": {
-            "source_selection": "SPECIALIZED_ENGINE",
-            "self_evaluation": true,
-            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-            "no_fabrication": true
-          }
-        },
-        "Risk Agent": {
-          "agent": "Risk Agent",
-          "status": "READY",
-          "elapsed_ms": 0.0,
-          "data": {
-            "vix_change_pct": 3.54,
-            "sector_positive_share": 0.5,
-            "flags": []
-          },
-          "mission": "Identify volatility, breadth and evidence-quality risks.",
-          "self_check": {
-            "confidence": "LOW",
-            "evidence_state": "INSUFFICIENT",
-            "missing": [
-              "flags"
-            ],
-            "needs_retry": true
-          },
-          "autonomy": {
-            "source_selection": "SPECIALIZED_ENGINE",
-            "self_evaluation": true,
-            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-            "no_fabrication": true
-          }
-        },
         "Watchlist Agent": {
           "agent": "Watchlist Agent",
           "status": "READY",
-          "elapsed_ms": 0.3,
+          "elapsed_ms": 0.4,
           "data": [
             {
               "ticker": "HDFCBANK",
-              "last": 721.45,
-              "change_pct": 1.86,
-              "20D_return_pct": -1.04,
-              "vs_20D_SMA_pct": 1.08,
-              "volume_vs_20D": 1.04,
-              "RSI14": 47.52,
+              "last": 720.3,
+              "change_pct": 1.7,
+              "20D_return_pct": -1.19,
+              "vs_20D_SMA_pct": 0.93,
+              "volume_vs_20D": 1.06,
+              "RSI14": 47.01,
               "research_score": 57.0,
               "research_label": "NEUTRAL",
               "research_confidence": "MEDIUM",
@@ -2941,12 +2735,12 @@
             },
             {
               "ticker": "TCS",
-              "last": 2302.7,
-              "change_pct": 4.63,
-              "20D_return_pct": -0.45,
-              "vs_20D_SMA_pct": 0.57,
-              "volume_vs_20D": 1.01,
-              "RSI14": 50.65,
+              "last": 2307.0,
+              "change_pct": 4.83,
+              "20D_return_pct": -0.27,
+              "vs_20D_SMA_pct": 0.75,
+              "volume_vs_20D": 1.02,
+              "RSI14": 51.07,
               "research_score": 57.0,
               "research_label": "NEUTRAL",
               "research_confidence": "MEDIUM",
@@ -2961,13 +2755,34 @@
               "negative_news": 0
             },
             {
+              "ticker": "INFY",
+              "last": 1088.3,
+              "change_pct": 4.88,
+              "20D_return_pct": -4.53,
+              "vs_20D_SMA_pct": -1.92,
+              "volume_vs_20D": 0.97,
+              "RSI14": 39.8,
+              "research_score": 44.0,
+              "research_label": "NEUTRAL",
+              "research_confidence": "MEDIUM",
+              "research_reasons": [
+                "near/below 20D SMA",
+                "negative 20D momentum",
+                "positive latest session"
+              ],
+              "linked_news": 0,
+              "supported_news": 0,
+              "positive_news": 0,
+              "negative_news": 0
+            },
+            {
               "ticker": "ITC",
-              "last": 261.7,
-              "change_pct": 0.71,
-              "20D_return_pct": -4.16,
-              "vs_20D_SMA_pct": -1.41,
-              "volume_vs_20D": 0.34,
-              "RSI14": 37.53,
+              "last": 261.0,
+              "change_pct": 0.44,
+              "20D_return_pct": -4.41,
+              "vs_20D_SMA_pct": -1.66,
+              "volume_vs_20D": 0.36,
+              "RSI14": 36.39,
               "research_score": 39.0,
               "research_label": "NEUTRAL",
               "research_confidence": "MEDIUM",
@@ -2981,34 +2796,13 @@
               "negative_news": 0
             },
             {
-              "ticker": "INFY",
-              "last": 1085.5,
-              "change_pct": 4.61,
-              "20D_return_pct": -4.77,
-              "vs_20D_SMA_pct": -2.16,
-              "volume_vs_20D": 0.95,
-              "RSI14": 39.18,
-              "research_score": 38.0,
-              "research_label": "RISK",
-              "research_confidence": "MEDIUM",
-              "research_reasons": [
-                "below 20D SMA",
-                "negative 20D momentum",
-                "positive latest session"
-              ],
-              "linked_news": 0,
-              "supported_news": 0,
-              "positive_news": 0,
-              "negative_news": 0
-            },
-            {
               "ticker": "RELIANCE",
-              "last": 1255.0,
-              "change_pct": -0.2,
-              "20D_return_pct": -4.64,
-              "vs_20D_SMA_pct": -3.27,
-              "volume_vs_20D": 0.44,
-              "RSI14": 33.04,
+              "last": 1254.4,
+              "change_pct": -0.25,
+              "20D_return_pct": -4.68,
+              "vs_20D_SMA_pct": -3.32,
+              "volume_vs_20D": 0.46,
+              "RSI14": 32.93,
               "research_score": 29.0,
               "research_label": "RISK",
               "research_confidence": "MEDIUM",
@@ -3024,12 +2818,12 @@
             },
             {
               "ticker": "ICICIBANK",
-              "last": 1357.5,
-              "change_pct": -1.58,
-              "20D_return_pct": -4.08,
-              "vs_20D_SMA_pct": -4.02,
-              "volume_vs_20D": 0.32,
-              "RSI14": 32.26,
+              "last": 1357.2,
+              "change_pct": -1.6,
+              "20D_return_pct": -4.11,
+              "vs_20D_SMA_pct": -4.04,
+              "volume_vs_20D": 0.33,
+              "RSI14": 32.21,
               "research_score": 24.0,
               "research_label": "RISK",
               "research_confidence": "MEDIUM",
@@ -3046,12 +2840,12 @@
             },
             {
               "ticker": "SBIN",
-              "last": 980.6,
-              "change_pct": -1.52,
-              "20D_return_pct": -7.6,
-              "vs_20D_SMA_pct": -4.72,
-              "volume_vs_20D": 0.47,
-              "RSI14": 25.44,
+              "last": 981.1,
+              "change_pct": -1.47,
+              "20D_return_pct": -7.55,
+              "vs_20D_SMA_pct": -4.67,
+              "volume_vs_20D": 0.48,
+              "RSI14": 25.53,
               "research_score": 19.0,
               "research_label": "RISK",
               "research_confidence": "MEDIUM",
@@ -3081,10 +2875,213 @@
             "no_fabrication": true
           }
         },
+        "Market Agent": {
+          "agent": "Market Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "snapshot": [
+              {
+                "name": "NIFTY 50",
+                "ticker": "^NSEI",
+                "last": 23339.95,
+                "change_pct": -0.25
+              },
+              {
+                "name": "BANK NIFTY",
+                "ticker": "^NSEBANK",
+                "last": 56181.05,
+                "change_pct": -0.75
+              },
+              {
+                "name": "SENSEX",
+                "ticker": "^BSESN",
+                "last": 74720.76,
+                "change_pct": -0.08
+              },
+              {
+                "name": "INDIA VIX",
+                "ticker": "^INDIAVIX",
+                "last": 12.81,
+                "change_pct": 4.19
+              },
+              {
+                "name": "S&P 500",
+                "ticker": "^GSPC",
+                "last": 7619.98,
+                "change_pct": -0.48
+              },
+              {
+                "name": "NASDAQ",
+                "ticker": "^IXIC",
+                "last": 26186.41,
+                "change_pct": -0.56
+              },
+              {
+                "name": "NIKKEI",
+                "ticker": "^N225",
+                "last": 63410.97,
+                "change_pct": -0.13
+              },
+              {
+                "name": "HANG SENG",
+                "ticker": "^HSI",
+                "last": 24827.65,
+                "change_pct": -0.36
+              },
+              {
+                "name": "USD/INR",
+                "ticker": "INR=X",
+                "last": 95.86,
+                "change_pct": 0.87
+              },
+              {
+                "name": "CRUDE",
+                "ticker": "CL=F",
+                "last": 103.29,
+                "change_pct": 1.87
+              },
+              {
+                "name": "GOLD",
+                "ticker": "GC=F",
+                "last": 4341.8,
+                "change_pct": -0.23
+              }
+            ],
+            "levels": {
+              "NIFTY close": 23340.45,
+              "Previous close": 23398.1,
+              "5D return %": -1.84,
+              "20D return %": -3.9,
+              "5D SMA": 23456.59,
+              "20D SMA": 23931.44,
+              "50D SMA": 24131.62,
+              "20D high": 24378.6,
+              "20D low": 23231.4,
+              "RSI14": 11.91,
+              "range_position_%": 9.5
+            }
+          },
+          "mission": "Establish the current index and macro snapshot.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Sector Agent": {
+          "agent": "Sector Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "sectors": [
+              {
+                "sector": "IT",
+                "avg_change_pct": 4.86,
+                "members": 2
+              },
+              {
+                "sector": "FMCG",
+                "avg_change_pct": 0.73,
+                "members": 2
+              },
+              {
+                "sector": "Energy",
+                "avg_change_pct": 0.59,
+                "members": 2
+              },
+              {
+                "sector": "Pharma",
+                "avg_change_pct": -0.41,
+                "members": 2
+              },
+              {
+                "sector": "Banking",
+                "avg_change_pct": -0.46,
+                "members": 3
+              },
+              {
+                "sector": "Auto",
+                "avg_change_pct": -0.68,
+                "members": 1
+              }
+            ]
+          },
+          "mission": "Assess sector participation and rotation.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Technical Agent": {
+          "agent": "Technical Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "trend_vs_20d": "BELOW",
+            "trend_vs_50d": "BELOW",
+            "rsi14": 11.91,
+            "20d_return_pct": -3.9,
+            "range_position_pct": 9.5
+          },
+          "mission": "Assess trend, momentum and range structure.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Risk Agent": {
+          "agent": "Risk Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "vix_change_pct": 4.19,
+            "sector_positive_share": 0.5,
+            "flags": []
+          },
+          "mission": "Identify volatility, breadth and evidence-quality risks.",
+          "self_check": {
+            "confidence": "LOW",
+            "evidence_state": "INSUFFICIENT",
+            "missing": [
+              "flags"
+            ],
+            "needs_retry": true
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
         "Institutional Agent": {
           "agent": "Institutional Agent",
           "status": "READY",
-          "elapsed_ms": 850.5,
+          "elapsed_ms": 565.9,
           "data": {
             "available": true,
             "date": "11-Sep-2026",
@@ -3133,12 +3130,12 @@
         "Intraday Agent": {
           "agent": "Intraday Agent",
           "status": "READY",
-          "elapsed_ms": 1272.1,
+          "elapsed_ms": 1339.8,
           "data": {
             "available": true,
             "mode": "LIVE",
             "session_date": "2026-09-15",
-            "as_of": "2026-09-15 10:45 IST",
+            "as_of": "2026-09-15 10:50 IST",
             "source": "Yahoo Finance market-data feed",
             "live_feed": {
               "provider": "yfinance-fallback",
@@ -3150,7 +3147,7 @@
               "errors": []
             },
             "source_url": "https://finance.yahoo.com/",
-            "last": 23349.2,
+            "last": 23347.9,
             "session_change_pct": -0.21,
             "vwap": null,
             "vwap_distance_pct": null,
@@ -3159,74 +3156,74 @@
             "opening_range_state": "BREAKDOWN BELOW OR",
             "volume_ratio": null,
             "volume_spike_6bar": null,
-            "momentum_15m_pct": -0.07,
+            "momentum_15m_pct": -0.1,
             "trend": "DOWNTREND",
             "breadth": {
-              "advancers": 4,
-              "decliners": 3,
+              "advancers": 2,
+              "decliners": 5,
               "unchanged": 0,
               "total": 7,
-              "breadth_ratio": 1.33,
+              "breadth_ratio": 0.4,
               "rows": [
                 {
                   "Stock": "TCS",
-                  "Change %": 1.02
-                },
-                {
-                  "Stock": "ITC",
-                  "Change %": 0.1
+                  "Change %": 1.29
                 },
                 {
                   "Stock": "INFY",
-                  "Change %": 0.05
+                  "Change %": 0.37
                 },
                 {
                   "Stock": "RELIANCE",
-                  "Change %": 0.03
+                  "Change %": -0.02
+                },
+                {
+                  "Stock": "ITC",
+                  "Change %": -0.1
                 },
                 {
                   "Stock": "HDFCBANK",
-                  "Change %": -0.14
+                  "Change %": -0.32
                 },
                 {
                   "Stock": "SBIN",
-                  "Change %": -1.6
+                  "Change %": -1.54
                 },
                 {
                   "Stock": "ICICIBANK",
-                  "Change %": -1.69
+                  "Change %": -1.71
                 }
               ]
             },
             "levels": {
               "session_high": 23588.3,
-              "session_low": 23348.5,
+              "session_low": 23338.4,
               "recent_resistance": 23588.3,
-              "recent_support": 23348.5,
-              "last": 23349.2
+              "recent_support": 23338.4,
+              "last": 23347.9
             },
             "components": {
               "Opening Range": -14,
               "Momentum": 0,
               "Trend": -8,
               "Volume": 0,
-              "Breadth": 7
+              "Breadth": -7
             },
-            "score": 35,
-            "bias": "NEUTRAL",
+            "score": 21,
+            "bias": "BEARISH",
             "confidence": "MEDIUM",
             "reasons": [
               "NIFTY is below the 15-minute opening-range low: breakdown structure.",
-              "15-minute momentum is muted at -0.07%.",
+              "15-minute momentum is muted at -0.10%.",
               "Short-term moving-average structure is falling.",
-              "Watchlist breadth is 4 advancing vs 3 declining."
+              "Watchlist breadth is 2 advancing vs 5 declining."
             ],
             "synthesis": {
-              "headline": "Direction is developing — confirmation needed",
-              "detail": "opening-range breakdown; falling short-term trend; watchlist breadth positive",
-              "bull_count": 1,
-              "bear_count": 3,
-              "nearest_level": 23348.5,
+              "headline": "Sellers are in control",
+              "detail": "opening-range breakdown; falling short-term trend; watchlist breadth negative",
+              "bull_count": 0,
+              "bear_count": 4,
+              "nearest_level": 23338.4,
               "volume_confirming": false
             }
           },
@@ -3247,7 +3244,7 @@
         "Options Agent": {
           "agent": "Options Agent",
           "status": "READY",
-          "elapsed_ms": 2540.8,
+          "elapsed_ms": 2656.3,
           "data": {
             "available": true,
             "symbol": "NIFTY",
@@ -3312,7 +3309,7 @@
         "News Agent": {
           "agent": "News Agent",
           "status": "READY",
-          "elapsed_ms": 3352.4,
+          "elapsed_ms": 3836.8,
           "data": [
             {
               "title": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
@@ -3329,7 +3326,7 @@
               "impact": "NEUTRAL",
               "impact_reason": "No clear directional impact is established from the headline alone.",
               "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T05:15:44.635865+00:00",
+              "checked_at_utc": "2026-09-15T05:20:17.664245+00:00",
               "evidence_score": 10,
               "evidence_count": 0,
               "claim_status": "INSUFFICIENT EVIDENCE",
@@ -3372,7 +3369,7 @@
               "impact": "NEUTRAL",
               "impact_reason": "No clear directional impact is established from the headline alone.",
               "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T05:15:47.549162+00:00",
+              "checked_at_utc": "2026-09-15T05:20:20.374365+00:00",
               "evidence_score": 10,
               "evidence_count": 0,
               "claim_status": "INSUFFICIENT EVIDENCE",
@@ -3406,7 +3403,7 @@
               "publisher": "Moneycontrol.com",
               "published": "Mon, 14 Sep 2026 04:30:55 GMT",
               "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
-              "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
+              "summary": "BSE BANKEX Stock Price, BSE Bankex Market Indices, BSE Bankex Price, Stock Performance & Comparison Moneycontrol.com",
               "publisher_domain": "",
               "cluster_id": 1,
               "verification": "CROSS_CHECKED",
@@ -3415,7 +3412,7 @@
               "impact": "NEUTRAL",
               "impact_reason": "No clear directional impact is established from the headline alone.",
               "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T05:15:49.758027+00:00",
+              "checked_at_utc": "2026-09-15T05:20:23.106171+00:00",
               "evidence_score": 75,
               "evidence_count": 4,
               "claim_status": "SUPPORTED",
@@ -3459,20 +3456,19 @@
               "cluster_id": 3,
               "verification": "CROSS_CHECKED",
               "verification_label": "CROSS-CHECKED",
-              "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
+              "verification_detail": "Fresh search found independent reporting from 2 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 55/100.",
               "impact": "NEUTRAL",
               "impact_reason": "No clear directional impact is established from the headline alone.",
               "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T05:15:51.468409+00:00",
-              "evidence_score": 65,
-              "evidence_count": 3,
+              "checked_at_utc": "2026-09-15T05:20:25.195654+00:00",
+              "evidence_score": 55,
+              "evidence_count": 2,
               "claim_status": "SUPPORTED",
               "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
               "agent_status": "ARTICLE_UNAVAILABLE",
               "verification_sources": [
                 "TradingView",
-                "Yahoo Finance Singapore",
-                "Yahoo News Singapore"
+                "Yahoo Finance Singapore"
               ],
               "display_title": "🟢 SUPPORTED · India's Nifty and Sensex diverge following launch of new auction mechanism",
               "research": {
@@ -3510,7 +3506,7 @@
               "impact": "NEUTRAL",
               "impact_reason": "No clear directional impact is established from the headline alone.",
               "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T05:15:52.296323+00:00",
+              "checked_at_utc": "2026-09-15T05:20:26.046620+00:00",
               "evidence_score": 10,
               "evidence_count": 0,
               "claim_status": "INSUFFICIENT EVIDENCE",
@@ -3553,7 +3549,7 @@
               "impact": "NEUTRAL",
               "impact_reason": "No clear directional impact is established from the headline alone.",
               "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T05:15:55.001755+00:00",
+              "checked_at_utc": "2026-09-15T05:20:29.061187+00:00",
               "evidence_score": 10,
               "evidence_count": 0,
               "claim_status": "INSUFFICIENT EVIDENCE",
@@ -3659,23 +3655,32 @@
     "status": "CHIEF AI ANALYSIS ERROR",
     "provider": "Gemini",
     "model": "gemini-2.5-flash",
-    "market_regime": "UNKNOWN",
+    "market_regime": "STRONG DOWNTREND",
     "bias": "BEARISH",
     "confidence": "HIGH",
     "decision_score": 19.0,
-    "thesis": "Chief AI reasoning is unavailable. Use the independently calculated evidence and verify live data.",
-    "bull_case": "Unavailable for this run.",
-    "base_case": "Use the rule-based evidence framework.",
-    "bear_case": "Unavailable for this run.",
+    "thesis": "Chief AI reasoning is unavailable; the scenario framework below is generated from the independently calculated evidence.",
+    "bull_case": "Conditional bullish case: NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+    "base_case": "Base case: follow the current bearish rule-based framework (19.0/100) while waiting for fresh confirmation.",
+    "bear_case": "Conditional bearish case: NIFTY loses its 20D SMA while volatility expands.",
     "key_levels": [],
-    "invalidation": "Re-evaluate when fresh market evidence confirms or rejects the current framework.",
-    "drivers": [],
-    "risks": [],
+    "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+    "drivers": [
+      "NIFTY below 20D SMA",
+      "NIFTY below 50D SMA",
+      "20D momentum negative",
+      "RSI signals weak momentum",
+      "Bank Nifty is underperforming",
+      "News tone is mixed after evidence weighting"
+    ],
+    "risks": [
+      "Chief AI adjudication is unavailable; verify fresh live evidence before acting."
+    ],
     "watchlist_focus": [],
     "conflicts": [],
-    "evidence_quality": "INSUFFICIENT",
+    "evidence_quality": "MODERATE",
     "confidence_reasons": [
-      "Chief Agent unavailable."
+      "Scenario cases are rule-based because the Chief AI call was unavailable."
     ],
     "news_impact": [],
     "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}"
