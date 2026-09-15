@@ -1,4 +1,6 @@
+import html
 import streamlit as st
+from urllib.parse import quote
 
 NAV = [
     ("app.py", "Main Dashboard", "🏠"),
@@ -15,6 +17,25 @@ NAV = [
 ]
 
 
+def _market_mover_button(label, *args, **kwargs):
+    """Render Market Movers stock actions as real navigation links, not buttons."""
+    key = str(kwargs.get("key", ""))
+    if key.startswith(("gainer_", "loser_")):
+        stock = str(label)
+        href = f"/Live_Market?terminal={quote(stock)}"
+        st.markdown(
+            f'<a class="mp-mover-link" href="{html.escape(href, quote=True)}">'
+            f'{html.escape(stock)}</a>',
+            unsafe_allow_html=True,
+        )
+        return False
+    return _ORIGINAL_ST_BUTTON(label, *args, **kwargs)
+
+
+_ORIGINAL_ST_BUTTON = st.button
+st.button = _market_mover_button
+
+
 def render_sidebar():
     st.markdown("""
     <style>
@@ -28,7 +49,20 @@ def render_sidebar():
     [data-testid="stSidebar"] .stPageLink > a:hover{background:#1b2736!important;color:#fff!important}
     [data-testid="stSidebar"] .stPageLink > a[aria-current="page"]{background:#344255!important;color:#fff!important;font-weight:700!important}
     [data-testid="stSidebar"] .stPageLink > a > span:first-child{font-size:16px!important;line-height:18px!important}
-    .verdict{margin-bottom:14px!important}
+
+    /* Market Movers: flat table rows with genuine navigation hyperlinks. */
+    .movers-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:18px!important}
+    .mover-card{background:#0b1119!important;border:1px solid #202c3c!important;border-radius:10px!important;padding:0 12px!important;overflow:hidden!important}
+    .mover-card .change-label{display:block!important;padding:10px 2px 8px!important;border-bottom:1px solid #263344!important}
+    .mover-card [data-testid="stHorizontalBlock"]{border-top:1px solid #1d2938!important;align-items:center!important;padding:2px 0!important;margin:0!important}
+    .mover-card [data-testid="stHorizontalBlock"]:first-of-type{border-top:0!important}
+    .mover-card .stButton{margin:0!important;padding:0!important}
+    .mover-card .stButton > button{display:none!important}
+    .mp-mover-link{display:block!important;padding:8px 2px!important;color:#dce3ec!important;text-decoration:none!important;font-weight:700!important;font-size:.76rem!important;line-height:1.2!important}
+    .mp-mover-link:hover{color:#7dd3fc!important;text-decoration:underline!important}
+    .mover-card .mover-price,.mover-card .mover-pct{padding-top:6px!important;padding-bottom:6px!important}
+    .mover-card .movers-note{padding:8px 2px!important;border-top:1px solid #1d2938!important}
+    @media(max-width:800px){.movers-grid{grid-template-columns:1fr!important}}
     </style>
     """, unsafe_allow_html=True)
     with st.sidebar:
