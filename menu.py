@@ -16,7 +16,6 @@ NAV = [
     ("pages/10_Agent_Command_Center.py", "Agent Command Center", "🤖"),
 ]
 
-
 _ORIGINAL_ST_BUTTON = st.button
 
 
@@ -52,17 +51,18 @@ def render_sidebar():
     [data-testid="stSidebar"] .stPageLink > a[aria-current="page"]{background:#344255!important;color:#fff!important;font-weight:700!important}
     [data-testid="stSidebar"] .stPageLink > a > span:first-child{font-size:16px!important;line-height:18px!important}
 
-    /* Market Movers: table-style rows; stock names are genuine hyperlinks. */
-    .movers-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:28px!important}
-    .mover-card{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;overflow:visible!important}
-    .mover-card .change-label{display:block!important;padding:7px 2px 9px!important;border-bottom:1px solid #263344!important}
+    /* Restore the original Market Movers card/table hierarchy while keeping stock links. */
+    .movers-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important}
+    .mover-card{background:#0b1119!important;border:1px solid #202c3c!important;border-radius:12px!important;padding:11px 13px!important;overflow:visible!important}
+    .mover-card .change-label{display:block!important;padding:0 0 9px!important}
     .mover-card [data-testid="stHorizontalBlock"]{border-top:1px solid #1d2938!important;align-items:center!important;padding:1px 0!important;margin:0!important}
+    .mover-card [data-testid="stHorizontalBlock"]:first-of-type{border-top:0!important}
     .mover-card .stButton{margin:0!important;padding:0!important}
     .mover-card .stButton > button{display:none!important}
-    .mp-mover-link{display:block!important;padding:8px 2px!important;color:#dce3ec!important;text-decoration:none!important;font-weight:700!important;font-size:.76rem!important;line-height:1.2!important}
+    .mp-mover-link{display:block!important;padding:6px 0!important;color:#dce3ec!important;text-decoration:none!important;font-weight:700!important;font-size:.76rem!important;line-height:1.2!important}
     .mp-mover-link:hover{color:#7dd3fc!important;text-decoration:underline!important}
     .mover-card .mover-price,.mover-card .mover-pct{padding-top:6px!important;padding-bottom:6px!important}
-    .mover-card .movers-note{padding:8px 2px!important;border-top:1px solid #1d2938!important}
+    .mover-card .movers-note{padding:8px 0 0!important;margin-top:2px!important;border-top:1px solid #1d2938!important}
     @media(max-width:800px){.movers-grid{grid-template-columns:1fr!important}}
     </style>
     """, unsafe_allow_html=True)
