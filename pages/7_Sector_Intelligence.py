@@ -61,8 +61,7 @@ if impact.get("available"):
         st.dataframe(all_sectors, use_container_width=True, hide_index=True)
 
     with st.expander("See all Nifty stock pressure"):
-        all_stocks = impact["stock_drivers"]
-        # The driver table is intentionally limited above; rebuild from sector output for the full stock list.
+        all_stocks = impact["all_stocks"]
         if not all_stocks.empty:
             st.dataframe(all_stocks[["Stock", "Sector", "Price", "1D %", "Pressure %", "Proxy Weight %"]], use_container_width=True, hide_index=True)
 
