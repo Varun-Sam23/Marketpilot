@@ -20,7 +20,6 @@ NAV = [
 
 _ORIGINAL_ST_BUTTON = st.button
 
-
 def _market_mover_button(label, *args, **kwargs):
     key = str(kwargs.get("key", ""))
     if key.startswith(("gainer_", "loser_")):
@@ -30,12 +29,11 @@ def _market_mover_button(label, *args, **kwargs):
         return False
     return _ORIGINAL_ST_BUTTON(label, *args, **kwargs)
 
-
 st.button = _market_mover_button
 
 
 def _render_stock_search():
-    """Render the NSE-wide searchable stock bar only on Main Dashboard."""
+    """Compact NSE-wide stock search on Main Dashboard only."""
     try:
         url = st.context.url
         pathname = getattr(url, "path", None) or str(url).split("?", 1)[0]
@@ -47,33 +45,38 @@ def _render_stock_search():
 
     st.markdown("""
     <style>
-    .mp-search-wrap{background:linear-gradient(145deg,#0d151f,#0a1018);border:1px solid #263446;border-radius:13px;padding:10px 12px 8px;margin:0 0 13px}
-    .mp-search-title{color:#8d9bad;font-size:.61rem;letter-spacing:.13em;text-transform:uppercase;margin:0 0 5px}
-    .mp-search-hint{color:#64748b;font-size:.65rem;margin-top:4px}
-    .mp-search-result{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #1d2938;padding:8px 4px;margin-top:7px}
-    .mp-search-result a{color:#e7edf5!important;text-decoration:none!important;font-weight:750;font-size:.78rem}
-    .mp-search-result a:hover{text-decoration:underline!important;color:#7dd3fc!important}
-    .mp-search-symbol{color:#718096;font-size:.65rem;margin-left:8px}
-    .mp-search-count{color:#64748b;font-size:.62rem;margin-top:4px}
+    .mp-search{display:flex;align-items:center;gap:9px;margin:0 0 10px;padding:6px 10px;background:#0d151f;border:1px solid #263446;border-radius:10px}
+    .mp-search-label{color:#8d9bad;font-size:.62rem;letter-spacing:.10em;white-space:nowrap}
+    .mp-search-result{display:flex;justify-content:space-between;align-items:center;padding:5px 4px;border-top:1px solid #1d2938}
+    .mp-search-result a{color:#e7edf5!important;text-decoration:none!important;font-size:.75rem;font-weight:700}
+    .mp-search-result a:hover{color:#7dd3fc!important}
+    .mp-search-symbol{color:#718096;font-size:.63rem;margin-left:7px}
+    .mp-search-results{margin:-5px 0 10px;padding:0 8px;background:#0b1119;border:1px solid #202c3c;border-radius:0 0 9px 9px}
     </style>
     """, unsafe_allow_html=True)
-    st.markdown('<div class="mp-search-wrap"><div class="mp-search-title">◈ NSE STOCK SEARCH</div>', unsafe_allow_html=True)
-    query = st.text_input("Search stock", placeholder="Search any NSE stock by company name or symbol…", label_visibility="collapsed", key="marketpilot-stock-search")
+
+    left, right = st.columns([1, 7])
+    with left:
+        st.markdown('<div class="mp-search" style="height:36px"><span class="mp-search-label">◈ SEARCH</span></div>', unsafe_allow_html=True)
+    with right:
+        query = st.text_input("Search NSE stock", placeholder="Company name or NSE symbol…", label_visibility="collapsed", key="marketpilot-stock-search")
+
     query = str(query or "").strip()
-    if query:
-        matches = search_nse_equities(query, limit=8)
-        if matches:
-            for row in matches:
-                symbol = str(row.get("SYMBOL", ""))
-                name = str(row.get("COMPANY", ""))
-                href = f"/Live_Market?terminal={quote(symbol)}"
-                st.markdown(f'<div class="mp-search-result"><a href="{html.escape(href, quote=True)}">{html.escape(name)} <span class="mp-search-symbol">{html.escape(symbol)}</span></a><span class="mp-search-symbol">OPEN LIVE MARKET →</span></div>', unsafe_allow_html=True)
-            st.markdown('<div class="mp-search-count">Source: NSE official equity securities list · EQ series</div>', unsafe_allow_html=True)
-        else:
-            st.markdown('<div class="mp-search-hint">No NSE equity match found. Try the company name or NSE symbol.</div>', unsafe_allow_html=True)
-    else:
-        st.markdown('<div class="mp-search-hint">Search the full NSE equity universe · results open directly in LIVE MARKET.</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    if not query:
+        return
+
+    matches = search_nse_equities(query, limit=6)
+    if not matches:
+        st.caption("No NSE equity match found")
+        return
+
+    rows=[]
+    for row in matches:
+        symbol=str(row.get("SYMBOL", ""))
+        name=str(row.get("COMPANY", ""))
+        href=f"/Live_Market?terminal={quote(symbol)}"
+        rows.append(f'<div class="mp-search-result"><a href="{html.escape(href, quote=True)}">{html.escape(name)} <span class="mp-search-symbol">{html.escape(symbol)}</span></a><span class="mp-search-symbol">LIVE MARKET →</span></div>')
+    st.markdown('<div class="mp-search-results">'+''.join(rows)+'</div>', unsafe_allow_html=True)
 
 
 def render_sidebar():
