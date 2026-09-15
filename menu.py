@@ -52,8 +52,8 @@ def render_sidebar():
     [data-testid="stColumn"]:has(.mover-card) [data-testid="stHorizontalBlock"]{border-top:1px solid #1d2938!important;align-items:center!important;padding:1px 0!important;margin:0!important}
     [data-testid="stColumn"]:has(.mover-card) .stButton{margin:0!important;padding:0!important}
     [data-testid="stColumn"]:has(.mover-card) .stButton > button{display:none!important}
-    .mp-mover-link{display:block!important;padding:6px 0!important;color:#dce3ec!important;text-decoration:none!important;font-weight:700!important;font-size:.76rem!important;line-height:1.2!important}
-    .mp-mover-link:hover{color:#7dd3fc!important;text-decoration:underline!important}
+    .mp-mover-link,.mp-mover-link:visited,.mp-mover-link:active{display:block!important;padding:6px 0!important;color:#dce3ec!important;-webkit-text-fill-color:#dce3ec!important;text-decoration:none!important;font-weight:700!important;font-size:.76rem!important;line-height:1.2!important}
+    .mp-mover-link:hover{color:#7dd3fc!important;-webkit-text-fill-color:#7dd3fc!important;text-decoration:underline!important}
     [data-testid="stColumn"]:has(.mover-card) .mover-price,[data-testid="stColumn"]:has(.mover-card) .mover-pct{padding-top:6px!important;padding-bottom:6px!important}
     [data-testid="stColumn"]:has(.mover-card) .movers-note{padding:8px 0 0!important;margin-top:2px!important;border-top:1px solid #1d2938!important}
     @media(max-width:800px){.movers-grid{grid-template-columns:1fr!important}}
