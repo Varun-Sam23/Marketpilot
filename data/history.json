@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "date_ist": "2026-09-15",
+    "generated_at": "2026-09-15 10:45:37 IST",
+    "rule_bias": "BEARISH",
+    "rule_confidence": "HIGH",
+    "ai": {
+      "enabled": false,
+      "status": "CHIEF AI ANALYSIS ERROR",
+      "provider": "Gemini",
+      "model": "gemini-2.5-flash",
+      "market_regime": "UNKNOWN",
+      "bias": "BEARISH",
+      "confidence": "HIGH",
+      "decision_score": 19.0,
+      "thesis": "Chief AI reasoning is unavailable. Use the independently calculated evidence and verify live data.",
+      "bull_case": "Unavailable for this run.",
+      "base_case": "Use the rule-based evidence framework.",
+      "bear_case": "Unavailable for this run.",
+      "key_levels": [],
+      "invalidation": "Re-evaluate when fresh market evidence confirms or rejects the current framework.",
+      "drivers": [],
+      "risks": [],
+      "watchlist_focus": [],
+      "conflicts": [],
+      "evidence_quality": "INSUFFICIENT",
+      "confidence_reasons": [
+        "Chief Agent unavailable."
+      ],
+      "news_impact": [],
+      "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}"
+    },
+    "decision": {
+      "score": 19.0,
+      "bias": "BEARISH",
+      "confidence": "HIGH",
+      "regime": "STRONG DOWNTREND",
+      "positive_factors": 0,
+      "negative_factors": 5,
+      "evidence": [
+        "NIFTY below 20D SMA",
+        "NIFTY below 50D SMA",
+        "20D momentum negative",
+        "RSI signals weak momentum",
+        "Bank Nifty is underperforming",
+        "News tone is mixed after evidence weighting",
+        "20 insufficient-evidence story/stories given reduced weight"
+      ],
+      "bull_trigger": "NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+      "bear_trigger": "NIFTY loses its 20D SMA while volatility expands.",
+      "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+      "methodology": "Transparent rule-weighted evidence score. News direction is weighted by claim status; disputed claims are excluded and insufficient-evidence claims receive reduced weight. This is not a probability or trading recommendation."
+    },
+    "levels": {
+      "NIFTY close": 23351.7,
+      "Previous close": 23398.1,
+      "5D return %": -1.8,
+      "20D return %": -3.85,
+      "5D SMA": 23458.84,
+      "20D SMA": 23932.0,
+      "50D SMA": 24131.85,
+      "20D high": 24378.6,
+      "20D low": 23231.4,
+      "RSI14": 12.01,
+      "range_position_%": 10.5
+    }
+  }
+]
