@@ -17,6 +17,9 @@ NAV = [
 ]
 
 
+_ORIGINAL_ST_BUTTON = st.button
+
+
 def _market_mover_button(label, *args, **kwargs):
     """Render Market Movers stock actions as real navigation links, not buttons."""
     key = str(kwargs.get("key", ""))
@@ -32,7 +35,6 @@ def _market_mover_button(label, *args, **kwargs):
     return _ORIGINAL_ST_BUTTON(label, *args, **kwargs)
 
 
-_ORIGINAL_ST_BUTTON = st.button
 st.button = _market_mover_button
 
 
@@ -50,12 +52,11 @@ def render_sidebar():
     [data-testid="stSidebar"] .stPageLink > a[aria-current="page"]{background:#344255!important;color:#fff!important;font-weight:700!important}
     [data-testid="stSidebar"] .stPageLink > a > span:first-child{font-size:16px!important;line-height:18px!important}
 
-    /* Market Movers: flat table rows with genuine navigation hyperlinks. */
-    .movers-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:18px!important}
-    .mover-card{background:#0b1119!important;border:1px solid #202c3c!important;border-radius:10px!important;padding:0 12px!important;overflow:hidden!important}
-    .mover-card .change-label{display:block!important;padding:10px 2px 8px!important;border-bottom:1px solid #263344!important}
-    .mover-card [data-testid="stHorizontalBlock"]{border-top:1px solid #1d2938!important;align-items:center!important;padding:2px 0!important;margin:0!important}
-    .mover-card [data-testid="stHorizontalBlock"]:first-of-type{border-top:0!important}
+    /* Market Movers: table-style rows; stock names are genuine hyperlinks. */
+    .movers-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:28px!important}
+    .mover-card{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;overflow:visible!important}
+    .mover-card .change-label{display:block!important;padding:7px 2px 9px!important;border-bottom:1px solid #263344!important}
+    .mover-card [data-testid="stHorizontalBlock"]{border-top:1px solid #1d2938!important;align-items:center!important;padding:1px 0!important;margin:0!important}
     .mover-card .stButton{margin:0!important;padding:0!important}
     .mover-card .stButton > button{display:none!important}
     .mp-mover-link{display:block!important;padding:8px 2px!important;color:#dce3ec!important;text-decoration:none!important;font-weight:700!important;font-size:.76rem!important;line-height:1.2!important}
