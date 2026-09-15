@@ -59,17 +59,77 @@ def _extract_json(text: str) -> dict[str, Any] | None:
 
 
 def _fallback(payload: dict[str, Any], status: str, error: str | None = None) -> dict[str, Any]:
+    """Provide a useful rule-based interpretation when Gemini is unavailable.
+
+    The UI should never lose the bull/base/bear framework merely because the
+    optional Chief AI call failed. These cases are explicitly conditional and
+    are derived only from the supplied rule-based evidence.
+    """
     decision = payload.get("decision") or {}
+    levels = payload.get("levels") or {}
+    snapshots = payload.get("market_snapshot") or payload.get("global") or []
+    bias = decision.get("bias", payload.get("rule_bias", "NEUTRAL"))
+    confidence = decision.get("confidence", payload.get("rule_confidence", "LOW"))
+    score = decision.get("score", 50)
+    regime = decision.get("regime", "MIXED / RANGE")
+    evidence = decision.get("evidence", []) or payload.get("signals", [])
+
+    close = levels.get("NIFTY close")
+    sma20 = levels.get("20D SMA")
+    sma50 = levels.get("50D SMA")
+    high20 = levels.get("20D high")
+    low20 = levels.get("20D low")
+    rsi14 = levels.get("RSI14")
+
+    bull_trigger = decision.get("bull_trigger", "NIFTY holds above its 20D SMA and Bank Nifty confirms strength.")
+    bear_trigger = decision.get("bear_trigger", "NIFTY loses its 20D SMA while volatility expands.")
+    invalidation = decision.get("invalidation", "Re-evaluate when price structure and volatility move materially against the evidence pack.")
+
+    bull_case = f"Conditional bullish case: {bull_trigger}"
+    bear_case = f"Conditional bearish case: {bear_trigger}"
+    base_case = f"Base case: follow the current {bias.lower()} rule-based framework ({score}/100) while waiting for fresh confirmation."
+
+    key_levels = []
+    if close is not None:
+        key_levels.append(f"NIFTY close: {close}")
+    if sma20 is not None:
+        key_levels.append(f"20D SMA: {sma20}")
+    if sma50 is not None:
+        key_levels.append(f"50D SMA: {sma50}")
+    if high20 is not None:
+        key_levels.append(f"20D high: {high20}")
+    if low20 is not None:
+        key_levels.append(f"20D low: {low20}")
+    if rsi14 is not None:
+        key_levels.append(f"RSI14: {rsi14}")
+
+    vix = next((x for x in snapshots if x.get("name") == "INDIA VIX"), {})
+    drivers = list(evidence[:6])
+    if vix.get("change_pct") is not None:
+        drivers.append(f"India VIX change: {vix.get('change_pct')}%")
+
     result = {
-        "enabled": False, "status": status, "provider": "Gemini", "model": MODEL,
-        "market_regime": "UNKNOWN", "bias": decision.get("bias", payload.get("rule_bias", "NEUTRAL")),
-        "confidence": decision.get("confidence", "LOW"), "decision_score": decision.get("score", 50),
-        "thesis": "Chief AI reasoning is unavailable. Use the independently calculated evidence and verify live data.",
-        "bull_case": "Unavailable for this run.", "base_case": "Use the rule-based evidence framework.",
-        "bear_case": "Unavailable for this run.", "key_levels": [],
-        "invalidation": "Re-evaluate when fresh market evidence confirms or rejects the current framework.",
-        "drivers": payload.get("signals", []), "risks": [], "watchlist_focus": [], "conflicts": [],
-        "evidence_quality": "INSUFFICIENT", "confidence_reasons": ["Chief Agent unavailable."], "news_impact": [],
+        "enabled": False,
+        "status": status,
+        "provider": "Gemini",
+        "model": MODEL,
+        "market_regime": regime,
+        "bias": bias,
+        "confidence": confidence,
+        "decision_score": score,
+        "thesis": "Chief AI reasoning is unavailable; the scenario framework below is generated from the independently calculated evidence.",
+        "bull_case": bull_case,
+        "base_case": base_case,
+        "bear_case": bear_case,
+        "key_levels": key_levels,
+        "invalidation": invalidation,
+        "drivers": drivers,
+        "risks": ["Chief AI adjudication is unavailable; verify fresh live evidence before acting."],
+        "watchlist_focus": [],
+        "conflicts": [],
+        "evidence_quality": "MODERATE" if evidence else "INSUFFICIENT",
+        "confidence_reasons": ["Scenario cases are rule-based because the Chief AI call was unavailable."],
+        "news_impact": [],
     }
     if error:
         result["error"] = error[:300]
