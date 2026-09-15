@@ -23,6 +23,10 @@ DATA_FILE=Path("data/latest.json")
 WATCHLIST_FILE=Path("data/watchlist.json")
 NSE_CALENDAR=mcal.get_calendar("NSE")
 DEFAULT_WATCHLIST=["RELIANCE.NS","HDFCBANK.NS","ICICIBANK.NS","SBIN.NS","INFY.NS","TCS.NS","TATAMOTORS.NS","ITC.NS"]
+# Nifty 50 universe for broad market-mover detection. Values are read-only public data.
+NIFTY50_MOVERS=[
+ "ADANIENT.NS","ADANIPORTS.NS","APOLLOHOSP.NS","ASIANPAINT.NS","AXISBANK.NS","BAJAJ-AUTO.NS","BAJFINANCE.NS","BAJAJFINSV.NS","BEL.NS","BHARTIARTL.NS","CIPLA.NS","COALINDIA.NS","DRREDDY.NS","EICHERMOT.NS","ETERNAL.NS","GRASIM.NS","HCLTECH.NS","HDFCBANK.NS","HDFCLIFE.NS","HEROMOTOCO.NS","HINDALCO.NS","HINDUNILVR.NS","ICICIBANK.NS","INDUSINDBK.NS","INFY.NS","ITC.NS","JIOFIN.NS","JSWSTEEL.NS","KOTAKBANK.NS","LT.NS","M&M.NS","MARUTI.NS","MAXHEALTH.NS","NESTLEIND.NS","NTPC.NS","ONGC.NS","POWERGRID.NS","RELIANCE.NS","SBILIFE.NS","SBIN.NS","SHRIRAMFIN.NS","SUNPHARMA.NS","TATACONSUM.NS","TATAMOTORS.NS","TATASTEEL.NS","TCS.NS","TECHM.NS","TITAN.NS","TRENT.NS","ULTRACEMCO.NS","WIPRO.NS"
+]
 NEWS_FEEDS=[
  "https://news.google.com/rss/search?q=India%20stock%20market%20NSE%20Nifty&hl=en-IN&gl=IN&ceid=IN:en",
  "https://news.google.com/rss/search?q=RBI%20India%20economy%20markets&hl=en-IN&gl=IN&ceid=IN:en",
@@ -41,6 +45,8 @@ st.markdown("""
 .ticker{overflow:hidden;border:1px solid #202c3c;border-radius:11px;background:#0b1119;padding:9px;white-space:nowrap;margin:8px 0 16px}.track{display:inline-block;padding-left:100%;animation:scroll 150s linear infinite}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 .change{min-height:150px}.change-item{padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem;line-height:1.35}.change-item:first-child{border-top:0}.change-value{font-size:.85rem;font-weight:800}.risk-row{padding:7px 0;border-top:1px solid #1d2938}.risk-row:first-child{border-top:0}
 .evidence-wrap{border:1px solid #202c3c;border-radius:12px;overflow:hidden;background:#0b1119}.evidence-table{width:100%;border-collapse:collapse;font-size:.72rem;table-layout:fixed}.evidence-table th{text-align:left;padding:9px 10px;background:#171b25;color:#8492a4;font-weight:600;border-bottom:1px solid #263344}.evidence-table td{padding:9px 10px;border-bottom:1px solid #1d2938;color:#dce3ec;vertical-align:top}.evidence-table tr:last-child td{border-bottom:0}.status-supported{color:#64d39a;font-weight:700}.status-disputed{color:#ff7b83;font-weight:700}.status-insufficient{color:#ffd45c;font-weight:700}.status-dot{font-size:.9rem;margin-right:5px;vertical-align:-1px}.status-cell{white-space:nowrap;font-size:.67rem}.evidence-num{font-variant-numeric:tabular-nums;white-space:nowrap}.evidence-headline{line-height:1.35;word-wrap:break-word}.evidence-headline-title{font-size:.76rem;color:#e7edf5;font-weight:600;line-height:1.4}.evidence-gist{color:#91a0b2;font-size:.68rem;line-height:1.45;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.evidence-point{display:block}.evidence-point::before{content:"• ";color:#64748b}
+.movers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mover-card{background:#0b1119;border:1px solid #202c3c;border-radius:12px;padding:11px 13px}.mover-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem}.mover-row:first-child{border-top:0}.mover-symbol{font-weight:700;color:#dce3ec}.mover-pct{font-weight:800;font-variant-numeric:tabular-nums}.movers-note{color:#718096;font-size:.62rem;margin-top:7px}
+@media(max-width:800px){.movers-grid{grid-template-columns:1fr}}
 </style>
 """,unsafe_allow_html=True)
 
@@ -79,6 +85,25 @@ def watch_data(tickers):
                 c=h.Close;last=float(c.iloc[-1]);prev=float(c.iloc[-2]);sma=float(c.tail(20).mean())
                 rows.append({"Stock":ticker.replace(".NS",""),"1D %":(last/prev-1)*100,"5D %":(last/float(c.iloc[-6])-1)*100,"20D %":(last/float(c.iloc[-21])-1)*100,"vs 20D SMA %":(last/sma-1)*100})
         except Exception:pass
+    return pd.DataFrame(rows)
+
+@st.cache_data(ttl=60,show_spinner=False)
+def market_movers_data():
+    rows=[]
+    try:
+        h=yf.download(NIFTY50_MOVERS,period="5d",interval="1d",auto_adjust=False,progress=False,threads=True)
+        close=h["Close"] if isinstance(h.columns,pd.MultiIndex) and "Close" in h.columns.get_level_values(0) else h
+        if isinstance(close,pd.Series):
+            close=close.to_frame()
+        for ticker in NIFTY50_MOVERS:
+            if ticker not in close.columns: continue
+            series=close[ticker].dropna()
+            if len(series)>=2:
+                last=float(series.iloc[-1]);prev=float(series.iloc[-2])
+                if prev:
+                    rows.append({"Stock":ticker.replace(".NS",""),"1D %":(last/prev-1)*100})
+    except Exception:
+        return pd.DataFrame(columns=["Stock","1D %"])
     return pd.DataFrame(rows)
 
 def clean_news_text(value):
@@ -122,13 +147,13 @@ def raw_news():
     return items[:28]
 
 status=market_status();now=datetime.now(IST);report=load_json(DATA_FILE,{})
-news=enrich_news(raw_news());indices=indices_data();tickers=load_json(WATCHLIST_FILE,DEFAULT_WATCHLIST);wl=watch_data(tuple(tickers))
+news=enrich_news(raw_news());indices=indices_data();tickers=load_json(WATCHLIST_FILE,DEFAULT_WATCHLIST);wl=watch_data(tuple(tickers));movers=market_movers_data()
 st_autorefresh(interval=60_000,key="main_dashboard_refresh")
 ai=report.get("ai_analysis",{}) or {};decision=report.get("decision",{}) or {}
 bias=decision.get("bias") or ai.get("bias") or report.get("verdict") or "WAIT";confidence=decision.get("confidence") or ai.get("confidence") or report.get("confidence") or "N/A";regime=decision.get("market_regime") or ai.get("market_regime") or "—";raw_score=decision.get("score","—");score=score_num(raw_score);thesis=ai.get("thesis") or report.get("summary") or "No current market thesis is recorded."
 supported=sum(x.get("claim_status")=="SUPPORTED" for x in news);disputed=sum(x.get("claim_status")=="DISPUTED" for x in news);insufficient=sum(x.get("claim_status")=="INSUFFICIENT EVIDENCE" for x in news);strong=sum((score_num(x.get("evidence_score",10)) or 10)>=75 for x in news)
 
-current={"bias":str(bias),"score":score,"confidence":str(confidence),"regime":str(regime),"indices":{str(r["Index"]):float(r["Session %"]) for _,r in indices.iterrows()} if not indices.empty else {},"news":{f'{x.get("title","")}|{x.get("publisher","")}' for x in news[:20]},"watch":{str(r["Stock"]):float(r["1D %"]) for _,r in wl.iterrows()} if not wl.empty else {}}
+current={"bias":str(bias),"score":score,"confidence":str(confidence),"regime":str(regime),"indices":{str(r["Index"]):float(r["Session %"]) for _,r in indices.iterrows()} if not indices.empty else {},"news":{f'{x.get("title","")}|{x.get("publisher","")}' for x in news[:20]},"watch":{str(r["Stock"]):float(r["1D %"]) for _,r in wl.iterrows()} if not wl.empty else {},"movers":{str(r["Stock"]):float(r["1D %"]) for _,r in movers.iterrows()} if not movers.empty else {}}
 previous=st.session_state.get("mp_dashboard_snapshot");changes=[]
 if previous:
     if current["bias"]!=previous.get("bias"):changes.append(("DECISION",f'{previous.get("bias")} → {current["bias"]}',"neutral"))
@@ -140,7 +165,7 @@ if previous:
     if new_news:changes.append(("NEWS",f'{len(new_news)} new headline(s) surfaced',"positive"))
     for stock,new in current["watch"].items():
         old=previous.get("watch",{}).get(stock)
-        if old is not None and abs(new-old)>=.50:changes.append((stock,f'1D move {new:+.2f}%','positive' if new>old else 'negative'))
+        if old is not None and abs(new-old)>=.50:changes.append((stock,f'1D move {new:+.2f}%','positive' if new>0 else 'negative'))
 st.session_state["mp_dashboard_snapshot"]=current
 
 st.markdown(f'<div class="hero"><div><div class="title">◈ MarketPilot</div><div class="sub">Indian markets · intelligence before action · evidence-first decision support</div></div><div class="time"><span class="pill">{"● LIVE" if status=="MARKET LIVE" else "○ CLOSED"}</span><br>{now.strftime("%A · %d %B %Y")}<br>{now.strftime("%H:%M:%S")} IST</div></div>',unsafe_allow_html=True)
@@ -171,6 +196,20 @@ if not indices.empty:
         pct=float(r["Session %"]);c="positive" if pct>0 else "negative" if pct<0 else "neutral";col.markdown(f'<div class="box"><div class="label">{html.escape(r["Index"])}</div><div class="big">{float(r["Last"]):,.2f}</div><div class="muted {c}">Session {pct:+.2f}%</div></div>',unsafe_allow_html=True)
 else:st.info("Public index feed unavailable. No values are estimated.")
 
+st.markdown('<div class="section">Market Movers <span class="meta">Nifty 50 · top 5 by 1D move · refresh 60s</span></div>',unsafe_allow_html=True)
+if not movers.empty:
+    gainers=movers.sort_values("1D %",ascending=False).head(5)
+    losers=movers.sort_values("1D %",ascending=True).head(5)
+    def mover_rows(frame,positive=True):
+        out=[]
+        for _,r in frame.iterrows():
+            pct=float(r["1D %"]);cls="positive" if pct>0 else "negative" if pct<0 else "neutral"
+            out.append(f'<div class="mover-row"><span class="mover-symbol">{html.escape(str(r["Stock"]))}</span><span class="mover-pct {cls}">{pct:+.2f}%</span></div>')
+        return "".join(out)
+    st.markdown(f'<div class="movers-grid"><div class="mover-card"><div class="change-label">🟢 TOP GAINERS</div>{mover_rows(gainers)}<div class="movers-note">Highest positive 1D moves in the Nifty 50 universe.</div></div><div class="mover-card"><div class="change-label">🔴 TOP LOSERS</div>{mover_rows(losers,False)}<div class="movers-note">Highest negative 1D moves in the Nifty 50 universe.</div></div></div>',unsafe_allow_html=True)
+else:
+    st.info("Market-mover feed unavailable. No values are estimated.")
+
 st.markdown('<div class="section">What Changed <span class="meta">Compared with previous refresh</span></div>',unsafe_allow_html=True)
 c1,c2,c3=st.columns([1.15,1.35,1.0])
 with c1:
@@ -179,7 +218,7 @@ with c1:
     else:body='<div class="change-value neutral">NO MATERIAL CHANGE</div><div class="muted">No tracked metric crossed the change threshold.</div>'
     st.markdown(f'<div class="change">{body}</div>',unsafe_allow_html=True)
 with c2:
-    movers=sorted(current["watch"].items(),key=lambda z:z[1],reverse=True);rows=''.join(f'<div class="change-item"><b>{html.escape(s)}</b> <span class="{"positive" if v>0 else "negative" if v<0 else "neutral"}">{v:+.2f}%</span></div>' for s,v in movers[:5]);st.markdown(f'<div class="change"><div class="change-label">WATCHLIST MOMENTUM</div>{rows or "<div class=muted>No watchlist data.</div>"}</div>',unsafe_allow_html=True)
+    movers_watch=sorted(current["watch"].items(),key=lambda z:z[1],reverse=True);rows=''.join(f'<div class="change-item"><b>{html.escape(s)}</b> <span class="{"positive" if v>0 else "negative" if v<0 else "neutral"}">{v:+.2f}%</span></div>' for s,v in movers_watch[:5]);st.markdown(f'<div class="change"><div class="change-label">WATCHLIST MOMENTUM</div>{rows or "<div class=muted>No watchlist data.</div>"}</div>',unsafe_allow_html=True)
 with c3:
     vix=None
     if not indices.empty and "INDIA VIX" in indices["Index"].values:vix=float(indices.loc[indices["Index"]=="INDIA VIX","Session %"].iloc[0])
