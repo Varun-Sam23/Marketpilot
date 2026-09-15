@@ -44,7 +44,8 @@ st.markdown("""
 .ticker{height:36px;line-height:18px;overflow:hidden;border:1px solid #202c3c;border-radius:11px;background:#0b1119;padding:9px;white-space:nowrap;margin:8px 0 16px;box-sizing:border-box}.track{display:inline-block;padding-left:100%;animation:scroll 150s linear infinite}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 .change{min-height:150px}.change-item{padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem;line-height:1.35}.change-item:first-child{border-top:0}.change-value{font-size:.85rem;font-weight:800}.risk-row{padding:7px 0;border-top:1px solid #1d2938}.risk-row:first-child{border-top:0}
 .evidence-wrap{border:1px solid #202c3c;border-radius:12px;overflow:hidden;background:#0b1119}.evidence-table{width:100%;border-collapse:collapse;font-size:.72rem;table-layout:fixed}.evidence-table th{text-align:left;padding:9px 10px;background:#171b25;color:#8492a4;font-weight:600;border-bottom:1px solid #263344}.evidence-table td{padding:9px 10px;border-bottom:1px solid #1d2938;color:#dce3ec;vertical-align:top}.evidence-table tr:last-child td{border-bottom:0}.status-supported{color:#64d39a;font-weight:700}.status-disputed{color:#ff7b83;font-weight:700}.status-insufficient{color:#ffd45c;font-weight:700}.status-dot{font-size:.9rem;margin-right:5px;vertical-align:-1px}.status-cell{white-space:nowrap;font-size:.67rem}.evidence-num{font-variant-numeric:tabular-nums;white-space:nowrap}.evidence-headline{line-height:1.35;word-wrap:break-word}.evidence-headline-title{font-size:.76rem;color:#e7edf5;font-weight:600;line-height:1.4}.evidence-gist{color:#91a0b2;font-size:.68rem;line-height:1.45;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.evidence-point{display:block}.evidence-point::before{content:"• ";color:#64748b}
-.movers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mover-card{background:#0b1119;border:1px solid #202c3c;border-radius:12px;padding:11px 13px}.mover-price{font-variant-numeric:tabular-nums;color:#aeb9c7;text-align:right;padding-top:6px}.mover-pct{font-weight:800;font-variant-numeric:tabular-nums;text-align:right;padding-top:6px}.movers-note{color:#718096;font-size:.62rem;margin-top:7px}
+.movers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mover-card{background:#0b1119;border:1px solid #202c3c;border-radius:12px;padding:11px 13px}.mover-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem}.mover-row:first-child{border-top:0}.mover-symbol{font-weight:700;color:#dce3ec}.mover-pct{font-weight:800;font-variant-numeric:tabular-nums}.movers-note{color:#718096;font-size:.62rem;margin-top:7px}
+.mover-link{color:#dce3ec;text-decoration:none;font-weight:700}.mover-link:hover{text-decoration:underline}
 @media(max-width:800px){.movers-grid{grid-template-columns:1fr}}
 </style>
 """, unsafe_allow_html=True)
@@ -196,22 +197,13 @@ else: st.info("Public index feed unavailable. No values are estimated.")
 st.markdown('<div class="section">Market Movers <span class="meta">Nifty 50 · top 5 by 1D move · click a stock to open its live terminal</span></div>',unsafe_allow_html=True)
 if not movers.empty:
     gainers=movers.sort_values("1D %",ascending=False).head(5);losers=movers.sort_values("1D %",ascending=True).head(5)
-    left,right=st.columns(2)
-    def render_mover_card(frame,prefix):
-        st.markdown('<div class="mover-card">',unsafe_allow_html=True)
-        st.markdown('<div class="change-label">'+("🟢 TOP GAINERS" if prefix=="gainer" else "🔴 TOP LOSERS")+'</div>',unsafe_allow_html=True)
-        for i,(_,r) in enumerate(frame.iterrows()):
-            pct=float(r["1D %"]);cls="positive" if pct>0 else "negative" if pct<0 else "neutral";price=float(r["Price"]);stock=str(r["Stock"])
-            c1,c2,c3=st.columns([1.25,.9,.7])
-            with c1:
-                if st.button(stock,key=f"{prefix}_{i}_{stock}",use_container_width=True,help=f"Open {stock} in LIVE MARKET"):
-                    st.session_state["selected_stock"]=stock
-                    st.switch_page("pages/6_Live_Market.py")
-            with c2: st.markdown(f'<div class="mover-price">₹{price:,.2f}</div>',unsafe_allow_html=True)
-            with c3: st.markdown(f'<div class="mover-pct {cls}">{pct:+.2f}%</div>',unsafe_allow_html=True)
-        st.markdown('<div class="movers-note">Stock · price · 1D move · click the stock symbol to open the live terminal.</div></div>',unsafe_allow_html=True)
-    with left: render_mover_card(gainers,"gainer")
-    with right: render_mover_card(losers,"loser")
+    def mover_rows(frame):
+        out=[]
+        for _,r in frame.iterrows():
+            pct=float(r["1D %"]);cls="positive" if pct>0 else "negative" if pct<0 else "neutral";stock=str(r["Stock"]);url=f"/Live_Market?terminal={stock}"
+            out.append(f'<div class="mover-row"><a class="mover-link" href="{url}">{html.escape(stock)}</a><span class="mover-pct {cls}">{pct:+.2f}%</span></div>')
+        return "".join(out)
+    st.markdown(f'<div class="movers-grid"><div class="mover-card"><div class="change-label">🟢 TOP GAINERS</div>{mover_rows(gainers)}<div class="movers-note">Highest positive 1D moves in the Nifty 50 universe.</div></div><div class="mover-card"><div class="change-label">🔴 TOP LOSERS</div>{mover_rows(losers)}<div class="movers-note">Highest negative 1D moves in the Nifty 50 universe.</div></div></div>',unsafe_allow_html=True)
 else: st.info("Market-mover feed unavailable. No values are estimated.")
 
 st.markdown('<div class="section">What Changed <span class="meta">Compared with previous refresh</span></div>',unsafe_allow_html=True)
