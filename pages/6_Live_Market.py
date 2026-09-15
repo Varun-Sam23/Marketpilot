@@ -2,8 +2,11 @@ import html
 import streamlit as st
 from datetime import datetime
 from zoneinfo import ZoneInfo
+
 import pandas as pd
+import yfinance as yf
 from streamlit_autorefresh import st_autorefresh
+
 from intraday_intelligence import fetch_intraday
 from menu import render_sidebar
 
@@ -19,13 +22,16 @@ st.markdown("""
 .label{color:#77869a;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em}.value{font-size:1.42rem;font-weight:800;margin-top:5px}.good{color:#58d68d}.bad{color:#ff6b6b}.neutral{color:#f4c95d}
 .livebox{background:#0b121b;border:1px solid #263446;border-radius:14px;padding:18px;margin:14px 0}.livehead{font-size:.7rem;color:#7e8da1;letter-spacing:.13em;text-transform:uppercase}.headline{font-size:1.5rem;font-weight:850;margin:6px 0}.evidence{color:#aab5c3;font-size:.9rem}.chip{display:inline-block;border:1px solid #29384a;border-radius:20px;padding:4px 9px;margin:8px 6px 0 0;font-size:.72rem;color:#9daaba}
 .feed{background:#09141a;border:1px solid #1d3a31;border-radius:10px;padding:9px 12px;margin:8px 0;font-size:.7rem;color:#8ea19a}.feed strong{color:#62d69a}
+.terminal{background:#070c13;border:1px solid #1f2d3d;border-radius:14px;padding:12px 14px;margin:14px 0}.terminal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.terminal-title{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8492a4}.terminal-price{font-size:1.65rem;font-weight:850}.terminal-note{color:#718096;font-size:.65rem;margin-top:5px}
 </style>
 """,unsafe_allow_html=True)
 
 IST=ZoneInfo("Asia/Kolkata")
 st_autorefresh(interval=2000, key="live-market-refresh")
 now=datetime.now(IST)
-data=fetch_intraday()
+selected=st.query_params.get("terminal", "NIFTY")
+ticker="^NSEI" if selected.upper()=="NIFTY" else f"{selected.upper()}.NS"
+data=fetch_intraday(ticker)
 if not data.get("available"):
     st.error(data.get("message","Market structure data unavailable."))
     st.caption(f"Source: {data.get('source','Unknown')}. MarketPilot never fabricates missing values.")
@@ -37,20 +43,49 @@ status="● LIVE SESSION" if mode=="LIVE" else "● LAST SESSION"
 status_cls="good" if mode=="LIVE" else "neutral"
 feed=data.get("live_feed",{}) or {}
 feed_live=str(feed.get("status","")) == "LIVE"
+name=data.get("name",selected.upper())
 
-st.markdown(f'''<div class="hero"><div><div class="mp-title">⚡ LIVE MARKET</div><div class="mp-sub">NIFTY structure terminal · VWAP · Opening Range · Momentum · Volume · Breadth</div></div><div><div class="{status_cls}">{status}</div><div>{mode_date} · Updated {now.strftime('%H:%M:%S IST')}</div></div></div>''',unsafe_allow_html=True)
+st.markdown(f'''<div class="hero"><div><div class="mp-title">⚡ LIVE MARKET</div><div class="mp-sub">{html.escape(name)} terminal · VWAP · Opening Range · Momentum · Volume · Breadth</div></div><div><div class="{status_cls}">{status}</div><div>{mode_date} · Updated {now.strftime('%H:%M:%S IST')}</div></div></div>''',unsafe_allow_html=True)
 
 if st.button("↻ REFRESH NOW",use_container_width=False):
     st.rerun()
 if mode!="LIVE":
-    st.info(f"📌 **LAST SESSION MODE** — NSE is closed. Showing the latest available trading session: {mode_date}. Historical values are never labelled live.")
+    st.info(f"📌 **LAST SESSION MODE** — NSE is closed. Showing the latest available trading session for **{name}**: {mode_date}. Historical values are never labelled live.")
 
 if feed_live:
     st.markdown(f'<div class="feed"><strong>● REAL-TIME WEBSOCKET CONNECTED</strong> · Upstox V3 · {feed.get("quote_count",0)} instruments streaming · {feed.get("ticks",0)} feed updates · last tick {html.escape(str(feed.get("last_tick_at","—")))} </div>',unsafe_allow_html=True)
 elif feed.get("status")=="NOT_CONFIGURED":
-    st.info("Real-time WebSocket is installed but not configured yet. Add UPSTOX_ACCESS_TOKEN to the deployment secrets to activate tick-level updates. The existing Yahoo historical feed remains the fallback.")
+    st.info("Real-time WebSocket is installed but not configured yet. Add UPSTOX_ACCESS_TOKEN to the deployment secrets to activate tick-level updates. Historical candles remain the safe fallback.")
 else:
     st.warning(f"Real-time WebSocket status: {feed.get('status','UNKNOWN')}. MarketPilot is using the safe fallback until the live stream is healthy.")
+
+# Selected-stock terminal chart. Yahoo provides the intraday candles for any
+# Nifty 50 stock; Upstox overrides the displayed last price when subscribed.
+@st.cache_data(ttl=5,show_spinner=False)
+def terminal_chart(t: str):
+    try:
+        h=yf.Ticker(t).history(period="1d",interval="5m",auto_adjust=False,prepost=False)
+        if h is None or h.empty:
+            return pd.DataFrame()
+        h=h.copy();h.index=pd.to_datetime(h.index)
+        if h.index.tz is None:h.index=h.index.tz_localize("UTC")
+        h.index=h.index.tz_convert(IST)
+        h=h[[c for c in ["Open","High","Low","Close","Volume"] if c in h.columns]].dropna(subset=["Close"])
+        return h
+    except Exception:
+        return pd.DataFrame()
+
+chart=terminal_chart(ticker)
+if not chart.empty:
+    display_close=chart["Close"].copy()
+    if feed_live and data.get("last") is not None:
+        display_close.iloc[-1]=float(data["last"])
+    chart_display=pd.DataFrame({"Price":display_close})
+    st.markdown(f'<div class="terminal"><div class="terminal-head"><div class="terminal-title">◉ LIVE TERMINAL · {html.escape(name)}</div><div class="terminal-price">₹{float(data["last"]):,.2f}</div></div></div>',unsafe_allow_html=True)
+    st.line_chart(chart_display,use_container_width=True,height=390)
+    st.caption("5-minute intraday candles · latest displayed price uses the live WebSocket when available; otherwise the latest public candle is shown.")
+else:
+    st.warning(f"Intraday chart data is currently unavailable for {name}. No chart values are estimated.")
 
 bias=data["bias"]
 cls="good" if bias=="BULLISH" else "bad" if bias=="BEARISH" else "neutral"
@@ -59,10 +94,10 @@ syn=data.get("synthesis",{})
 st.markdown(f'''<div class="livebox"><div class="livehead">WHAT IS HAPPENING {"RIGHT NOW" if mode=="LIVE" else "IN THE LAST SESSION"}?</div><div class="headline {cls}">{syn.get('headline','Structure unavailable')}</div><div class="evidence">{syn.get('detail','No synthesis available.')}</div><span class="chip">{mode}</span><span class="chip">Score {data['score']}/100</span><span class="chip">Confidence {data['confidence']}</span><span class="chip">Bull {syn.get('bull_count',0)}</span><span class="chip">Bear {syn.get('bear_count',0)}</span><span class="chip">Volume {'confirming' if syn.get('volume_confirming') else 'normal'}</span></div>''',unsafe_allow_html=True)
 
 cols=st.columns(6)
-metrics=[("NIFTY",f"{data['last']:,.2f}"),("SESSION CHANGE",f"{data['session_change_pct']:+.2f}%" if data.get('session_change_pct') is not None else "—"),("VWAP",f"{data['vwap']:,.2f}" if data.get('vwap') is not None else "—"),("OR STATUS",data['opening_range_state']),("15M MOMENTUM",f"{data['momentum_15m_pct']:+.2f}%"),("LATEST VOLUME",f"{data['volume_ratio']:.2f}x" if data.get('volume_ratio') is not None else "—")]
-for c,(label,value) in zip(cols,metrics): c.markdown(f'<div class="card"><div class="label">{label}</div><div class="value">{value}</div></div>',unsafe_allow_html=True)
+metrics=[(name,f"₹{data['last']:,.2f}"),("SESSION CHANGE",f"{data['session_change_pct']:+.2f}%" if data.get('session_change_pct') is not None else "—"),("VWAP",f"{data['vwap']:,.2f}" if data.get('vwap') is not None else "—"),("OR STATUS",data['opening_range_state']),("15M MOMENTUM",f"{data['momentum_15m_pct']:+.2f}%"),("LATEST VOLUME",f"{data['volume_ratio']:.2f}x" if data.get('volume_ratio') is not None else "—")]
+for c,(label,value) in zip(cols,metrics): c.markdown(f'<div class="card"><div class="label">{html.escape(str(label))}</div><div class="value">{value}</div></div>',unsafe_allow_html=True)
 
-st.markdown("### NIFTY structure snapshot")
+st.markdown(f"### {html.escape(name)} structure snapshot")
 levels=data.get("levels",{})
 level_df=pd.DataFrame([{"Level":"Session Low","Value":levels.get("session_low")},{"Level":"Recent Support","Value":levels.get("recent_support")},{"Level":"VWAP","Value":data.get("vwap")},{"Level":"Last","Value":data.get("last")},{"Level":"Recent Resistance","Value":levels.get("recent_resistance")},{"Level":"Session High","Value":levels.get("session_high")}]).dropna()
 if not level_df.empty: st.dataframe(level_df,use_container_width=True,hide_index=True)
