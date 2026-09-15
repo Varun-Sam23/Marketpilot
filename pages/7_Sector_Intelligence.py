@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from streamlit_autorefresh import st_autorefresh
 
 from sector_intelligence import fetch_sector_intelligence
 from nifty_impact import fetch_nifty_impact
@@ -7,6 +8,7 @@ from menu import render_sidebar
 
 st.set_page_config(page_title="Sector Intelligence | MarketPilot", page_icon="🏭", layout="wide")
 render_sidebar()
+st_autorefresh(interval=30000, key="nifty-impact-refresh")
 
 st.markdown("""
 <style>
@@ -35,7 +37,7 @@ if impact.get("available"):
     nifty_move = impact.get("nifty_move")
     direction_cls = "#58d68d" if direction == "RISING" else "#ff6b6b" if direction == "FALLING" else "#c5ced9"
     direction_text = f"NIFTY 50 {direction} · {nifty_move:+.2f}%" if nifty_move is not None else f"NIFTY 50 {direction}"
-    st.markdown(f'<div class="impact"><div class="label">NIFTY IMPACT MAP · LIVE SESSION DATA</div><div class="impact-title" style="color:{direction_cls}">{direction_text}</div><div class="impact-note">This view identifies the sectors and constituent stocks exerting the strongest upward/downward pressure. Pressure is an attribution proxy, not an official real-time index-point contribution.</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="impact"><div class="label">NIFTY IMPACT MAP · CURRENT SESSION</div><div class="impact-title" style="color:{direction_cls}">{direction_text}</div><div class="impact-note">Shows which sectors and constituent stocks are exerting the strongest upward/downward pressure. The pressure figure is a transparent attribution proxy, not an official real-time index-point contribution.</div></div>', unsafe_allow_html=True)
 
     d1, d2 = st.columns(2)
     with d1:
