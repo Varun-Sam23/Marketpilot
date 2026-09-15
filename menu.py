@@ -55,6 +55,8 @@ def _render_stock_search():
     </style>
     """, unsafe_allow_html=True)
 
+    # Keep the compact search clear of Streamlit's fixed top toolbar.
+    st.markdown('<div style="height:48px"></div>', unsafe_allow_html=True)
     left, right = st.columns([1, 7])
     with left:
         st.markdown('<div class="mp-search" style="height:36px"><span class="mp-search-label">◈ SEARCH</span></div>', unsafe_allow_html=True)
