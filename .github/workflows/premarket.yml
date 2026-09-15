@@ -33,7 +33,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generate multi-agent pre-market report
-        run: python multi_agent_engine.py
+        run: python engine.py
 
       - name: Save report
         run: |
