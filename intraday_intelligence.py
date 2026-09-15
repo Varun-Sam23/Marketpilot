@@ -1,6 +1,6 @@
 """Intraday market-structure intelligence for MarketPilot.
 
-Uses the latest available NIFTY 5-minute session plus a live tick override when
+Uses the latest available 5-minute session plus a live tick override when
 an Upstox V3 WebSocket is configured. During a live session the output is LIVE;
 on weekends/holidays/stale feeds it becomes LAST SESSION. No synthetic market
 values are generated.
@@ -148,11 +148,12 @@ def _synthesis(score: int, bias: str, vwap: float | None, last: float, or_state:
     return {"headline": headline, "detail": "; ".join(evidence[:5]) if evidence else "Not enough independent structure signals.", "bull_count": bull, "bear_count": bear, "nearest_level": nearest, "volume_confirming": bool(vol_ratio is not None and vol_ratio >= 1.5)}
 
 
-def fetch_intraday() -> dict:
-    raw = _history(NIFTY)
+def fetch_intraday(ticker: str = NIFTY) -> dict:
+    """Build intraday structure for NIFTY or a selected NSE stock."""
+    raw = _history(ticker)
     h = _latest_session(raw)
     if len(h) < 3:
-        return {"available": False, "message": "No usable NIFTY 5-minute session is available from the market-data feed.", "source": "Yahoo Finance market-data feed"}
+        return {"available": False, "message": f"No usable 5-minute session is available for {ticker} from the market-data feed.", "source": "Yahoo Finance market-data feed", "ticker": ticker}
 
     session_date = h.index.date[-1]
     today = datetime.now(IST).date()
@@ -165,10 +166,8 @@ def fetch_intraday() -> dict:
         prior_date = prior.index.date[-1]
         prev_close = float(prior[prior.index.date == prior_date]["Close"].iloc[-1])
 
-    # The WebSocket is authoritative for the live last price when configured.
-    # Historical candles still provide the rolling structure used for VWAP,
-    # opening range and trend until a dedicated tick-to-candle aggregator is added.
-    live = live_quote("NIFTY")
+    symbol = "NIFTY" if ticker == NIFTY else ticker.replace(".NS", "").upper()
+    live = live_quote(symbol)
     feed = live_status()
     if live and mode == "LIVE":
         live_last = live.get("ltp")
@@ -189,9 +188,9 @@ def fetch_intraday() -> dict:
         vp = 12 if last > vwap else -12; points += vp; components["VWAP"] = vp
         reasons.append(f"Price is {abs(_pct(last, vwap)):.2f}% {'above' if last > vwap else 'below'} VWAP.")
     if or_high is not None and or_low is not None:
-        if last > or_high: points += 14; components["Opening Range"] = 14; reasons.append("NIFTY is above the 15-minute opening-range high: breakout structure.")
-        elif last < or_low: points -= 14; components["Opening Range"] = -14; reasons.append("NIFTY is below the 15-minute opening-range low: breakdown structure.")
-        else: components["Opening Range"] = 0; reasons.append("NIFTY remains inside the 15-minute opening range.")
+        if last > or_high: points += 14; components["Opening Range"] = 14; reasons.append("Price is above the 15-minute opening-range high: breakout structure.")
+        elif last < or_low: points -= 14; components["Opening Range"] = -14; reasons.append("Price is below the 15-minute opening-range low: breakdown structure.")
+        else: components["Opening Range"] = 0; reasons.append("Price remains inside the 15-minute opening range.")
     if momentum > 0.15: points += 9; components["Momentum"] = 9; reasons.append(f"15-minute momentum is positive at {momentum:.2f}%.")
     elif momentum < -0.15: points -= 9; components["Momentum"] = -9; reasons.append(f"15-minute momentum is negative at {momentum:.2f}%.")
     else: components["Momentum"] = 0; reasons.append(f"15-minute momentum is muted at {momentum:.2f}%.")
@@ -212,4 +211,4 @@ def fetch_intraday() -> dict:
     if or_high and last > or_high: or_state = "BREAKOUT ABOVE OR"
     elif or_low and last < or_low: or_state = "BREAKDOWN BELOW OR"
     else: or_state = "INSIDE OPENING RANGE"
-    return {"available": True, "mode": mode, "session_date": session_date.isoformat(), "as_of": live.get("received_at") if live else h.index[-1].strftime("%Y-%m-%d %H:%M IST"), "source": "Upstox V3 WebSocket + Yahoo Finance historical candles" if live else "Yahoo Finance market-data feed", "live_feed": feed, "source_url": "https://upstox.com/developer/api-documentation/v3/get-market-data-feed/" if live else "https://finance.yahoo.com/", "last": round(last, 2), "session_change_pct": round(_pct(last, prev_close), 2) if prev_close else None, "vwap": round(vwap, 2) if vwap is not None else None, "vwap_distance_pct": round(_pct(last, vwap), 2) if vwap else None, "opening_range_high": round(or_high, 2) if or_high is not None else None, "opening_range_low": round(or_low, 2) if or_low is not None else None, "opening_range_state": or_state, "volume_ratio": vol_ratio, "volume_spike_6bar": volume_spike, "momentum_15m_pct": round(momentum, 2), "trend": trend, "breadth": breadth, "levels": levels, "components": components, "score": score, "bias": bias, "confidence": confidence, "reasons": reasons, "synthesis": _synthesis(score, bias, vwap, last, or_state, momentum, trend, vol_ratio, breadth, levels)}
+    return {"available": True, "ticker": ticker, "symbol": symbol, "name": "NIFTY 50" if ticker == NIFTY else symbol, "mode": mode, "session_date": session_date.isoformat(), "as_of": live.get("received_at") if live else h.index[-1].strftime("%Y-%m-%d %H:%M IST"), "source": "Upstox V3 WebSocket + Yahoo Finance historical candles" if live else "Yahoo Finance market-data feed", "live_feed": feed, "source_url": "https://upstox.com/developer/api-documentation/v3/get-market-data-feed/" if live else "https://finance.yahoo.com/", "last": round(last, 2), "session_change_pct": round(_pct(last, prev_close), 2) if prev_close else None, "vwap": round(vwap, 2) if vwap is not None else None, "vwap_distance_pct": round(_pct(last, vwap), 2) if vwap else None, "opening_range_high": round(or_high, 2) if or_high is not None else None, "opening_range_low": round(or_low, 2) if or_low is not None else None, "opening_range_state": or_state, "volume_ratio": vol_ratio, "volume_spike_6bar": volume_spike, "momentum_15m_pct": round(momentum, 2), "trend": trend, "breadth": breadth, "levels": levels, "components": components, "score": score, "bias": bias, "confidence": confidence, "reasons": reasons, "synthesis": _synthesis(score, bias, vwap, last, or_state, momentum, trend, vol_ratio, breadth, levels)}
