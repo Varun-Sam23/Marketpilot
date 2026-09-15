@@ -31,7 +31,7 @@ NEWS_FEEDS=[
  "https://news.google.com/rss/search?q=India%20stock%20market%20NSE%20Nifty&hl=en-IN&gl=IN&ceid=IN:en",
  "https://news.google.com/rss/search?q=RBI%20India%20economy%20markets&hl=en-IN&gl=IN&ceid=IN:en",
  "https://news.google.com/rss/search?q=Indian%20stocks%20earnings%20results%20companies&hl=en-IN&gl=IN&ceid=IN:en",
- "https://news.google.com/rss/search?q=US%20markets%20Asia%20markets%20Fed%20oil%20geopolitics&hl=en-IN&gl=IN&ceid=IN:en",
+ "https://news.google.com/rss/search?q=US%20markets%20Asia%20markets%20Fed%20oil%20geopolitics&hl=en-IN&gl=IN:en",
 ]
 
 st.markdown("""
@@ -45,8 +45,8 @@ st.markdown("""
 .ticker{overflow:hidden;border:1px solid #202c3c;border-radius:11px;background:#0b1119;padding:9px;white-space:nowrap;margin:8px 0 16px}.track{display:inline-block;padding-left:100%;animation:scroll 150s linear infinite}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 .change{min-height:150px}.change-item{padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem;line-height:1.35}.change-item:first-child{border-top:0}.change-value{font-size:.85rem;font-weight:800}.risk-row{padding:7px 0;border-top:1px solid #1d2938}.risk-row:first-child{border-top:0}
 .evidence-wrap{border:1px solid #202c3c;border-radius:12px;overflow:hidden;background:#0b1119}.evidence-table{width:100%;border-collapse:collapse;font-size:.72rem;table-layout:fixed}.evidence-table th{text-align:left;padding:9px 10px;background:#171b25;color:#8492a4;font-weight:600;border-bottom:1px solid #263344}.evidence-table td{padding:9px 10px;border-bottom:1px solid #1d2938;color:#dce3ec;vertical-align:top}.evidence-table tr:last-child td{border-bottom:0}.status-supported{color:#64d39a;font-weight:700}.status-disputed{color:#ff7b83;font-weight:700}.status-insufficient{color:#ffd45c;font-weight:700}.status-dot{font-size:.9rem;margin-right:5px;vertical-align:-1px}.status-cell{white-space:nowrap;font-size:.67rem}.evidence-num{font-variant-numeric:tabular-nums;white-space:nowrap}.evidence-headline{line-height:1.35;word-wrap:break-word}.evidence-headline-title{font-size:.76rem;color:#e7edf5;font-weight:600;line-height:1.4}.evidence-gist{color:#91a0b2;font-size:.68rem;line-height:1.45;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.evidence-point{display:block}.evidence-point::before{content:"• ";color:#64748b}
-.movers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mover-card{background:#0b1119;border:1px solid #202c3c;border-radius:12px;padding:11px 13px}.mover-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem}.mover-row:first-child{border-top:0}.mover-symbol{font-weight:700;color:#dce3ec}.mover-pct{font-weight:800;font-variant-numeric:tabular-nums}.movers-note{color:#718096;font-size:.62rem;margin-top:7px}
-@media(max-width:800px){.movers-grid{grid-template-columns:1fr}}
+.movers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mover-card{background:#0b1119;border:1px solid #202c3c;border-radius:12px;padding:11px 13px}.mover-row{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:7px 0;border-top:1px solid #1d2938;font-size:.76rem}.mover-row:first-child{border-top:0}.mover-symbol{font-weight:700;color:#dce3ec}.mover-price{font-variant-numeric:tabular-nums;color:#aeb9c7;text-align:right}.mover-pct{font-weight:800;font-variant-numeric:tabular-nums;text-align:right}.movers-note{color:#718096;font-size:.62rem;margin-top:7px}
+@media(max-width:800px){.movers-grid{grid-template-columns:1fr}.mover-row{grid-template-columns:1fr auto auto;gap:8px}}
 </style>
 """,unsafe_allow_html=True)
 
@@ -101,9 +101,9 @@ def market_movers_data():
             if len(series)>=2:
                 last=float(series.iloc[-1]);prev=float(series.iloc[-2])
                 if prev:
-                    rows.append({"Stock":ticker.replace(".NS",""),"1D %":(last/prev-1)*100})
+                    rows.append({"Stock":ticker.replace(".NS",""),"Price":last,"1D %":(last/prev-1)*100})
     except Exception:
-        return pd.DataFrame(columns=["Stock","1D %"])
+        return pd.DataFrame(columns=["Stock","Price","1D %"])
     return pd.DataFrame(rows)
 
 def clean_news_text(value):
@@ -113,22 +113,16 @@ def clean_news_text(value):
 
 def key_news_points(summary,headline):
     text=clean_news_text(summary)
-    if not text or text.lower()==clean_news_text(headline).lower():
-        return []
+    if not text or text.lower()==clean_news_text(headline).lower(): return []
     normalized=text.lower()
-    if "comprehensive up-to-date news coverage" in normalized or "comprehensive up to date news coverage" in normalized or "aggregated from sources all over the world by google news" in normalized:
-        return []
-    text=re.sub(r"^(?:\s*[-–—|]\s*)+","",text).strip()
-    sentences=re.split(r"(?<=[.!?])\s+",text)
-    points=[]
+    if "comprehensive up-to-date news coverage" in normalized or "comprehensive up to date news coverage" in normalized or "aggregated from sources all over the world by google news" in normalized: return []
+    text=re.sub(r"^(?:\s*[-–—|]\s*)+","",text).strip();sentences=re.split(r"(?<=[.!?])\s+",text);points=[]
     for sentence in sentences:
         sentence=sentence.strip(" -–—|")
-        if sentence and sentence.lower()!=headline.lower():
-            points.append(sentence)
-        if len(points)==2:break
-    if not points and text:
-        points=[text]
-    return [p[:210].rstrip(" .") + ("…" if len(p)>210 else ".") for p in points[:2]]
+        if sentence and sentence.lower()!=headline.lower(): points.append(sentence)
+        if len(points)==2: break
+    if not points and text: points=[text]
+    return [p[:210].rstrip(" .")+("…" if len(p)>210 else ".") for p in points[:2]]
 
 @st.cache_data(ttl=60,show_spinner=False)
 def raw_news():
@@ -141,8 +135,7 @@ def raw_news():
                 if isinstance(src,dict):publisher=str(src.get("title") or src.get("name") or "").strip()
                 if not publisher:
                     m=re.search(r"\s+-\s+([^-]+)$",title);publisher=m.group(1).strip() if m else "Unknown publisher"
-                title=re.sub(r"\s+-\s+([^-]+)$","",title).strip()
-                items.append({"title":title,"publisher":publisher,"published":e.get("published","") or e.get("updated","") ,"summary":e.get("summary") or e.get("description") or "","link":e.get("link") or ""})
+                title=re.sub(r"\s+-\s+([^-]+)$","",title).strip();items.append({"title":title,"publisher":publisher,"published":e.get("published","") or e.get("updated","") ,"summary":e.get("summary") or e.get("description") or "","link":e.get("link") or ""})
         except Exception:pass
     return items[:28]
 
@@ -173,10 +166,8 @@ st.markdown(f'<div class="deck"><span class="label">COMMAND DECK</span><span>{"�
 
 cls="positive" if str(bias).upper()=="BULLISH" else "negative" if str(bias).upper()=="BEARISH" else "neutral";score_label=f"{score:.0f}/100" if score is not None else "N/A"
 a,b=st.columns([1.7,1])
-with a:
-    st.markdown(f'<div class="verdict"><div class="label">AI MARKET VERDICT · EVIDENCE WEIGHTED</div><div class="verdict-value {cls}">{html.escape(str(bias))} · {score_label}</div><div class="verdict-copy">{html.escape(str(thesis))}</div></div>',unsafe_allow_html=True)
-with b:
-    st.markdown(f'<div class="verdict"><div class="label">RISK POSTURE</div><div class="verdict-value" style="font-size:1.35rem">{html.escape(str(regime))}</div><div class="verdict-copy">Confidence: <b>{html.escape(str(confidence))}</b> · Supported: <b>{supported}</b> · Disputed: <b>{disputed}</b></div></div>',unsafe_allow_html=True)
+with a: st.markdown(f'<div class="verdict"><div class="label">AI MARKET VERDICT · EVIDENCE WEIGHTED</div><div class="verdict-value {cls}">{html.escape(str(bias))} · {score_label}</div><div class="verdict-copy">{html.escape(str(thesis))}</div></div>',unsafe_allow_html=True)
+with b: st.markdown(f'<div class="verdict"><div class="label">RISK POSTURE</div><div class="verdict-value" style="font-size:1.35rem">{html.escape(str(regime))}</div><div class="verdict-copy">Confidence: <b>{html.escape(str(confidence))}</b> · Supported: <b>{supported}</b> · Disputed: <b>{disputed}</b></div></div>',unsafe_allow_html=True)
 
 k=st.columns(4)
 for col,(label,val,sub,c) in zip(k,[("Decision Score",raw_score,"Evidence-weighted","neutral"),("Supported Claims",supported,f"of {len(news)} stories","positive"),("Disputed Claims",disputed,"requires caution","negative" if disputed else "neutral"),("Strong Evidence",strong,"score ≥ 75","positive" if strong else "neutral")]):col.markdown(f'<div class="box"><div class="label">{label}</div><div class="big {c}">{html.escape(str(val))}</div><div class="muted">{html.escape(str(sub))}</div></div>',unsafe_allow_html=True)
@@ -184,9 +175,7 @@ for col,(label,val,sub,c) in zip(k,[("Decision Score",raw_score,"Evidence-weight
 if news:
     parts=[]
     for x in news[:14]:
-        s=x.get("claim_status","INSUFFICIENT EVIDENCE");dot={"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(s,"🟡")
-        title=re.sub(r"^(🟢|🔴|🟡)\s*(SUPPORTED|DISPUTED|INSUFFICIENT EVIDENCE)\s*·\s*","",str(x.get("title", "")))
-        parts.append(f'{dot} {html.escape(s)} · {html.escape(title)} · {html.escape(x.get("publisher","Unknown"))}')
+        s=x.get("claim_status","INSUFFICIENT EVIDENCE");dot={"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(s,"🟡");title=re.sub(r"^(🟢|🔴|🟡)\s*(SUPPORTED|DISPUTED|INSUFFICIENT EVIDENCE)\s*·\s*","",str(x.get("title", "")));parts.append(f'{dot} {html.escape(s)} · {html.escape(title)} · {html.escape(x.get("publisher","Unknown"))}')
     st.markdown('<div class="ticker"><div class="track">'+' &nbsp; ◆ &nbsp; '.join(parts)+'</div></div>',unsafe_allow_html=True)
 
 st.markdown('<div class="section">Market Pulse <span class="meta">Public feed · refresh 60s</span></div>',unsafe_allow_html=True)
@@ -198,17 +187,16 @@ else:st.info("Public index feed unavailable. No values are estimated.")
 
 st.markdown('<div class="section">Market Movers <span class="meta">Nifty 50 · top 5 by 1D move · refresh 60s</span></div>',unsafe_allow_html=True)
 if not movers.empty:
-    gainers=movers.sort_values("1D %",ascending=False).head(5)
-    losers=movers.sort_values("1D %",ascending=True).head(5)
-    def mover_rows(frame,positive=True):
+    gainers=movers.sort_values("1D %",ascending=False).head(5);losers=movers.sort_values("1D %",ascending=True).head(5)
+    def mover_rows(frame):
         out=[]
         for _,r in frame.iterrows():
             pct=float(r["1D %"]);cls="positive" if pct>0 else "negative" if pct<0 else "neutral"
-            out.append(f'<div class="mover-row"><span class="mover-symbol">{html.escape(str(r["Stock"]))}</span><span class="mover-pct {cls}">{pct:+.2f}%</span></div>')
+            price=float(r["Price"])
+            out.append(f'<div class="mover-row"><span class="mover-symbol">{html.escape(str(r["Stock"]))}</span><span class="mover-price">₹{price:,.2f}</span><span class="mover-pct {cls}">{pct:+.2f}%</span></div>')
         return "".join(out)
-    st.markdown(f'<div class="movers-grid"><div class="mover-card"><div class="change-label">🟢 TOP GAINERS</div>{mover_rows(gainers)}<div class="movers-note">Highest positive 1D moves in the Nifty 50 universe.</div></div><div class="mover-card"><div class="change-label">🔴 TOP LOSERS</div>{mover_rows(losers,False)}<div class="movers-note">Highest negative 1D moves in the Nifty 50 universe.</div></div></div>',unsafe_allow_html=True)
-else:
-    st.info("Market-mover feed unavailable. No values are estimated.")
+    st.markdown(f'<div class="movers-grid"><div class="mover-card"><div class="change-label">🟢 TOP GAINERS</div>{mover_rows(gainers)}<div class="movers-note">Price · 1D move · highest positive moves in the Nifty 50.</div></div><div class="mover-card"><div class="change-label">🔴 TOP LOSERS</div>{mover_rows(losers)}<div class="movers-note">Price · 1D move · highest negative moves in the Nifty 50.</div></div></div>',unsafe_allow_html=True)
+else: st.info("Market-mover feed unavailable. No values are estimated.")
 
 st.markdown('<div class="section">What Changed <span class="meta">Compared with previous refresh</span></div>',unsafe_allow_html=True)
 c1,c2,c3=st.columns([1.15,1.35,1.0])
@@ -222,15 +210,13 @@ with c2:
 with c3:
     vix=None
     if not indices.empty and "INDIA VIX" in indices["Index"].values:vix=float(indices.loc[indices["Index"]=="INDIA VIX","Session %"].iloc[0])
-    vix_cls="negative" if vix is not None and vix>0 else "neutral";dis_cls="negative" if disputed else "positive"
-    st.markdown(f'<div class="change"><div class="change-label">RISK MONITOR</div><div class="risk-row"><div class="muted">News disputes</div><b class="{dis_cls}">{disputed}</b></div><div class="risk-row"><div class="muted">Evidence gaps</div><b>{insufficient}</b></div><div class="risk-row"><div class="muted">India VIX move</div><b class="{vix_cls}">{f"{vix:+.2f}%" if vix is not None else "N/A"}</b></div></div>',unsafe_allow_html=True)
+    vix_cls="negative" if vix is not None and vix>0 else "neutral";dis_cls="negative" if disputed else "positive";st.markdown(f'<div class="change"><div class="change-label">RISK MONITOR</div><div class="risk-row"><div class="muted">News disputes</div><b class="{dis_cls}">{disputed}</b></div><div class="risk-row"><div class="muted">Evidence gaps</div><b>{insufficient}</b></div><div class="risk-row"><div class="muted">India VIX move</div><b class="{vix_cls}">{f"{vix:+.2f}%" if vix is not None else "N/A"}</b></div></div>',unsafe_allow_html=True)
 
 t1,t2,t3=st.tabs(["⚡ INTELLIGENCE CORE","📈 MARKET BOARD","📰 EVIDENCE MONITOR"])
 with t1:
     x,y=st.columns([1.0,1.5])
     with x:
-        fill=max(0,min(100,score)) if score is not None else 0
-        st.markdown(f'<div class="box"><div class="label">DECISION RADAR</div><div class="big">{html.escape(str(bias))}</div><div class="muted">Confidence: {html.escape(str(confidence))} · Regime: {html.escape(str(regime))}</div><div style="height:5px;background:#202b39;border-radius:5px;margin-top:10px"><div style="height:100%;width:{fill}%;background:#8090a4;border-radius:5px"></div></div><div class="muted" style="margin-top:6px">Decision score <b>{score_label}</b></div></div>',unsafe_allow_html=True)
+        fill=max(0,min(100,score)) if score is not None else 0;st.markdown(f'<div class="box"><div class="label">DECISION RADAR</div><div class="big">{html.escape(str(bias))}</div><div class="muted">Confidence: {html.escape(str(confidence))} · Regime: {html.escape(str(regime))}</div><div style="height:5px;background:#202b39;border-radius:5px;margin-top:10px"><div style="height:100%;width:{fill}%;background:#8090a4;border-radius:5px"></div></div><div class="muted" style="margin-top:6px">Decision score <b>{score_label}</b></div></div>',unsafe_allow_html=True)
         st.markdown(f'<div class="box" style="margin-top:9px"><div class="label">THESIS</div><div style="margin-top:7px;font-size:.82rem;line-height:1.45">{html.escape(str(thesis))}</div></div>',unsafe_allow_html=True)
     with y:
         s1,s2,s3=st.columns(3);s1.info("🟢 Bull case\n\n"+str(ai.get("bull_case","Not available")));s2.warning("🟡 Base case\n\n"+str(ai.get("base_case","Not available")));s3.error("🔴 Bear case\n\n"+str(ai.get("bear_case","Not available")))
@@ -240,18 +226,12 @@ with t2:
 with t3:
     rows=[]
     for x in news[:24]:
-        status_value=x.get("claim_status","INSUFFICIENT EVIDENCE");dot={"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(status_value,"🟡");title=re.sub(r"^(🟢|🔴|🟡)\s*(SUPPORTED|DISPUTED|INSUFFICIENT EVIDENCE)\s*·\s*","",str(x.get("title","")))
-        points=key_news_points(x.get("summary",""),title)
-        rows.append({"dot":dot,"status":status_value,"headline":title,"points":points,"verification":x.get("verification","UNVERIFIED"),"evidence":x.get("evidence_score",10),"sources":x.get("evidence_count",0),"publisher":x.get("publisher","Unknown")})
+        status_value=x.get("claim_status","INSUFFICIENT EVIDENCE");dot={"SUPPORTED":"🟢","DISPUTED":"🔴","INSUFFICIENT EVIDENCE":"🟡"}.get(status_value,"🟡");title=re.sub(r"^(🟢|🔴|🟡)\s*(SUPPORTED|DISPUTED|INSUFFICIENT EVIDENCE)\s*·\s*","",str(x.get("title","")));points=key_news_points(x.get("summary",""),title);rows.append({"dot":dot,"status":status_value,"headline":title,"points":points,"verification":x.get("verification","UNVERIFIED"),"evidence":x.get("evidence_score",10),"sources":x.get("evidence_count",0),"publisher":x.get("publisher","Unknown")})
     if rows:
         trs=[]
         for r in rows:
-            cls={"SUPPORTED":"status-supported","DISPUTED":"status-disputed","INSUFFICIENT EVIDENCE":"status-insufficient"}.get(r["status"],"neutral")
-            points_html=''.join(f'<span class="evidence-point">{html.escape(p)}</span>' for p in r["points"]) or '<span class="evidence-point">Article facts unavailable; open the publisher for full context.</span>'
-            headline_html=f'<div class="evidence-headline-title">{html.escape(str(r["headline"]))}</div><div class="evidence-gist">{points_html}</div>'
-            trs.append(f'<tr><td class="{cls} status-cell"><span class="status-dot">{r["dot"]}</span>{html.escape(str(r["status"]))}</td><td class="evidence-headline">{headline_html}</td><td>{html.escape(str(r["verification"]))}</td><td class="evidence-num">{html.escape(str(r["evidence"]))}</td><td class="evidence-num">{html.escape(str(r["sources"]))}</td><td>{html.escape(str(r["publisher"]))}</td></tr>')
-        table='<div class="evidence-wrap"><table class="evidence-table"><colgroup><col style="width:170px"><col style="width:52%"><col style="width:125px"><col style="width:72px"><col style="width:72px"><col style="width:125px"></colgroup><thead><tr><th>Status</th><th>Headline · Key Points</th><th>Verification</th><th>Evidence</th><th>Sources</th><th>Publisher</th></tr></thead><tbody>'+''.join(trs)+'</tbody></table></div>'
-        st.markdown(table,unsafe_allow_html=True)
+            cls={"SUPPORTED":"status-supported","DISPUTED":"status-disputed","INSUFFICIENT EVIDENCE":"status-insufficient"}.get(r["status"],"neutral");points_html=''.join(f'<span class="evidence-point">{html.escape(p)}</span>' for p in r["points"]) or '<span class="evidence-point">Article facts unavailable; open the publisher for full context.</span>';headline_html=f'<div class="evidence-headline-title">{html.escape(str(r["headline"]))}</div><div class="evidence-gist">{points_html}</div>';trs.append(f'<tr><td class="{cls} status-cell"><span class="status-dot">{r["dot"]}</span>{html.escape(str(r["status"]))}</td><td class="evidence-headline">{headline_html}</td><td>{html.escape(str(r["verification"]))}</td><td class="evidence-num">{html.escape(str(r["evidence"]))}</td><td class="evidence-num">{html.escape(str(r["sources"]))}</td><td>{html.escape(str(r["publisher"]))}</td></tr>')
+        table='<div class="evidence-wrap"><table class="evidence-table"><colgroup><col style="width:170px"><col style="width:52%"><col style="width:125px"><col style="width:72px"><col style="width:72px"><col style="width:125px"></colgroup><thead><tr><th>Status</th><th>Headline · Key Points</th><th>Verification</th><th>Evidence</th><th>Sources</th><th>Publisher</th></tr></thead><tbody>'+''.join(trs)+'</tbody></table></div>';st.markdown(table,unsafe_allow_html=True)
     else:st.info("No current headlines available.")
 
 st.caption("MarketPilot uses public/free feeds which may be delayed, incomplete or unavailable. Change tracking is session-based. Research and decision support only — no order execution.")
