@@ -18,6 +18,8 @@ from zoneinfo import ZoneInfo
 
 import requests
 
+from nse_universe import nse_instrument_key
+
 IST = ZoneInfo("Asia/Kolkata")
 
 INSTRUMENTS = {
@@ -44,6 +46,7 @@ _state: dict[str, Any] = {
     "errors": [],
     "quotes": {},
 }
+_dynamic_instruments: dict[str, str] = {}
 _started = False
 _streamer = None
 
@@ -83,6 +86,34 @@ def _decode(message: Any) -> Any:
         except Exception:
             return message
     return message
+
+
+def _instrument_for(symbol: str) -> str | None:
+    key = str(symbol or "").strip().upper()
+    if key in INSTRUMENTS:
+        return INSTRUMENTS[key]
+    if key in _dynamic_instruments:
+        return _dynamic_instruments[key]
+    resolved = nse_instrument_key(key)
+    if resolved:
+        _dynamic_instruments[key] = resolved
+    return resolved
+
+
+def _all_instruments() -> dict[str, str]:
+    return {**INSTRUMENTS, **_dynamic_instruments}
+
+
+def _ensure_streaming(symbol: str) -> str | None:
+    instrument_key = _instrument_for(symbol)
+    if not instrument_key:
+        return None
+    if _streamer is not None and _state.get("status") in {"CONNECTED", "LIVE"}:
+        try:
+            _streamer.subscribe([instrument_key], "full")
+        except Exception as exc:
+            _set_error(f"Dynamic subscription failed for {symbol}: {exc}")
+    return instrument_key
 
 
 def _extract_quote(payload: Any, instrument_key: str) -> dict[str, Any] | None:
@@ -149,7 +180,7 @@ def _on_message(message: Any) -> None:
     payload = _decode(message)
     updated = 0
     with _lock:
-        for name, key in INSTRUMENTS.items():
+        for name, key in _all_instruments().items():
             quote = _extract_quote(payload, key)
             if quote:
                 _state["quotes"][name] = quote
@@ -165,7 +196,7 @@ def _on_open() -> None:
         _state["status"] = "CONNECTED"
         _state["connected_at"] = datetime.now(IST).isoformat()
     try:
-        _streamer.subscribe(list(INSTRUMENTS.values()), "full")
+        _streamer.subscribe(list(_all_instruments().values()), "full")
     except Exception as exc:
         _set_error(f"Subscription failed: {exc}")
 
@@ -200,7 +231,7 @@ def start() -> dict[str, Any]:
         configuration = upstox_client.Configuration()
         configuration.access_token = token
         _streamer = upstox_client.MarketDataStreamerV3(
-            upstox_client.ApiClient(configuration), list(INSTRUMENTS.values()), "full"
+            upstox_client.ApiClient(configuration), list(_all_instruments().values()), "full"
         )
         _streamer.on("open", _on_open)
         _streamer.on("message", _on_message)
@@ -241,8 +272,10 @@ def snapshot() -> dict[str, Any]:
 
 def live_quote(symbol: str) -> dict[str, Any] | None:
     start()
+    key = str(symbol or "").strip().upper()
+    _ensure_streaming(key)
     with _lock:
-        quote = _state["quotes"].get(symbol.upper())
+        quote = _state["quotes"].get(key)
         return dict(quote) if quote else None
 
 
@@ -257,7 +290,7 @@ def upstox_intraday_candles(symbol: str, interval: int) -> list[list[Any]]:
         return []
     if interval not in {1, 5, 15, 30}:
         return []
-    instrument_key = INSTRUMENTS.get(symbol.upper())
+    instrument_key = _instrument_for(symbol)
     if not instrument_key:
         return []
     url = f"https://api.upstox.com/v3/historical-candle/intraday/{requests.utils.quote(instrument_key, safe='')}/minutes/{interval}"
