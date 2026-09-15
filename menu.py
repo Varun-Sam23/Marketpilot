@@ -14,6 +14,23 @@ NAV = [
     ("pages/10_Agent_Command_Center.py", "Agent Command Center", "🤖"),
 ]
 
+TERMINAL_STOCKS = [
+    "ADANIENT", "ADANIPORTS", "APOLLOHOSP", "ASIANPAINT", "AXISBANK",
+    "BAJAJ-AUTO", "BAJFINANCE", "BAJAJFINSV", "BEL", "BHARTIARTL",
+    "CIPLA", "COALINDIA", "DRREDDY", "EICHERMOT", "ETERNAL", "GRASIM",
+    "HCLTECH", "HDFCBANK", "HDFCLIFE", "HEROMOTOCO", "HINDALCO",
+    "HINDUNILVR", "ICICIBANK", "INDUSINDBK", "INFY", "ITC", "JIOFIN",
+    "JSWSTEEL", "KOTAKBANK", "LT", "M&M", "MARUTI", "MAXHEALTH",
+    "NESTLEIND", "NTPC", "ONGC", "POWERGRID", "RELIANCE", "SBILIFE",
+    "SBIN", "SHRIRAMFIN", "SUNPHARMA", "TATACONSUM", "TATAMOTORS",
+    "TATASTEEL", "TCS", "TECHM", "TITAN", "TRENT", "ULTRACEMCO", "WIPRO",
+]
+
+
+def _focus_stock(symbol: str) -> None:
+    st.query_params["terminal"] = symbol
+    st.switch_page("pages/6_Live_Market.py")
+
 
 def render_sidebar():
     st.markdown("""
@@ -36,3 +53,20 @@ def render_sidebar():
         st.markdown('<div class="mp-section">INTELLIGENCE SUITE</div>', unsafe_allow_html=True)
         for page, label, icon in NAV:
             st.page_link(page, label=label, icon=icon, width="stretch")
+
+        st.divider()
+        st.markdown('<div class="mp-section">LIVE TERMINAL FOCUS</div>', unsafe_allow_html=True)
+        options = ["NIFTY"] + TERMINAL_STOCKS
+        selected = st.query_params.get("terminal", "NIFTY")
+        if selected not in options:
+            selected = "NIFTY"
+        choice = st.selectbox(
+            "Select stock",
+            options,
+            index=options.index(selected),
+            key="terminal_focus",
+            label_visibility="collapsed",
+        )
+        if choice != selected:
+            _focus_stock(choice)
+        st.caption("Choose any tracked stock to open its live terminal chart.")
