@@ -1,6 +1,6 @@
 {
   "date_ist": "2026-09-16",
-  "generated_at": "2026-09-16 00:26:24 IST",
+  "generated_at": "2026-09-16 00:29:52 IST",
   "market_status": "PRE-MARKET INTELLIGENCE",
   "verdict": "BEARISH",
   "confidence": "MEDIUM",
@@ -49,14 +49,14 @@
     {
       "name": "S&P 500",
       "ticker": "^GSPC",
-      "last": 7583.43,
-      "change_pct": -0.48
+      "last": 7585.92,
+      "change_pct": -0.45
     },
     {
       "name": "NASDAQ",
       "ticker": "^IXIC",
-      "last": 25971.52,
-      "change_pct": -0.82
+      "last": 25983.76,
+      "change_pct": -0.77
     },
     {
       "name": "NIKKEI",
@@ -79,14 +79,14 @@
     {
       "name": "CRUDE",
       "ticker": "CL=F",
-      "last": 105.93,
-      "change_pct": 4.48
+      "last": 105.88,
+      "change_pct": 4.43
     },
     {
       "name": "GOLD",
       "ticker": "GC=F",
-      "last": 4346.6,
-      "change_pct": -0.12
+      "last": 4347.0,
+      "change_pct": -0.11
     }
   ],
   "global": [
@@ -117,14 +117,14 @@
     {
       "name": "S&P 500",
       "ticker": "^GSPC",
-      "last": 7583.43,
-      "change_pct": -0.48
+      "last": 7585.92,
+      "change_pct": -0.45
     },
     {
       "name": "NASDAQ",
       "ticker": "^IXIC",
-      "last": 25971.52,
-      "change_pct": -0.82
+      "last": 25983.76,
+      "change_pct": -0.77
     },
     {
       "name": "NIKKEI",
@@ -147,14 +147,14 @@
     {
       "name": "CRUDE",
       "ticker": "CL=F",
-      "last": 105.93,
-      "change_pct": 4.48
+      "last": 105.88,
+      "change_pct": 4.43
     },
     {
       "name": "GOLD",
       "ticker": "GC=F",
-      "last": 4346.6,
-      "change_pct": -0.12
+      "last": 4347.0,
+      "change_pct": -0.11
     }
   ],
   "news": [
@@ -173,7 +173,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:30.364550+00:00",
+      "checked_at_utc": "2026-09-15T18:59:58.299494+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -197,7 +197,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:31.134601+00:00",
+      "checked_at_utc": "2026-09-15T18:59:59.001458+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -221,7 +221,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T18:56:33.317832+00:00",
+      "checked_at_utc": "2026-09-15T19:00:00.675611+00:00",
       "evidence_score": 65,
       "evidence_count": 3,
       "claim_status": "SUPPORTED",
@@ -249,7 +249,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:36.436474+00:00",
+      "checked_at_utc": "2026-09-15T19:00:02.745859+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -273,7 +273,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:37.589261+00:00",
+      "checked_at_utc": "2026-09-15T19:00:03.720510+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -297,7 +297,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:39.322043+00:00",
+      "checked_at_utc": "2026-09-15T19:00:05.831313+00:00",
       "evidence_score": 75,
       "evidence_count": 4,
       "claim_status": "SUPPORTED",
@@ -326,7 +326,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T18:56:41.953876+00:00",
+      "checked_at_utc": "2026-09-15T19:00:07.960462+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -350,7 +350,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T18:56:42.776570+00:00",
+      "checked_at_utc": "2026-09-15T19:00:08.640151+00:00",
       "evidence_score": 10,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -374,7 +374,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T18:56:43.766601+00:00",
+      "checked_at_utc": "2026-09-15T19:00:09.341864+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -397,7 +397,7 @@
       "impact": "POSITIVE",
       "impact_reason": "Headline language contains positive market-impact signals.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T18:56:44.501923+00:00",
+      "checked_at_utc": "2026-09-15T19:00:10.008405+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -420,7 +420,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T18:56:45.404179+00:00",
+      "checked_at_utc": "2026-09-15T19:00:10.717572+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -443,7 +443,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T18:56:46.101530+00:00",
+      "checked_at_utc": "2026-09-15T19:00:11.352066+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -466,7 +466,7 @@
       "impact": "POSITIVE",
       "impact_reason": "Headline language contains positive market-impact signals.",
       "affected": "IT",
-      "checked_at_utc": "2026-09-15T18:56:47.013941+00:00",
+      "checked_at_utc": "2026-09-15T19:00:12.141586+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -489,7 +489,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:49.013815+00:00",
+      "checked_at_utc": "2026-09-15T19:00:13.798135+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -512,7 +512,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "IT",
-      "checked_at_utc": "2026-09-15T18:56:51.307659+00:00",
+      "checked_at_utc": "2026-09-15T19:00:15.604033+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -535,7 +535,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:52.316982+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.433951+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -558,7 +558,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "BANKING",
-      "checked_at_utc": "2026-09-15T18:56:52.317066+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434029+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -581,7 +581,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "MARKET",
-      "checked_at_utc": "2026-09-15T18:56:52.317111+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434072+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -592,7 +592,7 @@
     {
       "title": "Market Turbulence: Stocks Decline Amid Rising Yields and Oil Prices",
       "source": "Global Markets",
-      "publisher": "Devdiscourse",
+      "publisher": "devdiscourse.com",
       "published": "Tue, 15 Sep 2026 08:02:20 GMT",
       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNNlZhMlZ4aEtXRGZSb0JOSnhjLTh2M3JXZFVscnJNRk1HSlhmekYyM0tqSVhrMHAwX3QwSVJDY1VTMEY0dF9kVDFzeFNRSkpXRU83aUxnaG9ZcGRsVmp5a3JFTkdJSjRELW1ReFFFdWt6dGdGX3U4bS11Yk9pcllrQWhVWElOM0V1N1pHOEFVVGFQUGVNZDdDbDEyNko4eFhVTnFRV0xzeUFFVGdqS3lfdTdfeUg2UHBpWUNBR9IBwgFBVV95cUxQUjBmV2dfblJJel9oSzQ0clpTSFcxMTRJcnphTWt0cFowbF9tcW9uaUlGT0ttVGdQVDQ5SFY0OVc4bDNsd1RmODJPd1h3Y0paYVVuejB4N1p3SDZ1UUVvMFRVTTNYMEhsSG5RZk9kX2ZzbTk5RVV3U1NnaGNaYmp0SFM0OUgzekhsd3B4SVRwUW05ckswTlVOb3lWcmU1WnRUSkVrNlVvNl9BMTJ4WHc3ZkNNLUFNWU1zUDRYSVFZNDdrUQ?oc=5",
       "summary": "",
@@ -604,7 +604,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T18:56:52.317148+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434108+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -627,7 +627,7 @@
       "impact": "NEUTRAL",
       "impact_reason": "No clear directional impact is established from the headline alone.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T18:56:52.317196+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434155+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -650,7 +650,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T18:56:52.317265+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434195+00:00",
       "evidence_score": 55,
       "evidence_count": 0,
       "claim_status": "SUPPORTED",
@@ -673,7 +673,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T18:56:52.317301+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434230+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -684,11 +684,11 @@
     {
       "title": "Week Ahead: Aug CPI Inflation, US Fed Verdict, Crude Oil Among Five Key Triggers To Drive D-Street",
       "source": "Global Markets",
-      "publisher": "NDTV Profit",
+      "publisher": "ndtvprofit.com",
       "published": "Sun, 13 Sep 2026 08:21:11 GMT",
       "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNdVpWaDRjaU5JRmJ0b0tsTklDRVN0eFR1SkZXWXVJRk9RUU84Sm1jYlhLWGVGdUd3VmZDa09JcUgyUU1qeDNadDRSZnFxcEtpOEJJV29TM21oZ2I3UEhPd2NJTDFhV1ZPaGU0V1JUdmVLVXpWRHh0Y2c1TFN4dkE1NEtsdlpyUk1VZGFoZVJ5U2dMRTFRSzhkYWhGNDVabExBdk5YNzJ3UlVJN2RnS3Y3Sm5pYklnS0N4bGd0UGJOaVFqbnZtREZ4cUc1c3E2SUMyb3daLWFaeHQ3bU1weWpvTVFsdHgwMzdwUFpRZFQxWTlTWjTSAfsBQVVfeXFMUGI5YmdhdFFCX09VdzJRWERkclY3QU5mandwRE5Ta0lkS3JFV1hsWDlFQ1J3bTdBd05TamMtVXNmR1B3YUNCQ0V6c0lsSUxDcHJqNDhDTktxWUhTVk1Hdk1wSFpwQzJpZGpYa1VsaEk0clIwNmdpYjBiaTBnZWdtdkUwcF9BV0M2VHdodVRjeDNUMFd2TnJWcjF2cTI1WHBueEVGR3JJMW1MNnNSNFVHNnhYTGU3QjJhTnNhcUlFR01XRFBXcHdWWG1nclRwelVYZm9oMGM5WDVNRlcyMDlKOFZON2hCZ0dhb1BnS1FXZnFRbGRRbUgwTG43WE0?oc=5",
       "summary": "",
-      "publisher_domain": "ndtvprofit.com",
+      "publisher_domain": "",
       "cluster_id": 20,
       "verification": "CORROBORATED",
       "verification_label": "CORROBORATED",
@@ -696,7 +696,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "ENERGY",
-      "checked_at_utc": "2026-09-15T18:56:52.317338+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434268+00:00",
       "evidence_score": 55,
       "evidence_count": 0,
       "claim_status": "SUPPORTED",
@@ -707,7 +707,7 @@
     {
       "title": "South Korea's Kospi clocks best month in 28 years as tech optimism triumphs over Iran war worries",
       "source": "Global Markets",
-      "publisher": "CNBC",
+      "publisher": "cnbc.com",
       "published": "Wed, 29 Apr 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQMUNud1Q2SlMzVnJJNHNydDRKTkgzUndsZ0lSSHV0VlVadVZMMG1DemptTy1QVUpYem4ybVh2SkNrbmFqdEdqYmdMbDJESU1kMW4yeFhnN2thYkxJRjhUQjJjRjJlbTJGNFZMVGlhOWxCdXJlaHNYXzRCallMUVFmemNRMXlWWV9HSElDZnJycktnMkxD0gGaAUFVX3lxTE9zYWZkM3pOTmE1dXFlZVVlbHVPTFBuaVRGN1Fhd29RWjZMRnlyelhCM044SlhSbk44TkZMT2JHZm1EbGo3SnZpcF9tNlZvVFlYS01xTTJhSk9zNTNGQlExNmhXX19mVjRZN3dxaFI4NVYwdXk2RkhwLUVtUHZPR0dXNGhqLTI4VUluRXlHTFdIUTc1YkllZHZfZkE?oc=5",
       "summary": "",
@@ -719,7 +719,7 @@
       "impact": "NEGATIVE",
       "impact_reason": "Headline language contains negative market-impact signals.",
       "affected": "IT",
-      "checked_at_utc": "2026-09-15T18:56:52.317373+00:00",
+      "checked_at_utc": "2026-09-15T19:00:16.434303+00:00",
       "evidence_score": 30,
       "evidence_count": 0,
       "claim_status": "INSUFFICIENT EVIDENCE",
@@ -987,94 +987,95 @@
   },
   "specialists": {
     "agents": {
-      "Market Agent": {
-        "agent": "Market Agent",
+      "Sector Agent": {
+        "agent": "Sector Agent",
         "status": "READY",
         "elapsed_ms": 0.0,
         "data": {
-          "snapshot": [
+          "sectors": [
             {
-              "name": "NIFTY 50",
-              "ticker": "^NSEI",
-              "last": NaN,
-              "change_pct": NaN
+              "sector": "Banking",
+              "avg_change_pct": NaN,
+              "members": 3
             },
             {
-              "name": "BANK NIFTY",
-              "ticker": "^NSEBANK",
-              "last": NaN,
-              "change_pct": NaN
+              "sector": "IT",
+              "avg_change_pct": NaN,
+              "members": 2
             },
             {
-              "name": "SENSEX",
-              "ticker": "^BSESN",
-              "last": NaN,
-              "change_pct": NaN
+              "sector": "Energy",
+              "avg_change_pct": NaN,
+              "members": 2
             },
             {
-              "name": "INDIA VIX",
-              "ticker": "^INDIAVIX",
-              "last": NaN,
-              "change_pct": NaN
+              "sector": "Auto",
+              "avg_change_pct": NaN,
+              "members": 1
             },
             {
-              "name": "S&P 500",
-              "ticker": "^GSPC",
-              "last": 7583.43,
-              "change_pct": -0.48
+              "sector": "FMCG",
+              "avg_change_pct": NaN,
+              "members": 2
             },
             {
-              "name": "NASDAQ",
-              "ticker": "^IXIC",
-              "last": 25971.52,
-              "change_pct": -0.82
-            },
-            {
-              "name": "NIKKEI",
-              "ticker": "^N225",
-              "last": NaN,
-              "change_pct": NaN
-            },
-            {
-              "name": "HANG SENG",
-              "ticker": "^HSI",
-              "last": NaN,
-              "change_pct": NaN
-            },
-            {
-              "name": "USD/INR",
-              "ticker": "INR=X",
-              "last": 95.85,
-              "change_pct": 0.86
-            },
-            {
-              "name": "CRUDE",
-              "ticker": "CL=F",
-              "last": 105.93,
-              "change_pct": 4.48
-            },
-            {
-              "name": "GOLD",
-              "ticker": "GC=F",
-              "last": 4346.6,
-              "change_pct": -0.12
+              "sector": "Pharma",
+              "avg_change_pct": NaN,
+              "members": 2
             }
-          ],
-          "levels": {
-            "NIFTY close": NaN,
-            "Previous close": 23398.1,
-            "5D return %": NaN,
-            "20D return %": NaN,
-            "5D SMA": 23485.62,
-            "20D SMA": 23962.54,
-            "50D SMA": 24147.77,
-            "20D high": 24378.6,
-            "20D low": 23118.6,
-            "RSI14": null,
-            "range_position_%": NaN
-          }
+          ]
         },
-        "mission": "Establish the current index and macro snapshot.",
+        "mission": "Assess sector participation and rotation.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Risk Agent": {
+        "agent": "Risk Agent",
+        "status": "READY",
+        "elapsed_ms": 0.1,
+        "data": {
+          "vix_change_pct": NaN,
+          "sector_positive_share": 0.0,
+          "flags": [
+            "WEAK_SECTOR_BREADTH"
+          ]
+        },
+        "mission": "Identify volatility, breadth and evidence-quality risks.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Technical Agent": {
+        "agent": "Technical Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "trend_vs_20d": "BELOW",
+          "trend_vs_50d": "BELOW",
+          "rsi14": null,
+          "20d_return_pct": NaN,
+          "range_position_pct": NaN
+        },
+        "mission": "Assess trend, momentum and range structure.",
         "self_check": {
           "confidence": "MEDIUM",
           "evidence_state": "READY",
@@ -1091,7 +1092,7 @@
       "Watchlist Agent": {
         "agent": "Watchlist Agent",
         "status": "READY",
-        "elapsed_ms": 0.2,
+        "elapsed_ms": 1.4,
         "data": [
           {
             "ticker": "RELIANCE",
@@ -1247,95 +1248,94 @@
           "no_fabrication": true
         }
       },
-      "Technical Agent": {
-        "agent": "Technical Agent",
+      "Market Agent": {
+        "agent": "Market Agent",
         "status": "READY",
-        "elapsed_ms": 0.0,
+        "elapsed_ms": 0.1,
         "data": {
-          "trend_vs_20d": "BELOW",
-          "trend_vs_50d": "BELOW",
-          "rsi14": null,
-          "20d_return_pct": NaN,
-          "range_position_pct": NaN
-        },
-        "mission": "Assess trend, momentum and range structure.",
-        "self_check": {
-          "confidence": "MEDIUM",
-          "evidence_state": "READY",
-          "missing": [],
-          "needs_retry": false
-        },
-        "autonomy": {
-          "source_selection": "SPECIALIZED_ENGINE",
-          "self_evaluation": true,
-          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-          "no_fabrication": true
-        }
-      },
-      "Sector Agent": {
-        "agent": "Sector Agent",
-        "status": "READY",
-        "elapsed_ms": 0.0,
-        "data": {
-          "sectors": [
+          "snapshot": [
             {
-              "sector": "Banking",
-              "avg_change_pct": NaN,
-              "members": 3
+              "name": "NIFTY 50",
+              "ticker": "^NSEI",
+              "last": NaN,
+              "change_pct": NaN
             },
             {
-              "sector": "IT",
-              "avg_change_pct": NaN,
-              "members": 2
+              "name": "BANK NIFTY",
+              "ticker": "^NSEBANK",
+              "last": NaN,
+              "change_pct": NaN
             },
             {
-              "sector": "Energy",
-              "avg_change_pct": NaN,
-              "members": 2
+              "name": "SENSEX",
+              "ticker": "^BSESN",
+              "last": NaN,
+              "change_pct": NaN
             },
             {
-              "sector": "Auto",
-              "avg_change_pct": NaN,
-              "members": 1
+              "name": "INDIA VIX",
+              "ticker": "^INDIAVIX",
+              "last": NaN,
+              "change_pct": NaN
             },
             {
-              "sector": "FMCG",
-              "avg_change_pct": NaN,
-              "members": 2
+              "name": "S&P 500",
+              "ticker": "^GSPC",
+              "last": 7585.92,
+              "change_pct": -0.45
             },
             {
-              "sector": "Pharma",
-              "avg_change_pct": NaN,
-              "members": 2
+              "name": "NASDAQ",
+              "ticker": "^IXIC",
+              "last": 25983.76,
+              "change_pct": -0.77
+            },
+            {
+              "name": "NIKKEI",
+              "ticker": "^N225",
+              "last": NaN,
+              "change_pct": NaN
+            },
+            {
+              "name": "HANG SENG",
+              "ticker": "^HSI",
+              "last": NaN,
+              "change_pct": NaN
+            },
+            {
+              "name": "USD/INR",
+              "ticker": "INR=X",
+              "last": 95.85,
+              "change_pct": 0.86
+            },
+            {
+              "name": "CRUDE",
+              "ticker": "CL=F",
+              "last": 105.88,
+              "change_pct": 4.43
+            },
+            {
+              "name": "GOLD",
+              "ticker": "GC=F",
+              "last": 4347.0,
+              "change_pct": -0.11
             }
-          ]
+          ],
+          "levels": {
+            "NIFTY close": NaN,
+            "Previous close": 23398.1,
+            "5D return %": NaN,
+            "20D return %": NaN,
+            "5D SMA": 23485.62,
+            "20D SMA": 23962.54,
+            "50D SMA": 24147.77,
+            "20D high": 24378.6,
+            "20D low": 23118.6,
+            "RSI14": null,
+            "range_position_%": NaN
+          }
         },
-        "mission": "Assess sector participation and rotation.",
-        "self_check": {
-          "confidence": "MEDIUM",
-          "evidence_state": "READY",
-          "missing": [],
-          "needs_retry": false
-        },
-        "autonomy": {
-          "source_selection": "SPECIALIZED_ENGINE",
-          "self_evaluation": true,
-          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-          "no_fabrication": true
-        }
-      },
-      "Risk Agent": {
-        "agent": "Risk Agent",
-        "status": "READY",
-        "elapsed_ms": 0.0,
-        "data": {
-          "vix_change_pct": NaN,
-          "sector_positive_share": 0.0,
-          "flags": [
-            "WEAK_SECTOR_BREADTH"
-          ]
-        },
-        "mission": "Identify volatility, breadth and evidence-quality risks.",
+        "mission": "Establish the current index and macro snapshot.",
         "self_check": {
           "confidence": "MEDIUM",
           "evidence_state": "READY",
@@ -1352,7 +1352,7 @@
       "Institutional Agent": {
         "agent": "Institutional Agent",
         "status": "READY",
-        "elapsed_ms": 489.7,
+        "elapsed_ms": 518.3,
         "data": {
           "available": true,
           "date": "15-Sep-2026",
@@ -1401,7 +1401,7 @@
       "Intraday Agent": {
         "agent": "Intraday Agent",
         "status": "READY",
-        "elapsed_ms": 1187.9,
+        "elapsed_ms": 951.6,
         "data": {
           "available": true,
           "ticker": "^NSEI",
@@ -1515,10 +1515,298 @@
           "no_fabrication": true
         }
       },
+      "News Agent": {
+        "agent": "News Agent",
+        "status": "READY",
+        "elapsed_ms": 2880.3,
+        "data": [
+          {
+            "title": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
+            "source": "India Markets",
+            "publisher": "Livemint",
+            "published": "Sun, 13 Sep 2026 05:03:30 GMT",
+            "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNd1MzRHU4NUFGWGxyeEd6dTNIYmtpaEl1Y1NlcGd1OUtVVldFeFJGd0Q3ZW9uMWlRQ3ZlMFlPeFYta3M2eE9mdk1KQ1JPb3Zkc3h2aHhDaFlyQjBRWEJzOXdFX1dmRW42Y0l1U2pKYm5TVzV2LVVScmpjOWZYV3NtS0NvT2FTai1HU1Z4bU9vTUgxX2dmV2l5SFVSMGJSaDY3U1M0R21PX0NRdG1XYmdQd0ZtdG94UDVxZ2dTSlJvZUt5Tnl3ejZxbnhLVkFxbWNZVTFKVmpRQTJXeHRVZzlNdU9FbFhFeTVBZElIQ2c5RFVSM2J6dXNmMjV5VV9QSFJwWkZMYnphNFBhai1IakhKWFVsMNIBmAJBVV95cUxQaWVIcUZsWVZEUmhLUEVoeXZwVTZ3eXhXRXJ4TDVtaGlQZThmTXV6YndjcVEyWkJFNWFCVzFVNkVrUFRGdEV2b3ZVdDlHcFY4V3lpa1EybTQ1T0FjOGZjY0RGbTlBaUpqMHF1NWQwWXN6Y1I1Y3NwUmZCd0pfcGxfdGpnakhKVU5qZm82MjJQd2xOdlU1d0dfNGU3U2g2R19iWUNXQ0pTY3NyRm54OFFuSWxhLWltOUs3MEFubF90cEt0NDRfYzNsZ2RZWUJPZXczN1lXdXJtUDdnRy1sZkQ0NzIzVFo2cUhDTHRtcEUzbzdoMnpLV1RSRlN6cEYyVlltSlpER0I0a0FHY3MtQkVPN2o4Ul9uMl9Q?oc=5",
+            "summary": "BSE Share Price Today 11 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
+            "publisher_domain": "livemint.com",
+            "cluster_id": 1,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-09-15T18:59:58.299494+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
+            "research": {
+              "claim": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Livemint",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
+            "source": "India Markets",
+            "publisher": "Brut",
+            "published": "Tue, 15 Sep 2026 12:40:36 GMT",
+            "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQZGl4NFp0SkZiN3cwdUttM2NYYUZUb29oZllZamNXSm1peF9rS3R1NGlZeTBJb3ZQc1p5emI2YXR0QWNBejBkb2FBZFBJeXYxNGc0cVFPNVd4UGxqQ3FwOGFfVmZZVi1Yb0JVUzFSV0E1Mi1TNlg3ckV2dWM1a3VmbmoyZkg5NURDYzRHNlZjM3YzVGpKZ0NySkE3RnZad2I4c2pHZW1Fb0U1MGMzd2ZfT25mdEVDeW05ZXpBT1ZZMllrWGFveFRDX0thRkQwRTJkUVBxYmkzWWxja2xLelRZNXhHYU1yRGdGRm1HbjBxWUdGdw?oc=5",
+            "summary": "",
+            "publisher_domain": "",
+            "cluster_id": 2,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-09-15T18:59:59.001458+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
+            "research": {
+              "claim": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Brut",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
+            "source": "India Markets",
+            "publisher": "Reuters",
+            "published": "Tue, 15 Sep 2026 02:35:00 GMT",
+            "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPN2s4aTJpYklfMHNQSW1pWWtPcGhCajI1eGE1RU5RRm0yWTJvNmkzZ2VZQURjbVBnZHlOSVJJdG1BanlVc1FXV2tYNUpCMXVVZ2g5dlVxYjdaQlViZXk2c1pMVEx3WEc2bHhOMjl3a0hUcXBjX0FXUGVSV3FpM0E5Y2dkRkRZTGtxOU81djBYYVY4Y1NvUlFmdW9BVWViQQ?oc=5",
+            "summary": "HDFC Bank Says CEO Candidates Being Submitted to India's Central Bank for Approval marketscreener.com",
+            "publisher_domain": "reuters.com",
+            "cluster_id": 3,
+            "verification": "CROSS_CHECKED",
+            "verification_label": "CROSS-CHECKED",
+            "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "ENERGY",
+            "checked_at_utc": "2026-09-15T19:00:00.675611+00:00",
+            "evidence_score": 65,
+            "evidence_count": 3,
+            "claim_status": "SUPPORTED",
+            "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [
+              "TradingView",
+              "Business Recorder",
+              "marketscreener.com"
+            ],
+            "display_title": "🟢 SUPPORTED · India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
+            "research": {
+              "claim": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Reuters",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
+            "source": "India Markets",
+            "publisher": "Upstox",
+            "published": "Tue, 15 Sep 2026 09:49:03 GMT",
+            "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPcXpOVnowTEZYVUF4WHAxelB3d1BHWkdvczBMMEZ4alQwdkdlNjJidnFkeEVIblRhMU44ZDFQZkJKVDloT2poLU1CaEtManZaM3Y2TGNPWnBWUzZock5MSGpLS1dKU0h1ZVY0U25XTTllSnFiUzdtTjE2YU50YVJieGpWX3NYaDFYSTFfNzdtY2J3SmtrblpZN2dDLU1mZUdhMjYzMmoxa1RUOHRRZ0NuY1dveGxQdnpqVTRDSy1wLWR3U0ZsRG90Qm1GVUVwU0VpLUhtY2c5c0llekloeDJ6VUx6ZWFqWDA?oc=5",
+            "summary": "Vedanta, National Aluminium, Hindustan Zinc, others drag Nifty Metal down 3%; here’s why metal stocks are falling today Upstox",
+            "publisher_domain": "",
+            "cluster_id": 4,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-09-15T19:00:02.745859+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
+            "research": {
+              "claim": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Upstox",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
+            "source": "India Markets",
+            "publisher": "Livemint",
+            "published": "Tue, 15 Sep 2026 08:25:43 GMT",
+            "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNcXpTN2Z6dDBCazRaU05fLUJpdFVlNEhnTlVoWUdkajN2OVhNWVFYTzhjZ1RlUXNXZm5OTWVVMkRJUXVfcF9udi1qVE9kZHlEOTRiYWI2RU1ZbEVsQ2VaZDdXb3F6aG9qSkw4WVBfbUs3anhKX3d5ZDBZeHpvSVdUSEJxZVJhanI5RGkza3JzLWRRQUpCWkQ3WExuaU43djJNY3pMdnJfTm9wSWVVMDRkQlBvR0RrZklaYkotYzJLRU04aERmajh4SXM1OG9BNU52SVUzTnNwNjdZSnd0QWtpbGxCNkFKUlJBUTV2aGF0eUVlN0oyRlHSAfsBQVVfeXFMUHllLVQ3NlFYd2pkalotOFV4Wmxza2FYcDNTRXFONmNFc2VHWlY3QzFVbkRmREZRNGFrTEdPdHRUckpvamg3VzZ6djMyT0JEbkptYUFMV0xzMVNzbVhySW8xNV9wYnJBV2p1UmRHY1BsX1I2UjI1bk03dnpVVVdxTlRRMmExbTFuY1FaNmFXNnRFMVpwRjRhTWctM1NlQzNJWEh5ZF9ZNzdUR0xqZUVXR2xJakV1UG5PdDEyNFVlaWdqVEFOMEFKY1R2QUZRRXc3YTlhUEZqZEl0X05UdHZzQUpNNEh4a2FqVzE3S1ZaWjJOdHNvY3lrUWd3QmM?oc=5",
+            "summary": "ICICI Bank Share Price Today 15 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
+            "publisher_domain": "livemint.com",
+            "cluster_id": 5,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-09-15T19:00:03.720510+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
+            "research": {
+              "claim": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Livemint",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
+            "source": "India Markets",
+            "publisher": "Moneycontrol.com",
+            "published": "Mon, 14 Sep 2026 04:30:55 GMT",
+            "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
+            "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
+            "publisher_domain": "",
+            "cluster_id": 1,
+            "verification": "CROSS_CHECKED",
+            "verification_label": "CROSS-CHECKED",
+            "verification_detail": "Fresh search found independent reporting from 4 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 75/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-09-15T19:00:05.831313+00:00",
+            "evidence_score": 75,
+            "evidence_count": 4,
+            "claim_status": "SUPPORTED",
+            "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [
+              "jagranjosh.com",
+              "Livemint",
+              "The Sunday Guardian",
+              "TradingView"
+            ],
+            "display_title": "🟢 SUPPORTED · Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
+            "research": {
+              "claim": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Moneycontrol.com",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          }
+        ],
+        "mission": "Verify and summarize market-moving news from publisher evidence.",
+        "self_check": {
+          "confidence": "LOW",
+          "evidence_state": "INSUFFICIENT",
+          "verified_items": 0,
+          "missing": [],
+          "needs_retry": true
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
       "Options Agent": {
         "agent": "Options Agent",
         "status": "READY",
-        "elapsed_ms": 2100.0,
+        "elapsed_ms": 3409.4,
         "data": {
           "available": true,
           "symbol": "NIFTY",
@@ -1572,294 +1860,6 @@
           "evidence_state": "READY",
           "missing": [],
           "needs_retry": false
-        },
-        "autonomy": {
-          "source_selection": "SPECIALIZED_ENGINE",
-          "self_evaluation": true,
-          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-          "no_fabrication": true
-        }
-      },
-      "News Agent": {
-        "agent": "News Agent",
-        "status": "READY",
-        "elapsed_ms": 3020.1,
-        "data": [
-          {
-            "title": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
-            "source": "India Markets",
-            "publisher": "Livemint",
-            "published": "Sun, 13 Sep 2026 05:03:30 GMT",
-            "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNd1MzRHU4NUFGWGxyeEd6dTNIYmtpaEl1Y1NlcGd1OUtVVldFeFJGd0Q3ZW9uMWlRQ3ZlMFlPeFYta3M2eE9mdk1KQ1JPb3Zkc3h2aHhDaFlyQjBRWEJzOXdFX1dmRW42Y0l1U2pKYm5TVzV2LVVScmpjOWZYV3NtS0NvT2FTai1HU1Z4bU9vTUgxX2dmV2l5SFVSMGJSaDY3U1M0R21PX0NRdG1XYmdQd0ZtdG94UDVxZ2dTSlJvZUt5Tnl3ejZxbnhLVkFxbWNZVTFKVmpRQTJXeHRVZzlNdU9FbFhFeTVBZElIQ2c5RFVSM2J6dXNmMjV5VV9QSFJwWkZMYnphNFBhai1IakhKWFVsMNIBmAJBVV95cUxQaWVIcUZsWVZEUmhLUEVoeXZwVTZ3eXhXRXJ4TDVtaGlQZThmTXV6YndjcVEyWkJFNWFCVzFVNkVrUFRGdEV2b3ZVdDlHcFY4V3lpa1EybTQ1T0FjOGZjY0RGbTlBaUpqMHF1NWQwWXN6Y1I1Y3NwUmZCd0pfcGxfdGpnakhKVU5qZm82MjJQd2xOdlU1d0dfNGU3U2g2R19iWUNXQ0pTY3NyRm54OFFuSWxhLWltOUs3MEFubF90cEt0NDRfYzNsZ2RZWUJPZXczN1lXdXJtUDdnRy1sZkQ0NzIzVFo2cUhDTHRtcEUzbzdoMnpLV1RSRlN6cEYyVlltSlpER0I0a0FHY3MtQkVPN2o4Ul9uMl9Q?oc=5",
-            "summary": "BSE Share Price Today 11 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
-            "publisher_domain": "livemint.com",
-            "cluster_id": 1,
-            "verification": "UNVERIFIED",
-            "verification_label": "UNVERIFIED",
-            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-            "impact": "NEUTRAL",
-            "impact_reason": "No clear directional impact is established from the headline alone.",
-            "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T18:56:30.364550+00:00",
-            "evidence_score": 10,
-            "evidence_count": 0,
-            "claim_status": "INSUFFICIENT EVIDENCE",
-            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-            "agent_status": "ARTICLE_UNAVAILABLE",
-            "verification_sources": [],
-            "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
-            "research": {
-              "claim": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
-              "evidence_state": "INSUFFICIENT",
-              "confidence": "LOW",
-              "independent_publishers": 0,
-              "evidence": [],
-              "attempts": [
-                {
-                  "publisher": "Livemint",
-                  "domain": "news.google.com",
-                  "status": "ARTICLE_UNAVAILABLE"
-                }
-              ],
-              "research_complete": false,
-              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-              "no_fabrication": true
-            },
-            "research_state": "INSUFFICIENT",
-            "research_confidence": "LOW"
-          },
-          {
-            "title": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
-            "source": "India Markets",
-            "publisher": "Brut",
-            "published": "Tue, 15 Sep 2026 12:40:36 GMT",
-            "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQZGl4NFp0SkZiN3cwdUttM2NYYUZUb29oZllZamNXSm1peF9rS3R1NGlZeTBJb3ZQc1p5emI2YXR0QWNBejBkb2FBZFBJeXYxNGc0cVFPNVd4UGxqQ3FwOGFfVmZZVi1Yb0JVUzFSV0E1Mi1TNlg3ckV2dWM1a3VmbmoyZkg5NURDYzRHNlZjM3YzVGpKZ0NySkE3RnZad2I4c2pHZW1Fb0U1MGMzd2ZfT25mdEVDeW05ZXpBT1ZZMllrWGFveFRDX0thRkQwRTJkUVBxYmkzWWxja2xLelRZNXhHYU1yRGdGRm1HbjBxWUdGdw?oc=5",
-            "summary": "",
-            "publisher_domain": "",
-            "cluster_id": 2,
-            "verification": "UNVERIFIED",
-            "verification_label": "UNVERIFIED",
-            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-            "impact": "NEUTRAL",
-            "impact_reason": "No clear directional impact is established from the headline alone.",
-            "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T18:56:31.134601+00:00",
-            "evidence_score": 10,
-            "evidence_count": 0,
-            "claim_status": "INSUFFICIENT EVIDENCE",
-            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-            "agent_status": "ARTICLE_UNAVAILABLE",
-            "verification_sources": [],
-            "display_title": "🟡 INSUFFICIENT EVIDENCE · What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
-            "research": {
-              "claim": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
-              "evidence_state": "INSUFFICIENT",
-              "confidence": "LOW",
-              "independent_publishers": 0,
-              "evidence": [],
-              "attempts": [
-                {
-                  "publisher": "Brut",
-                  "domain": "news.google.com",
-                  "status": "ARTICLE_UNAVAILABLE"
-                }
-              ],
-              "research_complete": false,
-              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-              "no_fabrication": true
-            },
-            "research_state": "INSUFFICIENT",
-            "research_confidence": "LOW"
-          },
-          {
-            "title": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
-            "source": "India Markets",
-            "publisher": "Reuters",
-            "published": "Tue, 15 Sep 2026 02:35:00 GMT",
-            "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPN2s4aTJpYklfMHNQSW1pWWtPcGhCajI1eGE1RU5RRm0yWTJvNmkzZ2VZQURjbVBnZHlOSVJJdG1BanlVc1FXV2tYNUpCMXVVZ2g5dlVxYjdaQlViZXk2c1pMVEx3WEc2bHhOMjl3a0hUcXBjX0FXUGVSV3FpM0E5Y2dkRkRZTGtxOU81djBYYVY4Y1NvUlFmdW9BVWViQQ?oc=5",
-            "summary": "HDFC Bank Says CEO Candidates Being Submitted to India's Central Bank for Approval marketscreener.com",
-            "publisher_domain": "reuters.com",
-            "cluster_id": 3,
-            "verification": "CROSS_CHECKED",
-            "verification_label": "CROSS-CHECKED",
-            "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
-            "impact": "NEUTRAL",
-            "impact_reason": "No clear directional impact is established from the headline alone.",
-            "affected": "ENERGY",
-            "checked_at_utc": "2026-09-15T18:56:33.317832+00:00",
-            "evidence_score": 65,
-            "evidence_count": 3,
-            "claim_status": "SUPPORTED",
-            "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
-            "agent_status": "ARTICLE_UNAVAILABLE",
-            "verification_sources": [
-              "TradingView",
-              "Business Recorder",
-              "marketscreener.com"
-            ],
-            "display_title": "🟢 SUPPORTED · India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
-            "research": {
-              "claim": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
-              "evidence_state": "INSUFFICIENT",
-              "confidence": "LOW",
-              "independent_publishers": 0,
-              "evidence": [],
-              "attempts": [
-                {
-                  "publisher": "Reuters",
-                  "domain": "news.google.com",
-                  "status": "ARTICLE_UNAVAILABLE"
-                }
-              ],
-              "research_complete": false,
-              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-              "no_fabrication": true
-            },
-            "research_state": "INSUFFICIENT",
-            "research_confidence": "LOW"
-          },
-          {
-            "title": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
-            "source": "India Markets",
-            "publisher": "Upstox",
-            "published": "Tue, 15 Sep 2026 09:49:03 GMT",
-            "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPcXpOVnowTEZYVUF4WHAxelB3d1BHWkdvczBMMEZ4alQwdkdlNjJidnFkeEVIblRhMU44ZDFQZkJKVDloT2poLU1CaEtManZaM3Y2TGNPWnBWUzZock5MSGpLS1dKU0h1ZVY0U25XTTllSnFiUzdtTjE2YU50YVJieGpWX3NYaDFYSTFfNzdtY2J3SmtrblpZN2dDLU1mZUdhMjYzMmoxa1RUOHRRZ0NuY1dveGxQdnpqVTRDSy1wLWR3U0ZsRG90Qm1GVUVwU0VpLUhtY2c5c0llekloeDJ6VUx6ZWFqWDA?oc=5",
-            "summary": "Vedanta, National Aluminium, Hindustan Zinc, others drag Nifty Metal down 3%; here’s why metal stocks are falling today Upstox",
-            "publisher_domain": "",
-            "cluster_id": 4,
-            "verification": "UNVERIFIED",
-            "verification_label": "UNVERIFIED",
-            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-            "impact": "NEUTRAL",
-            "impact_reason": "No clear directional impact is established from the headline alone.",
-            "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T18:56:36.436474+00:00",
-            "evidence_score": 10,
-            "evidence_count": 0,
-            "claim_status": "INSUFFICIENT EVIDENCE",
-            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-            "agent_status": "ARTICLE_UNAVAILABLE",
-            "verification_sources": [],
-            "display_title": "🟡 INSUFFICIENT EVIDENCE · India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
-            "research": {
-              "claim": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
-              "evidence_state": "INSUFFICIENT",
-              "confidence": "LOW",
-              "independent_publishers": 0,
-              "evidence": [],
-              "attempts": [
-                {
-                  "publisher": "Upstox",
-                  "domain": "news.google.com",
-                  "status": "ARTICLE_UNAVAILABLE"
-                }
-              ],
-              "research_complete": false,
-              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-              "no_fabrication": true
-            },
-            "research_state": "INSUFFICIENT",
-            "research_confidence": "LOW"
-          },
-          {
-            "title": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
-            "source": "India Markets",
-            "publisher": "Livemint",
-            "published": "Tue, 15 Sep 2026 08:25:43 GMT",
-            "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNcXpTN2Z6dDBCazRaU05fLUJpdFVlNEhnTlVoWUdkajN2OVhNWVFYTzhjZ1RlUXNXZm5OTWVVMkRJUXVfcF9udi1qVE9kZHlEOTRiYWI2RU1ZbEVsQ2VaZDdXb3F6aG9qSkw4WVBfbUs3anhKX3d5ZDBZeHpvSVdUSEJxZVJhanI5RGkza3JzLWRRQUpCWkQ3WExuaU43djJNY3pMdnJfTm9wSWVVMDRkQlBvR0RrZklaYkotYzJLRU04aERmajh4SXM1OG9BNU52SVUzTnNwNjdZSnd0QWtpbGxCNkFKUlJBUTV2aGF0eUVlN0oyRlHSAfsBQVVfeXFMUHllLVQ3NlFYd2pkalotOFV4Wmxza2FYcDNTRXFONmNFc2VHWlY3QzFVbkRmREZRNGFrTEdPdHRUckpvamg3VzZ6djMyT0JEbkptYUFMV0xzMVNzbVhySW8xNV9wYnJBV2p1UmRHY1BsX1I2UjI1bk03dnpVVVdxTlRRMmExbTFuY1FaNmFXNnRFMVpwRjRhTWctM1NlQzNJWEh5ZF9ZNzdUR0xqZUVXR2xJakV1UG5PdDEyNFVlaWdqVEFOMEFKY1R2QUZRRXc3YTlhUEZqZEl0X05UdHZzQUpNNEh4a2FqVzE3S1ZaWjJOdHNvY3lrUWd3QmM?oc=5",
-            "summary": "ICICI Bank Share Price Today 15 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
-            "publisher_domain": "livemint.com",
-            "cluster_id": 5,
-            "verification": "UNVERIFIED",
-            "verification_label": "UNVERIFIED",
-            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-            "impact": "NEUTRAL",
-            "impact_reason": "No clear directional impact is established from the headline alone.",
-            "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T18:56:37.589261+00:00",
-            "evidence_score": 10,
-            "evidence_count": 0,
-            "claim_status": "INSUFFICIENT EVIDENCE",
-            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-            "agent_status": "ARTICLE_UNAVAILABLE",
-            "verification_sources": [],
-            "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
-            "research": {
-              "claim": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
-              "evidence_state": "INSUFFICIENT",
-              "confidence": "LOW",
-              "independent_publishers": 0,
-              "evidence": [],
-              "attempts": [
-                {
-                  "publisher": "Livemint",
-                  "domain": "news.google.com",
-                  "status": "ARTICLE_UNAVAILABLE"
-                }
-              ],
-              "research_complete": false,
-              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-              "no_fabrication": true
-            },
-            "research_state": "INSUFFICIENT",
-            "research_confidence": "LOW"
-          },
-          {
-            "title": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
-            "source": "India Markets",
-            "publisher": "Moneycontrol.com",
-            "published": "Mon, 14 Sep 2026 04:30:55 GMT",
-            "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
-            "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
-            "publisher_domain": "",
-            "cluster_id": 1,
-            "verification": "CROSS_CHECKED",
-            "verification_label": "CROSS-CHECKED",
-            "verification_detail": "Fresh search found independent reporting from 4 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 75/100.",
-            "impact": "NEUTRAL",
-            "impact_reason": "No clear directional impact is established from the headline alone.",
-            "affected": "MARKET",
-            "checked_at_utc": "2026-09-15T18:56:39.322043+00:00",
-            "evidence_score": 75,
-            "evidence_count": 4,
-            "claim_status": "SUPPORTED",
-            "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
-            "agent_status": "ARTICLE_UNAVAILABLE",
-            "verification_sources": [
-              "jagranjosh.com",
-              "Livemint",
-              "The Sunday Guardian",
-              "TradingView"
-            ],
-            "display_title": "🟢 SUPPORTED · Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
-            "research": {
-              "claim": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
-              "evidence_state": "INSUFFICIENT",
-              "confidence": "LOW",
-              "independent_publishers": 0,
-              "evidence": [],
-              "attempts": [
-                {
-                  "publisher": "Moneycontrol.com",
-                  "domain": "news.google.com",
-                  "status": "ARTICLE_UNAVAILABLE"
-                }
-              ],
-              "research_complete": false,
-              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-              "no_fabrication": true
-            },
-            "research_state": "INSUFFICIENT",
-            "research_confidence": "LOW"
-          }
-        ],
-        "mission": "Verify and summarize market-moving news from publisher evidence.",
-        "self_check": {
-          "confidence": "LOW",
-          "evidence_state": "INSUFFICIENT",
-          "verified_items": 0,
-          "missing": [],
-          "needs_retry": true
         },
         "autonomy": {
           "source_selection": "SPECIALIZED_ENGINE",
@@ -1943,14 +1943,14 @@
         {
           "name": "S&P 500",
           "ticker": "^GSPC",
-          "last": 7583.43,
-          "change_pct": -0.48
+          "last": 7585.92,
+          "change_pct": -0.45
         },
         {
           "name": "NASDAQ",
           "ticker": "^IXIC",
-          "last": 25971.52,
-          "change_pct": -0.82
+          "last": 25983.76,
+          "change_pct": -0.77
         },
         {
           "name": "NIKKEI",
@@ -1973,14 +1973,14 @@
         {
           "name": "CRUDE",
           "ticker": "CL=F",
-          "last": 105.93,
-          "change_pct": 4.48
+          "last": 105.88,
+          "change_pct": 4.43
         },
         {
           "name": "GOLD",
           "ticker": "GC=F",
-          "last": 4346.6,
-          "change_pct": -0.12
+          "last": 4347.0,
+          "change_pct": -0.11
         }
       ]
     },
@@ -2097,7 +2097,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:30.364550+00:00",
+        "checked_at_utc": "2026-09-15T18:59:58.299494+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2121,7 +2121,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:31.134601+00:00",
+        "checked_at_utc": "2026-09-15T18:59:59.001458+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2145,7 +2145,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T18:56:33.317832+00:00",
+        "checked_at_utc": "2026-09-15T19:00:00.675611+00:00",
         "evidence_score": 65,
         "evidence_count": 3,
         "claim_status": "SUPPORTED",
@@ -2173,7 +2173,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:36.436474+00:00",
+        "checked_at_utc": "2026-09-15T19:00:02.745859+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2197,7 +2197,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:37.589261+00:00",
+        "checked_at_utc": "2026-09-15T19:00:03.720510+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2221,7 +2221,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:39.322043+00:00",
+        "checked_at_utc": "2026-09-15T19:00:05.831313+00:00",
         "evidence_score": 75,
         "evidence_count": 4,
         "claim_status": "SUPPORTED",
@@ -2250,7 +2250,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T18:56:41.953876+00:00",
+        "checked_at_utc": "2026-09-15T19:00:07.960462+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2274,7 +2274,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T18:56:42.776570+00:00",
+        "checked_at_utc": "2026-09-15T19:00:08.640151+00:00",
         "evidence_score": 10,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2298,7 +2298,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T18:56:43.766601+00:00",
+        "checked_at_utc": "2026-09-15T19:00:09.341864+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2321,7 +2321,7 @@
         "impact": "POSITIVE",
         "impact_reason": "Headline language contains positive market-impact signals.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T18:56:44.501923+00:00",
+        "checked_at_utc": "2026-09-15T19:00:10.008405+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2344,7 +2344,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T18:56:45.404179+00:00",
+        "checked_at_utc": "2026-09-15T19:00:10.717572+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2367,7 +2367,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T18:56:46.101530+00:00",
+        "checked_at_utc": "2026-09-15T19:00:11.352066+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2390,7 +2390,7 @@
         "impact": "POSITIVE",
         "impact_reason": "Headline language contains positive market-impact signals.",
         "affected": "IT",
-        "checked_at_utc": "2026-09-15T18:56:47.013941+00:00",
+        "checked_at_utc": "2026-09-15T19:00:12.141586+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2413,7 +2413,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:49.013815+00:00",
+        "checked_at_utc": "2026-09-15T19:00:13.798135+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2436,7 +2436,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "IT",
-        "checked_at_utc": "2026-09-15T18:56:51.307659+00:00",
+        "checked_at_utc": "2026-09-15T19:00:15.604033+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2459,7 +2459,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:52.316982+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.433951+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2482,7 +2482,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "BANKING",
-        "checked_at_utc": "2026-09-15T18:56:52.317066+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434029+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2505,7 +2505,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "MARKET",
-        "checked_at_utc": "2026-09-15T18:56:52.317111+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434072+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2516,7 +2516,7 @@
       {
         "title": "Market Turbulence: Stocks Decline Amid Rising Yields and Oil Prices",
         "source": "Global Markets",
-        "publisher": "Devdiscourse",
+        "publisher": "devdiscourse.com",
         "published": "Tue, 15 Sep 2026 08:02:20 GMT",
         "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNNlZhMlZ4aEtXRGZSb0JOSnhjLTh2M3JXZFVscnJNRk1HSlhmekYyM0tqSVhrMHAwX3QwSVJDY1VTMEY0dF9kVDFzeFNRSkpXRU83aUxnaG9ZcGRsVmp5a3JFTkdJSjRELW1ReFFFdWt6dGdGX3U4bS11Yk9pcllrQWhVWElOM0V1N1pHOEFVVGFQUGVNZDdDbDEyNko4eFhVTnFRV0xzeUFFVGdqS3lfdTdfeUg2UHBpWUNBR9IBwgFBVV95cUxQUjBmV2dfblJJel9oSzQ0clpTSFcxMTRJcnphTWt0cFowbF9tcW9uaUlGT0ttVGdQVDQ5SFY0OVc4bDNsd1RmODJPd1h3Y0paYVVuejB4N1p3SDZ1UUVvMFRVTTNYMEhsSG5RZk9kX2ZzbTk5RVV3U1NnaGNaYmp0SFM0OUgzekhsd3B4SVRwUW05ckswTlVOb3lWcmU1WnRUSkVrNlVvNl9BMTJ4WHc3ZkNNLUFNWU1zUDRYSVFZNDdrUQ?oc=5",
         "summary": "",
@@ -2528,7 +2528,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T18:56:52.317148+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434108+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2551,7 +2551,7 @@
         "impact": "NEUTRAL",
         "impact_reason": "No clear directional impact is established from the headline alone.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T18:56:52.317196+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434155+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2574,7 +2574,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T18:56:52.317265+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434195+00:00",
         "evidence_score": 55,
         "evidence_count": 0,
         "claim_status": "SUPPORTED",
@@ -2597,7 +2597,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T18:56:52.317301+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434230+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2608,11 +2608,11 @@
       {
         "title": "Week Ahead: Aug CPI Inflation, US Fed Verdict, Crude Oil Among Five Key Triggers To Drive D-Street",
         "source": "Global Markets",
-        "publisher": "NDTV Profit",
+        "publisher": "ndtvprofit.com",
         "published": "Sun, 13 Sep 2026 08:21:11 GMT",
         "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNdVpWaDRjaU5JRmJ0b0tsTklDRVN0eFR1SkZXWXVJRk9RUU84Sm1jYlhLWGVGdUd3VmZDa09JcUgyUU1qeDNadDRSZnFxcEtpOEJJV29TM21oZ2I3UEhPd2NJTDFhV1ZPaGU0V1JUdmVLVXpWRHh0Y2c1TFN4dkE1NEtsdlpyUk1VZGFoZVJ5U2dMRTFRSzhkYWhGNDVabExBdk5YNzJ3UlVJN2RnS3Y3Sm5pYklnS0N4bGd0UGJOaVFqbnZtREZ4cUc1c3E2SUMyb3daLWFaeHQ3bU1weWpvTVFsdHgwMzdwUFpRZFQxWTlTWjTSAfsBQVVfeXFMUGI5YmdhdFFCX09VdzJRWERkclY3QU5mandwRE5Ta0lkS3JFV1hsWDlFQ1J3bTdBd05TamMtVXNmR1B3YUNCQ0V6c0lsSUxDcHJqNDhDTktxWUhTVk1Hdk1wSFpwQzJpZGpYa1VsaEk0clIwNmdpYjBiaTBnZWdtdkUwcF9BV0M2VHdodVRjeDNUMFd2TnJWcjF2cTI1WHBueEVGR3JJMW1MNnNSNFVHNnhYTGU3QjJhTnNhcUlFR01XRFBXcHdWWG1nclRwelVYZm9oMGM5WDVNRlcyMDlKOFZON2hCZ0dhb1BnS1FXZnFRbGRRbUgwTG43WE0?oc=5",
         "summary": "",
-        "publisher_domain": "ndtvprofit.com",
+        "publisher_domain": "",
         "cluster_id": 20,
         "verification": "CORROBORATED",
         "verification_label": "CORROBORATED",
@@ -2620,7 +2620,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "ENERGY",
-        "checked_at_utc": "2026-09-15T18:56:52.317338+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434268+00:00",
         "evidence_score": 55,
         "evidence_count": 0,
         "claim_status": "SUPPORTED",
@@ -2631,7 +2631,7 @@
       {
         "title": "South Korea's Kospi clocks best month in 28 years as tech optimism triumphs over Iran war worries",
         "source": "Global Markets",
-        "publisher": "CNBC",
+        "publisher": "cnbc.com",
         "published": "Wed, 29 Apr 2026 07:00:00 GMT",
         "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQMUNud1Q2SlMzVnJJNHNydDRKTkgzUndsZ0lSSHV0VlVadVZMMG1DemptTy1QVUpYem4ybVh2SkNrbmFqdEdqYmdMbDJESU1kMW4yeFhnN2thYkxJRjhUQjJjRjJlbTJGNFZMVGlhOWxCdXJlaHNYXzRCallMUVFmemNRMXlWWV9HSElDZnJycktnMkxD0gGaAUFVX3lxTE9zYWZkM3pOTmE1dXFlZVVlbHVPTFBuaVRGN1Fhd29RWjZMRnlyelhCM044SlhSbk44TkZMT2JHZm1EbGo3SnZpcF9tNlZvVFlYS01xTTJhSk9zNTNGQlExNmhXX19mVjRZN3dxaFI4NVYwdXk2RkhwLUVtUHZPR0dXNGhqLTI4VUluRXlHTFdIUTc1YkllZHZfZkE?oc=5",
         "summary": "",
@@ -2643,7 +2643,7 @@
         "impact": "NEGATIVE",
         "impact_reason": "Headline language contains negative market-impact signals.",
         "affected": "IT",
-        "checked_at_utc": "2026-09-15T18:56:52.317373+00:00",
+        "checked_at_utc": "2026-09-15T19:00:16.434303+00:00",
         "evidence_score": 30,
         "evidence_count": 0,
         "claim_status": "INSUFFICIENT EVIDENCE",
@@ -2673,94 +2673,95 @@
     },
     "specialists": {
       "agents": {
-        "Market Agent": {
-          "agent": "Market Agent",
+        "Sector Agent": {
+          "agent": "Sector Agent",
           "status": "READY",
           "elapsed_ms": 0.0,
           "data": {
-            "snapshot": [
+            "sectors": [
               {
-                "name": "NIFTY 50",
-                "ticker": "^NSEI",
-                "last": NaN,
-                "change_pct": NaN
+                "sector": "Banking",
+                "avg_change_pct": NaN,
+                "members": 3
               },
               {
-                "name": "BANK NIFTY",
-                "ticker": "^NSEBANK",
-                "last": NaN,
-                "change_pct": NaN
+                "sector": "IT",
+                "avg_change_pct": NaN,
+                "members": 2
               },
               {
-                "name": "SENSEX",
-                "ticker": "^BSESN",
-                "last": NaN,
-                "change_pct": NaN
+                "sector": "Energy",
+                "avg_change_pct": NaN,
+                "members": 2
               },
               {
-                "name": "INDIA VIX",
-                "ticker": "^INDIAVIX",
-                "last": NaN,
-                "change_pct": NaN
+                "sector": "Auto",
+                "avg_change_pct": NaN,
+                "members": 1
               },
               {
-                "name": "S&P 500",
-                "ticker": "^GSPC",
-                "last": 7583.43,
-                "change_pct": -0.48
+                "sector": "FMCG",
+                "avg_change_pct": NaN,
+                "members": 2
               },
               {
-                "name": "NASDAQ",
-                "ticker": "^IXIC",
-                "last": 25971.52,
-                "change_pct": -0.82
-              },
-              {
-                "name": "NIKKEI",
-                "ticker": "^N225",
-                "last": NaN,
-                "change_pct": NaN
-              },
-              {
-                "name": "HANG SENG",
-                "ticker": "^HSI",
-                "last": NaN,
-                "change_pct": NaN
-              },
-              {
-                "name": "USD/INR",
-                "ticker": "INR=X",
-                "last": 95.85,
-                "change_pct": 0.86
-              },
-              {
-                "name": "CRUDE",
-                "ticker": "CL=F",
-                "last": 105.93,
-                "change_pct": 4.48
-              },
-              {
-                "name": "GOLD",
-                "ticker": "GC=F",
-                "last": 4346.6,
-                "change_pct": -0.12
+                "sector": "Pharma",
+                "avg_change_pct": NaN,
+                "members": 2
               }
-            ],
-            "levels": {
-              "NIFTY close": NaN,
-              "Previous close": 23398.1,
-              "5D return %": NaN,
-              "20D return %": NaN,
-              "5D SMA": 23485.62,
-              "20D SMA": 23962.54,
-              "50D SMA": 24147.77,
-              "20D high": 24378.6,
-              "20D low": 23118.6,
-              "RSI14": null,
-              "range_position_%": NaN
-            }
+            ]
           },
-          "mission": "Establish the current index and macro snapshot.",
+          "mission": "Assess sector participation and rotation.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Risk Agent": {
+          "agent": "Risk Agent",
+          "status": "READY",
+          "elapsed_ms": 0.1,
+          "data": {
+            "vix_change_pct": NaN,
+            "sector_positive_share": 0.0,
+            "flags": [
+              "WEAK_SECTOR_BREADTH"
+            ]
+          },
+          "mission": "Identify volatility, breadth and evidence-quality risks.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Technical Agent": {
+          "agent": "Technical Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "trend_vs_20d": "BELOW",
+            "trend_vs_50d": "BELOW",
+            "rsi14": null,
+            "20d_return_pct": NaN,
+            "range_position_pct": NaN
+          },
+          "mission": "Assess trend, momentum and range structure.",
           "self_check": {
             "confidence": "MEDIUM",
             "evidence_state": "READY",
@@ -2777,7 +2778,7 @@
         "Watchlist Agent": {
           "agent": "Watchlist Agent",
           "status": "READY",
-          "elapsed_ms": 0.2,
+          "elapsed_ms": 1.4,
           "data": [
             {
               "ticker": "RELIANCE",
@@ -2933,95 +2934,94 @@
             "no_fabrication": true
           }
         },
-        "Technical Agent": {
-          "agent": "Technical Agent",
+        "Market Agent": {
+          "agent": "Market Agent",
           "status": "READY",
-          "elapsed_ms": 0.0,
+          "elapsed_ms": 0.1,
           "data": {
-            "trend_vs_20d": "BELOW",
-            "trend_vs_50d": "BELOW",
-            "rsi14": null,
-            "20d_return_pct": NaN,
-            "range_position_pct": NaN
-          },
-          "mission": "Assess trend, momentum and range structure.",
-          "self_check": {
-            "confidence": "MEDIUM",
-            "evidence_state": "READY",
-            "missing": [],
-            "needs_retry": false
-          },
-          "autonomy": {
-            "source_selection": "SPECIALIZED_ENGINE",
-            "self_evaluation": true,
-            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-            "no_fabrication": true
-          }
-        },
-        "Sector Agent": {
-          "agent": "Sector Agent",
-          "status": "READY",
-          "elapsed_ms": 0.0,
-          "data": {
-            "sectors": [
+            "snapshot": [
               {
-                "sector": "Banking",
-                "avg_change_pct": NaN,
-                "members": 3
+                "name": "NIFTY 50",
+                "ticker": "^NSEI",
+                "last": NaN,
+                "change_pct": NaN
               },
               {
-                "sector": "IT",
-                "avg_change_pct": NaN,
-                "members": 2
+                "name": "BANK NIFTY",
+                "ticker": "^NSEBANK",
+                "last": NaN,
+                "change_pct": NaN
               },
               {
-                "sector": "Energy",
-                "avg_change_pct": NaN,
-                "members": 2
+                "name": "SENSEX",
+                "ticker": "^BSESN",
+                "last": NaN,
+                "change_pct": NaN
               },
               {
-                "sector": "Auto",
-                "avg_change_pct": NaN,
-                "members": 1
+                "name": "INDIA VIX",
+                "ticker": "^INDIAVIX",
+                "last": NaN,
+                "change_pct": NaN
               },
               {
-                "sector": "FMCG",
-                "avg_change_pct": NaN,
-                "members": 2
+                "name": "S&P 500",
+                "ticker": "^GSPC",
+                "last": 7585.92,
+                "change_pct": -0.45
               },
               {
-                "sector": "Pharma",
-                "avg_change_pct": NaN,
-                "members": 2
+                "name": "NASDAQ",
+                "ticker": "^IXIC",
+                "last": 25983.76,
+                "change_pct": -0.77
+              },
+              {
+                "name": "NIKKEI",
+                "ticker": "^N225",
+                "last": NaN,
+                "change_pct": NaN
+              },
+              {
+                "name": "HANG SENG",
+                "ticker": "^HSI",
+                "last": NaN,
+                "change_pct": NaN
+              },
+              {
+                "name": "USD/INR",
+                "ticker": "INR=X",
+                "last": 95.85,
+                "change_pct": 0.86
+              },
+              {
+                "name": "CRUDE",
+                "ticker": "CL=F",
+                "last": 105.88,
+                "change_pct": 4.43
+              },
+              {
+                "name": "GOLD",
+                "ticker": "GC=F",
+                "last": 4347.0,
+                "change_pct": -0.11
               }
-            ]
+            ],
+            "levels": {
+              "NIFTY close": NaN,
+              "Previous close": 23398.1,
+              "5D return %": NaN,
+              "20D return %": NaN,
+              "5D SMA": 23485.62,
+              "20D SMA": 23962.54,
+              "50D SMA": 24147.77,
+              "20D high": 24378.6,
+              "20D low": 23118.6,
+              "RSI14": null,
+              "range_position_%": NaN
+            }
           },
-          "mission": "Assess sector participation and rotation.",
-          "self_check": {
-            "confidence": "MEDIUM",
-            "evidence_state": "READY",
-            "missing": [],
-            "needs_retry": false
-          },
-          "autonomy": {
-            "source_selection": "SPECIALIZED_ENGINE",
-            "self_evaluation": true,
-            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-            "no_fabrication": true
-          }
-        },
-        "Risk Agent": {
-          "agent": "Risk Agent",
-          "status": "READY",
-          "elapsed_ms": 0.0,
-          "data": {
-            "vix_change_pct": NaN,
-            "sector_positive_share": 0.0,
-            "flags": [
-              "WEAK_SECTOR_BREADTH"
-            ]
-          },
-          "mission": "Identify volatility, breadth and evidence-quality risks.",
+          "mission": "Establish the current index and macro snapshot.",
           "self_check": {
             "confidence": "MEDIUM",
             "evidence_state": "READY",
@@ -3038,7 +3038,7 @@
         "Institutional Agent": {
           "agent": "Institutional Agent",
           "status": "READY",
-          "elapsed_ms": 489.7,
+          "elapsed_ms": 518.3,
           "data": {
             "available": true,
             "date": "15-Sep-2026",
@@ -3087,7 +3087,7 @@
         "Intraday Agent": {
           "agent": "Intraday Agent",
           "status": "READY",
-          "elapsed_ms": 1187.9,
+          "elapsed_ms": 951.6,
           "data": {
             "available": true,
             "ticker": "^NSEI",
@@ -3201,10 +3201,298 @@
             "no_fabrication": true
           }
         },
+        "News Agent": {
+          "agent": "News Agent",
+          "status": "READY",
+          "elapsed_ms": 2880.3,
+          "data": [
+            {
+              "title": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
+              "source": "India Markets",
+              "publisher": "Livemint",
+              "published": "Sun, 13 Sep 2026 05:03:30 GMT",
+              "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNd1MzRHU4NUFGWGxyeEd6dTNIYmtpaEl1Y1NlcGd1OUtVVldFeFJGd0Q3ZW9uMWlRQ3ZlMFlPeFYta3M2eE9mdk1KQ1JPb3Zkc3h2aHhDaFlyQjBRWEJzOXdFX1dmRW42Y0l1U2pKYm5TVzV2LVVScmpjOWZYV3NtS0NvT2FTai1HU1Z4bU9vTUgxX2dmV2l5SFVSMGJSaDY3U1M0R21PX0NRdG1XYmdQd0ZtdG94UDVxZ2dTSlJvZUt5Tnl3ejZxbnhLVkFxbWNZVTFKVmpRQTJXeHRVZzlNdU9FbFhFeTVBZElIQ2c5RFVSM2J6dXNmMjV5VV9QSFJwWkZMYnphNFBhai1IakhKWFVsMNIBmAJBVV95cUxQaWVIcUZsWVZEUmhLUEVoeXZwVTZ3eXhXRXJ4TDVtaGlQZThmTXV6YndjcVEyWkJFNWFCVzFVNkVrUFRGdEV2b3ZVdDlHcFY4V3lpa1EybTQ1T0FjOGZjY0RGbTlBaUpqMHF1NWQwWXN6Y1I1Y3NwUmZCd0pfcGxfdGpnakhKVU5qZm82MjJQd2xOdlU1d0dfNGU3U2g2R19iWUNXQ0pTY3NyRm54OFFuSWxhLWltOUs3MEFubF90cEt0NDRfYzNsZ2RZWUJPZXczN1lXdXJtUDdnRy1sZkQ0NzIzVFo2cUhDTHRtcEUzbzdoMnpLV1RSRlN6cEYyVlltSlpER0I0a0FHY3MtQkVPN2o4Ul9uMl9Q?oc=5",
+              "summary": "BSE Share Price Today 11 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
+              "publisher_domain": "livemint.com",
+              "cluster_id": 1,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-09-15T18:59:58.299494+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
+              "research": {
+                "claim": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Livemint",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
+              "source": "India Markets",
+              "publisher": "Brut",
+              "published": "Tue, 15 Sep 2026 12:40:36 GMT",
+              "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQZGl4NFp0SkZiN3cwdUttM2NYYUZUb29oZllZamNXSm1peF9rS3R1NGlZeTBJb3ZQc1p5emI2YXR0QWNBejBkb2FBZFBJeXYxNGc0cVFPNVd4UGxqQ3FwOGFfVmZZVi1Yb0JVUzFSV0E1Mi1TNlg3ckV2dWM1a3VmbmoyZkg5NURDYzRHNlZjM3YzVGpKZ0NySkE3RnZad2I4c2pHZW1Fb0U1MGMzd2ZfT25mdEVDeW05ZXpBT1ZZMllrWGFveFRDX0thRkQwRTJkUVBxYmkzWWxja2xLelRZNXhHYU1yRGdGRm1HbjBxWUdGdw?oc=5",
+              "summary": "",
+              "publisher_domain": "",
+              "cluster_id": 2,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-09-15T18:59:59.001458+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
+              "research": {
+                "claim": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Brut",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
+              "source": "India Markets",
+              "publisher": "Reuters",
+              "published": "Tue, 15 Sep 2026 02:35:00 GMT",
+              "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPN2s4aTJpYklfMHNQSW1pWWtPcGhCajI1eGE1RU5RRm0yWTJvNmkzZ2VZQURjbVBnZHlOSVJJdG1BanlVc1FXV2tYNUpCMXVVZ2g5dlVxYjdaQlViZXk2c1pMVEx3WEc2bHhOMjl3a0hUcXBjX0FXUGVSV3FpM0E5Y2dkRkRZTGtxOU81djBYYVY4Y1NvUlFmdW9BVWViQQ?oc=5",
+              "summary": "HDFC Bank Says CEO Candidates Being Submitted to India's Central Bank for Approval marketscreener.com",
+              "publisher_domain": "reuters.com",
+              "cluster_id": 3,
+              "verification": "CROSS_CHECKED",
+              "verification_label": "CROSS-CHECKED",
+              "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "ENERGY",
+              "checked_at_utc": "2026-09-15T19:00:00.675611+00:00",
+              "evidence_score": 65,
+              "evidence_count": 3,
+              "claim_status": "SUPPORTED",
+              "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [
+                "TradingView",
+                "Business Recorder",
+                "marketscreener.com"
+              ],
+              "display_title": "🟢 SUPPORTED · India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
+              "research": {
+                "claim": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Reuters",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
+              "source": "India Markets",
+              "publisher": "Upstox",
+              "published": "Tue, 15 Sep 2026 09:49:03 GMT",
+              "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPcXpOVnowTEZYVUF4WHAxelB3d1BHWkdvczBMMEZ4alQwdkdlNjJidnFkeEVIblRhMU44ZDFQZkJKVDloT2poLU1CaEtManZaM3Y2TGNPWnBWUzZock5MSGpLS1dKU0h1ZVY0U25XTTllSnFiUzdtTjE2YU50YVJieGpWX3NYaDFYSTFfNzdtY2J3SmtrblpZN2dDLU1mZUdhMjYzMmoxa1RUOHRRZ0NuY1dveGxQdnpqVTRDSy1wLWR3U0ZsRG90Qm1GVUVwU0VpLUhtY2c5c0llekloeDJ6VUx6ZWFqWDA?oc=5",
+              "summary": "Vedanta, National Aluminium, Hindustan Zinc, others drag Nifty Metal down 3%; here’s why metal stocks are falling today Upstox",
+              "publisher_domain": "",
+              "cluster_id": 4,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-09-15T19:00:02.745859+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
+              "research": {
+                "claim": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Upstox",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
+              "source": "India Markets",
+              "publisher": "Livemint",
+              "published": "Tue, 15 Sep 2026 08:25:43 GMT",
+              "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNcXpTN2Z6dDBCazRaU05fLUJpdFVlNEhnTlVoWUdkajN2OVhNWVFYTzhjZ1RlUXNXZm5OTWVVMkRJUXVfcF9udi1qVE9kZHlEOTRiYWI2RU1ZbEVsQ2VaZDdXb3F6aG9qSkw4WVBfbUs3anhKX3d5ZDBZeHpvSVdUSEJxZVJhanI5RGkza3JzLWRRQUpCWkQ3WExuaU43djJNY3pMdnJfTm9wSWVVMDRkQlBvR0RrZklaYkotYzJLRU04aERmajh4SXM1OG9BNU52SVUzTnNwNjdZSnd0QWtpbGxCNkFKUlJBUTV2aGF0eUVlN0oyRlHSAfsBQVVfeXFMUHllLVQ3NlFYd2pkalotOFV4Wmxza2FYcDNTRXFONmNFc2VHWlY3QzFVbkRmREZRNGFrTEdPdHRUckpvamg3VzZ6djMyT0JEbkptYUFMV0xzMVNzbVhySW8xNV9wYnJBV2p1UmRHY1BsX1I2UjI1bk03dnpVVVdxTlRRMmExbTFuY1FaNmFXNnRFMVpwRjRhTWctM1NlQzNJWEh5ZF9ZNzdUR0xqZUVXR2xJakV1UG5PdDEyNFVlaWdqVEFOMEFKY1R2QUZRRXc3YTlhUEZqZEl0X05UdHZzQUpNNEh4a2FqVzE3S1ZaWjJOdHNvY3lrUWd3QmM?oc=5",
+              "summary": "ICICI Bank Share Price Today 15 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
+              "publisher_domain": "livemint.com",
+              "cluster_id": 5,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-09-15T19:00:03.720510+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
+              "research": {
+                "claim": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Livemint",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
+              "source": "India Markets",
+              "publisher": "Moneycontrol.com",
+              "published": "Mon, 14 Sep 2026 04:30:55 GMT",
+              "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
+              "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
+              "publisher_domain": "",
+              "cluster_id": 1,
+              "verification": "CROSS_CHECKED",
+              "verification_label": "CROSS-CHECKED",
+              "verification_detail": "Fresh search found independent reporting from 4 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 75/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-09-15T19:00:05.831313+00:00",
+              "evidence_score": 75,
+              "evidence_count": 4,
+              "claim_status": "SUPPORTED",
+              "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [
+                "jagranjosh.com",
+                "Livemint",
+                "The Sunday Guardian",
+                "TradingView"
+              ],
+              "display_title": "🟢 SUPPORTED · Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
+              "research": {
+                "claim": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Moneycontrol.com",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            }
+          ],
+          "mission": "Verify and summarize market-moving news from publisher evidence.",
+          "self_check": {
+            "confidence": "LOW",
+            "evidence_state": "INSUFFICIENT",
+            "verified_items": 0,
+            "missing": [],
+            "needs_retry": true
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
         "Options Agent": {
           "agent": "Options Agent",
           "status": "READY",
-          "elapsed_ms": 2100.0,
+          "elapsed_ms": 3409.4,
           "data": {
             "available": true,
             "symbol": "NIFTY",
@@ -3258,294 +3546,6 @@
             "evidence_state": "READY",
             "missing": [],
             "needs_retry": false
-          },
-          "autonomy": {
-            "source_selection": "SPECIALIZED_ENGINE",
-            "self_evaluation": true,
-            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
-            "no_fabrication": true
-          }
-        },
-        "News Agent": {
-          "agent": "News Agent",
-          "status": "READY",
-          "elapsed_ms": 3020.1,
-          "data": [
-            {
-              "title": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
-              "source": "India Markets",
-              "publisher": "Livemint",
-              "published": "Sun, 13 Sep 2026 05:03:30 GMT",
-              "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNd1MzRHU4NUFGWGxyeEd6dTNIYmtpaEl1Y1NlcGd1OUtVVldFeFJGd0Q3ZW9uMWlRQ3ZlMFlPeFYta3M2eE9mdk1KQ1JPb3Zkc3h2aHhDaFlyQjBRWEJzOXdFX1dmRW42Y0l1U2pKYm5TVzV2LVVScmpjOWZYV3NtS0NvT2FTai1HU1Z4bU9vTUgxX2dmV2l5SFVSMGJSaDY3U1M0R21PX0NRdG1XYmdQd0ZtdG94UDVxZ2dTSlJvZUt5Tnl3ejZxbnhLVkFxbWNZVTFKVmpRQTJXeHRVZzlNdU9FbFhFeTVBZElIQ2c5RFVSM2J6dXNmMjV5VV9QSFJwWkZMYnphNFBhai1IakhKWFVsMNIBmAJBVV95cUxQaWVIcUZsWVZEUmhLUEVoeXZwVTZ3eXhXRXJ4TDVtaGlQZThmTXV6YndjcVEyWkJFNWFCVzFVNkVrUFRGdEV2b3ZVdDlHcFY4V3lpa1EybTQ1T0FjOGZjY0RGbTlBaUpqMHF1NWQwWXN6Y1I1Y3NwUmZCd0pfcGxfdGpnakhKVU5qZm82MjJQd2xOdlU1d0dfNGU3U2g2R19iWUNXQ0pTY3NyRm54OFFuSWxhLWltOUs3MEFubF90cEt0NDRfYzNsZ2RZWUJPZXczN1lXdXJtUDdnRy1sZkQ0NzIzVFo2cUhDTHRtcEUzbzdoMnpLV1RSRlN6cEYyVlltSlpER0I0a0FHY3MtQkVPN2o4Ul9uMl9Q?oc=5",
-              "summary": "BSE Share Price Today 11 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
-              "publisher_domain": "livemint.com",
-              "cluster_id": 1,
-              "verification": "UNVERIFIED",
-              "verification_label": "UNVERIFIED",
-              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-              "impact": "NEUTRAL",
-              "impact_reason": "No clear directional impact is established from the headline alone.",
-              "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T18:56:30.364550+00:00",
-              "evidence_score": 10,
-              "evidence_count": 0,
-              "claim_status": "INSUFFICIENT EVIDENCE",
-              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-              "agent_status": "ARTICLE_UNAVAILABLE",
-              "verification_sources": [],
-              "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
-              "research": {
-                "claim": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept",
-                "evidence_state": "INSUFFICIENT",
-                "confidence": "LOW",
-                "independent_publishers": 0,
-                "evidence": [],
-                "attempts": [
-                  {
-                    "publisher": "Livemint",
-                    "domain": "news.google.com",
-                    "status": "ARTICLE_UNAVAILABLE"
-                  }
-                ],
-                "research_complete": false,
-                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-                "no_fabrication": true
-              },
-              "research_state": "INSUFFICIENT",
-              "research_confidence": "LOW"
-            },
-            {
-              "title": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
-              "source": "India Markets",
-              "publisher": "Brut",
-              "published": "Tue, 15 Sep 2026 12:40:36 GMT",
-              "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQZGl4NFp0SkZiN3cwdUttM2NYYUZUb29oZllZamNXSm1peF9rS3R1NGlZeTBJb3ZQc1p5emI2YXR0QWNBejBkb2FBZFBJeXYxNGc0cVFPNVd4UGxqQ3FwOGFfVmZZVi1Yb0JVUzFSV0E1Mi1TNlg3ckV2dWM1a3VmbmoyZkg5NURDYzRHNlZjM3YzVGpKZ0NySkE3RnZad2I4c2pHZW1Fb0U1MGMzd2ZfT25mdEVDeW05ZXpBT1ZZMllrWGFveFRDX0thRkQwRTJkUVBxYmkzWWxja2xLelRZNXhHYU1yRGdGRm1HbjBxWUdGdw?oc=5",
-              "summary": "",
-              "publisher_domain": "",
-              "cluster_id": 2,
-              "verification": "UNVERIFIED",
-              "verification_label": "UNVERIFIED",
-              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-              "impact": "NEUTRAL",
-              "impact_reason": "No clear directional impact is established from the headline alone.",
-              "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T18:56:31.134601+00:00",
-              "evidence_score": 10,
-              "evidence_count": 0,
-              "claim_status": "INSUFFICIENT EVIDENCE",
-              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-              "agent_status": "ARTICLE_UNAVAILABLE",
-              "verification_sources": [],
-              "display_title": "🟡 INSUFFICIENT EVIDENCE · What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
-              "research": {
-                "claim": "What Is Nifty 50? How Its 50 Companies Are Selected, How The Index Is Calculated And Why It Matters",
-                "evidence_state": "INSUFFICIENT",
-                "confidence": "LOW",
-                "independent_publishers": 0,
-                "evidence": [],
-                "attempts": [
-                  {
-                    "publisher": "Brut",
-                    "domain": "news.google.com",
-                    "status": "ARTICLE_UNAVAILABLE"
-                  }
-                ],
-                "research_complete": false,
-                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-                "no_fabrication": true
-              },
-              "research_state": "INSUFFICIENT",
-              "research_confidence": "LOW"
-            },
-            {
-              "title": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
-              "source": "India Markets",
-              "publisher": "Reuters",
-              "published": "Tue, 15 Sep 2026 02:35:00 GMT",
-              "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPN2s4aTJpYklfMHNQSW1pWWtPcGhCajI1eGE1RU5RRm0yWTJvNmkzZ2VZQURjbVBnZHlOSVJJdG1BanlVc1FXV2tYNUpCMXVVZ2g5dlVxYjdaQlViZXk2c1pMVEx3WEc2bHhOMjl3a0hUcXBjX0FXUGVSV3FpM0E5Y2dkRkRZTGtxOU81djBYYVY4Y1NvUlFmdW9BVWViQQ?oc=5",
-              "summary": "HDFC Bank Says CEO Candidates Being Submitted to India's Central Bank for Approval marketscreener.com",
-              "publisher_domain": "reuters.com",
-              "cluster_id": 3,
-              "verification": "CROSS_CHECKED",
-              "verification_label": "CROSS-CHECKED",
-              "verification_detail": "Fresh search found independent reporting from 3 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 65/100.",
-              "impact": "NEUTRAL",
-              "impact_reason": "No clear directional impact is established from the headline alone.",
-              "affected": "ENERGY",
-              "checked_at_utc": "2026-09-15T18:56:33.317832+00:00",
-              "evidence_score": 65,
-              "evidence_count": 3,
-              "claim_status": "SUPPORTED",
-              "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
-              "agent_status": "ARTICLE_UNAVAILABLE",
-              "verification_sources": [
-                "TradingView",
-                "Business Recorder",
-                "marketscreener.com"
-              ],
-              "display_title": "🟢 SUPPORTED · India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
-              "research": {
-                "claim": "India's Nifty 50 closes at 5-month low on elevated oil prices, bond yields",
-                "evidence_state": "INSUFFICIENT",
-                "confidence": "LOW",
-                "independent_publishers": 0,
-                "evidence": [],
-                "attempts": [
-                  {
-                    "publisher": "Reuters",
-                    "domain": "news.google.com",
-                    "status": "ARTICLE_UNAVAILABLE"
-                  }
-                ],
-                "research_complete": false,
-                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-                "no_fabrication": true
-              },
-              "research_state": "INSUFFICIENT",
-              "research_confidence": "LOW"
-            },
-            {
-              "title": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
-              "source": "India Markets",
-              "publisher": "Upstox",
-              "published": "Tue, 15 Sep 2026 09:49:03 GMT",
-              "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPcXpOVnowTEZYVUF4WHAxelB3d1BHWkdvczBMMEZ4alQwdkdlNjJidnFkeEVIblRhMU44ZDFQZkJKVDloT2poLU1CaEtManZaM3Y2TGNPWnBWUzZock5MSGpLS1dKU0h1ZVY0U25XTTllSnFiUzdtTjE2YU50YVJieGpWX3NYaDFYSTFfNzdtY2J3SmtrblpZN2dDLU1mZUdhMjYzMmoxa1RUOHRRZ0NuY1dveGxQdnpqVTRDSy1wLWR3U0ZsRG90Qm1GVUVwU0VpLUhtY2c5c0llekloeDJ6VUx6ZWFqWDA?oc=5",
-              "summary": "Vedanta, National Aluminium, Hindustan Zinc, others drag Nifty Metal down 3%; here’s why metal stocks are falling today Upstox",
-              "publisher_domain": "",
-              "cluster_id": 4,
-              "verification": "UNVERIFIED",
-              "verification_label": "UNVERIFIED",
-              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-              "impact": "NEUTRAL",
-              "impact_reason": "No clear directional impact is established from the headline alone.",
-              "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T18:56:36.436474+00:00",
-              "evidence_score": 10,
-              "evidence_count": 0,
-              "claim_status": "INSUFFICIENT EVIDENCE",
-              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-              "agent_status": "ARTICLE_UNAVAILABLE",
-              "verification_sources": [],
-              "display_title": "🟡 INSUFFICIENT EVIDENCE · India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
-              "research": {
-                "claim": "India VIX jumps over 10% as SENSEX, NIFTY50 decline; here are 5 key triggers behind market fall on Tuesday",
-                "evidence_state": "INSUFFICIENT",
-                "confidence": "LOW",
-                "independent_publishers": 0,
-                "evidence": [],
-                "attempts": [
-                  {
-                    "publisher": "Upstox",
-                    "domain": "news.google.com",
-                    "status": "ARTICLE_UNAVAILABLE"
-                  }
-                ],
-                "research_complete": false,
-                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-                "no_fabrication": true
-              },
-              "research_state": "INSUFFICIENT",
-              "research_confidence": "LOW"
-            },
-            {
-              "title": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
-              "source": "India Markets",
-              "publisher": "Livemint",
-              "published": "Tue, 15 Sep 2026 08:25:43 GMT",
-              "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNcXpTN2Z6dDBCazRaU05fLUJpdFVlNEhnTlVoWUdkajN2OVhNWVFYTzhjZ1RlUXNXZm5OTWVVMkRJUXVfcF9udi1qVE9kZHlEOTRiYWI2RU1ZbEVsQ2VaZDdXb3F6aG9qSkw4WVBfbUs3anhKX3d5ZDBZeHpvSVdUSEJxZVJhanI5RGkza3JzLWRRQUpCWkQ3WExuaU43djJNY3pMdnJfTm9wSWVVMDRkQlBvR0RrZklaYkotYzJLRU04aERmajh4SXM1OG9BNU52SVUzTnNwNjdZSnd0QWtpbGxCNkFKUlJBUTV2aGF0eUVlN0oyRlHSAfsBQVVfeXFMUHllLVQ3NlFYd2pkalotOFV4Wmxza2FYcDNTRXFONmNFc2VHWlY3QzFVbkRmREZRNGFrTEdPdHRUckpvamg3VzZ6djMyT0JEbkptYUFMV0xzMVNzbVhySW8xNV9wYnJBV2p1UmRHY1BsX1I2UjI1bk03dnpVVVdxTlRRMmExbTFuY1FaNmFXNnRFMVpwRjRhTWctM1NlQzNJWEh5ZF9ZNzdUR0xqZUVXR2xJakV1UG5PdDEyNFVlaWdqVEFOMEFKY1R2QUZRRXc3YTlhUEZqZEl0X05UdHZzQUpNNEh4a2FqVzE3S1ZaWjJOdHNvY3lrUWd3QmM?oc=5",
-              "summary": "ICICI Bank Share Price Today 15 Sep 2026: Live NSE/BSE Rates, Technical Analysis and Expert Forecasts Livemint",
-              "publisher_domain": "livemint.com",
-              "cluster_id": 5,
-              "verification": "UNVERIFIED",
-              "verification_label": "UNVERIFIED",
-              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
-              "impact": "NEUTRAL",
-              "impact_reason": "No clear directional impact is established from the headline alone.",
-              "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T18:56:37.589261+00:00",
-              "evidence_score": 10,
-              "evidence_count": 0,
-              "claim_status": "INSUFFICIENT EVIDENCE",
-              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
-              "agent_status": "ARTICLE_UNAVAILABLE",
-              "verification_sources": [],
-              "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
-              "research": {
-                "claim": "Sensex, Nifty today: Why is stock market down today? Top 3 factors driving the selloff explained",
-                "evidence_state": "INSUFFICIENT",
-                "confidence": "LOW",
-                "independent_publishers": 0,
-                "evidence": [],
-                "attempts": [
-                  {
-                    "publisher": "Livemint",
-                    "domain": "news.google.com",
-                    "status": "ARTICLE_UNAVAILABLE"
-                  }
-                ],
-                "research_complete": false,
-                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-                "no_fabrication": true
-              },
-              "research_state": "INSUFFICIENT",
-              "research_confidence": "LOW"
-            },
-            {
-              "title": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
-              "source": "India Markets",
-              "publisher": "Moneycontrol.com",
-              "published": "Mon, 14 Sep 2026 04:30:55 GMT",
-              "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQaHFneWN5Smx3RnkwQWJnQ0V3ejdHSXloSGkxWUVjNTROdnZPS25mbzRDOEZzN25GX3hJZTZ4NDZyR2thTS1CdzNoTzA4M0R0Q3RFR09FYmI0Qk9CRDU1TExWOTBMcF9sV05na3JDRlUwUHRvQTFCSGVrQmk3TVFEeFh2aWxkeEo5dGRLOWpnTkxMTWhXcGMySVEwN195UkVYTkpGR0NsRFNlWTdlZ0RJREhNdmtNdTlGQ0FCZUQ3WGRtZllmT090RHNhNDdfVFgxdm1Yb0tVak56YnZqTzdOZDdYejNxR0Q0UTZ5M3pzR2RoUmFEUWZUZldCc1Fsd9IBgwJBVV95cUxQa1huci1veTI1YnRPckJCLTZIUGFWVFcyU1RsdDN5TEY0dm54aHZjSnR1U2o0eEMzM1NfY0MtMXJxX2dxdnU2MjVST0pYMEdDVXFKS0VucERFdVlpd3hVMTVOaHFZa2ZhNEtyX2d5VjE3OGxTdHB0bGx3bWZuVFZFYVJMMlVKTHFLLVAwdzBJVDZodWFwYXlEeUpJT1E3dGN2a3FFUHYwS0xlZUloaFFwcDVqWV9sMFdWYnBncHVzaGNRYVc4V25oanF6ZFdJTDhzVlNyR1I4QU52U040WWxEVVB2bjEtbjdUdDd0eDc3ZlJOTzUzaDdoam8zMXpndTVHTHV3?oc=5",
-              "summary": "Stock Market Holiday Today: Are NSE And BSE Closed For Ganesh Chaturthi On September 14? Check Equity Market Status, MCX Trading Hours And Reopening Date The Sunday Guardian",
-              "publisher_domain": "",
-              "cluster_id": 1,
-              "verification": "CROSS_CHECKED",
-              "verification_label": "CROSS-CHECKED",
-              "verification_detail": "Fresh search found independent reporting from 4 additional publishers. Claim assessment: SUPPORTED. The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation. Evidence strength: 75/100.",
-              "impact": "NEUTRAL",
-              "impact_reason": "No clear directional impact is established from the headline alone.",
-              "affected": "MARKET",
-              "checked_at_utc": "2026-09-15T18:56:39.322043+00:00",
-              "evidence_score": 75,
-              "evidence_count": 4,
-              "claim_status": "SUPPORTED",
-              "claim_status_detail": "The event is supported by independent publisher coverage. This supports the existence of the reported event; individual details still require primary-source confirmation.",
-              "agent_status": "ARTICLE_UNAVAILABLE",
-              "verification_sources": [
-                "jagranjosh.com",
-                "Livemint",
-                "The Sunday Guardian",
-                "TradingView"
-              ],
-              "display_title": "🟢 SUPPORTED · Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
-              "research": {
-                "claim": "Stock market holiday today on September 14: BSE, NSE to remain closed today on account of Ganesh Chaturthi",
-                "evidence_state": "INSUFFICIENT",
-                "confidence": "LOW",
-                "independent_publishers": 0,
-                "evidence": [],
-                "attempts": [
-                  {
-                    "publisher": "Moneycontrol.com",
-                    "domain": "news.google.com",
-                    "status": "ARTICLE_UNAVAILABLE"
-                  }
-                ],
-                "research_complete": false,
-                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
-                "no_fabrication": true
-              },
-              "research_state": "INSUFFICIENT",
-              "research_confidence": "LOW"
-            }
-          ],
-          "mission": "Verify and summarize market-moving news from publisher evidence.",
-          "self_check": {
-            "confidence": "LOW",
-            "evidence_state": "INSUFFICIENT",
-            "verified_items": 0,
-            "missing": [],
-            "needs_retry": true
           },
           "autonomy": {
             "source_selection": "SPECIALIZED_ENGINE",
