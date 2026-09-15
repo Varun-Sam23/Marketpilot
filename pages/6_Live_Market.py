@@ -59,8 +59,6 @@ elif feed.get("status")=="NOT_CONFIGURED":
 else:
     st.warning(f"Real-time WebSocket status: {feed.get('status','UNKNOWN')}. MarketPilot is using the safe fallback until the live stream is healthy.")
 
-# Selected-stock terminal chart. Yahoo provides the intraday candles for any
-# Nifty 50 stock; Upstox overrides the displayed last price when subscribed.
 @st.cache_data(ttl=5,show_spinner=False)
 def terminal_chart(t: str):
     try:
@@ -82,7 +80,7 @@ if not chart.empty:
         display_close.iloc[-1]=float(data["last"])
     chart_display=pd.DataFrame({"Price":display_close})
     st.markdown(f'<div class="terminal"><div class="terminal-head"><div class="terminal-title">◉ LIVE TERMINAL · {html.escape(name)}</div><div class="terminal-price">₹{float(data["last"]):,.2f}</div></div></div>',unsafe_allow_html=True)
-    st.line_chart(chart_display,use_container_width=True,height=390)
+    st.line_chart(chart_display,width="stretch",height=390)
     st.caption("5-minute intraday candles · latest displayed price uses the live WebSocket when available; otherwise the latest public candle is shown.")
 else:
     st.warning(f"Intraday chart data is currently unavailable for {name}. No chart values are estimated.")
@@ -100,7 +98,7 @@ for c,(label,value) in zip(cols,metrics): c.markdown(f'<div class="card"><div cl
 st.markdown(f"### {html.escape(name)} structure snapshot")
 levels=data.get("levels",{})
 level_df=pd.DataFrame([{"Level":"Session Low","Value":levels.get("session_low")},{"Level":"Recent Support","Value":levels.get("recent_support")},{"Level":"VWAP","Value":data.get("vwap")},{"Level":"Last","Value":data.get("last")},{"Level":"Recent Resistance","Value":levels.get("recent_resistance")},{"Level":"Session High","Value":levels.get("session_high")}]).dropna()
-if not level_df.empty: st.dataframe(level_df,use_container_width=True,hide_index=True)
+if not level_df.empty: st.dataframe(level_df,width="stretch",hide_index=True)
 st.caption(f"Structure levels from the displayed {mode.lower()} session · as of {data['as_of']} · {data['source']}.")
 
 st.markdown("### Market structure map")
@@ -117,7 +115,7 @@ q1.metric("Advancers",br["advancers"]);q2.metric("Decliners",br["decliners"]);q3
 if br["total"]:
     heat=pd.DataFrame(br["rows"]); heat["Signal"]=heat["Change %"].apply(lambda x:"UP" if x>0 else "DOWN" if x<0 else "FLAT"); heat["Change"]=heat["Change %"].map(lambda x:f"{x:+.2f}%")
     left,right=st.columns([1.4,1])
-    with left: st.dataframe(heat[["Stock","Change","Signal"]],use_container_width=True,hide_index=True,height=310)
+    with left: st.dataframe(heat[["Stock","Change","Signal"]],width="stretch",hide_index=True,height=310)
     with right:
         st.markdown("**Session ranking**" if mode!="LIVE" else "**Live ranking**")
         for _,r in heat.head(3).iterrows(): st.markdown(f"🟢 **{r['Stock']}** &nbsp; {r['Change']}")
@@ -127,7 +125,7 @@ if br["total"]:
 
 st.markdown("### Signal engine")
 components=data.get("components",{}); component_df=pd.DataFrame([{"Signal":k,"Points":v,"Read":"Positive" if v>0 else "Negative" if v<0 else "Neutral"} for k,v in components.items()])
-if not component_df.empty: st.dataframe(component_df,use_container_width=True,hide_index=True)
+if not component_df.empty: st.dataframe(component_df,width="stretch",hide_index=True)
 
 st.markdown("### Evidence ledger")
 for reason in data.get("reasons",[]): st.markdown(f"• {reason}")
