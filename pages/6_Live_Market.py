@@ -23,6 +23,7 @@ st.markdown("""
 .livebox{background:#0b121b;border:1px solid #263446;border-radius:14px;padding:18px;margin:14px 0}.livehead{font-size:.7rem;color:#7e8da1;letter-spacing:.13em;text-transform:uppercase}.headline{font-size:1.5rem;font-weight:850;margin:6px 0}.evidence{color:#aab5c3;font-size:.9rem}.chip{display:inline-block;border:1px solid #29384a;border-radius:20px;padding:4px 9px;margin:8px 6px 0 0;font-size:.72rem;color:#9daaba}
 .feed{background:#09141a;border:1px solid #1d3a31;border-radius:10px;padding:9px 12px;margin:8px 0;font-size:.7rem;color:#8ea19a}.feed strong{color:#62d69a}
 .terminal{background:#070c13;border:1px solid #1f2d3d;border-radius:14px;padding:12px 14px;margin:14px 0}.terminal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.terminal-title{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8492a4}.terminal-price{font-size:1.65rem;font-weight:850}.terminal-note{color:#718096;font-size:.65rem;margin-top:5px}
+.market-chart{background:#070c13;border:1px solid #1f2d3d;border-radius:14px;padding:10px 14px 4px;margin:0 0 8px;overflow:hidden}.market-chart svg{display:block;width:100%;height:390px}.chart-grid{stroke:#1b2735;stroke-width:1}.chart-line{fill:none;stroke:#8fa4bb;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.chart-dot{fill:#8fa4bb}.chart-label{fill:#718096;font-size:12px;font-family:Arial,sans-serif}
 </style>
 """,unsafe_allow_html=True)
 
@@ -73,14 +74,41 @@ def terminal_chart(t: str):
     except Exception:
         return pd.DataFrame()
 
+def render_price_chart(series: pd.Series):
+    values=pd.to_numeric(series,errors="coerce").dropna().tolist()
+    if not values:
+        return
+    width,height=1200,360
+    left,right,top,bottom=52,18,22,42
+    plot_w=width-left-right
+    plot_h=height-top-bottom
+    lo,hi=min(values),max(values)
+    if hi==lo:
+        pad=max(abs(hi)*0.001,0.5)
+        lo,hi=lo-pad,hi+pad
+    def xy(i,v):
+        x=left+(i/(max(len(values)-1,1)))*plot_w
+        y=top+(hi-v)/(hi-lo)*plot_h
+        return x,y
+    pts=[xy(i,v) for i,v in enumerate(values)]
+    path=" ".join(("M" if i==0 else "L")+f" {x:.2f},{y:.2f}" for i,(x,y) in enumerate(pts))
+    grid=[]
+    for frac in (0,0.25,0.5,0.75,1):
+        y=top+frac*plot_h
+        val=hi-frac*(hi-lo)
+        grid.append(f'<line class="chart-grid" x1="{left}" y1="{y:.1f}" x2="{width-right}" y2="{y:.1f}"/><text class="chart-label" x="{left-8}" y="{y+4:.1f}" text-anchor="end">{val:,.2f}</text>')
+    start_label=series.index[0].strftime("%H:%M") if hasattr(series.index[0],"strftime") else ""
+    end_label=series.index[-1].strftime("%H:%M") if hasattr(series.index[-1],"strftime") else ""
+    svg=f'''<div class="market-chart"><svg viewBox="0 0 {width} {height}" preserveAspectRatio="none" role="img" aria-label="Intraday price chart">{''.join(grid)}<path class="chart-line" d="{path}"/><circle class="chart-dot" cx="{pts[-1][0]:.2f}" cy="{pts[-1][1]:.2f}" r="4"/><text class="chart-label" x="{left}" y="{height-12}">{html.escape(start_label)}</text><text class="chart-label" x="{width-right}" y="{height-12}" text-anchor="end">{html.escape(end_label)}</text></svg></div>'''
+    st.markdown(svg,unsafe_allow_html=True)
+
 chart=terminal_chart(ticker)
 if not chart.empty:
     display_close=chart["Close"].copy()
     if feed_live and data.get("last") is not None:
         display_close.iloc[-1]=float(data["last"])
-    chart_display=pd.DataFrame({"Price":display_close})
     st.markdown(f'<div class="terminal"><div class="terminal-head"><div class="terminal-title">◉ LIVE TERMINAL · {html.escape(name)}</div><div class="terminal-price">₹{float(data["last"]):,.2f}</div></div></div>',unsafe_allow_html=True)
-    st.line_chart(chart_display,width="stretch",height=390)
+    render_price_chart(display_close)
     st.caption("5-minute intraday candles · latest displayed price uses the live WebSocket when available; otherwise the latest public candle is shown.")
 else:
     st.warning(f"Intraday chart data is currently unavailable for {name}. No chart values are estimated.")
