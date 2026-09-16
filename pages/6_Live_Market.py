@@ -49,12 +49,11 @@ elif feed.get("status")=="NOT_CONFIGURED":
 else:
     st.warning(f'Upstox WebSocket status: {feed.get("status","UNKNOWN")}')
 
-# Keep the interval control OUTSIDE the live fragment. Its value therefore
-# cannot be reset by the live update cycle.
+# Interval selection is part of the normal page. It is not inside the live loop.
 chart_interval=st.radio("Chart interval",["1m","5m","15m","30m"],index=0,horizontal=True,label_visibility="collapsed",key="live-chart-interval")
 interval_minutes=int(chart_interval[:-1])
 
-@st.cache_data(ttl=1,show_spinner=False)
+@st.cache_data(ttl=10,show_spinner=False)
 def terminal_candles(stock_symbol,minutes):
     rows=upstox_intraday_candles(stock_symbol,minutes)
     if not rows:return pd.DataFrame()
@@ -92,11 +91,14 @@ def render_chart(df,live_price):
     svg=f'<div class="chart-wrap"><svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" role="img" aria-label="{chart_interval} Upstox candlestick chart">{"".join(grid)}{"".join(shapes)}<line class="chart-last" x1="{L}" y1="{ly:.1f}" x2="{W-R}" y2="{ly:.1f}"/><text class="chart-last-label" x="{W-R-4}" y="{ly-6:.1f}" text-anchor="end">₹{last:,.2f}</text><text class="chart-label" x="{L}" y="{H-12}">{first}</text><text class="chart-label" x="{W-R}" y="{H-12}" text-anchor="end">{lastt}</text></svg></div>'
     st.markdown(svg,unsafe_allow_html=True)
 
+# IMPORTANT: the Upstox REST candle request is NOT inside the 1-second fragment.
+# It is fetched once for the selected interval and cached for 10 seconds.
+candles=terminal_candles(symbol,interval_minutes)
+
 @st.fragment(run_every="1s")
 def live_terminal():
     quote=live_quote(symbol) if feed_live else None
     live_price=float(quote["ltp"]) if quote and quote.get("ltp") is not None else None
-    candles=terminal_candles(symbol,interval_minutes)
     fallback=float(data["last"])
     price=live_price if live_price is not None else fallback
     st.markdown(f'<div class="terminal"><div class="terminal-head"><div class="terminal-title">◉ UPSTOX LIVE TERMINAL · {html.escape(name)} · {chart_interval} CANDLES</div><div class="terminal-price">₹{price:,.2f}</div></div></div>',unsafe_allow_html=True)
@@ -108,7 +110,6 @@ def live_terminal():
 
 live_terminal()
 
-# Non-live structural metrics are rendered once per normal page load.
 bias=data.get("bias","NEUTRAL");syn=data.get("synthesis",{}) or {};cls="good" if bias=="BULLISH" else "bad" if bias=="BEARISH" else "neutral"
 st.markdown(f'<div style="margin-top:14px"><h3 class="{cls}">{html.escape(str(syn.get("headline","Market structure")))}</h3><p>{html.escape(str(syn.get("detail","No synthesis available.")))}</p></div>',unsafe_allow_html=True)
 
