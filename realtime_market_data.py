@@ -37,13 +37,8 @@ INSTRUMENTS = {
 
 _lock = threading.RLock()
 _state: dict[str, Any] = {
-    "provider": "NONE",
-    "status": "NOT_CONFIGURED",
-    "connected_at": None,
-    "last_tick_at": None,
-    "ticks": 0,
-    "errors": [],
-    "quotes": {},
+    "provider": "NONE", "status": "NOT_CONFIGURED", "connected_at": None,
+    "last_tick_at": None, "ticks": 0, "errors": [], "quotes": {},
 }
 _dynamic_instruments: dict[str, str] = {}
 _subscribed_instruments: set[str] = set()
@@ -81,27 +76,20 @@ def _walk(obj: Any):
 
 def _decode(message: Any) -> Any:
     if isinstance(message, (bytes, bytearray)):
-        try:
-            return json.loads(message.decode("utf-8"))
-        except Exception:
-            return message
+        try: return json.loads(message.decode("utf-8"))
+        except Exception: return message
     if isinstance(message, str):
-        try:
-            return json.loads(message)
-        except Exception:
-            return message
+        try: return json.loads(message)
+        except Exception: return message
     return message
 
 
 def _instrument_for(symbol: str) -> str | None:
     key = str(symbol or "").strip().upper()
-    if key in INSTRUMENTS:
-        return INSTRUMENTS[key]
-    if key in _dynamic_instruments:
-        return _dynamic_instruments[key]
+    if key in INSTRUMENTS: return INSTRUMENTS[key]
+    if key in _dynamic_instruments: return _dynamic_instruments[key]
     resolved = nse_instrument_key(key)
-    if resolved:
-        _dynamic_instruments[key] = resolved
+    if resolved: _dynamic_instruments[key] = resolved
     return resolved
 
 
@@ -110,26 +98,21 @@ def _all_instruments() -> dict[str, str]:
 
 
 def _subscribe_once(instrument_keys: list[str]) -> None:
-    """Subscribe only to keys not already subscribed on this socket."""
-    if not instrument_keys or _streamer is None:
-        return
+    if not instrument_keys or _streamer is None: return
     unique = list(dict.fromkeys(instrument_keys))
     with _lock:
         pending = [key for key in unique if key not in _subscribed_instruments]
-    if not pending:
-        return
+    if not pending: return
     try:
         _streamer.subscribe(pending, "full")
-        with _lock:
-            _subscribed_instruments.update(pending)
+        with _lock: _subscribed_instruments.update(pending)
     except Exception as exc:
         _set_warning(f"Subscription failed: {exc}")
 
 
 def _ensure_streaming(symbol: str) -> str | None:
     instrument_key = _instrument_for(symbol)
-    if not instrument_key:
-        return None
+    if not instrument_key: return None
     if _streamer is not None and _state.get("status") in {"CONNECTED", "LIVE"}:
         _subscribe_once([instrument_key])
     return instrument_key
@@ -137,84 +120,50 @@ def _ensure_streaming(symbol: str) -> str | None:
 
 def _extract_quote(payload: Any, instrument_key: str) -> dict[str, Any] | None:
     payload = _decode(payload)
-    root = payload if isinstance(payload, dict) else {}
-    feeds = root.get("feeds") if isinstance(root, dict) else None
-    if not isinstance(feeds, dict):
-        return None
+    feeds = payload.get("feeds") if isinstance(payload, dict) else None
+    if not isinstance(feeds, dict): return None
     raw = feeds.get(instrument_key)
-    if raw is None:
-        return None
-
-    ltpc = None
-    market = None
+    if raw is None: return None
+    ltpc = None; market = None
     for node in _walk(raw):
         if isinstance(node, dict):
-            if isinstance(node.get("ltpc"), dict):
-                ltpc = node["ltpc"]
-            if isinstance(node.get("marketOHLC"), dict):
-                market = node["marketOHLC"]
-
-    if not ltpc:
-        return None
+            if isinstance(node.get("ltpc"), dict): ltpc = node["ltpc"]
+            if isinstance(node.get("marketOHLC"), dict): market = node["marketOHLC"]
+    if not ltpc: return None
     ltp = _number(ltpc.get("ltp"))
-    if ltp is None:
-        return None
-    quote = {
-        "ltp": ltp,
-        "last_trade_time": ltpc.get("ltt"),
-        "last_trade_qty": _number(ltpc.get("ltq")),
-        "prev_close": _number(ltpc.get("cp")),
-        "received_at": datetime.now(IST).isoformat(),
-    }
-
+    if ltp is None: return None
+    quote = {"ltp": ltp, "last_trade_time": ltpc.get("ltt"),
+             "last_trade_qty": _number(ltpc.get("ltq")), "prev_close": _number(ltpc.get("cp")),
+             "received_at": datetime.now(IST).isoformat()}
     if isinstance(market, dict):
         candles = market.get("ohlc", [])
         if isinstance(candles, list):
             for candle in candles:
-                if not isinstance(candle, dict):
-                    continue
+                if not isinstance(candle, dict): continue
                 interval = candle.get("interval")
                 if interval in {"I1", "I30", "1d"}:
-                    quote[f"ohlc_{interval}"] = {
-                        "open": _number(candle.get("open")),
-                        "high": _number(candle.get("high")),
-                        "low": _number(candle.get("low")),
-                        "close": _number(candle.get("close")),
-                        "volume": _number(candle.get("vol")),
-                        "ts": candle.get("ts"),
-                    }
+                    quote[f"ohlc_{interval}"] = {"open": _number(candle.get("open")), "high": _number(candle.get("high")), "low": _number(candle.get("low")), "close": _number(candle.get("close")), "volume": _number(candle.get("vol")), "ts": candle.get("ts")}
     for node in _walk(raw):
         if isinstance(node, dict):
             details = node.get("eFeedDetails")
             if isinstance(details, dict):
-                quote["volume_today"] = _number(details.get("vtt"))
-                quote["avg_traded_price"] = _number(details.get("atp"))
-                quote["total_buy_qty"] = _number(details.get("tbq"))
-                quote["total_sell_qty"] = _number(details.get("tsq"))
-                break
+                quote["volume_today"] = _number(details.get("vtt")); quote["avg_traded_price"] = _number(details.get("atp")); quote["total_buy_qty"] = _number(details.get("tbq")); quote["total_sell_qty"] = _number(details.get("tsq")); break
     return quote
 
 
 def _on_message(message: Any) -> None:
-    payload = _decode(message)
-    updated = 0
+    payload = _decode(message); updated = 0
     with _lock:
         for name, key in _all_instruments().items():
             quote = _extract_quote(payload, key)
-            if quote:
-                _state["quotes"][name] = quote
-                updated += 1
+            if quote: _state["quotes"][name] = quote; updated += 1
         if updated:
-            _state["ticks"] += 1
-            _state["last_tick_at"] = datetime.now(IST).isoformat()
-            _state["status"] = "LIVE"
+            _state["ticks"] += 1; _state["last_tick_at"] = datetime.now(IST).isoformat(); _state["status"] = "LIVE"
 
 
 def _on_open() -> None:
     with _lock:
-        _state["status"] = "CONNECTED"
-        _state["connected_at"] = datetime.now(IST).isoformat()
-        _subscribed_instruments.clear()
+        _state["status"] = "CONNECTED"; _state["connected_at"] = datetime.now(IST).isoformat(); _subscribed_instruments.clear()
     _subscribe_once(list(_all_instruments().values()))
 
 
@@ -224,37 +173,26 @@ def _on_error(message: Any) -> None:
 
 def _on_close(*args: Any) -> None:
     with _lock:
-        if _state.get("status") != "ERROR":
-            _state["status"] = "DISCONNECTED"
+        if _state.get("status") != "ERROR": _state["status"] = "DISCONNECTED"
         _subscribed_instruments.clear()
 
 
 def start() -> dict[str, Any]:
-    """Start the read-only Upstox V3 WebSocket once per process."""
     global _started, _streamer
     token = os.getenv("UPSTOX_ACCESS_TOKEN", "").strip()
     with _lock:
-        if _started:
-            return status()
+        if _started: return status()
         if not token:
-            _state["provider"] = "yfinance-fallback"
-            _state["status"] = "NOT_CONFIGURED"
-            return status()
-        _started = True
-        _state["provider"] = "Upstox MarketDataStreamerV3"
-        _state["status"] = "STARTING"
+            _state["provider"] = "yfinance-fallback"; _state["status"] = "NOT_CONFIGURED"; return status()
+        _started = True; _state["provider"] = "Upstox MarketDataStreamerV3"; _state["status"] = "STARTING"
     try:
         import upstox_client
-
-        configuration = upstox_client.Configuration()
-        configuration.access_token = token
-        _streamer = upstox_client.MarketDataStreamerV3(
-            upstox_client.ApiClient(configuration), list(_all_instruments().values()), "full"
-        )
-        _streamer.on("open", _on_open)
-        _streamer.on("message", _on_message)
-        _streamer.on("error", _on_error)
-        _streamer.on("close", _on_close)
+        configuration = upstox_client.Configuration(); configuration.access_token = token
+        # Start the socket without pre-subscribing. Upstox's V3 Python SDK
+        # supports subscribing from the open callback; doing it in one place
+        # avoids duplicate initial subscriptions and the resulting socket errors.
+        _streamer = upstox_client.MarketDataStreamerV3(upstox_client.ApiClient(configuration))
+        _streamer.on("open", _on_open); _streamer.on("message", _on_message); _streamer.on("error", _on_error); _streamer.on("close", _on_close)
         _streamer.auto_reconnect(True, 5, 20)
         threading.Thread(target=_connect, name="marketpilot-upstox", daemon=True).start()
     except Exception as exc:
@@ -263,61 +201,34 @@ def start() -> dict[str, Any]:
 
 
 def _connect() -> None:
-    try:
-        _streamer.connect()
-    except Exception as exc:
-        _set_error(f"WebSocket connection failed: {exc}")
+    try: _streamer.connect()
+    except Exception as exc: _set_error(f"WebSocket connection failed: {exc}")
 
 
 def status() -> dict[str, Any]:
     with _lock:
-        return {
-            "provider": _state["provider"],
-            "status": _state["status"],
-            "connected_at": _state["connected_at"],
-            "last_tick_at": _state["last_tick_at"],
-            "ticks": _state["ticks"],
-            "quote_count": len(_state["quotes"]),
-            "errors": list(_state.get("errors", [])),
-        }
+        return {"provider": _state["provider"], "status": _state["status"], "connected_at": _state["connected_at"], "last_tick_at": _state["last_tick_at"], "ticks": _state["ticks"], "quote_count": len(_state["quotes"]), "errors": list(_state.get("errors", []))}
 
 
 def snapshot() -> dict[str, Any]:
-    """Return a safe copy of the current live quote cache."""
-    with _lock:
-        return {"status": status(), "quotes": json.loads(json.dumps(_state["quotes"]))}
+    with _lock: return {"status": status(), "quotes": json.loads(json.dumps(_state["quotes"]))}
 
 
 def live_quote(symbol: str) -> dict[str, Any] | None:
-    start()
-    key = str(symbol or "").strip().upper()
-    _ensure_streaming(key)
+    start(); key = str(symbol or "").strip().upper(); _ensure_streaming(key)
     with _lock:
-        quote = _state["quotes"].get(key)
-        return dict(quote) if quote else None
+        quote = _state["quotes"].get(key); return dict(quote) if quote else None
 
 
 def upstox_intraday_candles(symbol: str, interval: int) -> list[list[Any]]:
-    """Fetch current-session candles directly from Upstox V3.
-
-    Supported intervals are 1, 5, 15 and 30 minutes. This is the chart-data
-    path for LIVE MARKET; it deliberately does not fall back to Yahoo Finance.
-    """
     token = os.getenv("UPSTOX_ACCESS_TOKEN", "").strip()
-    if not token:
-        return []
-    if interval not in {1, 5, 15, 30}:
-        return []
+    if not token or interval not in {1, 5, 15, 30}: return []
     instrument_key = _instrument_for(symbol)
-    if not instrument_key:
-        return []
+    if not instrument_key: return []
     url = f"https://api.upstox.com/v3/historical-candle/intraday/{requests.utils.quote(instrument_key, safe='')}/minutes/{interval}"
     headers = {"Accept": "application/json", "Authorization": f"Bearer {token}"}
     try:
-        response = requests.get(url, headers=headers, timeout=5)
-        response.raise_for_status()
-        payload = response.json()
-        candles = payload.get("data", {}).get("candles", [])
+        response = requests.get(url, headers=headers, timeout=5); response.raise_for_status()
+        candles = response.json().get("data", {}).get("candles", [])
         return candles if isinstance(candles, list) else []
-    except Exception:
-        return []
+    except Exception: return []
