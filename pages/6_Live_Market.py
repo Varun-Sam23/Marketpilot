@@ -29,7 +29,10 @@ st.markdown("""
 """,unsafe_allow_html=True)
 
 IST=ZoneInfo("Asia/Kolkata")
-st_autorefresh(interval=2000, key="live-market-refresh")
+# Upstox streams continuously in the background; Streamlit only repaints on rerun.
+# 500ms keeps the displayed LTP/candle close near the incoming feed without
+# pretending the browser itself receives every WebSocket tick.
+st_autorefresh(interval=500, key="live-market-refresh")
 now=datetime.now(IST)
 selected=st.query_params.get("terminal", "NIFTY")
 ticker="^NSEI" if selected.upper()=="NIFTY" else f"{selected.upper()}.NS"
@@ -65,7 +68,7 @@ else:
 chart_interval=st.radio("Chart interval",["1m","5m","15m","30m"],index=1,horizontal=True,label_visibility="collapsed",key="live-chart-interval")
 interval_minutes=int(chart_interval[:-1])
 
-@st.cache_data(ttl=3,show_spinner=False)
+@st.cache_data(ttl=1,show_spinner=False)
 def terminal_candles(stock_symbol: str, minutes: int):
     rows=upstox_intraday_candles(stock_symbol,minutes)
     if not rows:
@@ -141,9 +144,9 @@ def render_candlestick_chart(df: pd.DataFrame, live_price: float | None = None):
 
 chart=terminal_candles(symbol,interval_minutes)
 quote=live_quote(symbol) if feed_live else None
-live_price=float(quote["ltp"]) if quote and quote.get("ltp") is not None else (float(data["last"]) if feed_live and data.get("last") is not None else None)
+live_price=float(quote["ltp"]) if quote and quote.get("ltp") is not None else None
 
-st.markdown(f'''<div class="terminal"><div class="terminal-head"><div class="terminal-title">◉ UPSTOX LIVE TERMINAL · {html.escape(name)} · {chart_interval} CANDLES</div><div class="terminal-price">₹{float(data["last"]):,.2f}</div></div></div>''',unsafe_allow_html=True)
+st.markdown(f'''<div class="terminal"><div class="terminal-head"><div class="terminal-title">◉ UPSTOX LIVE TERMINAL · {html.escape(name)} · {chart_interval} CANDLES</div><div class="terminal-price">₹{float(live_price if live_price is not None else data["last"]):,.2f}</div></div></div>''',unsafe_allow_html=True)
 if not chart.empty:
     render_candlestick_chart(chart,live_price)
     st.caption(f"Upstox V3 intraday candles · {chart_interval} interval · live LTP overlays the current candle when the WebSocket is healthy. No Yahoo Finance chart data is used here.")
@@ -175,24 +178,8 @@ d.metric("VWAP Distance",f"{data['vwap_distance_pct']:+.2f}%" if data.get('vwap_
 
 st.markdown("### Watchlist heatmap")
 br=data["breadth"]
-q1,q2,q3,q4=st.columns(4)
-q1.metric("Advancers",br["advancers"]);q2.metric("Decliners",br["decliners"]);q3.metric("Unchanged",br["unchanged"]);q4.metric("Advance / Decline",f"{br['breadth_ratio']:.2f}")
-if br["total"]:
-    heat=pd.DataFrame(br["rows"]); heat["Signal"]=heat["Change %"].apply(lambda x:"UP" if x>0 else "DOWN" if x<0 else "FLAT"); heat["Change"]=heat["Change %"].map(lambda x:f"{x:+.2f}%")
-    left,right=st.columns([1.4,1])
-    with left: st.dataframe(heat[["Stock","Change","Signal"]],width="stretch",hide_index=True,height=310)
-    with right:
-        st.markdown("**Session ranking**" if mode!="LIVE" else "**Live ranking**")
-        for _,r in heat.head(3).iterrows(): st.markdown(f"🟢 **{r['Stock']}** &nbsp; {r['Change']}")
-        st.divider()
-        for _,r in heat.tail(3).sort_values("Change %").iterrows(): st.markdown(f"🔴 **{r['Stock']}** &nbsp; {r['Change']}")
-    st.caption(f"Watchlist breadth: {br['total']} liquid names. MarketPilot watchlist proxy, not exchange-wide breadth.")
+heat=pd.DataFrame(br.get("stocks",[]))
+if not heat.empty:
+    st.dataframe(heat,width="stretch",hide_index=True)
 
-st.markdown("### Signal engine")
-components=data.get("components",{}); component_df=pd.DataFrame([{"Signal":k,"Points":v,"Read":"Positive" if v>0 else "Negative" if v<0 else "Neutral"} for k,v in components.items()])
-if not component_df.empty: st.dataframe(component_df,width="stretch",hide_index=True)
-
-st.markdown("### Evidence ledger")
-for reason in data.get("reasons",[]): st.markdown(f"• {reason}")
-st.markdown(f"**Source:** {data['source']} · **Session:** {mode_date} · **As of:** {data['as_of']}")
-st.caption("Decision-support only. LAST SESSION is historical; LIVE mode uses the latest available market feed. The synthesis is based only on displayed structure signals and is not a trade recommendation or execution signal.")
+st.caption("MarketPilot is an evidence and decision-support system, not an order-execution system. Always verify broker/exchange data before acting.")
