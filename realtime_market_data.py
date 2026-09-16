@@ -11,7 +11,6 @@ from __future__ import annotations
 import json
 import os
 import threading
-import time
 from datetime import datetime
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -47,6 +46,7 @@ _state: dict[str, Any] = {
     "quotes": {},
 }
 _dynamic_instruments: dict[str, str] = {}
+_subscribed_instruments: set[str] = set()
 _started = False
 _streamer = None
 
@@ -54,6 +54,11 @@ _streamer = None
 def _set_error(message: str) -> None:
     with _lock:
         _state["status"] = "ERROR"
+        _state["errors"] = ([str(message)] + list(_state.get("errors", [])))[:5]
+
+
+def _set_warning(message: str) -> None:
+    with _lock:
         _state["errors"] = ([str(message)] + list(_state.get("errors", [])))[:5]
 
 
@@ -104,15 +109,29 @@ def _all_instruments() -> dict[str, str]:
     return {**INSTRUMENTS, **_dynamic_instruments}
 
 
+def _subscribe_once(instrument_keys: list[str]) -> None:
+    """Subscribe only to keys not already subscribed on this socket."""
+    if not instrument_keys or _streamer is None:
+        return
+    unique = list(dict.fromkeys(instrument_keys))
+    with _lock:
+        pending = [key for key in unique if key not in _subscribed_instruments]
+    if not pending:
+        return
+    try:
+        _streamer.subscribe(pending, "full")
+        with _lock:
+            _subscribed_instruments.update(pending)
+    except Exception as exc:
+        _set_warning(f"Subscription failed: {exc}")
+
+
 def _ensure_streaming(symbol: str) -> str | None:
     instrument_key = _instrument_for(symbol)
     if not instrument_key:
         return None
     if _streamer is not None and _state.get("status") in {"CONNECTED", "LIVE"}:
-        try:
-            _streamer.subscribe([instrument_key], "full")
-        except Exception as exc:
-            _set_error(f"Dynamic subscription failed for {symbol}: {exc}")
+        _subscribe_once([instrument_key])
     return instrument_key
 
 
@@ -195,10 +214,8 @@ def _on_open() -> None:
     with _lock:
         _state["status"] = "CONNECTED"
         _state["connected_at"] = datetime.now(IST).isoformat()
-    try:
-        _streamer.subscribe(list(_all_instruments().values()), "full")
-    except Exception as exc:
-        _set_error(f"Subscription failed: {exc}")
+        _subscribed_instruments.clear()
+    _subscribe_once(list(_all_instruments().values()))
 
 
 def _on_error(message: Any) -> None:
@@ -209,6 +226,7 @@ def _on_close(*args: Any) -> None:
     with _lock:
         if _state.get("status") != "ERROR":
             _state["status"] = "DISCONNECTED"
+        _subscribed_instruments.clear()
 
 
 def start() -> dict[str, Any]:
