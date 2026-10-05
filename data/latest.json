@@ -1,46 +1,3603 @@
 {
-  "date_ist": "2026-10-02",
-  "generated_at": "2026-10-02 15:32:39 IST",
-  "market_status": "MARKET CLOSED",
-  "verdict": "WAIT",
-  "confidence": "N/A",
-  "summary": "NSE cash market is closed today (Friday, 02 October 2026). No pre-market trading analysis was generated.",
-  "signals": [],
-  "levels": {},
-  "global": [],
-  "news": [],
-  "watchlist": [],
-  "sectors": [],
+  "date_ist": "2026-10-05",
+  "generated_at": "2026-10-05 16:16:07 IST",
+  "market_status": "PRE-MARKET INTELLIGENCE",
+  "verdict": "BEARISH",
+  "confidence": "HIGH",
+  "summary": "Chief AI reasoning is unavailable; the scenario framework below is generated from the independently calculated evidence.",
+  "signals": [
+    "Rule-based decision: BEARISH (25.0/100)"
+  ],
+  "levels": {
+    "NIFTY close": 22555.75,
+    "Previous close": 22421.95,
+    "5D return %": -2.53,
+    "20D return %": -5.52,
+    "5D SMA": 22618.92,
+    "20D SMA": 23203.04,
+    "50D SMA": 23843.82,
+    "20D high": 24005.75,
+    "20D low": 22217.3,
+    "RSI14": 29.87,
+    "range_position_%": 18.9
+  },
+  "market_snapshot": [
+    {
+      "name": "NIFTY 50",
+      "ticker": "^NSEI",
+      "last": 22555.75,
+      "change_pct": 0.6
+    },
+    {
+      "name": "BANK NIFTY",
+      "ticker": "^NSEBANK",
+      "last": 54714.1,
+      "change_pct": 0.48
+    },
+    {
+      "name": "SENSEX",
+      "ticker": "^BSESN",
+      "last": 72382.47,
+      "change_pct": 0.66
+    },
+    {
+      "name": "INDIA VIX",
+      "ticker": "^INDIAVIX",
+      "last": 14.77,
+      "change_pct": 2.18
+    },
+    {
+      "name": "S&P 500",
+      "ticker": "^GSPC",
+      "last": 7722.72,
+      "change_pct": 0.73
+    },
+    {
+      "name": "NASDAQ",
+      "ticker": "^IXIC",
+      "last": 27190.86,
+      "change_pct": 1.19
+    },
+    {
+      "name": "NIKKEI",
+      "ticker": "^N225",
+      "last": 69946.86,
+      "change_pct": 2.4
+    },
+    {
+      "name": "HANG SENG",
+      "ticker": "^HSI",
+      "last": 24040.34,
+      "change_pct": 0.28
+    },
+    {
+      "name": "USD/INR",
+      "ticker": "INR=X",
+      "last": 96.29,
+      "change_pct": 0.07
+    },
+    {
+      "name": "CRUDE",
+      "ticker": "CL=F",
+      "last": 90.74,
+      "change_pct": -0.41
+    },
+    {
+      "name": "GOLD",
+      "ticker": "GC=F",
+      "last": 4187.2,
+      "change_pct": 0.6
+    }
+  ],
+  "global": [
+    {
+      "name": "NIFTY 50",
+      "ticker": "^NSEI",
+      "last": 22555.75,
+      "change_pct": 0.6
+    },
+    {
+      "name": "BANK NIFTY",
+      "ticker": "^NSEBANK",
+      "last": 54714.1,
+      "change_pct": 0.48
+    },
+    {
+      "name": "SENSEX",
+      "ticker": "^BSESN",
+      "last": 72382.47,
+      "change_pct": 0.66
+    },
+    {
+      "name": "INDIA VIX",
+      "ticker": "^INDIAVIX",
+      "last": 14.77,
+      "change_pct": 2.18
+    },
+    {
+      "name": "S&P 500",
+      "ticker": "^GSPC",
+      "last": 7722.72,
+      "change_pct": 0.73
+    },
+    {
+      "name": "NASDAQ",
+      "ticker": "^IXIC",
+      "last": 27190.86,
+      "change_pct": 1.19
+    },
+    {
+      "name": "NIKKEI",
+      "ticker": "^N225",
+      "last": 69946.86,
+      "change_pct": 2.4
+    },
+    {
+      "name": "HANG SENG",
+      "ticker": "^HSI",
+      "last": 24040.34,
+      "change_pct": 0.28
+    },
+    {
+      "name": "USD/INR",
+      "ticker": "INR=X",
+      "last": 96.29,
+      "change_pct": 0.07
+    },
+    {
+      "name": "CRUDE",
+      "ticker": "CL=F",
+      "last": 90.74,
+      "change_pct": -0.41
+    },
+    {
+      "name": "GOLD",
+      "ticker": "GC=F",
+      "last": 4187.2,
+      "change_pct": 0.6
+    }
+  ],
+  "news": [
+    {
+      "title": "Indian benchmark shares post longest weekly losing run in 25 years",
+      "source": "India Markets",
+      "publisher": "Reuters",
+      "published": "Fri, 02 Oct 2026 04:33:13 GMT",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOa2lpSGdlN0dhOTM3eUw3MlQtN183dHZydW95WXVWM2MyTEFaeTlvRUllR29aLWJxT3dvdVNmNlpzTGVldkpIMFNScVVhVEJ5TTU5TDhoVTZZWlpXbENCUHlKMWx3MmJ4bWkyU1E1OGF6Sk9YakxYcHRyM0tWdnlrX0NpQktmLU90VkRRVG5FQXdPZ3c3dFV0N0xndUdrTl9lY0xKZUJsNmY4LS1BYndDNENRZC0?oc=5",
+      "summary": "About Kotak Mahindra Bank Ltd (KTKM.NS) Reuters",
+      "publisher_domain": "reuters.com",
+      "cluster_id": 1,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one additional publisher was found in the targeted search. Claim assessment: INSUFFICIENT EVIDENCE. Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification. Evidence strength: 30/100.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:12.092106+00:00",
+      "evidence_score": 30,
+      "evidence_count": 1,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [
+        "tradingview.com"
+      ],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian benchmark shares post longest weekly losing run in 25 years"
+    },
+    {
+      "title": "Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+      "source": "India Markets",
+      "publisher": "Livemint",
+      "published": "Thu, 01 Oct 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFA2eURra0RNN0hZR0ZxYmMxV00ycGZkVS14M1JaTGFnc2lGeVdLS3NUaDQ0Q0pKSkpLbDcwMUhQN1lwcHJNbmc?oc=5",
+      "summary": "",
+      "publisher_domain": "livemint.com",
+      "cluster_id": 2,
+      "verification": "UNVERIFIED",
+      "verification_label": "UNVERIFIED",
+      "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:12.852398+00:00",
+      "evidence_score": 10,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates"
+    },
+    {
+      "title": "ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+      "source": "India Markets",
+      "publisher": "Equitymaster",
+      "published": "Mon, 05 Oct 2026 00:30:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQQl9MeVMwSlZPNjFoWV82anhaSURQSnplczlnNjNYamRISHlaekxGRGRteGwyUklZdUFtbGQ4TTFLckZLX21FVjZYUzdDMkRCZkJHdXUxNlM0cWh4NHcyWTU1dGQtbFQwTzFwRGZMT1JyTjBCNEY2RnZDMkFzSmJyRWR3Z3NrX0M4VGlwSThLUkowYmhmWFhyYUJWa3BBbDc2azVjdC1mRk1PT3paNmoxcmxmSDVqdXhFUWZqNDFuMmRQcmNSVHJGazBKNzNyaUlicExSVkhSMFA3dW1lS1VTV0RLQl84amxKQk1oSjBxNHRIV0RvSEpOMlFSSG81QXpuNkJNeUFoWllEZTQ?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 3,
+      "verification": "UNVERIFIED",
+      "verification_label": "UNVERIFIED",
+      "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+      "impact": "POSITIVE",
+      "impact_reason": "Headline language contains positive market-impact signals.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:13.509872+00:00",
+      "evidence_score": 10,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today"
+    },
+    {
+      "title": "Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+      "source": "India Markets",
+      "publisher": "Hindustan Times",
+      "published": "Mon, 05 Oct 2026 06:46:43 GMT",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOUURHNnU0ZHl1dUs0X016Y1V2eVFSb0FrWERUWWstcGo3TGRna2RJdnZaeE5CZFN1SS1mNUozTUQwczNrTHpQWnd6NFhiRHpPWTFpU2ZsdXdyc1VNU19OcjJkU2hzcVJMdVdOTzBmUW5XR2NOclhGRGk0bnBnTldEZ3pvMFp0Rmd3SEFFRXNTcWRJTmxhSm93RUoyRVRiTU1TYko3Ulpmc3lMS3owMXo0SWdMT0o4eTNXbW5PZ3htaWV5U25FMWI00gHMAUFVX3lxTFByc08wRlFNaEpnV1lzTS1HS2QtaHFYLTNMNGpXbnRiSFd2MFMxbUFpc01HUDQ4eUgyZnlBZkVsaG1RT2pEZzB4Tzg4YTZxbTU2b25YOU9qZVA5YlBFckxVdHd2QUJhQWxkaHBaUVc3cWZnWENSTTFlanlKSFZKSUdMcWtuYl8tT1dJRGRwYld5U2lxdVhGaGJtUkxnR0ZYYnJud0pCUEo2dVgyWUF0M2M4Q0ZXWHViU1pzb2phZGNRYnVFNllCMDFRMjNXag?oc=5",
+      "summary": "",
+      "publisher_domain": "hindustantimes.com",
+      "cluster_id": 2,
+      "verification": "UNVERIFIED",
+      "verification_label": "UNVERIFIED",
+      "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:14.146743+00:00",
+      "evidence_score": 10,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News"
+    },
+    {
+      "title": "PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+      "source": "India Markets",
+      "publisher": "Business Standard",
+      "published": "Mon, 05 Oct 2026 06:04:51 GMT",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWVZPYXI5Y25NbVlxYXQybjZST3ZIclFkdEs4TXJwMkl0YWk2Mi15a0JIcF9udmlaSjMtUjdQVTE1MzFJYlI1R0pkTmpoMG5wd2RreklzUjRZUk1TN3QwajNkUURVbGFZVE5JZEY1QmhvVXo5RWoxY1lOQVFZc0p4WVpOcmllcTE5S2dXZUhTamlwOFhjVHU2WVpQS216cF9kRFBic3VYMmtzbWVCdFFsckZXSUQtZm5kaDU0NFNYdDNNM0g5MWhDZGMzR3NDQdIB0wFBVV95cUxQSExOckVkai14cnptdGkxb0daRkdpcHdfQ1ktWnlUYlg4WkdXNGtsRWxsT1Z4dnk2Wmk2Y1RvWmFpbmZiZFZjcGJFa0d1RVltcnZDMmpHNEFTeFFzYmwxbm1iVlBueUpjWWJTQlRoQzFZclFubEJIdG9ZZWdOVkNrY3hzZFdLSWZTdzhZMU91MVNyUW55cnZWUnVBcUpJRGhoSVc0YTJiRF92YXlINUlTY21fVmlBemhNQ3VDOGk3RUFMM1hWazlFazhWNUI1MWtVV1Jv?oc=5",
+      "summary": "IT shares trade mixed post Accenture earnings; HCL Tech, Infy down up to 4% Business Standard",
+      "publisher_domain": "business-standard.com",
+      "cluster_id": 4,
+      "verification": "UNVERIFIED",
+      "verification_label": "UNVERIFIED",
+      "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+      "impact": "NEGATIVE",
+      "impact_reason": "Headline language contains negative market-impact signals.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:16.055984+00:00",
+      "evidence_score": 10,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%"
+    },
+    {
+      "title": "Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+      "source": "India Markets",
+      "publisher": "Hindustan Times",
+      "published": "Mon, 05 Oct 2026 03:46:15 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOZXF3ODZlOWJ0UHY4Qi1MRVRhczhCX2NDdEVIbG5IYl9RZm9FVm81eVhON09Xcl9PT01OZDhaQU9LQ082dnhqOVU1ZUpPc1ZQS0RaaWo4c1Vkc1FMeFE1Z1Vyb19YSElic2NRSGhZbjZ4ZjFaQ0VOZDFydE1hSXRZbzZvMTdrTGg4cGFGYTl2YlFfeGlNSnFEUFVOWHFOQnRwaGg3ZmRXZkl4aHI1VnplWnZNTjgzNG1nTUxNdG5nY1p1bk8wdlpJczNzck1USkRaSDh3TWY4ai1uWkYyUE84WTg5ejhFanM3SE90aUhiSVVGV3l1RzhR0gH8AUFVX3lxTE52NGdvaURGWkNFOUE3LWhLT1R0eUdaVWtRZElZWFl1MDNNRFRidGJrdHphUHF5a3BHTVRPczJfWUh6UVBKWUtrdzh1Y185RlowMks4LVo3T3dkb0JQU19vVTVWVDVDOVVMU0REb3NWNno4WHBiaEgwclZISER2U0ZQSWJzRXVVLTFCTWJBQmlhRWNROEtKd0FRcmh0LUx1NU9JODlVY2tCaUE5N2NRRVotcGs2RVBUaTJTUWNjcXVzYjdLa29rbmNmQVhKR3ZMU1BmOFJGYnhPcTNBb181cGJ6YlJfUVlCdjczX3A4cFVRdEhCSUd4UkVROEs0SQ?oc=5",
+      "summary": "",
+      "publisher_domain": "hindustantimes.com",
+      "cluster_id": 1,
+      "verification": "UNVERIFIED",
+      "verification_label": "UNVERIFIED",
+      "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:16.731035+00:00",
+      "evidence_score": 10,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex and Nifty open higher after longest weekly decline in 25 years | Business News"
+    },
+    {
+      "title": "AI investment boom supports markets, but slowdown could trigger sharp repricing: RBI Governor Malhotra",
+      "source": "RBI / Economy",
+      "publisher": "The New Indian Express",
+      "published": "Sat, 03 Oct 2026 08:16:37 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQdVM1SmhZVEwzeDhkNk1Ib2RmaEhFLXViMC1IMm5wX0x6bFgwS0IwNy0tOUR5NF9wY2JvbnNOaGo3Ml9SWjEzWHRIVnZrUUgzQzhNQVFrVENzcENtNXo1d2dmazJObWJKcFFVSkN4NnFiSzNPS0oxR1dDTjR4anBmd2JORk5YdXByUWl2b2hOVXBzUDB2SnE2TWtXNEdQZDRQUU8tTlJNTldmX1VEOThyN2UtSHZjTUJ3eHV6QTZrQWk5UnFXbWQ1aFBBNk5xeThBblBFclhGdUlXLW5wSkJhV21zajUtbDNzSFHSAfcBQVVfeXFMTWw0VjB1YW11YW9Hd0VrclFIUi1HVjdHMDNrMmlaRnRhV1NfYnZXcXBxTkNiY29WY2hTeWMwRUs3OTRDV2x1cXBteGlsS1FsZkc1TUJPTnpPVXlGYjlzd0pjRG9EQWttRW1idVAzQ2FaTmJPb2FZQl9Zalh6MXZrS1BfMURXTGRmVm9FdHN1WXFlNW9iNmdtV3FhbXZjN3RXblNNZ3RzTGQ1cXlsdkI1c01pcVFxRlM1eVZQQWFxanNBeEZuREt3cVJNbG91ak1BTkI5S21MWUZRV0pVVE9NVy00YWFWdGJPanZvN1hJRk9WWkh2ak9ZQQ?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 5,
+      "verification": "UNVERIFIED",
+      "verification_label": "UNVERIFIED",
+      "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:17.365568+00:00",
+      "evidence_score": 10,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · AI investment boom supports markets, but slowdown could trigger sharp repricing: RBI Governor Malhotra"
+    },
+    {
+      "title": "Today's financial resilience may not imply tomorrow's immunity: RBI Guv",
+      "source": "RBI / Economy",
+      "publisher": "Business Standard",
+      "published": "Sat, 03 Oct 2026 08:58:47 GMT",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNNW1aY2FWYUtqTVhqa0JZQndLckU3YkZ4SXVXMUxpLS1NZW4zNW9kMWJTT1A3VEs2NEVpbmFnVEpPZTZYaVhoMElqLVcyZkx5U08yZngxay1NdnVyQUttWWNPd1d4bnhwQkU4MTVFc0J1Q2VlS3M0eHZGeTBKUE1FQTZGV1dJZm5GY2FkRkZxQ0NyWU5pNVVZa0dWNmlLNmVkdTBkd3hhQnRuYmkwOU4yQWpOSWh1UG1YaVFHUHR6bXBrVlB0RkVqQ3VPSUpZc0HSAc8BQVVfeXFMTTVtWmNhVmFLak1YamtCWUJ3S3JFN2JGeEl1VzFMaS0tTWVuMzVvZDFiU09QN1RLNjRFaW5hZ1RKT2U2WGlYaDBJai1XMmZMeVNPMmZ4MWstTXZ1ckFLbVljT3dXeG54cEJFODE1RXNCdUNlZUtzNHh2RnkwSlBNRUE2RldXSWZuRmNhZEZGcUNDcllOaTVVWWtHVjZpSzZlZHUwZHd4YUJ0bmJpMDlOMkFqTklodVBtWGlRR1B0em1wa1ZQdEZFakN1T0lKWXNB?oc=5",
+      "summary": "India's answer to a risk-priced world is openness, not fragility: PK Mishra Business Standard",
+      "publisher_domain": "business-standard.com",
+      "cluster_id": 6,
+      "verification": "UNVERIFIED",
+      "verification_label": "UNVERIFIED",
+      "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:19.334796+00:00",
+      "evidence_score": 10,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "verification_sources": [],
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Today's financial resilience may not imply tomorrow's immunity: RBI Guv"
+    },
+    {
+      "title": "Strong economy, weak markets: RBI deputy governor flags disconnect in India",
+      "source": "RBI / Economy",
+      "publisher": "Telegraph India",
+      "published": "Thu, 24 Sep 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMlhyTlVXaWZPT2ZOV0hmTDB4bnk3M0Y4RjYteFlkbDdiY0o4dU56TFZROVNibDFzMVdldGJqNG1KVWR4clVmRFpURURmcVd4UDZmYkRhZzRROXNkQWhPQmlQbTJUNkhEMGdYbmYzNjNUTDJ0STBKclhhX3BOQ0RHZi1kVTY3N1VfdnExYk5IZk94dXFvMFdBWW5NdTdFR0lsc2JQSlZ2YjFZRWJ0VDNUNFByTFVDSGxvY3owM3ROTkpCVjZZTWVzSkdraEd2bm_SAdQBQVVfeXFMTmpMVVNVa0tRZEM0bk9ISHRuVjN6QXhSY1NZM3htY2NwdnJQLXdEZnA0X2hkNE1qZzRNU3g0UzJHcC0yV1RKX1Z5dGU5WFZxN0tMcTlzNlM1V0puMFVpaUxpU2dRQnkydUlKaHpXVm5HWFlzREJTYUMtR3lTcnIwM0hpX0YyWE5FUzBRYU4wOV9oS012X0VhSFp4QTR4NWQ5ZmlfdXFxZ3RDaTB5RjNlaHJoamtpcHBLbjVCcWw1Nlh4cUEwZXc2S3psVVRIZENCQzZLeTI?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 7,
+      "verification": "CORROBORATED",
+      "verification_label": "CORROBORATED",
+      "verification_detail": "Similar reporting is present across multiple publisher identities in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:20.058362+00:00",
+      "evidence_score": 65,
+      "evidence_count": 0,
+      "claim_status": "SUPPORTED",
+      "claim_status_detail": "The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟢 SUPPORTED · Strong economy, weak markets: RBI deputy governor flags disconnect in India"
+    },
+    {
+      "title": "RBI DG Gupta flags disconnect between India’s strong economy and equity markets - CNBC TV18",
+      "source": "RBI / Economy",
+      "publisher": "LinkedIn",
+      "published": "Wed, 23 Sep 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbzhjbDZUd2NNdkljaXZ5OUo3dUJvc2J5M19WanhYY2FwVmRBZlRzLUs3dVpxOGpCN0VGY3RsdEV0YWwyaDNpWmFVLVdGSzhnbUlyYjJWUTdURUlyeW96dFd0VU9wQWZGV29KWThfYVNoTFZWb19HYzB5cmNvTkc4d0dWV0EtYjlCVnpGSEV5UUdQNkVXSFBLUzRpV24xaFJndExDSjBMUDlNZkNXQkRWZV9LSnVCSFdWSUE?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 7,
+      "verification": "CORROBORATED",
+      "verification_label": "CORROBORATED",
+      "verification_detail": "Similar reporting is present across multiple publisher identities in the live feeds.",
+      "impact": "POSITIVE",
+      "impact_reason": "Headline language contains positive market-impact signals.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:20.813519+00:00",
+      "evidence_score": 65,
+      "evidence_count": 0,
+      "claim_status": "SUPPORTED",
+      "claim_status_detail": "The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟢 SUPPORTED · RBI DG Gupta flags disconnect between India’s strong economy and equity markets - CNBC TV18"
+    },
+    {
+      "title": "RBI DG Gupta flags disconnect between India’s strong economy and equity markets",
+      "source": "RBI / Economy",
+      "publisher": "CNBC TV18",
+      "published": "Wed, 23 Sep 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPa3hyY2NGREVrakllaENtMEdRUkV0SGRUTWkxMnQxYi1tT1NwLTJSUTJ5YS1aX1hMdnRqZTRrRkttRTk2aHFlMUk1OU5sNGNya0l3VWRlbUd2bUd5cVQyQ3ZXRU5OTUtrUmpGZ3ZzZlFmbVhKMFluT0E5S0lFV196YmVPYUo0dG91NGVvQ3lfeVFESThDT3FmVzM1SHZlTWRTeFZkLWs1SVRuZFhxSVMzZEY3RXJqTVJaTkpoR1930gHDAUFVX3lxTE8tcXkzdVl3NzNTSHk0dkN6X2p6cHBXLVVFVmlDYTJXMmVhU1FBTkVtWEpPMldSVWJNdW02WkNLVTcwNW01eUVVb2hhbS1LYXp5TWpnQ2VSRzFjRzhfWlZxb2ZlNWtTY21jQTNRSVFlR1J4ajNiX3R6eFc2cEs2M0NpdVVHblJ3ckVoZ2U4TENoN3V0VHU0ejhTa094aUkyRl9PV0wwN05YUkNyN0N4NGExTFhsVDJPZ0pqUGN5enBiZ3dBRQ?oc=5",
+      "summary": "",
+      "publisher_domain": "cnbctv18.com",
+      "cluster_id": 7,
+      "verification": "CORROBORATED",
+      "verification_label": "CORROBORATED",
+      "verification_detail": "Similar reporting is present across multiple publisher identities in the live feeds.",
+      "impact": "POSITIVE",
+      "impact_reason": "Headline language contains positive market-impact signals.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:21.561788+00:00",
+      "evidence_score": 65,
+      "evidence_count": 0,
+      "claim_status": "SUPPORTED",
+      "claim_status_detail": "The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟢 SUPPORTED · RBI DG Gupta flags disconnect between India’s strong economy and equity markets"
+    },
+    {
+      "title": "India's Economy Resilient Despite Global Risks: RBI Bulletin",
+      "source": "RBI / Economy",
+      "publisher": "Rediff MoneyWiz",
+      "published": "Fri, 25 Sep 2026 17:24:15 GMT",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQYVFHajRvVjJPUXV6RkhnaWZDQ1FJamkxN3pRdkV1RXpuMWNQQXdLYWFNX2pMZUJQc0g0eUZmM3ZwUEU3NmQ4S0ppUmVIZ1Jzc1JYZENvNWc4THNsNHo3Z29UU0NhU0htSUEzYXFrUElJRGhGUTM5SzFJbTJpUjFTVUd4T2N6VEJrQTFpRHJ6enppZGtCMk5hUVgxRkJnTDBQaGdiaDZQV1VGTWd3RmV1TNIBtgFBVV95cUxPUnhVei1NOVNZcDBsX3VOemhjRlNaWE83WnB0S01ZY2t2VEV6QzlzRklsZXM5N0MybVN1bGc4NVlKbEFqTWZBSWUyZ3N3ODJPV1d3VzU1RGdTMXRlYzBaaWdYZHY5UlVqR193MDZ0MUp3cXFpSzdWd2sxdDN5cVlSbThpUXFTMUVZUXp4cmRuWTNVSTVNZFhNeFBhdy04UlMwckM1N2ZZMGVKaExKSFAwVnhQcXhnQQ?oc=5",
+      "summary": "Uday Kotak: Build Domestic Risk Capital, Cut Foreign Reliance Rediff MoneyWiz",
+      "publisher_domain": "",
+      "cluster_id": 8,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:23.049925+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · India's Economy Resilient Despite Global Risks: RBI Bulletin"
+    },
+    {
+      "title": "TCS, Infosys, Wipro shares ahead of Q2 results: Explained | What Accenture's strong earnings mean for Indian IT stocks",
+      "source": "Indian Companies",
+      "publisher": "Livemint",
+      "published": "Sat, 03 Oct 2026 11:38:25 GMT",
+      "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPQ1NnVU5Mb1F1NlQ5d3FVSi1xMTJnMFJlYVNiVDlCRXlDRzRvQkJZZ3MybzhRdU56VWJpVjllUTNESTBFUngwRVlzY1VROUxuV1NDS2czbnpLcFFDLWhvelNmRmVVWTRJbUxfN19Zbll4SGxoR29oUkEtV01fM3ZIMWZyR2hKbWVnSXk4bzRPQTE2THBxRTNhTmkyNkVrckg5ajZsanBjd3dUVGp0bjA5OXNSbEcwWC1FcWlhSWtXMEliWjc2VFZWdUhCTWdObUthQVNpT2hCQVRWZVRSeGVJbUdOdU5aM1p6cFdTS3JRNllNSnp6ejExZGxlV3hXeUhWRm5IY1lpYXQzR2JyRGNv0gGUAkFVX3lxTFBFcjQzVzdKWVdkVFpHb2RrejFxOWJta3VJZ1laVDVRWmtKZFptMEhuaEJNYnZRM2ZZMzhlSFVuaThpZEJIME5hamxXNThWWEpVbkR1LXVuYUxpUE10R2ppVi04aXdzUjV5RWRjOFdneFdWenpUVFJfcjRqRFFCLTF5WDhnYUxyRnVDWnFROVh5emtPMXZ5TUNFU2hMTEpaZ1FINktNWmt5alhsTVdLaXViT0JvZUhVZ2xkSmNPSkY5NERaVmRheE5RWDZDM0xUbFl0XzAwMlEyeXpXYTNvSFpkdkZPOU52MEdjTUFBTGwxWGNETWljcXNmaFluNG5qbDFNbUgta2hrMzhGVlJZcEZvd1NnYw?oc=5",
+      "summary": "",
+      "publisher_domain": "livemint.com",
+      "cluster_id": 9,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "POSITIVE",
+      "impact_reason": "Headline language contains positive market-impact signals.",
+      "affected": "IT",
+      "checked_at_utc": "2026-10-05T10:46:23.793807+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · TCS, Infosys, Wipro shares ahead of Q2 results: Explained | What Accenture's strong earnings mean for Indian IT stocks"
+    },
+    {
+      "title": "IT powers Indian shares to weekly gains; Reliance, bank earnings eyed",
+      "source": "Indian Companies",
+      "publisher": "Reuters",
+      "published": "Fri, 17 Jul 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPbGF0TVI5MFFQVjZIYVVVZHQyMU5tUWlJLTFUZ2lwNVhwV0F5bVg5UUJLN2o3UTZiRFotcS0xVUUtX0dQRVN2d2lZZ1B2a1A4SW85aXcyV2VveW5leEdZUXJvZXplV0lTX1FzU3BBaHJacG1UNGNWbnFlUlpLY1BFaHctQVhSWkZuS05WZUpBSHNMUFR6czJid3liTU1ZOUFCNFpwMFdRXzI4dw?oc=5",
+      "summary": "Indian shares notch monthly gains as AI unwind, upbeat earnings draw foreign inflows sg.finance.yahoo.com",
+      "publisher_domain": "reuters.com",
+      "cluster_id": 10,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEGATIVE",
+      "impact_reason": "Headline language contains negative market-impact signals.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:25.797242+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · IT powers Indian shares to weekly gains; Reliance, bank earnings eyed"
+    },
+    {
+      "title": "The Cummins India Limited (NSE:CUMMINSIND) First-Quarter Results Are Out And Analysts Have Published New Forecasts",
+      "source": "Indian Companies",
+      "publisher": "Simply Wall Street",
+      "published": "Sat, 08 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRlFja2ZsczVRV0lDeDgydWtFNmpKSnFFcnhhakRXXzlCc0h6dk9LOUtwZXpiZVl1WkJFSGtNbVdmaUVIN1dNOG1RVDRKQ1NyTU15LUwyczdIS0dNdTJlbkdUXzh3b0JtQmRGOTAzd1ktaVlxN0o5aS1DUzBTbEZiOE0yVXQ5NHNoSWdORUxSX091Zlo1UTl3QXNZbmQxeDBwT283QW5ZTmZHSWV2NW5UUGd2eHNFcWhzZUU2ZDZyemNTblRSNnZpVUU5TDRZRm1sRkNrUVE1QjdUZnd0Zlg3TtIB5gFBVV95cUxPZV9OUzlzTGRDWmZZa3M0WTJfVHJUa0xxcEZkcFNRS2ZUdlRqNHM3dEVwSmV3XzBaR0FIY3I5LTEwXzFodU1jcy1vWTBOX1RVMHdNX0NBc1Jhbkl0Ynh2S0wzcVBxelRXOGtkVmJyNzNLSFRnQ0YtYUxQWHZjZm13em5TNDFTNUU0Q3ZxSjQ4Y3pwRXhoNFlhek9EU1k5UE1qaU9maXc5U2czNWpUWEgtMUQwaktTQmdiLVZCX1RDU0tXcnZVdTA0REVBV2g2YlJOSHY3OUhLak5raXVRU2l1V1ppTFdtQQ?oc=5",
+      "summary": "Cummins India (NSEI:CUMMINSIND) Stock Forecast & Analyst Predictions Simply Wall Street",
+      "publisher_domain": "",
+      "cluster_id": 11,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:27.030166+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · The Cummins India Limited (NSE:CUMMINSIND) First-Quarter Results Are Out And Analysts Have Published New Forecasts"
+    },
+    {
+      "title": "Cipla Share Price Falls Over 3% After Q1 FY27 Results Disappoint Investors; Profit Drops 39%",
+      "source": "Indian Companies",
+      "publisher": "India Infoline",
+      "published": "Thu, 23 Jul 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOaERkaHZ5ck1sb0dINjF0VFFEWHlNS3lnaFVmQTNtaFpDaWlTekNRWXZYMndCU1ZFQTM1VU5lQ1Z6U193VkFMVElyQjMxUkhqVmFsTWJ0NExTYzg5dnltOExGSnozRWV0YUtpVlgzdThFWUxYUWNWRnd1Tmhfa0JaeXdzd1ZyMi1ZTWxiU2FIMF9FRnl4aG0xeHBYeThFSDBmT3JDSmpidTZaNzNJeGRBcHNadERzclhEaUhETVM2YTlMNHhiT1ZEV0hkYjRuUQ?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 12,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEGATIVE",
+      "impact_reason": "Headline language contains negative market-impact signals.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:27.654140+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "ARTICLE_UNAVAILABLE",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Cipla Share Price Falls Over 3% After Q1 FY27 Results Disappoint Investors; Profit Drops 39%"
+    },
+    {
+      "title": "Q1 results: TCS, DMart, Indian Bank among 31 companies with four straight quarters of profit growth",
+      "source": "Indian Companies",
+      "publisher": "Upstox",
+      "published": "Sun, 12 Jul 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxOZjNRV2hkRm92d0tsZmxya0o5ZXZYV2E3ZXh4YUppVVN5S2toZzVaX1BjVlJhNFVJelRrTXpNbHlDSVQtbHpibFRyd0xZejZhS1lLUzl5WGVGaUZoV3V1M09LOUgyQTBoS0dfN0pDUkFtRkRjdGc4VjJfMlBFQ2FCeDBaanRpaEVZY3NReTdjWHlieG5EemZWaWFrVndoSGtUWUw2ZmUtOVoyamVMZF9rdkJqNUU2T0xlc0Q1LXpKZWtob1hhZHhfR2lVRUdxR2haNFFPbUVYQXBMZHZNS2daeVhIUGhrY0hiMTFHb28xbXBZN3VBVDE3dDJhNmVtZw?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 13,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:27.654217+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Q1 results: TCS, DMart, Indian Bank among 31 companies with four straight quarters of profit growth"
+    },
+    {
+      "title": "Indian IT stocks slump up to 7% as Accenture cuts revenue outlook, fueling fresh concerns over sector growth",
+      "source": "Indian Companies",
+      "publisher": "CNBC",
+      "published": "Fri, 19 Jun 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQaWIyTmhWUzF5bmJDUGxRNllGWnRDdzQ4cFdwcXNyWTBvV3Z6RUJLLUk0cnBTaGRKYnJ0aVREQ2hFby1wb0RDcXRYNHdOOVJxZkxzbVBoUFRLWUJiRkNGTHRDdW14WmNaNHFVZjBYZDQzdzMtZ0tWRkNTVDBkZkctRVdUM1NHRTdlQUhvcERIOGxpWUnSAZgBQVVfeXFMTkotXy1kZDlSTTJBV3lFazlSV21TZjZvcjVORlFRdTJqRDlXbUFPRzVjTFhIcmU1YmU2azl1UVNKY1BkMThQV3VRV1FwU0pHOGl2MHRhZEUyTEg1VG9TYWhGVkxMS3Y2YkV6VFZXQ2tHb2N0SFRaQmw1VFZvbDRjeHYyU2NxU0xpQ0R4N2dlRUk0NGtnazFvenQ?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 14,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "POSITIVE",
+      "impact_reason": "Headline language contains positive market-impact signals.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:27.654263+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian IT stocks slump up to 7% as Accenture cuts revenue outlook, fueling fresh concerns over sector growth"
+    },
+    {
+      "title": "Stocks dented by inflation risk from rising oil, dicey geopolitics",
+      "source": "Global Markets",
+      "publisher": "Reuters",
+      "published": "Mon, 07 Sep 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQa0pobHhGSWlxLVNZa2htLURrNldPaHUyOGVyQXVBeGtJOWJDUXpqMXFSTDBCaHNkeFI5Q0Y2NUdFNlJoWUZlVGQwR2pGZk5oc1R5TzFLbUdFMU1aY3NGTXVhOGFTeFZOenRpbUlNc0ZiTjQtMnNaRVUtTVNrWEpLeGprbw?oc=5",
+      "summary": "",
+      "publisher_domain": "reuters.com",
+      "cluster_id": 15,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEGATIVE",
+      "impact_reason": "Headline language contains negative market-impact signals.",
+      "affected": "ENERGY",
+      "checked_at_utc": "2026-10-05T10:46:27.654300+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Stocks dented by inflation risk from rising oil, dicey geopolitics"
+    },
+    {
+      "title": "Asian Stock Markets Mixed After Fed Rate Hike as Oil Risks Persist",
+      "source": "Global Markets",
+      "publisher": "Eurasia Business News",
+      "published": "Thu, 17 Sep 2026 17:25:50 GMT",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOLW9Ra3JZb2hsM2RGbzYza2ZGYk1fUEdaNjVaS2NUUTBPd1Z6QXNwd0pHSWg0TTh6Yy1vSVBQSUxqNzBWa1djSEZLTjYtNmlnR3U1dHlPSi1VMHNGanZ5eVF5UEJwaVFNV0hIZTExaFpXX29zbGdnQk40T1BpRER2TVVyS2pTdUdVenZrbG5iSjV0Y3N2aWgybGZyX1RPR2RUdDJYd2V0WlpjM0FYZU1n?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 16,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEGATIVE",
+      "impact_reason": "Headline language contains negative market-impact signals.",
+      "affected": "BANKING",
+      "checked_at_utc": "2026-10-05T10:46:27.654369+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Asian Stock Markets Mixed After Fed Rate Hike as Oil Risks Persist"
+    },
+    {
+      "title": "South Korea's Kospi clocks best month in 28 years as tech optimism triumphs over Iran war worries",
+      "source": "Global Markets",
+      "publisher": "CNBC",
+      "published": "Wed, 29 Apr 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQMUNud1Q2SlMzVnJJNHNydDRKTkgzUndsZ0lSSHV0VlVadVZMMG1DemptTy1QVUpYem4ybVh2SkNrbmFqdEdqYmdMbDJESU1kMW4yeFhnN2thYkxJRjhUQjJjRjJlbTJGNFZMVGlhOWxCdXJlaHNYXzRCallMUVFmemNRMXlWWV9HSElDZnJycktnMkxD0gGaAUFVX3lxTE9zYWZkM3pOTmE1dXFlZVVlbHVPTFBuaVRGN1Fhd29RWjZMRnlyelhCM044SlhSbk44TkZMT2JHZm1EbGo3SnZpcF9tNlZvVFlYS01xTTJhSk9zNTNGQlExNmhXX19mVjRZN3dxaFI4NVYwdXk2RkhwLUVtUHZPR0dXNGhqLTI4VUluRXlHTFdIUTc1YkllZHZfZkE?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 17,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEGATIVE",
+      "impact_reason": "Headline language contains negative market-impact signals.",
+      "affected": "IT",
+      "checked_at_utc": "2026-10-05T10:46:27.654415+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · South Korea's Kospi clocks best month in 28 years as tech optimism triumphs over Iran war worries"
+    },
+    {
+      "title": "Asian markets turn risk-averse as global yields and geopolitical risks weigh; India shows relative resilience",
+      "source": "Global Markets",
+      "publisher": "The New Indian Express",
+      "published": "Mon, 24 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPT0xvV1lKaTNmR0tmenFxY1BaQzBwVXBiOHRPYUxDMDVVeFBEWXVZd2ZaOXBxQWpIek0zdUtaTmVrd1d0dnhKTjFyOUVZNTgtQXhxbVlSLTc3TFpTb2hTQ0loOWhsR3pRQWQ3YUhScy1VYUxMZ3pPZFkwcnNQVDNkMU9LYmtXNTRldjJKdHVjMVdRanRhODU1bkpwYk9JLVcwbHRXdEpUVmdUeTNUMDJoV3pDc2pwWmxqdDEyZDZyaVE1Q1NidE0tUzRXbDFpTEhvWHhJUFZNSE9mbEF5UTYxQWt3dDFBRDB6RnZEZm5qWFRCcU5x0gGCAkFVX3lxTE5WRVBMeUxhaTVZb29MMXJfNGNiTk5ZZkNMVnZ6S3RVLVBCdnJBck1OV2dHdE81VVpjTWI0VUJWY3gyMlF4WEE1S09SbndGT3hnblcwUkQ0TUtoSWJkdjZsMU83b0RGbjltZmIyZWprS3FzbFJzSzR6d2hoa1hkT1VEcW9WRW0xYjdkUzE4Q3Q3OFhsU3RPQnVwbm1OYjBmVG9aSzB0TG5qTFFLNktzNkU4WlphVFBOMjhrV2d3NjJITTZaa3YxUHRzbENVakFnQlREcEhkWHE3U1BuaDlPSHY4eFdIWHUyTXlST3NJTGZyTDR6QktVVHI0cFFtSzVkdkFhdw?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 18,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "MARKET",
+      "checked_at_utc": "2026-10-05T10:46:27.654455+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Asian markets turn risk-averse as global yields and geopolitical risks weigh; India shows relative resilience"
+    },
+    {
+      "title": "US market outlook: S&P 500, Dow futures flat as oil surges; will Friday’s inflation data shift Fed bets?",
+      "source": "Global Markets",
+      "publisher": "Livemint",
+      "published": "Thu, 10 Sep 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOQm9SOWEybW1faHIxZkVUVnhjc29NajI2SWJNbHgtMmVQVlNKeEIwa3MtREZ0UVJSNFNNaXBEOGU3TWFFTElWSlA4cjRSbzlpU1N5aDdsVHdUX2xNZEtRaVd2a2k0SEV0dlBJVGlJTjhlZGxGQzFsdWVkYjJMQXpWVlZ5Q2hGQmFlcUZSX29TY2NFWDlMYmtPejQ3TXRtd2ZEaW1LSDgydW5GWUpudkFDamNVaGpOUFRTcnJzTXpqLUwtTmkyNVVnVDFuLVFsMU1kTUFRNDBkS0VsdjFEMkFJZi1ER1hJem42Rkw2c3hWNllySUJzV0Zmdkl0WjFLZVVXY3QxTXZCYzNrNUVtdGfSAZMCQVVfeXFMTzJlTWt3Um9vSUtuUjFfaXdUbUlHOExuY1Zza0hIb0QxdFoyQzNZSWhCTlNPT3pveDFvUnNDZV84WEFSUTVEUDljaFoyQkMxQ3hUamk2bjRkSVhucWhNMmJCT3dyMmRvY21vTHJkUUtpVERvc2RMUHlhT0tDc3pFbzQyaFh6Y3A1MHN4RE1NbVA4QWRRTFF2NkFBV3NSd1dPZExxZ0tyVGJHcjhULW9Zb3FpM0pzXy1jb2xsMHVnc2VOaEtSRjJnT1BJSlpJNFcxaE1HZHI0MEJjNXlyZURwUnl5Q05SMEl3MzZtTFpNOWhxRHdGX2J6TWJvY3Z6WXoxNF9oR3JpWFBkUWVlRWNyNDJMdm8?oc=5",
+      "summary": "",
+      "publisher_domain": "livemint.com",
+      "cluster_id": 19,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "ENERGY",
+      "checked_at_utc": "2026-10-05T10:46:27.654504+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · US market outlook: S&P 500, Dow futures flat as oil surges; will Friday’s inflation data shift Fed bets?"
+    },
+    {
+      "title": "Crude Oil, Geopolitics Drive Market Movement: Analysts",
+      "source": "Global Markets",
+      "publisher": "Rediff MoneyWiz",
+      "published": "Sun, 23 Aug 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPcmwxcGtfNXNwTkZ5RTdNMWJzWl9GVUdYeVI0WGNsb0hBbnAwdVZ3YmZpSTk4TThweXEwSVEyX3A4by16NjgtX1U3blIxNW55NU1QMWd3R2FacXNJYVd3c3lxRjc4OUhkMWZKM2hhVHRVYVVNM1BMbjZDdUt4bnl3WFRFOGFncmJOSUpRc3Z2WTAydjN1V0l6clBKTlIwcXN3aVVLdjNOZ9IBrAFBVV95cUxOdkZOVjZRUWZTVFlZUGt2dkNiRDJ6ZHlpM3k2b2NHeS1jMWZlMG9LSnR6OHpJbmRBRi1DaXFJYmtTWVRBdjFqT1FMdEtfVDN2UHo5Q3oxSnlSSDBKazdpT2hwMENqUXlkNE13R014dHpvVnFORlpPV0d6RzJyQ3A2Y0otUUVyRVJKc240OXlfczQ0ZWp3Q0hpbk15dnBTZ1NzRHo0QjJuQnBHTXB5?oc=5",
+      "summary": "",
+      "publisher_domain": "",
+      "cluster_id": 20,
+      "verification": "SINGLE_SOURCE",
+      "verification_label": "SINGLE SOURCE",
+      "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+      "impact": "NEUTRAL",
+      "impact_reason": "No clear directional impact is established from the headline alone.",
+      "affected": "ENERGY",
+      "checked_at_utc": "2026-10-05T10:46:27.654538+00:00",
+      "evidence_score": 30,
+      "evidence_count": 0,
+      "claim_status": "INSUFFICIENT EVIDENCE",
+      "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+      "agent_status": "NOT_RUN",
+      "display_title": "🟡 INSUFFICIENT EVIDENCE · Crude Oil, Geopolitics Drive Market Movement: Analysts"
+    }
+  ],
+  "watchlist": [
+    {
+      "ticker": "RELIANCE",
+      "last": 1186.4,
+      "change_pct": 1.6,
+      "20D_return_pct": -10.26,
+      "vs_20D_SMA_pct": -4.01,
+      "volume_vs_20D": 1.2,
+      "RSI14": 32.78
+    },
+    {
+      "ticker": "HDFCBANK",
+      "last": 704.8,
+      "change_pct": -2.27,
+      "20D_return_pct": -1.03,
+      "vs_20D_SMA_pct": -1.76,
+      "volume_vs_20D": 2.13,
+      "RSI14": 48.66
+    },
+    {
+      "ticker": "ICICIBANK",
+      "last": 1332.0,
+      "change_pct": 1.63,
+      "20D_return_pct": -6.41,
+      "vs_20D_SMA_pct": -1.33,
+      "volume_vs_20D": 1.43,
+      "RSI14": 36.78
+    },
+    {
+      "ticker": "SBIN",
+      "last": 958.0,
+      "change_pct": 0.41,
+      "20D_return_pct": -5.72,
+      "vs_20D_SMA_pct": -2.72,
+      "volume_vs_20D": 1.0,
+      "RSI14": 36.13
+    },
+    {
+      "ticker": "INFY",
+      "last": 1020.5,
+      "change_pct": -1.4,
+      "20D_return_pct": -9.69,
+      "vs_20D_SMA_pct": -1.57,
+      "volume_vs_20D": 1.27,
+      "RSI14": 45.87
+    },
+    {
+      "ticker": "TCS",
+      "last": 2114.4,
+      "change_pct": 1.9,
+      "20D_return_pct": -8.23,
+      "vs_20D_SMA_pct": -1.45,
+      "volume_vs_20D": 1.65,
+      "RSI14": 39.22
+    },
+    {
+      "ticker": "ITC",
+      "last": 268.9,
+      "change_pct": 5.08,
+      "20D_return_pct": 1.82,
+      "vs_20D_SMA_pct": 1.95,
+      "volume_vs_20D": 3.88,
+      "RSI14": 58.47
+    }
+  ],
+  "watchlist_intelligence": [
+    {
+      "ticker": "ITC",
+      "last": 268.9,
+      "change_pct": 5.08,
+      "20D_return_pct": 1.82,
+      "vs_20D_SMA_pct": 1.95,
+      "volume_vs_20D": 3.88,
+      "RSI14": 58.47,
+      "research_score": 82.0,
+      "research_label": "TOP OPPORTUNITY",
+      "research_confidence": "HIGH",
+      "research_reasons": [
+        "holding above 20D SMA",
+        "positive 20D momentum",
+        "positive latest session",
+        "high volume confirms upside",
+        "constructive RSI"
+      ],
+      "linked_news": 0,
+      "supported_news": 0,
+      "positive_news": 0,
+      "negative_news": 0
+    },
+    {
+      "ticker": "TCS",
+      "last": 2114.4,
+      "change_pct": 1.9,
+      "20D_return_pct": -8.23,
+      "vs_20D_SMA_pct": -1.45,
+      "volume_vs_20D": 1.65,
+      "RSI14": 39.22,
+      "research_score": 47.6,
+      "research_label": "NEUTRAL",
+      "research_confidence": "HIGH",
+      "research_reasons": [
+        "near/below 20D SMA",
+        "weak 20D momentum",
+        "positive latest session",
+        "high volume confirms upside",
+        "2 linked news item(s), 0 supported/corroborated"
+      ],
+      "linked_news": 2,
+      "supported_news": 0,
+      "positive_news": 1,
+      "negative_news": 0
+    },
+    {
+      "ticker": "ICICIBANK",
+      "last": 1332.0,
+      "change_pct": 1.63,
+      "20D_return_pct": -6.41,
+      "vs_20D_SMA_pct": -1.33,
+      "volume_vs_20D": 1.43,
+      "RSI14": 36.78,
+      "research_score": 41.0,
+      "research_label": "NEUTRAL",
+      "research_confidence": "MEDIUM",
+      "research_reasons": [
+        "near/below 20D SMA",
+        "weak 20D momentum",
+        "positive latest session",
+        "above-average volume"
+      ],
+      "linked_news": 0,
+      "supported_news": 0,
+      "positive_news": 0,
+      "negative_news": 0
+    },
+    {
+      "ticker": "INFY",
+      "last": 1020.5,
+      "change_pct": -1.4,
+      "20D_return_pct": -9.69,
+      "vs_20D_SMA_pct": -1.57,
+      "volume_vs_20D": 1.27,
+      "RSI14": 45.87,
+      "research_score": 31.0,
+      "research_label": "RISK",
+      "research_confidence": "MEDIUM",
+      "research_reasons": [
+        "near/below 20D SMA",
+        "weak 20D momentum",
+        "negative latest session",
+        "above-average volume"
+      ],
+      "linked_news": 0,
+      "supported_news": 0,
+      "positive_news": 0,
+      "negative_news": 0
+    },
+    {
+      "ticker": "RELIANCE",
+      "last": 1186.4,
+      "change_pct": 1.6,
+      "20D_return_pct": -10.26,
+      "vs_20D_SMA_pct": -4.01,
+      "volume_vs_20D": 1.2,
+      "RSI14": 32.78,
+      "research_score": 30.4,
+      "research_label": "RISK",
+      "research_confidence": "MEDIUM",
+      "research_reasons": [
+        "below 20D SMA",
+        "weak 20D momentum",
+        "positive latest session",
+        "above-average volume",
+        "weak RSI"
+      ],
+      "linked_news": 1,
+      "supported_news": 0,
+      "positive_news": 0,
+      "negative_news": 1
+    },
+    {
+      "ticker": "SBIN",
+      "last": 958.0,
+      "change_pct": 0.41,
+      "20D_return_pct": -5.72,
+      "vs_20D_SMA_pct": -2.72,
+      "volume_vs_20D": 1.0,
+      "RSI14": 36.13,
+      "research_score": 28.0,
+      "research_label": "RISK",
+      "research_confidence": "MEDIUM",
+      "research_reasons": [
+        "below 20D SMA",
+        "weak 20D momentum"
+      ],
+      "linked_news": 0,
+      "supported_news": 0,
+      "positive_news": 0,
+      "negative_news": 0
+    },
+    {
+      "ticker": "HDFCBANK",
+      "last": 704.8,
+      "change_pct": -2.27,
+      "20D_return_pct": -1.03,
+      "vs_20D_SMA_pct": -1.76,
+      "volume_vs_20D": 2.13,
+      "RSI14": 48.66,
+      "research_score": 26.0,
+      "research_label": "RISK",
+      "research_confidence": "HIGH",
+      "research_reasons": [
+        "near/below 20D SMA",
+        "negative 20D momentum",
+        "negative latest session",
+        "high volume confirms downside"
+      ],
+      "linked_news": 0,
+      "supported_news": 0,
+      "positive_news": 0,
+      "negative_news": 0
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "FMCG",
+      "avg_change_pct": 2.61,
+      "members": 2
+    },
+    {
+      "sector": "Energy",
+      "avg_change_pct": 1.37,
+      "members": 2
+    },
+    {
+      "sector": "IT",
+      "avg_change_pct": 0.25,
+      "members": 2
+    },
+    {
+      "sector": "Banking",
+      "avg_change_pct": -0.08,
+      "members": 3
+    },
+    {
+      "sector": "Auto",
+      "avg_change_pct": -0.08,
+      "members": 1
+    },
+    {
+      "sector": "Pharma",
+      "avg_change_pct": -0.72,
+      "members": 2
+    }
+  ],
   "decision": {
-    "score": 50,
-    "bias": "WAIT",
-    "confidence": "N/A",
+    "score": 25.0,
+    "bias": "BEARISH",
+    "confidence": "HIGH",
+    "regime": "STRONG DOWNTREND",
     "positive_factors": 0,
-    "negative_factors": 0,
-    "evidence": [],
-    "bull_trigger": "",
-    "bear_trigger": "",
-    "invalidation": "",
-    "methodology": "No score is produced while the market is closed."
+    "negative_factors": 4,
+    "evidence": [
+      "NIFTY below 20D SMA",
+      "NIFTY below 50D SMA",
+      "20D momentum negative",
+      "RSI signals weak momentum",
+      "News tone is mixed after evidence weighting",
+      "21 insufficient-evidence story/stories given reduced weight"
+    ],
+    "bull_trigger": "NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+    "bear_trigger": "NIFTY loses its 20D SMA while volatility expands.",
+    "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+    "methodology": "Transparent rule-weighted evidence score. News direction is weighted by claim status; disputed claims are excluded and insufficient-evidence claims receive reduced weight. This is not a probability or trading recommendation."
+  },
+  "specialists": {
+    "agents": {
+      "Watchlist Agent": {
+        "agent": "Watchlist Agent",
+        "status": "READY",
+        "elapsed_ms": 0.2,
+        "data": [
+          {
+            "ticker": "ITC",
+            "last": 268.9,
+            "change_pct": 5.08,
+            "20D_return_pct": 1.82,
+            "vs_20D_SMA_pct": 1.95,
+            "volume_vs_20D": 3.88,
+            "RSI14": 58.47,
+            "research_score": 82.0,
+            "research_label": "TOP OPPORTUNITY",
+            "research_confidence": "HIGH",
+            "research_reasons": [
+              "holding above 20D SMA",
+              "positive 20D momentum",
+              "positive latest session",
+              "high volume confirms upside",
+              "constructive RSI"
+            ],
+            "linked_news": 0,
+            "supported_news": 0,
+            "positive_news": 0,
+            "negative_news": 0
+          },
+          {
+            "ticker": "TCS",
+            "last": 2114.4,
+            "change_pct": 1.9,
+            "20D_return_pct": -8.23,
+            "vs_20D_SMA_pct": -1.45,
+            "volume_vs_20D": 1.65,
+            "RSI14": 39.22,
+            "research_score": 47.6,
+            "research_label": "NEUTRAL",
+            "research_confidence": "HIGH",
+            "research_reasons": [
+              "near/below 20D SMA",
+              "weak 20D momentum",
+              "positive latest session",
+              "high volume confirms upside",
+              "2 linked news item(s), 0 supported/corroborated"
+            ],
+            "linked_news": 2,
+            "supported_news": 0,
+            "positive_news": 1,
+            "negative_news": 0
+          },
+          {
+            "ticker": "ICICIBANK",
+            "last": 1332.0,
+            "change_pct": 1.63,
+            "20D_return_pct": -6.41,
+            "vs_20D_SMA_pct": -1.33,
+            "volume_vs_20D": 1.43,
+            "RSI14": 36.78,
+            "research_score": 41.0,
+            "research_label": "NEUTRAL",
+            "research_confidence": "MEDIUM",
+            "research_reasons": [
+              "near/below 20D SMA",
+              "weak 20D momentum",
+              "positive latest session",
+              "above-average volume"
+            ],
+            "linked_news": 0,
+            "supported_news": 0,
+            "positive_news": 0,
+            "negative_news": 0
+          },
+          {
+            "ticker": "INFY",
+            "last": 1020.5,
+            "change_pct": -1.4,
+            "20D_return_pct": -9.69,
+            "vs_20D_SMA_pct": -1.57,
+            "volume_vs_20D": 1.27,
+            "RSI14": 45.87,
+            "research_score": 31.0,
+            "research_label": "RISK",
+            "research_confidence": "MEDIUM",
+            "research_reasons": [
+              "near/below 20D SMA",
+              "weak 20D momentum",
+              "negative latest session",
+              "above-average volume"
+            ],
+            "linked_news": 0,
+            "supported_news": 0,
+            "positive_news": 0,
+            "negative_news": 0
+          },
+          {
+            "ticker": "RELIANCE",
+            "last": 1186.4,
+            "change_pct": 1.6,
+            "20D_return_pct": -10.26,
+            "vs_20D_SMA_pct": -4.01,
+            "volume_vs_20D": 1.2,
+            "RSI14": 32.78,
+            "research_score": 30.4,
+            "research_label": "RISK",
+            "research_confidence": "MEDIUM",
+            "research_reasons": [
+              "below 20D SMA",
+              "weak 20D momentum",
+              "positive latest session",
+              "above-average volume",
+              "weak RSI"
+            ],
+            "linked_news": 1,
+            "supported_news": 0,
+            "positive_news": 0,
+            "negative_news": 1
+          },
+          {
+            "ticker": "SBIN",
+            "last": 958.0,
+            "change_pct": 0.41,
+            "20D_return_pct": -5.72,
+            "vs_20D_SMA_pct": -2.72,
+            "volume_vs_20D": 1.0,
+            "RSI14": 36.13,
+            "research_score": 28.0,
+            "research_label": "RISK",
+            "research_confidence": "MEDIUM",
+            "research_reasons": [
+              "below 20D SMA",
+              "weak 20D momentum"
+            ],
+            "linked_news": 0,
+            "supported_news": 0,
+            "positive_news": 0,
+            "negative_news": 0
+          },
+          {
+            "ticker": "HDFCBANK",
+            "last": 704.8,
+            "change_pct": -2.27,
+            "20D_return_pct": -1.03,
+            "vs_20D_SMA_pct": -1.76,
+            "volume_vs_20D": 2.13,
+            "RSI14": 48.66,
+            "research_score": 26.0,
+            "research_label": "RISK",
+            "research_confidence": "HIGH",
+            "research_reasons": [
+              "near/below 20D SMA",
+              "negative 20D momentum",
+              "negative latest session",
+              "high volume confirms downside"
+            ],
+            "linked_news": 0,
+            "supported_news": 0,
+            "positive_news": 0,
+            "negative_news": 0
+          }
+        ],
+        "mission": "Rank watched stocks using price and catalyst evidence.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Market Agent": {
+        "agent": "Market Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "snapshot": [
+            {
+              "name": "NIFTY 50",
+              "ticker": "^NSEI",
+              "last": 22555.75,
+              "change_pct": 0.6
+            },
+            {
+              "name": "BANK NIFTY",
+              "ticker": "^NSEBANK",
+              "last": 54714.1,
+              "change_pct": 0.48
+            },
+            {
+              "name": "SENSEX",
+              "ticker": "^BSESN",
+              "last": 72382.47,
+              "change_pct": 0.66
+            },
+            {
+              "name": "INDIA VIX",
+              "ticker": "^INDIAVIX",
+              "last": 14.77,
+              "change_pct": 2.18
+            },
+            {
+              "name": "S&P 500",
+              "ticker": "^GSPC",
+              "last": 7722.72,
+              "change_pct": 0.73
+            },
+            {
+              "name": "NASDAQ",
+              "ticker": "^IXIC",
+              "last": 27190.86,
+              "change_pct": 1.19
+            },
+            {
+              "name": "NIKKEI",
+              "ticker": "^N225",
+              "last": 69946.86,
+              "change_pct": 2.4
+            },
+            {
+              "name": "HANG SENG",
+              "ticker": "^HSI",
+              "last": 24040.34,
+              "change_pct": 0.28
+            },
+            {
+              "name": "USD/INR",
+              "ticker": "INR=X",
+              "last": 96.29,
+              "change_pct": 0.07
+            },
+            {
+              "name": "CRUDE",
+              "ticker": "CL=F",
+              "last": 90.74,
+              "change_pct": -0.41
+            },
+            {
+              "name": "GOLD",
+              "ticker": "GC=F",
+              "last": 4187.2,
+              "change_pct": 0.6
+            }
+          ],
+          "levels": {
+            "NIFTY close": 22555.75,
+            "Previous close": 22421.95,
+            "5D return %": -2.53,
+            "20D return %": -5.52,
+            "5D SMA": 22618.92,
+            "20D SMA": 23203.04,
+            "50D SMA": 23843.82,
+            "20D high": 24005.75,
+            "20D low": 22217.3,
+            "RSI14": 29.87,
+            "range_position_%": 18.9
+          }
+        },
+        "mission": "Establish the current index and macro snapshot.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Sector Agent": {
+        "agent": "Sector Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "sectors": [
+            {
+              "sector": "FMCG",
+              "avg_change_pct": 2.61,
+              "members": 2
+            },
+            {
+              "sector": "Energy",
+              "avg_change_pct": 1.37,
+              "members": 2
+            },
+            {
+              "sector": "IT",
+              "avg_change_pct": 0.25,
+              "members": 2
+            },
+            {
+              "sector": "Banking",
+              "avg_change_pct": -0.08,
+              "members": 3
+            },
+            {
+              "sector": "Auto",
+              "avg_change_pct": -0.08,
+              "members": 1
+            },
+            {
+              "sector": "Pharma",
+              "avg_change_pct": -0.72,
+              "members": 2
+            }
+          ]
+        },
+        "mission": "Assess sector participation and rotation.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Technical Agent": {
+        "agent": "Technical Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "trend_vs_20d": "BELOW",
+          "trend_vs_50d": "BELOW",
+          "rsi14": 29.87,
+          "20d_return_pct": -5.52,
+          "range_position_pct": 18.9
+        },
+        "mission": "Assess trend, momentum and range structure.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Risk Agent": {
+        "agent": "Risk Agent",
+        "status": "READY",
+        "elapsed_ms": 0.0,
+        "data": {
+          "vix_change_pct": 2.18,
+          "sector_positive_share": 0.5,
+          "flags": []
+        },
+        "mission": "Identify volatility, breadth and evidence-quality risks.",
+        "self_check": {
+          "confidence": "LOW",
+          "evidence_state": "INSUFFICIENT",
+          "missing": [
+            "flags"
+          ],
+          "needs_retry": true
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Institutional Agent": {
+        "agent": "Institutional Agent",
+        "status": "READY",
+        "elapsed_ms": 366.8,
+        "data": {
+          "available": true,
+          "date": "01-Oct-2026",
+          "freshness_days": 4,
+          "source": "NSE India",
+          "source_url": "https://www.nseindia.com/reports/fii-dii",
+          "today": {
+            "fii_net": -9484.22,
+            "dii_net": 10041.84,
+            "combined_net": 557.6200000000008
+          },
+          "five_day": {
+            "fii_net": -9484.22,
+            "dii_net": 10041.84,
+            "combined_net": 557.6200000000008
+          },
+          "fii_tone": "SELLING",
+          "dii_tone": "BUYING",
+          "regime": "DIVERGENT FLOWS",
+          "rows": [
+            {
+              "date": "01-Oct-2026",
+              "fii_buy": 12260.26,
+              "fii_sell": 21744.48,
+              "fii_net": -9484.22,
+              "dii_buy": 25420.04,
+              "dii_sell": 15378.2,
+              "dii_net": 10041.84
+            }
+          ]
+        },
+        "mission": "Establish FII/DII positioning from an attributable source chain.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Intraday Agent": {
+        "agent": "Intraday Agent",
+        "status": "READY",
+        "elapsed_ms": 776.1,
+        "data": {
+          "available": true,
+          "ticker": "^NSEI",
+          "symbol": "NIFTY",
+          "name": "NIFTY 50",
+          "mode": "LIVE",
+          "session_date": "2026-10-05",
+          "as_of": "2026-10-05 15:25 IST",
+          "source": "Yahoo Finance market-data feed",
+          "live_feed": {
+            "provider": "yfinance-fallback",
+            "status": "NOT_CONFIGURED",
+            "connected_at": null,
+            "last_tick_at": null,
+            "ticks": 0,
+            "quote_count": 0,
+            "errors": []
+          },
+          "source_url": "https://finance.yahoo.com/",
+          "last": 22555.75,
+          "session_change_pct": 0.6,
+          "vwap": null,
+          "vwap_distance_pct": null,
+          "opening_range_high": 22571.05,
+          "opening_range_low": 22507.55,
+          "opening_range_state": "INSIDE OPENING RANGE",
+          "volume_ratio": null,
+          "volume_spike_6bar": null,
+          "momentum_15m_pct": 0.09,
+          "trend": "SIDEWAYS",
+          "breadth": {
+            "advancers": 4,
+            "decliners": 3,
+            "unchanged": 0,
+            "total": 7,
+            "breadth_ratio": 1.33,
+            "rows": [
+              {
+                "Stock": "ITC",
+                "Change %": 3.62
+              },
+              {
+                "Stock": "ICICIBANK",
+                "Change %": 1.33
+              },
+              {
+                "Stock": "RELIANCE",
+                "Change %": 1.01
+              },
+              {
+                "Stock": "TCS",
+                "Change %": 0.97
+              },
+              {
+                "Stock": "SBIN",
+                "Change %": -0.02
+              },
+              {
+                "Stock": "INFY",
+                "Change %": -2.87
+              },
+              {
+                "Stock": "HDFCBANK",
+                "Change %": -3.69
+              }
+            ]
+          },
+          "levels": {
+            "session_high": 22621.8,
+            "session_low": 22397.5,
+            "recent_resistance": 22569.4,
+            "recent_support": 22461.75,
+            "last": 22555.75
+          },
+          "components": {
+            "Opening Range": 0,
+            "Momentum": 0,
+            "Trend": 0,
+            "Volume": 0,
+            "Breadth": 7
+          },
+          "score": 57,
+          "bias": "NEUTRAL",
+          "confidence": "LOW",
+          "reasons": [
+            "Price remains inside the 15-minute opening range.",
+            "15-minute momentum is muted at 0.09%.",
+            "Short-term moving-average structure is sideways.",
+            "Watchlist breadth is 4 advancing vs 3 declining."
+          ],
+          "synthesis": {
+            "headline": "Signals are mixed — wait for confirmation",
+            "detail": "watchlist breadth positive",
+            "bull_count": 1,
+            "bear_count": 0,
+            "nearest_level": 22569.4,
+            "volume_confirming": false
+          }
+        },
+        "mission": "Assess live market structure using VWAP, opening range and momentum.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "Options Agent": {
+        "agent": "Options Agent",
+        "status": "READY",
+        "elapsed_ms": 819.0,
+        "data": {
+          "available": false,
+          "message": "Option-chain data unavailable from NSE and validated public fallback."
+        },
+        "mission": "Assess NIFTY options positioning from attributable chain data.",
+        "self_check": {
+          "confidence": "MEDIUM",
+          "evidence_state": "READY",
+          "missing": [],
+          "needs_retry": false
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      },
+      "News Agent": {
+        "agent": "News Agent",
+        "status": "READY",
+        "elapsed_ms": 3046.1,
+        "data": [
+          {
+            "title": "Indian benchmark shares post longest weekly losing run in 25 years",
+            "source": "India Markets",
+            "publisher": "Reuters",
+            "published": "Fri, 02 Oct 2026 04:33:13 GMT",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOa2lpSGdlN0dhOTM3eUw3MlQtN183dHZydW95WXVWM2MyTEFaeTlvRUllR29aLWJxT3dvdVNmNlpzTGVldkpIMFNScVVhVEJ5TTU5TDhoVTZZWlpXbENCUHlKMWx3MmJ4bWkyU1E1OGF6Sk9YakxYcHRyM0tWdnlrX0NpQktmLU90VkRRVG5FQXdPZ3c3dFV0N0xndUdrTl9lY0xKZUJsNmY4LS1BYndDNENRZC0?oc=5",
+            "summary": "About Kotak Mahindra Bank Ltd (KTKM.NS) Reuters",
+            "publisher_domain": "reuters.com",
+            "cluster_id": 1,
+            "verification": "SINGLE_SOURCE",
+            "verification_label": "SINGLE SOURCE",
+            "verification_detail": "Only one additional publisher was found in the targeted search. Claim assessment: INSUFFICIENT EVIDENCE. Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification. Evidence strength: 30/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-10-05T10:46:12.092106+00:00",
+            "evidence_score": 30,
+            "evidence_count": 1,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [
+              "tradingview.com"
+            ],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian benchmark shares post longest weekly losing run in 25 years",
+            "research": {
+              "claim": "Indian benchmark shares post longest weekly losing run in 25 years",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Reuters",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+            "source": "India Markets",
+            "publisher": "Livemint",
+            "published": "Thu, 01 Oct 2026 07:00:00 GMT",
+            "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFA2eURra0RNN0hZR0ZxYmMxV00ycGZkVS14M1JaTGFnc2lGeVdLS3NUaDQ0Q0pKSkpLbDcwMUhQN1lwcHJNbmc?oc=5",
+            "summary": "",
+            "publisher_domain": "livemint.com",
+            "cluster_id": 2,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-10-05T10:46:12.852398+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+            "research": {
+              "claim": "Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "The Times of India",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+            "source": "India Markets",
+            "publisher": "Equitymaster",
+            "published": "Mon, 05 Oct 2026 00:30:00 GMT",
+            "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQQl9MeVMwSlZPNjFoWV82anhaSURQSnplczlnNjNYamRISHlaekxGRGRteGwyUklZdUFtbGQ4TTFLckZLX21FVjZYUzdDMkRCZkJHdXUxNlM0cWh4NHcyWTU1dGQtbFQwTzFwRGZMT1JyTjBCNEY2RnZDMkFzSmJyRWR3Z3NrX0M4VGlwSThLUkowYmhmWFhyYUJWa3BBbDc2azVjdC1mRk1PT3paNmoxcmxmSDVqdXhFUWZqNDFuMmRQcmNSVHJGazBKNzNyaUlicExSVkhSMFA3dW1lS1VTV0RLQl84amxKQk1oSjBxNHRIV0RvSEpOMlFSSG81QXpuNkJNeUFoWllEZTQ?oc=5",
+            "summary": "",
+            "publisher_domain": "",
+            "cluster_id": 3,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "POSITIVE",
+            "impact_reason": "Headline language contains positive market-impact signals.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-10-05T10:46:13.509872+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+            "research": {
+              "claim": "ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Equitymaster",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+            "source": "India Markets",
+            "publisher": "Hindustan Times",
+            "published": "Mon, 05 Oct 2026 06:46:43 GMT",
+            "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOUURHNnU0ZHl1dUs0X016Y1V2eVFSb0FrWERUWWstcGo3TGRna2RJdnZaeE5CZFN1SS1mNUozTUQwczNrTHpQWnd6NFhiRHpPWTFpU2ZsdXdyc1VNU19OcjJkU2hzcVJMdVdOTzBmUW5XR2NOclhGRGk0bnBnTldEZ3pvMFp0Rmd3SEFFRXNTcWRJTmxhSm93RUoyRVRiTU1TYko3Ulpmc3lMS3owMXo0SWdMT0o4eTNXbW5PZ3htaWV5U25FMWI00gHMAUFVX3lxTFByc08wRlFNaEpnV1lzTS1HS2QtaHFYLTNMNGpXbnRiSFd2MFMxbUFpc01HUDQ4eUgyZnlBZkVsaG1RT2pEZzB4Tzg4YTZxbTU2b25YOU9qZVA5YlBFckxVdHd2QUJhQWxkaHBaUVc3cWZnWENSTTFlanlKSFZKSUdMcWtuYl8tT1dJRGRwYld5U2lxdVhGaGJtUkxnR0ZYYnJud0pCUEo2dVgyWUF0M2M4Q0ZXWHViU1pzb2phZGNRYnVFNllCMDFRMjNXag?oc=5",
+            "summary": "",
+            "publisher_domain": "hindustantimes.com",
+            "cluster_id": 2,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-10-05T10:46:14.146743+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+            "research": {
+              "claim": "Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Hindustan Times",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+            "source": "India Markets",
+            "publisher": "Business Standard",
+            "published": "Mon, 05 Oct 2026 06:04:51 GMT",
+            "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWVZPYXI5Y25NbVlxYXQybjZST3ZIclFkdEs4TXJwMkl0YWk2Mi15a0JIcF9udmlaSjMtUjdQVTE1MzFJYlI1R0pkTmpoMG5wd2RreklzUjRZUk1TN3QwajNkUURVbGFZVE5JZEY1QmhvVXo5RWoxY1lOQVFZc0p4WVpOcmllcTE5S2dXZUhTamlwOFhjVHU2WVpQS216cF9kRFBic3VYMmtzbWVCdFFsckZXSUQtZm5kaDU0NFNYdDNNM0g5MWhDZGMzR3NDQdIB0wFBVV95cUxQSExOckVkai14cnptdGkxb0daRkdpcHdfQ1ktWnlUYlg4WkdXNGtsRWxsT1Z4dnk2Wmk2Y1RvWmFpbmZiZFZjcGJFa0d1RVltcnZDMmpHNEFTeFFzYmwxbm1iVlBueUpjWWJTQlRoQzFZclFubEJIdG9ZZWdOVkNrY3hzZFdLSWZTdzhZMU91MVNyUW55cnZWUnVBcUpJRGhoSVc0YTJiRF92YXlINUlTY21fVmlBemhNQ3VDOGk3RUFMM1hWazlFazhWNUI1MWtVV1Jv?oc=5",
+            "summary": "IT shares trade mixed post Accenture earnings; HCL Tech, Infy down up to 4% Business Standard",
+            "publisher_domain": "business-standard.com",
+            "cluster_id": 4,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEGATIVE",
+            "impact_reason": "Headline language contains negative market-impact signals.",
+            "affected": "BANKING",
+            "checked_at_utc": "2026-10-05T10:46:16.055984+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+            "research": {
+              "claim": "PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Business Standard",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          },
+          {
+            "title": "Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+            "source": "India Markets",
+            "publisher": "Hindustan Times",
+            "published": "Mon, 05 Oct 2026 03:46:15 GMT",
+            "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOZXF3ODZlOWJ0UHY4Qi1MRVRhczhCX2NDdEVIbG5IYl9RZm9FVm81eVhON09Xcl9PT01OZDhaQU9LQ082dnhqOVU1ZUpPc1ZQS0RaaWo4c1Vkc1FMeFE1Z1Vyb19YSElic2NRSGhZbjZ4ZjFaQ0VOZDFydE1hSXRZbzZvMTdrTGg4cGFGYTl2YlFfeGlNSnFEUFVOWHFOQnRwaGg3ZmRXZkl4aHI1VnplWnZNTjgzNG1nTUxNdG5nY1p1bk8wdlpJczNzck1USkRaSDh3TWY4ai1uWkYyUE84WTg5ejhFanM3SE90aUhiSVVGV3l1RzhR0gH8AUFVX3lxTE52NGdvaURGWkNFOUE3LWhLT1R0eUdaVWtRZElZWFl1MDNNRFRidGJrdHphUHF5a3BHTVRPczJfWUh6UVBKWUtrdzh1Y185RlowMks4LVo3T3dkb0JQU19vVTVWVDVDOVVMU0REb3NWNno4WHBiaEgwclZISER2U0ZQSWJzRXVVLTFCTWJBQmlhRWNROEtKd0FRcmh0LUx1NU9JODlVY2tCaUE5N2NRRVotcGs2RVBUaTJTUWNjcXVzYjdLa29rbmNmQVhKR3ZMU1BmOFJGYnhPcTNBb181cGJ6YlJfUVlCdjczX3A4cFVRdEhCSUd4UkVROEs0SQ?oc=5",
+            "summary": "",
+            "publisher_domain": "hindustantimes.com",
+            "cluster_id": 1,
+            "verification": "UNVERIFIED",
+            "verification_label": "UNVERIFIED",
+            "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+            "impact": "NEUTRAL",
+            "impact_reason": "No clear directional impact is established from the headline alone.",
+            "affected": "MARKET",
+            "checked_at_utc": "2026-10-05T10:46:16.731035+00:00",
+            "evidence_score": 10,
+            "evidence_count": 0,
+            "claim_status": "INSUFFICIENT EVIDENCE",
+            "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+            "agent_status": "ARTICLE_UNAVAILABLE",
+            "verification_sources": [],
+            "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+            "research": {
+              "claim": "Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+              "evidence_state": "INSUFFICIENT",
+              "confidence": "LOW",
+              "independent_publishers": 0,
+              "evidence": [],
+              "attempts": [
+                {
+                  "publisher": "Reuters",
+                  "domain": "news.google.com",
+                  "status": "ARTICLE_UNAVAILABLE"
+                }
+              ],
+              "research_complete": false,
+              "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+              "no_fabrication": true
+            },
+            "research_state": "INSUFFICIENT",
+            "research_confidence": "LOW"
+          }
+        ],
+        "mission": "Verify and summarize market-moving news from publisher evidence.",
+        "self_check": {
+          "confidence": "LOW",
+          "evidence_state": "INSUFFICIENT",
+          "verified_items": 0,
+          "missing": [],
+          "needs_retry": true
+        },
+        "autonomy": {
+          "source_selection": "SPECIALIZED_ENGINE",
+          "self_evaluation": true,
+          "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+          "no_fabrication": true
+        }
+      }
+    },
+    "agent_count": 9,
+    "ready_count": 9,
+    "error_count": 0,
+    "execution": "PARALLEL",
+    "autonomous_protocol": "v4_research_debate",
+    "self_checks": 9,
+    "debates": [
+      {
+        "challenger": "Risk Agent",
+        "target": "Sector Agent",
+        "claim": "Uneven sector participation challenges a broad-market strength conclusion.",
+        "trigger": "Positive sectors do not represent a broad majority.",
+        "severity": "MEDIUM",
+        "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+        "resolution": "PENDING_CHIEF"
+      },
+      {
+        "challenger": "Risk Agent",
+        "target": "News Agent",
+        "claim": "News conclusions lack sufficient independent corroboration.",
+        "trigger": "No news item reached CROSS_CHECKED or CORROBORATED status.",
+        "severity": "MEDIUM",
+        "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+        "resolution": "PENDING_CHIEF"
+      }
+    ],
+    "challenges": [
+      {
+        "challenger": "Risk Agent",
+        "target": "Sector Agent",
+        "claim": "Uneven sector participation challenges a broad-market strength conclusion.",
+        "trigger": "Positive sectors do not represent a broad majority.",
+        "severity": "MEDIUM",
+        "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+        "resolution": "PENDING_CHIEF"
+      },
+      {
+        "challenger": "Risk Agent",
+        "target": "News Agent",
+        "claim": "News conclusions lack sufficient independent corroboration.",
+        "trigger": "No news item reached CROSS_CHECKED or CORROBORATED status.",
+        "severity": "MEDIUM",
+        "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+        "resolution": "PENDING_CHIEF"
+      }
+    ],
+    "challenge_count": 2,
+    "debate_count": 2
+  },
+  "chief_input": {
+    "market": {
+      "levels": {
+        "NIFTY close": 22555.75,
+        "Previous close": 22421.95,
+        "5D return %": -2.53,
+        "20D return %": -5.52,
+        "5D SMA": 22618.92,
+        "20D SMA": 23203.04,
+        "50D SMA": 23843.82,
+        "20D high": 24005.75,
+        "20D low": 22217.3,
+        "RSI14": 29.87,
+        "range_position_%": 18.9
+      },
+      "snapshots": [
+        {
+          "name": "NIFTY 50",
+          "ticker": "^NSEI",
+          "last": 22555.75,
+          "change_pct": 0.6
+        },
+        {
+          "name": "BANK NIFTY",
+          "ticker": "^NSEBANK",
+          "last": 54714.1,
+          "change_pct": 0.48
+        },
+        {
+          "name": "SENSEX",
+          "ticker": "^BSESN",
+          "last": 72382.47,
+          "change_pct": 0.66
+        },
+        {
+          "name": "INDIA VIX",
+          "ticker": "^INDIAVIX",
+          "last": 14.77,
+          "change_pct": 2.18
+        },
+        {
+          "name": "S&P 500",
+          "ticker": "^GSPC",
+          "last": 7722.72,
+          "change_pct": 0.73
+        },
+        {
+          "name": "NASDAQ",
+          "ticker": "^IXIC",
+          "last": 27190.86,
+          "change_pct": 1.19
+        },
+        {
+          "name": "NIKKEI",
+          "ticker": "^N225",
+          "last": 69946.86,
+          "change_pct": 2.4
+        },
+        {
+          "name": "HANG SENG",
+          "ticker": "^HSI",
+          "last": 24040.34,
+          "change_pct": 0.28
+        },
+        {
+          "name": "USD/INR",
+          "ticker": "INR=X",
+          "last": 96.29,
+          "change_pct": 0.07
+        },
+        {
+          "name": "CRUDE",
+          "ticker": "CL=F",
+          "last": 90.74,
+          "change_pct": -0.41
+        },
+        {
+          "name": "GOLD",
+          "ticker": "GC=F",
+          "last": 4187.2,
+          "change_pct": 0.6
+        }
+      ]
+    },
+    "sectors": [
+      {
+        "sector": "FMCG",
+        "avg_change_pct": 2.61,
+        "members": 2
+      },
+      {
+        "sector": "Energy",
+        "avg_change_pct": 1.37,
+        "members": 2
+      },
+      {
+        "sector": "IT",
+        "avg_change_pct": 0.25,
+        "members": 2
+      },
+      {
+        "sector": "Banking",
+        "avg_change_pct": -0.08,
+        "members": 3
+      },
+      {
+        "sector": "Auto",
+        "avg_change_pct": -0.08,
+        "members": 1
+      },
+      {
+        "sector": "Pharma",
+        "avg_change_pct": -0.72,
+        "members": 2
+      }
+    ],
+    "watchlist": [
+      {
+        "ticker": "RELIANCE",
+        "last": 1186.4,
+        "change_pct": 1.6,
+        "20D_return_pct": -10.26,
+        "vs_20D_SMA_pct": -4.01,
+        "volume_vs_20D": 1.2,
+        "RSI14": 32.78
+      },
+      {
+        "ticker": "HDFCBANK",
+        "last": 704.8,
+        "change_pct": -2.27,
+        "20D_return_pct": -1.03,
+        "vs_20D_SMA_pct": -1.76,
+        "volume_vs_20D": 2.13,
+        "RSI14": 48.66
+      },
+      {
+        "ticker": "ICICIBANK",
+        "last": 1332.0,
+        "change_pct": 1.63,
+        "20D_return_pct": -6.41,
+        "vs_20D_SMA_pct": -1.33,
+        "volume_vs_20D": 1.43,
+        "RSI14": 36.78
+      },
+      {
+        "ticker": "SBIN",
+        "last": 958.0,
+        "change_pct": 0.41,
+        "20D_return_pct": -5.72,
+        "vs_20D_SMA_pct": -2.72,
+        "volume_vs_20D": 1.0,
+        "RSI14": 36.13
+      },
+      {
+        "ticker": "INFY",
+        "last": 1020.5,
+        "change_pct": -1.4,
+        "20D_return_pct": -9.69,
+        "vs_20D_SMA_pct": -1.57,
+        "volume_vs_20D": 1.27,
+        "RSI14": 45.87
+      },
+      {
+        "ticker": "TCS",
+        "last": 2114.4,
+        "change_pct": 1.9,
+        "20D_return_pct": -8.23,
+        "vs_20D_SMA_pct": -1.45,
+        "volume_vs_20D": 1.65,
+        "RSI14": 39.22
+      },
+      {
+        "ticker": "ITC",
+        "last": 268.9,
+        "change_pct": 5.08,
+        "20D_return_pct": 1.82,
+        "vs_20D_SMA_pct": 1.95,
+        "volume_vs_20D": 3.88,
+        "RSI14": 58.47
+      }
+    ],
+    "news": [
+      {
+        "title": "Indian benchmark shares post longest weekly losing run in 25 years",
+        "source": "India Markets",
+        "publisher": "Reuters",
+        "published": "Fri, 02 Oct 2026 04:33:13 GMT",
+        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOa2lpSGdlN0dhOTM3eUw3MlQtN183dHZydW95WXVWM2MyTEFaeTlvRUllR29aLWJxT3dvdVNmNlpzTGVldkpIMFNScVVhVEJ5TTU5TDhoVTZZWlpXbENCUHlKMWx3MmJ4bWkyU1E1OGF6Sk9YakxYcHRyM0tWdnlrX0NpQktmLU90VkRRVG5FQXdPZ3c3dFV0N0xndUdrTl9lY0xKZUJsNmY4LS1BYndDNENRZC0?oc=5",
+        "summary": "About Kotak Mahindra Bank Ltd (KTKM.NS) Reuters",
+        "publisher_domain": "reuters.com",
+        "cluster_id": 1,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one additional publisher was found in the targeted search. Claim assessment: INSUFFICIENT EVIDENCE. Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification. Evidence strength: 30/100.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:12.092106+00:00",
+        "evidence_score": 30,
+        "evidence_count": 1,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [
+          "tradingview.com"
+        ],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian benchmark shares post longest weekly losing run in 25 years"
+      },
+      {
+        "title": "Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+        "source": "India Markets",
+        "publisher": "Livemint",
+        "published": "Thu, 01 Oct 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFA2eURra0RNN0hZR0ZxYmMxV00ycGZkVS14M1JaTGFnc2lGeVdLS3NUaDQ0Q0pKSkpLbDcwMUhQN1lwcHJNbmc?oc=5",
+        "summary": "",
+        "publisher_domain": "livemint.com",
+        "cluster_id": 2,
+        "verification": "UNVERIFIED",
+        "verification_label": "UNVERIFIED",
+        "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:12.852398+00:00",
+        "evidence_score": 10,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates"
+      },
+      {
+        "title": "ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+        "source": "India Markets",
+        "publisher": "Equitymaster",
+        "published": "Mon, 05 Oct 2026 00:30:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQQl9MeVMwSlZPNjFoWV82anhaSURQSnplczlnNjNYamRISHlaekxGRGRteGwyUklZdUFtbGQ4TTFLckZLX21FVjZYUzdDMkRCZkJHdXUxNlM0cWh4NHcyWTU1dGQtbFQwTzFwRGZMT1JyTjBCNEY2RnZDMkFzSmJyRWR3Z3NrX0M4VGlwSThLUkowYmhmWFhyYUJWa3BBbDc2azVjdC1mRk1PT3paNmoxcmxmSDVqdXhFUWZqNDFuMmRQcmNSVHJGazBKNzNyaUlicExSVkhSMFA3dW1lS1VTV0RLQl84amxKQk1oSjBxNHRIV0RvSEpOMlFSSG81QXpuNkJNeUFoWllEZTQ?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 3,
+        "verification": "UNVERIFIED",
+        "verification_label": "UNVERIFIED",
+        "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+        "impact": "POSITIVE",
+        "impact_reason": "Headline language contains positive market-impact signals.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:13.509872+00:00",
+        "evidence_score": 10,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today"
+      },
+      {
+        "title": "Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+        "source": "India Markets",
+        "publisher": "Hindustan Times",
+        "published": "Mon, 05 Oct 2026 06:46:43 GMT",
+        "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOUURHNnU0ZHl1dUs0X016Y1V2eVFSb0FrWERUWWstcGo3TGRna2RJdnZaeE5CZFN1SS1mNUozTUQwczNrTHpQWnd6NFhiRHpPWTFpU2ZsdXdyc1VNU19OcjJkU2hzcVJMdVdOTzBmUW5XR2NOclhGRGk0bnBnTldEZ3pvMFp0Rmd3SEFFRXNTcWRJTmxhSm93RUoyRVRiTU1TYko3Ulpmc3lMS3owMXo0SWdMT0o4eTNXbW5PZ3htaWV5U25FMWI00gHMAUFVX3lxTFByc08wRlFNaEpnV1lzTS1HS2QtaHFYLTNMNGpXbnRiSFd2MFMxbUFpc01HUDQ4eUgyZnlBZkVsaG1RT2pEZzB4Tzg4YTZxbTU2b25YOU9qZVA5YlBFckxVdHd2QUJhQWxkaHBaUVc3cWZnWENSTTFlanlKSFZKSUdMcWtuYl8tT1dJRGRwYld5U2lxdVhGaGJtUkxnR0ZYYnJud0pCUEo2dVgyWUF0M2M4Q0ZXWHViU1pzb2phZGNRYnVFNllCMDFRMjNXag?oc=5",
+        "summary": "",
+        "publisher_domain": "hindustantimes.com",
+        "cluster_id": 2,
+        "verification": "UNVERIFIED",
+        "verification_label": "UNVERIFIED",
+        "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:14.146743+00:00",
+        "evidence_score": 10,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News"
+      },
+      {
+        "title": "PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+        "source": "India Markets",
+        "publisher": "Business Standard",
+        "published": "Mon, 05 Oct 2026 06:04:51 GMT",
+        "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWVZPYXI5Y25NbVlxYXQybjZST3ZIclFkdEs4TXJwMkl0YWk2Mi15a0JIcF9udmlaSjMtUjdQVTE1MzFJYlI1R0pkTmpoMG5wd2RreklzUjRZUk1TN3QwajNkUURVbGFZVE5JZEY1QmhvVXo5RWoxY1lOQVFZc0p4WVpOcmllcTE5S2dXZUhTamlwOFhjVHU2WVpQS216cF9kRFBic3VYMmtzbWVCdFFsckZXSUQtZm5kaDU0NFNYdDNNM0g5MWhDZGMzR3NDQdIB0wFBVV95cUxQSExOckVkai14cnptdGkxb0daRkdpcHdfQ1ktWnlUYlg4WkdXNGtsRWxsT1Z4dnk2Wmk2Y1RvWmFpbmZiZFZjcGJFa0d1RVltcnZDMmpHNEFTeFFzYmwxbm1iVlBueUpjWWJTQlRoQzFZclFubEJIdG9ZZWdOVkNrY3hzZFdLSWZTdzhZMU91MVNyUW55cnZWUnVBcUpJRGhoSVc0YTJiRF92YXlINUlTY21fVmlBemhNQ3VDOGk3RUFMM1hWazlFazhWNUI1MWtVV1Jv?oc=5",
+        "summary": "IT shares trade mixed post Accenture earnings; HCL Tech, Infy down up to 4% Business Standard",
+        "publisher_domain": "business-standard.com",
+        "cluster_id": 4,
+        "verification": "UNVERIFIED",
+        "verification_label": "UNVERIFIED",
+        "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+        "impact": "NEGATIVE",
+        "impact_reason": "Headline language contains negative market-impact signals.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:16.055984+00:00",
+        "evidence_score": 10,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%"
+      },
+      {
+        "title": "Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+        "source": "India Markets",
+        "publisher": "Hindustan Times",
+        "published": "Mon, 05 Oct 2026 03:46:15 GMT",
+        "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOZXF3ODZlOWJ0UHY4Qi1MRVRhczhCX2NDdEVIbG5IYl9RZm9FVm81eVhON09Xcl9PT01OZDhaQU9LQ082dnhqOVU1ZUpPc1ZQS0RaaWo4c1Vkc1FMeFE1Z1Vyb19YSElic2NRSGhZbjZ4ZjFaQ0VOZDFydE1hSXRZbzZvMTdrTGg4cGFGYTl2YlFfeGlNSnFEUFVOWHFOQnRwaGg3ZmRXZkl4aHI1VnplWnZNTjgzNG1nTUxNdG5nY1p1bk8wdlpJczNzck1USkRaSDh3TWY4ai1uWkYyUE84WTg5ejhFanM3SE90aUhiSVVGV3l1RzhR0gH8AUFVX3lxTE52NGdvaURGWkNFOUE3LWhLT1R0eUdaVWtRZElZWFl1MDNNRFRidGJrdHphUHF5a3BHTVRPczJfWUh6UVBKWUtrdzh1Y185RlowMks4LVo3T3dkb0JQU19vVTVWVDVDOVVMU0REb3NWNno4WHBiaEgwclZISER2U0ZQSWJzRXVVLTFCTWJBQmlhRWNROEtKd0FRcmh0LUx1NU9JODlVY2tCaUE5N2NRRVotcGs2RVBUaTJTUWNjcXVzYjdLa29rbmNmQVhKR3ZMU1BmOFJGYnhPcTNBb181cGJ6YlJfUVlCdjczX3A4cFVRdEhCSUd4UkVROEs0SQ?oc=5",
+        "summary": "",
+        "publisher_domain": "hindustantimes.com",
+        "cluster_id": 1,
+        "verification": "UNVERIFIED",
+        "verification_label": "UNVERIFIED",
+        "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:16.731035+00:00",
+        "evidence_score": 10,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex and Nifty open higher after longest weekly decline in 25 years | Business News"
+      },
+      {
+        "title": "AI investment boom supports markets, but slowdown could trigger sharp repricing: RBI Governor Malhotra",
+        "source": "RBI / Economy",
+        "publisher": "The New Indian Express",
+        "published": "Sat, 03 Oct 2026 08:16:37 GMT",
+        "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQdVM1SmhZVEwzeDhkNk1Ib2RmaEhFLXViMC1IMm5wX0x6bFgwS0IwNy0tOUR5NF9wY2JvbnNOaGo3Ml9SWjEzWHRIVnZrUUgzQzhNQVFrVENzcENtNXo1d2dmazJObWJKcFFVSkN4NnFiSzNPS0oxR1dDTjR4anBmd2JORk5YdXByUWl2b2hOVXBzUDB2SnE2TWtXNEdQZDRQUU8tTlJNTldmX1VEOThyN2UtSHZjTUJ3eHV6QTZrQWk5UnFXbWQ1aFBBNk5xeThBblBFclhGdUlXLW5wSkJhV21zajUtbDNzSFHSAfcBQVVfeXFMTWw0VjB1YW11YW9Hd0VrclFIUi1HVjdHMDNrMmlaRnRhV1NfYnZXcXBxTkNiY29WY2hTeWMwRUs3OTRDV2x1cXBteGlsS1FsZkc1TUJPTnpPVXlGYjlzd0pjRG9EQWttRW1idVAzQ2FaTmJPb2FZQl9Zalh6MXZrS1BfMURXTGRmVm9FdHN1WXFlNW9iNmdtV3FhbXZjN3RXblNNZ3RzTGQ1cXlsdkI1c01pcVFxRlM1eVZQQWFxanNBeEZuREt3cVJNbG91ak1BTkI5S21MWUZRV0pVVE9NVy00YWFWdGJPanZvN1hJRk9WWkh2ak9ZQQ?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 5,
+        "verification": "UNVERIFIED",
+        "verification_label": "UNVERIFIED",
+        "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:17.365568+00:00",
+        "evidence_score": 10,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · AI investment boom supports markets, but slowdown could trigger sharp repricing: RBI Governor Malhotra"
+      },
+      {
+        "title": "Today's financial resilience may not imply tomorrow's immunity: RBI Guv",
+        "source": "RBI / Economy",
+        "publisher": "Business Standard",
+        "published": "Sat, 03 Oct 2026 08:58:47 GMT",
+        "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNNW1aY2FWYUtqTVhqa0JZQndLckU3YkZ4SXVXMUxpLS1NZW4zNW9kMWJTT1A3VEs2NEVpbmFnVEpPZTZYaVhoMElqLVcyZkx5U08yZngxay1NdnVyQUttWWNPd1d4bnhwQkU4MTVFc0J1Q2VlS3M0eHZGeTBKUE1FQTZGV1dJZm5GY2FkRkZxQ0NyWU5pNVVZa0dWNmlLNmVkdTBkd3hhQnRuYmkwOU4yQWpOSWh1UG1YaVFHUHR6bXBrVlB0RkVqQ3VPSUpZc0HSAc8BQVVfeXFMTTVtWmNhVmFLak1YamtCWUJ3S3JFN2JGeEl1VzFMaS0tTWVuMzVvZDFiU09QN1RLNjRFaW5hZ1RKT2U2WGlYaDBJai1XMmZMeVNPMmZ4MWstTXZ1ckFLbVljT3dXeG54cEJFODE1RXNCdUNlZUtzNHh2RnkwSlBNRUE2RldXSWZuRmNhZEZGcUNDcllOaTVVWWtHVjZpSzZlZHUwZHd4YUJ0bmJpMDlOMkFqTklodVBtWGlRR1B0em1wa1ZQdEZFakN1T0lKWXNB?oc=5",
+        "summary": "India's answer to a risk-priced world is openness, not fragility: PK Mishra Business Standard",
+        "publisher_domain": "business-standard.com",
+        "cluster_id": 6,
+        "verification": "UNVERIFIED",
+        "verification_label": "UNVERIFIED",
+        "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:19.334796+00:00",
+        "evidence_score": 10,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "verification_sources": [],
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Today's financial resilience may not imply tomorrow's immunity: RBI Guv"
+      },
+      {
+        "title": "Strong economy, weak markets: RBI deputy governor flags disconnect in India",
+        "source": "RBI / Economy",
+        "publisher": "Telegraph India",
+        "published": "Thu, 24 Sep 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMlhyTlVXaWZPT2ZOV0hmTDB4bnk3M0Y4RjYteFlkbDdiY0o4dU56TFZROVNibDFzMVdldGJqNG1KVWR4clVmRFpURURmcVd4UDZmYkRhZzRROXNkQWhPQmlQbTJUNkhEMGdYbmYzNjNUTDJ0STBKclhhX3BOQ0RHZi1kVTY3N1VfdnExYk5IZk94dXFvMFdBWW5NdTdFR0lsc2JQSlZ2YjFZRWJ0VDNUNFByTFVDSGxvY3owM3ROTkpCVjZZTWVzSkdraEd2bm_SAdQBQVVfeXFMTmpMVVNVa0tRZEM0bk9ISHRuVjN6QXhSY1NZM3htY2NwdnJQLXdEZnA0X2hkNE1qZzRNU3g0UzJHcC0yV1RKX1Z5dGU5WFZxN0tMcTlzNlM1V0puMFVpaUxpU2dRQnkydUlKaHpXVm5HWFlzREJTYUMtR3lTcnIwM0hpX0YyWE5FUzBRYU4wOV9oS012X0VhSFp4QTR4NWQ5ZmlfdXFxZ3RDaTB5RjNlaHJoamtpcHBLbjVCcWw1Nlh4cUEwZXc2S3psVVRIZENCQzZLeTI?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 7,
+        "verification": "CORROBORATED",
+        "verification_label": "CORROBORATED",
+        "verification_detail": "Similar reporting is present across multiple publisher identities in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:20.058362+00:00",
+        "evidence_score": 65,
+        "evidence_count": 0,
+        "claim_status": "SUPPORTED",
+        "claim_status_detail": "The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟢 SUPPORTED · Strong economy, weak markets: RBI deputy governor flags disconnect in India"
+      },
+      {
+        "title": "RBI DG Gupta flags disconnect between India’s strong economy and equity markets - CNBC TV18",
+        "source": "RBI / Economy",
+        "publisher": "LinkedIn",
+        "published": "Wed, 23 Sep 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbzhjbDZUd2NNdkljaXZ5OUo3dUJvc2J5M19WanhYY2FwVmRBZlRzLUs3dVpxOGpCN0VGY3RsdEV0YWwyaDNpWmFVLVdGSzhnbUlyYjJWUTdURUlyeW96dFd0VU9wQWZGV29KWThfYVNoTFZWb19HYzB5cmNvTkc4d0dWV0EtYjlCVnpGSEV5UUdQNkVXSFBLUzRpV24xaFJndExDSjBMUDlNZkNXQkRWZV9LSnVCSFdWSUE?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 7,
+        "verification": "CORROBORATED",
+        "verification_label": "CORROBORATED",
+        "verification_detail": "Similar reporting is present across multiple publisher identities in the live feeds.",
+        "impact": "POSITIVE",
+        "impact_reason": "Headline language contains positive market-impact signals.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:20.813519+00:00",
+        "evidence_score": 65,
+        "evidence_count": 0,
+        "claim_status": "SUPPORTED",
+        "claim_status_detail": "The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟢 SUPPORTED · RBI DG Gupta flags disconnect between India’s strong economy and equity markets - CNBC TV18"
+      },
+      {
+        "title": "RBI DG Gupta flags disconnect between India’s strong economy and equity markets",
+        "source": "RBI / Economy",
+        "publisher": "CNBC TV18",
+        "published": "Wed, 23 Sep 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPa3hyY2NGREVrakllaENtMEdRUkV0SGRUTWkxMnQxYi1tT1NwLTJSUTJ5YS1aX1hMdnRqZTRrRkttRTk2aHFlMUk1OU5sNGNya0l3VWRlbUd2bUd5cVQyQ3ZXRU5OTUtrUmpGZ3ZzZlFmbVhKMFluT0E5S0lFV196YmVPYUo0dG91NGVvQ3lfeVFESThDT3FmVzM1SHZlTWRTeFZkLWs1SVRuZFhxSVMzZEY3RXJqTVJaTkpoR1930gHDAUFVX3lxTE8tcXkzdVl3NzNTSHk0dkN6X2p6cHBXLVVFVmlDYTJXMmVhU1FBTkVtWEpPMldSVWJNdW02WkNLVTcwNW01eUVVb2hhbS1LYXp5TWpnQ2VSRzFjRzhfWlZxb2ZlNWtTY21jQTNRSVFlR1J4ajNiX3R6eFc2cEs2M0NpdVVHblJ3ckVoZ2U4TENoN3V0VHU0ejhTa094aUkyRl9PV0wwN05YUkNyN0N4NGExTFhsVDJPZ0pqUGN5enBiZ3dBRQ?oc=5",
+        "summary": "",
+        "publisher_domain": "cnbctv18.com",
+        "cluster_id": 7,
+        "verification": "CORROBORATED",
+        "verification_label": "CORROBORATED",
+        "verification_detail": "Similar reporting is present across multiple publisher identities in the live feeds.",
+        "impact": "POSITIVE",
+        "impact_reason": "Headline language contains positive market-impact signals.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:21.561788+00:00",
+        "evidence_score": 65,
+        "evidence_count": 0,
+        "claim_status": "SUPPORTED",
+        "claim_status_detail": "The event is supported by multiple publisher identities in the live feeds. This supports the existence of the reported event; individual details still require primary-source confirmation.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟢 SUPPORTED · RBI DG Gupta flags disconnect between India’s strong economy and equity markets"
+      },
+      {
+        "title": "India's Economy Resilient Despite Global Risks: RBI Bulletin",
+        "source": "RBI / Economy",
+        "publisher": "Rediff MoneyWiz",
+        "published": "Fri, 25 Sep 2026 17:24:15 GMT",
+        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQYVFHajRvVjJPUXV6RkhnaWZDQ1FJamkxN3pRdkV1RXpuMWNQQXdLYWFNX2pMZUJQc0g0eUZmM3ZwUEU3NmQ4S0ppUmVIZ1Jzc1JYZENvNWc4THNsNHo3Z29UU0NhU0htSUEzYXFrUElJRGhGUTM5SzFJbTJpUjFTVUd4T2N6VEJrQTFpRHJ6enppZGtCMk5hUVgxRkJnTDBQaGdiaDZQV1VGTWd3RmV1TNIBtgFBVV95cUxPUnhVei1NOVNZcDBsX3VOemhjRlNaWE83WnB0S01ZY2t2VEV6QzlzRklsZXM5N0MybVN1bGc4NVlKbEFqTWZBSWUyZ3N3ODJPV1d3VzU1RGdTMXRlYzBaaWdYZHY5UlVqR193MDZ0MUp3cXFpSzdWd2sxdDN5cVlSbThpUXFTMUVZUXp4cmRuWTNVSTVNZFhNeFBhdy04UlMwckM1N2ZZMGVKaExKSFAwVnhQcXhnQQ?oc=5",
+        "summary": "Uday Kotak: Build Domestic Risk Capital, Cut Foreign Reliance Rediff MoneyWiz",
+        "publisher_domain": "",
+        "cluster_id": 8,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:23.049925+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · India's Economy Resilient Despite Global Risks: RBI Bulletin"
+      },
+      {
+        "title": "TCS, Infosys, Wipro shares ahead of Q2 results: Explained | What Accenture's strong earnings mean for Indian IT stocks",
+        "source": "Indian Companies",
+        "publisher": "Livemint",
+        "published": "Sat, 03 Oct 2026 11:38:25 GMT",
+        "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPQ1NnVU5Mb1F1NlQ5d3FVSi1xMTJnMFJlYVNiVDlCRXlDRzRvQkJZZ3MybzhRdU56VWJpVjllUTNESTBFUngwRVlzY1VROUxuV1NDS2czbnpLcFFDLWhvelNmRmVVWTRJbUxfN19Zbll4SGxoR29oUkEtV01fM3ZIMWZyR2hKbWVnSXk4bzRPQTE2THBxRTNhTmkyNkVrckg5ajZsanBjd3dUVGp0bjA5OXNSbEcwWC1FcWlhSWtXMEliWjc2VFZWdUhCTWdObUthQVNpT2hCQVRWZVRSeGVJbUdOdU5aM1p6cFdTS3JRNllNSnp6ejExZGxlV3hXeUhWRm5IY1lpYXQzR2JyRGNv0gGUAkFVX3lxTFBFcjQzVzdKWVdkVFpHb2RrejFxOWJta3VJZ1laVDVRWmtKZFptMEhuaEJNYnZRM2ZZMzhlSFVuaThpZEJIME5hamxXNThWWEpVbkR1LXVuYUxpUE10R2ppVi04aXdzUjV5RWRjOFdneFdWenpUVFJfcjRqRFFCLTF5WDhnYUxyRnVDWnFROVh5emtPMXZ5TUNFU2hMTEpaZ1FINktNWmt5alhsTVdLaXViT0JvZUhVZ2xkSmNPSkY5NERaVmRheE5RWDZDM0xUbFl0XzAwMlEyeXpXYTNvSFpkdkZPOU52MEdjTUFBTGwxWGNETWljcXNmaFluNG5qbDFNbUgta2hrMzhGVlJZcEZvd1NnYw?oc=5",
+        "summary": "",
+        "publisher_domain": "livemint.com",
+        "cluster_id": 9,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "POSITIVE",
+        "impact_reason": "Headline language contains positive market-impact signals.",
+        "affected": "IT",
+        "checked_at_utc": "2026-10-05T10:46:23.793807+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · TCS, Infosys, Wipro shares ahead of Q2 results: Explained | What Accenture's strong earnings mean for Indian IT stocks"
+      },
+      {
+        "title": "IT powers Indian shares to weekly gains; Reliance, bank earnings eyed",
+        "source": "Indian Companies",
+        "publisher": "Reuters",
+        "published": "Fri, 17 Jul 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPbGF0TVI5MFFQVjZIYVVVZHQyMU5tUWlJLTFUZ2lwNVhwV0F5bVg5UUJLN2o3UTZiRFotcS0xVUUtX0dQRVN2d2lZZ1B2a1A4SW85aXcyV2VveW5leEdZUXJvZXplV0lTX1FzU3BBaHJacG1UNGNWbnFlUlpLY1BFaHctQVhSWkZuS05WZUpBSHNMUFR6czJid3liTU1ZOUFCNFpwMFdRXzI4dw?oc=5",
+        "summary": "Indian shares notch monthly gains as AI unwind, upbeat earnings draw foreign inflows sg.finance.yahoo.com",
+        "publisher_domain": "reuters.com",
+        "cluster_id": 10,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEGATIVE",
+        "impact_reason": "Headline language contains negative market-impact signals.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:25.797242+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · IT powers Indian shares to weekly gains; Reliance, bank earnings eyed"
+      },
+      {
+        "title": "The Cummins India Limited (NSE:CUMMINSIND) First-Quarter Results Are Out And Analysts Have Published New Forecasts",
+        "source": "Indian Companies",
+        "publisher": "Simply Wall Street",
+        "published": "Sat, 08 Aug 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRlFja2ZsczVRV0lDeDgydWtFNmpKSnFFcnhhakRXXzlCc0h6dk9LOUtwZXpiZVl1WkJFSGtNbVdmaUVIN1dNOG1RVDRKQ1NyTU15LUwyczdIS0dNdTJlbkdUXzh3b0JtQmRGOTAzd1ktaVlxN0o5aS1DUzBTbEZiOE0yVXQ5NHNoSWdORUxSX091Zlo1UTl3QXNZbmQxeDBwT283QW5ZTmZHSWV2NW5UUGd2eHNFcWhzZUU2ZDZyemNTblRSNnZpVUU5TDRZRm1sRkNrUVE1QjdUZnd0Zlg3TtIB5gFBVV95cUxPZV9OUzlzTGRDWmZZa3M0WTJfVHJUa0xxcEZkcFNRS2ZUdlRqNHM3dEVwSmV3XzBaR0FIY3I5LTEwXzFodU1jcy1vWTBOX1RVMHdNX0NBc1Jhbkl0Ynh2S0wzcVBxelRXOGtkVmJyNzNLSFRnQ0YtYUxQWHZjZm13em5TNDFTNUU0Q3ZxSjQ4Y3pwRXhoNFlhek9EU1k5UE1qaU9maXc5U2czNWpUWEgtMUQwaktTQmdiLVZCX1RDU0tXcnZVdTA0REVBV2g2YlJOSHY3OUhLak5raXVRU2l1V1ppTFdtQQ?oc=5",
+        "summary": "Cummins India (NSEI:CUMMINSIND) Stock Forecast & Analyst Predictions Simply Wall Street",
+        "publisher_domain": "",
+        "cluster_id": 11,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:27.030166+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · The Cummins India Limited (NSE:CUMMINSIND) First-Quarter Results Are Out And Analysts Have Published New Forecasts"
+      },
+      {
+        "title": "Cipla Share Price Falls Over 3% After Q1 FY27 Results Disappoint Investors; Profit Drops 39%",
+        "source": "Indian Companies",
+        "publisher": "India Infoline",
+        "published": "Thu, 23 Jul 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOaERkaHZ5ck1sb0dINjF0VFFEWHlNS3lnaFVmQTNtaFpDaWlTekNRWXZYMndCU1ZFQTM1VU5lQ1Z6U193VkFMVElyQjMxUkhqVmFsTWJ0NExTYzg5dnltOExGSnozRWV0YUtpVlgzdThFWUxYUWNWRnd1Tmhfa0JaeXdzd1ZyMi1ZTWxiU2FIMF9FRnl4aG0xeHBYeThFSDBmT3JDSmpidTZaNzNJeGRBcHNadERzclhEaUhETVM2YTlMNHhiT1ZEV0hkYjRuUQ?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 12,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEGATIVE",
+        "impact_reason": "Headline language contains negative market-impact signals.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:27.654140+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "ARTICLE_UNAVAILABLE",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Cipla Share Price Falls Over 3% After Q1 FY27 Results Disappoint Investors; Profit Drops 39%"
+      },
+      {
+        "title": "Q1 results: TCS, DMart, Indian Bank among 31 companies with four straight quarters of profit growth",
+        "source": "Indian Companies",
+        "publisher": "Upstox",
+        "published": "Sun, 12 Jul 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxOZjNRV2hkRm92d0tsZmxya0o5ZXZYV2E3ZXh4YUppVVN5S2toZzVaX1BjVlJhNFVJelRrTXpNbHlDSVQtbHpibFRyd0xZejZhS1lLUzl5WGVGaUZoV3V1M09LOUgyQTBoS0dfN0pDUkFtRkRjdGc4VjJfMlBFQ2FCeDBaanRpaEVZY3NReTdjWHlieG5EemZWaWFrVndoSGtUWUw2ZmUtOVoyamVMZF9rdkJqNUU2T0xlc0Q1LXpKZWtob1hhZHhfR2lVRUdxR2haNFFPbUVYQXBMZHZNS2daeVhIUGhrY0hiMTFHb28xbXBZN3VBVDE3dDJhNmVtZw?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 13,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:27.654217+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Q1 results: TCS, DMart, Indian Bank among 31 companies with four straight quarters of profit growth"
+      },
+      {
+        "title": "Indian IT stocks slump up to 7% as Accenture cuts revenue outlook, fueling fresh concerns over sector growth",
+        "source": "Indian Companies",
+        "publisher": "CNBC",
+        "published": "Fri, 19 Jun 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQaWIyTmhWUzF5bmJDUGxRNllGWnRDdzQ4cFdwcXNyWTBvV3Z6RUJLLUk0cnBTaGRKYnJ0aVREQ2hFby1wb0RDcXRYNHdOOVJxZkxzbVBoUFRLWUJiRkNGTHRDdW14WmNaNHFVZjBYZDQzdzMtZ0tWRkNTVDBkZkctRVdUM1NHRTdlQUhvcERIOGxpWUnSAZgBQVVfeXFMTkotXy1kZDlSTTJBV3lFazlSV21TZjZvcjVORlFRdTJqRDlXbUFPRzVjTFhIcmU1YmU2azl1UVNKY1BkMThQV3VRV1FwU0pHOGl2MHRhZEUyTEg1VG9TYWhGVkxMS3Y2YkV6VFZXQ2tHb2N0SFRaQmw1VFZvbDRjeHYyU2NxU0xpQ0R4N2dlRUk0NGtnazFvenQ?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 14,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "POSITIVE",
+        "impact_reason": "Headline language contains positive market-impact signals.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:27.654263+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian IT stocks slump up to 7% as Accenture cuts revenue outlook, fueling fresh concerns over sector growth"
+      },
+      {
+        "title": "Stocks dented by inflation risk from rising oil, dicey geopolitics",
+        "source": "Global Markets",
+        "publisher": "Reuters",
+        "published": "Mon, 07 Sep 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQa0pobHhGSWlxLVNZa2htLURrNldPaHUyOGVyQXVBeGtJOWJDUXpqMXFSTDBCaHNkeFI5Q0Y2NUdFNlJoWUZlVGQwR2pGZk5oc1R5TzFLbUdFMU1aY3NGTXVhOGFTeFZOenRpbUlNc0ZiTjQtMnNaRVUtTVNrWEpLeGprbw?oc=5",
+        "summary": "",
+        "publisher_domain": "reuters.com",
+        "cluster_id": 15,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEGATIVE",
+        "impact_reason": "Headline language contains negative market-impact signals.",
+        "affected": "ENERGY",
+        "checked_at_utc": "2026-10-05T10:46:27.654300+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Stocks dented by inflation risk from rising oil, dicey geopolitics"
+      },
+      {
+        "title": "Asian Stock Markets Mixed After Fed Rate Hike as Oil Risks Persist",
+        "source": "Global Markets",
+        "publisher": "Eurasia Business News",
+        "published": "Thu, 17 Sep 2026 17:25:50 GMT",
+        "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOLW9Ra3JZb2hsM2RGbzYza2ZGYk1fUEdaNjVaS2NUUTBPd1Z6QXNwd0pHSWg0TTh6Yy1vSVBQSUxqNzBWa1djSEZLTjYtNmlnR3U1dHlPSi1VMHNGanZ5eVF5UEJwaVFNV0hIZTExaFpXX29zbGdnQk40T1BpRER2TVVyS2pTdUdVenZrbG5iSjV0Y3N2aWgybGZyX1RPR2RUdDJYd2V0WlpjM0FYZU1n?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 16,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEGATIVE",
+        "impact_reason": "Headline language contains negative market-impact signals.",
+        "affected": "BANKING",
+        "checked_at_utc": "2026-10-05T10:46:27.654369+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Asian Stock Markets Mixed After Fed Rate Hike as Oil Risks Persist"
+      },
+      {
+        "title": "South Korea's Kospi clocks best month in 28 years as tech optimism triumphs over Iran war worries",
+        "source": "Global Markets",
+        "publisher": "CNBC",
+        "published": "Wed, 29 Apr 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQMUNud1Q2SlMzVnJJNHNydDRKTkgzUndsZ0lSSHV0VlVadVZMMG1DemptTy1QVUpYem4ybVh2SkNrbmFqdEdqYmdMbDJESU1kMW4yeFhnN2thYkxJRjhUQjJjRjJlbTJGNFZMVGlhOWxCdXJlaHNYXzRCallMUVFmemNRMXlWWV9HSElDZnJycktnMkxD0gGaAUFVX3lxTE9zYWZkM3pOTmE1dXFlZVVlbHVPTFBuaVRGN1Fhd29RWjZMRnlyelhCM044SlhSbk44TkZMT2JHZm1EbGo3SnZpcF9tNlZvVFlYS01xTTJhSk9zNTNGQlExNmhXX19mVjRZN3dxaFI4NVYwdXk2RkhwLUVtUHZPR0dXNGhqLTI4VUluRXlHTFdIUTc1YkllZHZfZkE?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 17,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEGATIVE",
+        "impact_reason": "Headline language contains negative market-impact signals.",
+        "affected": "IT",
+        "checked_at_utc": "2026-10-05T10:46:27.654415+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · South Korea's Kospi clocks best month in 28 years as tech optimism triumphs over Iran war worries"
+      },
+      {
+        "title": "Asian markets turn risk-averse as global yields and geopolitical risks weigh; India shows relative resilience",
+        "source": "Global Markets",
+        "publisher": "The New Indian Express",
+        "published": "Mon, 24 Aug 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPT0xvV1lKaTNmR0tmenFxY1BaQzBwVXBiOHRPYUxDMDVVeFBEWXVZd2ZaOXBxQWpIek0zdUtaTmVrd1d0dnhKTjFyOUVZNTgtQXhxbVlSLTc3TFpTb2hTQ0loOWhsR3pRQWQ3YUhScy1VYUxMZ3pPZFkwcnNQVDNkMU9LYmtXNTRldjJKdHVjMVdRanRhODU1bkpwYk9JLVcwbHRXdEpUVmdUeTNUMDJoV3pDc2pwWmxqdDEyZDZyaVE1Q1NidE0tUzRXbDFpTEhvWHhJUFZNSE9mbEF5UTYxQWt3dDFBRDB6RnZEZm5qWFRCcU5x0gGCAkFVX3lxTE5WRVBMeUxhaTVZb29MMXJfNGNiTk5ZZkNMVnZ6S3RVLVBCdnJBck1OV2dHdE81VVpjTWI0VUJWY3gyMlF4WEE1S09SbndGT3hnblcwUkQ0TUtoSWJkdjZsMU83b0RGbjltZmIyZWprS3FzbFJzSzR6d2hoa1hkT1VEcW9WRW0xYjdkUzE4Q3Q3OFhsU3RPQnVwbm1OYjBmVG9aSzB0TG5qTFFLNktzNkU4WlphVFBOMjhrV2d3NjJITTZaa3YxUHRzbENVakFnQlREcEhkWHE3U1BuaDlPSHY4eFdIWHUyTXlST3NJTGZyTDR6QktVVHI0cFFtSzVkdkFhdw?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 18,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "MARKET",
+        "checked_at_utc": "2026-10-05T10:46:27.654455+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Asian markets turn risk-averse as global yields and geopolitical risks weigh; India shows relative resilience"
+      },
+      {
+        "title": "US market outlook: S&P 500, Dow futures flat as oil surges; will Friday’s inflation data shift Fed bets?",
+        "source": "Global Markets",
+        "publisher": "Livemint",
+        "published": "Thu, 10 Sep 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOQm9SOWEybW1faHIxZkVUVnhjc29NajI2SWJNbHgtMmVQVlNKeEIwa3MtREZ0UVJSNFNNaXBEOGU3TWFFTElWSlA4cjRSbzlpU1N5aDdsVHdUX2xNZEtRaVd2a2k0SEV0dlBJVGlJTjhlZGxGQzFsdWVkYjJMQXpWVlZ5Q2hGQmFlcUZSX29TY2NFWDlMYmtPejQ3TXRtd2ZEaW1LSDgydW5GWUpudkFDamNVaGpOUFRTcnJzTXpqLUwtTmkyNVVnVDFuLVFsMU1kTUFRNDBkS0VsdjFEMkFJZi1ER1hJem42Rkw2c3hWNllySUJzV0Zmdkl0WjFLZVVXY3QxTXZCYzNrNUVtdGfSAZMCQVVfeXFMTzJlTWt3Um9vSUtuUjFfaXdUbUlHOExuY1Zza0hIb0QxdFoyQzNZSWhCTlNPT3pveDFvUnNDZV84WEFSUTVEUDljaFoyQkMxQ3hUamk2bjRkSVhucWhNMmJCT3dyMmRvY21vTHJkUUtpVERvc2RMUHlhT0tDc3pFbzQyaFh6Y3A1MHN4RE1NbVA4QWRRTFF2NkFBV3NSd1dPZExxZ0tyVGJHcjhULW9Zb3FpM0pzXy1jb2xsMHVnc2VOaEtSRjJnT1BJSlpJNFcxaE1HZHI0MEJjNXlyZURwUnl5Q05SMEl3MzZtTFpNOWhxRHdGX2J6TWJvY3Z6WXoxNF9oR3JpWFBkUWVlRWNyNDJMdm8?oc=5",
+        "summary": "",
+        "publisher_domain": "livemint.com",
+        "cluster_id": 19,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "ENERGY",
+        "checked_at_utc": "2026-10-05T10:46:27.654504+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · US market outlook: S&P 500, Dow futures flat as oil surges; will Friday’s inflation data shift Fed bets?"
+      },
+      {
+        "title": "Crude Oil, Geopolitics Drive Market Movement: Analysts",
+        "source": "Global Markets",
+        "publisher": "Rediff MoneyWiz",
+        "published": "Sun, 23 Aug 2026 07:00:00 GMT",
+        "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPcmwxcGtfNXNwTkZ5RTdNMWJzWl9GVUdYeVI0WGNsb0hBbnAwdVZ3YmZpSTk4TThweXEwSVEyX3A4by16NjgtX1U3blIxNW55NU1QMWd3R2FacXNJYVd3c3lxRjc4OUhkMWZKM2hhVHRVYVVNM1BMbjZDdUt4bnl3WFRFOGFncmJOSUpRc3Z2WTAydjN1V0l6clBKTlIwcXN3aVVLdjNOZ9IBrAFBVV95cUxOdkZOVjZRUWZTVFlZUGt2dkNiRDJ6ZHlpM3k2b2NHeS1jMWZlMG9LSnR6OHpJbmRBRi1DaXFJYmtTWVRBdjFqT1FMdEtfVDN2UHo5Q3oxSnlSSDBKazdpT2hwMENqUXlkNE13R014dHpvVnFORlpPV0d6RzJyQ3A2Y0otUUVyRVJKc240OXlfczQ0ZWp3Q0hpbk15dnBTZ1NzRHo0QjJuQnBHTXB5?oc=5",
+        "summary": "",
+        "publisher_domain": "",
+        "cluster_id": 20,
+        "verification": "SINGLE_SOURCE",
+        "verification_label": "SINGLE SOURCE",
+        "verification_detail": "Only one publisher currently carries this story cluster in the live feeds.",
+        "impact": "NEUTRAL",
+        "impact_reason": "No clear directional impact is established from the headline alone.",
+        "affected": "ENERGY",
+        "checked_at_utc": "2026-10-05T10:46:27.654538+00:00",
+        "evidence_score": 30,
+        "evidence_count": 0,
+        "claim_status": "INSUFFICIENT EVIDENCE",
+        "claim_status_detail": "Independent evidence is not yet strong enough for a supported classification.",
+        "agent_status": "NOT_RUN",
+        "display_title": "🟡 INSUFFICIENT EVIDENCE · Crude Oil, Geopolitics Drive Market Movement: Analysts"
+      }
+    ],
+    "decision": {
+      "score": 25.0,
+      "bias": "BEARISH",
+      "confidence": "HIGH",
+      "regime": "STRONG DOWNTREND",
+      "positive_factors": 0,
+      "negative_factors": 4,
+      "evidence": [
+        "NIFTY below 20D SMA",
+        "NIFTY below 50D SMA",
+        "20D momentum negative",
+        "RSI signals weak momentum",
+        "News tone is mixed after evidence weighting",
+        "21 insufficient-evidence story/stories given reduced weight"
+      ],
+      "bull_trigger": "NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+      "bear_trigger": "NIFTY loses its 20D SMA while volatility expands.",
+      "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+      "methodology": "Transparent rule-weighted evidence score. News direction is weighted by claim status; disputed claims are excluded and insufficient-evidence claims receive reduced weight. This is not a probability or trading recommendation."
+    },
+    "specialists": {
+      "agents": {
+        "Watchlist Agent": {
+          "agent": "Watchlist Agent",
+          "status": "READY",
+          "elapsed_ms": 0.2,
+          "data": [
+            {
+              "ticker": "ITC",
+              "last": 268.9,
+              "change_pct": 5.08,
+              "20D_return_pct": 1.82,
+              "vs_20D_SMA_pct": 1.95,
+              "volume_vs_20D": 3.88,
+              "RSI14": 58.47,
+              "research_score": 82.0,
+              "research_label": "TOP OPPORTUNITY",
+              "research_confidence": "HIGH",
+              "research_reasons": [
+                "holding above 20D SMA",
+                "positive 20D momentum",
+                "positive latest session",
+                "high volume confirms upside",
+                "constructive RSI"
+              ],
+              "linked_news": 0,
+              "supported_news": 0,
+              "positive_news": 0,
+              "negative_news": 0
+            },
+            {
+              "ticker": "TCS",
+              "last": 2114.4,
+              "change_pct": 1.9,
+              "20D_return_pct": -8.23,
+              "vs_20D_SMA_pct": -1.45,
+              "volume_vs_20D": 1.65,
+              "RSI14": 39.22,
+              "research_score": 47.6,
+              "research_label": "NEUTRAL",
+              "research_confidence": "HIGH",
+              "research_reasons": [
+                "near/below 20D SMA",
+                "weak 20D momentum",
+                "positive latest session",
+                "high volume confirms upside",
+                "2 linked news item(s), 0 supported/corroborated"
+              ],
+              "linked_news": 2,
+              "supported_news": 0,
+              "positive_news": 1,
+              "negative_news": 0
+            },
+            {
+              "ticker": "ICICIBANK",
+              "last": 1332.0,
+              "change_pct": 1.63,
+              "20D_return_pct": -6.41,
+              "vs_20D_SMA_pct": -1.33,
+              "volume_vs_20D": 1.43,
+              "RSI14": 36.78,
+              "research_score": 41.0,
+              "research_label": "NEUTRAL",
+              "research_confidence": "MEDIUM",
+              "research_reasons": [
+                "near/below 20D SMA",
+                "weak 20D momentum",
+                "positive latest session",
+                "above-average volume"
+              ],
+              "linked_news": 0,
+              "supported_news": 0,
+              "positive_news": 0,
+              "negative_news": 0
+            },
+            {
+              "ticker": "INFY",
+              "last": 1020.5,
+              "change_pct": -1.4,
+              "20D_return_pct": -9.69,
+              "vs_20D_SMA_pct": -1.57,
+              "volume_vs_20D": 1.27,
+              "RSI14": 45.87,
+              "research_score": 31.0,
+              "research_label": "RISK",
+              "research_confidence": "MEDIUM",
+              "research_reasons": [
+                "near/below 20D SMA",
+                "weak 20D momentum",
+                "negative latest session",
+                "above-average volume"
+              ],
+              "linked_news": 0,
+              "supported_news": 0,
+              "positive_news": 0,
+              "negative_news": 0
+            },
+            {
+              "ticker": "RELIANCE",
+              "last": 1186.4,
+              "change_pct": 1.6,
+              "20D_return_pct": -10.26,
+              "vs_20D_SMA_pct": -4.01,
+              "volume_vs_20D": 1.2,
+              "RSI14": 32.78,
+              "research_score": 30.4,
+              "research_label": "RISK",
+              "research_confidence": "MEDIUM",
+              "research_reasons": [
+                "below 20D SMA",
+                "weak 20D momentum",
+                "positive latest session",
+                "above-average volume",
+                "weak RSI"
+              ],
+              "linked_news": 1,
+              "supported_news": 0,
+              "positive_news": 0,
+              "negative_news": 1
+            },
+            {
+              "ticker": "SBIN",
+              "last": 958.0,
+              "change_pct": 0.41,
+              "20D_return_pct": -5.72,
+              "vs_20D_SMA_pct": -2.72,
+              "volume_vs_20D": 1.0,
+              "RSI14": 36.13,
+              "research_score": 28.0,
+              "research_label": "RISK",
+              "research_confidence": "MEDIUM",
+              "research_reasons": [
+                "below 20D SMA",
+                "weak 20D momentum"
+              ],
+              "linked_news": 0,
+              "supported_news": 0,
+              "positive_news": 0,
+              "negative_news": 0
+            },
+            {
+              "ticker": "HDFCBANK",
+              "last": 704.8,
+              "change_pct": -2.27,
+              "20D_return_pct": -1.03,
+              "vs_20D_SMA_pct": -1.76,
+              "volume_vs_20D": 2.13,
+              "RSI14": 48.66,
+              "research_score": 26.0,
+              "research_label": "RISK",
+              "research_confidence": "HIGH",
+              "research_reasons": [
+                "near/below 20D SMA",
+                "negative 20D momentum",
+                "negative latest session",
+                "high volume confirms downside"
+              ],
+              "linked_news": 0,
+              "supported_news": 0,
+              "positive_news": 0,
+              "negative_news": 0
+            }
+          ],
+          "mission": "Rank watched stocks using price and catalyst evidence.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Market Agent": {
+          "agent": "Market Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "snapshot": [
+              {
+                "name": "NIFTY 50",
+                "ticker": "^NSEI",
+                "last": 22555.75,
+                "change_pct": 0.6
+              },
+              {
+                "name": "BANK NIFTY",
+                "ticker": "^NSEBANK",
+                "last": 54714.1,
+                "change_pct": 0.48
+              },
+              {
+                "name": "SENSEX",
+                "ticker": "^BSESN",
+                "last": 72382.47,
+                "change_pct": 0.66
+              },
+              {
+                "name": "INDIA VIX",
+                "ticker": "^INDIAVIX",
+                "last": 14.77,
+                "change_pct": 2.18
+              },
+              {
+                "name": "S&P 500",
+                "ticker": "^GSPC",
+                "last": 7722.72,
+                "change_pct": 0.73
+              },
+              {
+                "name": "NASDAQ",
+                "ticker": "^IXIC",
+                "last": 27190.86,
+                "change_pct": 1.19
+              },
+              {
+                "name": "NIKKEI",
+                "ticker": "^N225",
+                "last": 69946.86,
+                "change_pct": 2.4
+              },
+              {
+                "name": "HANG SENG",
+                "ticker": "^HSI",
+                "last": 24040.34,
+                "change_pct": 0.28
+              },
+              {
+                "name": "USD/INR",
+                "ticker": "INR=X",
+                "last": 96.29,
+                "change_pct": 0.07
+              },
+              {
+                "name": "CRUDE",
+                "ticker": "CL=F",
+                "last": 90.74,
+                "change_pct": -0.41
+              },
+              {
+                "name": "GOLD",
+                "ticker": "GC=F",
+                "last": 4187.2,
+                "change_pct": 0.6
+              }
+            ],
+            "levels": {
+              "NIFTY close": 22555.75,
+              "Previous close": 22421.95,
+              "5D return %": -2.53,
+              "20D return %": -5.52,
+              "5D SMA": 22618.92,
+              "20D SMA": 23203.04,
+              "50D SMA": 23843.82,
+              "20D high": 24005.75,
+              "20D low": 22217.3,
+              "RSI14": 29.87,
+              "range_position_%": 18.9
+            }
+          },
+          "mission": "Establish the current index and macro snapshot.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Sector Agent": {
+          "agent": "Sector Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "sectors": [
+              {
+                "sector": "FMCG",
+                "avg_change_pct": 2.61,
+                "members": 2
+              },
+              {
+                "sector": "Energy",
+                "avg_change_pct": 1.37,
+                "members": 2
+              },
+              {
+                "sector": "IT",
+                "avg_change_pct": 0.25,
+                "members": 2
+              },
+              {
+                "sector": "Banking",
+                "avg_change_pct": -0.08,
+                "members": 3
+              },
+              {
+                "sector": "Auto",
+                "avg_change_pct": -0.08,
+                "members": 1
+              },
+              {
+                "sector": "Pharma",
+                "avg_change_pct": -0.72,
+                "members": 2
+              }
+            ]
+          },
+          "mission": "Assess sector participation and rotation.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Technical Agent": {
+          "agent": "Technical Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "trend_vs_20d": "BELOW",
+            "trend_vs_50d": "BELOW",
+            "rsi14": 29.87,
+            "20d_return_pct": -5.52,
+            "range_position_pct": 18.9
+          },
+          "mission": "Assess trend, momentum and range structure.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Risk Agent": {
+          "agent": "Risk Agent",
+          "status": "READY",
+          "elapsed_ms": 0.0,
+          "data": {
+            "vix_change_pct": 2.18,
+            "sector_positive_share": 0.5,
+            "flags": []
+          },
+          "mission": "Identify volatility, breadth and evidence-quality risks.",
+          "self_check": {
+            "confidence": "LOW",
+            "evidence_state": "INSUFFICIENT",
+            "missing": [
+              "flags"
+            ],
+            "needs_retry": true
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Institutional Agent": {
+          "agent": "Institutional Agent",
+          "status": "READY",
+          "elapsed_ms": 366.8,
+          "data": {
+            "available": true,
+            "date": "01-Oct-2026",
+            "freshness_days": 4,
+            "source": "NSE India",
+            "source_url": "https://www.nseindia.com/reports/fii-dii",
+            "today": {
+              "fii_net": -9484.22,
+              "dii_net": 10041.84,
+              "combined_net": 557.6200000000008
+            },
+            "five_day": {
+              "fii_net": -9484.22,
+              "dii_net": 10041.84,
+              "combined_net": 557.6200000000008
+            },
+            "fii_tone": "SELLING",
+            "dii_tone": "BUYING",
+            "regime": "DIVERGENT FLOWS",
+            "rows": [
+              {
+                "date": "01-Oct-2026",
+                "fii_buy": 12260.26,
+                "fii_sell": 21744.48,
+                "fii_net": -9484.22,
+                "dii_buy": 25420.04,
+                "dii_sell": 15378.2,
+                "dii_net": 10041.84
+              }
+            ]
+          },
+          "mission": "Establish FII/DII positioning from an attributable source chain.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Intraday Agent": {
+          "agent": "Intraday Agent",
+          "status": "READY",
+          "elapsed_ms": 776.1,
+          "data": {
+            "available": true,
+            "ticker": "^NSEI",
+            "symbol": "NIFTY",
+            "name": "NIFTY 50",
+            "mode": "LIVE",
+            "session_date": "2026-10-05",
+            "as_of": "2026-10-05 15:25 IST",
+            "source": "Yahoo Finance market-data feed",
+            "live_feed": {
+              "provider": "yfinance-fallback",
+              "status": "NOT_CONFIGURED",
+              "connected_at": null,
+              "last_tick_at": null,
+              "ticks": 0,
+              "quote_count": 0,
+              "errors": []
+            },
+            "source_url": "https://finance.yahoo.com/",
+            "last": 22555.75,
+            "session_change_pct": 0.6,
+            "vwap": null,
+            "vwap_distance_pct": null,
+            "opening_range_high": 22571.05,
+            "opening_range_low": 22507.55,
+            "opening_range_state": "INSIDE OPENING RANGE",
+            "volume_ratio": null,
+            "volume_spike_6bar": null,
+            "momentum_15m_pct": 0.09,
+            "trend": "SIDEWAYS",
+            "breadth": {
+              "advancers": 4,
+              "decliners": 3,
+              "unchanged": 0,
+              "total": 7,
+              "breadth_ratio": 1.33,
+              "rows": [
+                {
+                  "Stock": "ITC",
+                  "Change %": 3.62
+                },
+                {
+                  "Stock": "ICICIBANK",
+                  "Change %": 1.33
+                },
+                {
+                  "Stock": "RELIANCE",
+                  "Change %": 1.01
+                },
+                {
+                  "Stock": "TCS",
+                  "Change %": 0.97
+                },
+                {
+                  "Stock": "SBIN",
+                  "Change %": -0.02
+                },
+                {
+                  "Stock": "INFY",
+                  "Change %": -2.87
+                },
+                {
+                  "Stock": "HDFCBANK",
+                  "Change %": -3.69
+                }
+              ]
+            },
+            "levels": {
+              "session_high": 22621.8,
+              "session_low": 22397.5,
+              "recent_resistance": 22569.4,
+              "recent_support": 22461.75,
+              "last": 22555.75
+            },
+            "components": {
+              "Opening Range": 0,
+              "Momentum": 0,
+              "Trend": 0,
+              "Volume": 0,
+              "Breadth": 7
+            },
+            "score": 57,
+            "bias": "NEUTRAL",
+            "confidence": "LOW",
+            "reasons": [
+              "Price remains inside the 15-minute opening range.",
+              "15-minute momentum is muted at 0.09%.",
+              "Short-term moving-average structure is sideways.",
+              "Watchlist breadth is 4 advancing vs 3 declining."
+            ],
+            "synthesis": {
+              "headline": "Signals are mixed — wait for confirmation",
+              "detail": "watchlist breadth positive",
+              "bull_count": 1,
+              "bear_count": 0,
+              "nearest_level": 22569.4,
+              "volume_confirming": false
+            }
+          },
+          "mission": "Assess live market structure using VWAP, opening range and momentum.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "Options Agent": {
+          "agent": "Options Agent",
+          "status": "READY",
+          "elapsed_ms": 819.0,
+          "data": {
+            "available": false,
+            "message": "Option-chain data unavailable from NSE and validated public fallback."
+          },
+          "mission": "Assess NIFTY options positioning from attributable chain data.",
+          "self_check": {
+            "confidence": "MEDIUM",
+            "evidence_state": "READY",
+            "missing": [],
+            "needs_retry": false
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        },
+        "News Agent": {
+          "agent": "News Agent",
+          "status": "READY",
+          "elapsed_ms": 3046.1,
+          "data": [
+            {
+              "title": "Indian benchmark shares post longest weekly losing run in 25 years",
+              "source": "India Markets",
+              "publisher": "Reuters",
+              "published": "Fri, 02 Oct 2026 04:33:13 GMT",
+              "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOa2lpSGdlN0dhOTM3eUw3MlQtN183dHZydW95WXVWM2MyTEFaeTlvRUllR29aLWJxT3dvdVNmNlpzTGVldkpIMFNScVVhVEJ5TTU5TDhoVTZZWlpXbENCUHlKMWx3MmJ4bWkyU1E1OGF6Sk9YakxYcHRyM0tWdnlrX0NpQktmLU90VkRRVG5FQXdPZ3c3dFV0N0xndUdrTl9lY0xKZUJsNmY4LS1BYndDNENRZC0?oc=5",
+              "summary": "About Kotak Mahindra Bank Ltd (KTKM.NS) Reuters",
+              "publisher_domain": "reuters.com",
+              "cluster_id": 1,
+              "verification": "SINGLE_SOURCE",
+              "verification_label": "SINGLE SOURCE",
+              "verification_detail": "Only one additional publisher was found in the targeted search. Claim assessment: INSUFFICIENT EVIDENCE. Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification. Evidence strength: 30/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-10-05T10:46:12.092106+00:00",
+              "evidence_score": 30,
+              "evidence_count": 1,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "Only one additional publisher was found. The claim may be genuine, but independent evidence is not yet strong enough for a supported classification.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [
+                "tradingview.com"
+              ],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · Indian benchmark shares post longest weekly losing run in 25 years",
+              "research": {
+                "claim": "Indian benchmark shares post longest weekly losing run in 25 years",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Reuters",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+              "source": "India Markets",
+              "publisher": "Livemint",
+              "published": "Thu, 01 Oct 2026 07:00:00 GMT",
+              "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFA2eURra0RNN0hZR0ZxYmMxV00ycGZkVS14M1JaTGFnc2lGeVdLS3NUaDQ0Q0pKSkpLbDcwMUhQN1lwcHJNbmc?oc=5",
+              "summary": "",
+              "publisher_domain": "livemint.com",
+              "cluster_id": 2,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-10-05T10:46:12.852398+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+              "research": {
+                "claim": "Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "The Times of India",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+              "source": "India Markets",
+              "publisher": "Equitymaster",
+              "published": "Mon, 05 Oct 2026 00:30:00 GMT",
+              "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQQl9MeVMwSlZPNjFoWV82anhaSURQSnplczlnNjNYamRISHlaekxGRGRteGwyUklZdUFtbGQ4TTFLckZLX21FVjZYUzdDMkRCZkJHdXUxNlM0cWh4NHcyWTU1dGQtbFQwTzFwRGZMT1JyTjBCNEY2RnZDMkFzSmJyRWR3Z3NrX0M4VGlwSThLUkowYmhmWFhyYUJWa3BBbDc2azVjdC1mRk1PT3paNmoxcmxmSDVqdXhFUWZqNDFuMmRQcmNSVHJGazBKNzNyaUlicExSVkhSMFA3dW1lS1VTV0RLQl84amxKQk1oSjBxNHRIV0RvSEpOMlFSSG81QXpuNkJNeUFoWllEZTQ?oc=5",
+              "summary": "",
+              "publisher_domain": "",
+              "cluster_id": 3,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "POSITIVE",
+              "impact_reason": "Headline language contains positive market-impact signals.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-10-05T10:46:13.509872+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+              "research": {
+                "claim": "ideaForge Secures Major Domestic UAV Order | L&T Wins Major Dubai Road Infrastructure Contracts | Top Buzzing Stocks Today",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Equitymaster",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+              "source": "India Markets",
+              "publisher": "Hindustan Times",
+              "published": "Mon, 05 Oct 2026 06:46:43 GMT",
+              "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOUURHNnU0ZHl1dUs0X016Y1V2eVFSb0FrWERUWWstcGo3TGRna2RJdnZaeE5CZFN1SS1mNUozTUQwczNrTHpQWnd6NFhiRHpPWTFpU2ZsdXdyc1VNU19OcjJkU2hzcVJMdVdOTzBmUW5XR2NOclhGRGk0bnBnTldEZ3pvMFp0Rmd3SEFFRXNTcWRJTmxhSm93RUoyRVRiTU1TYko3Ulpmc3lMS3owMXo0SWdMT0o4eTNXbW5PZ3htaWV5U25FMWI00gHMAUFVX3lxTFByc08wRlFNaEpnV1lzTS1HS2QtaHFYLTNMNGpXbnRiSFd2MFMxbUFpc01HUDQ4eUgyZnlBZkVsaG1RT2pEZzB4Tzg4YTZxbTU2b25YOU9qZVA5YlBFckxVdHd2QUJhQWxkaHBaUVc3cWZnWENSTTFlanlKSFZKSUdMcWtuYl8tT1dJRGRwYld5U2lxdVhGaGJtUkxnR0ZYYnJud0pCUEo2dVgyWUF0M2M4Q0ZXWHViU1pzb2phZGNRYnVFNllCMDFRMjNXag?oc=5",
+              "summary": "",
+              "publisher_domain": "hindustantimes.com",
+              "cluster_id": 2,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-10-05T10:46:14.146743+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+              "research": {
+                "claim": "Stock market on the rise: What caused the Nifty, Sensex rebound today? | Business News",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Hindustan Times",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+              "source": "India Markets",
+              "publisher": "Business Standard",
+              "published": "Mon, 05 Oct 2026 06:04:51 GMT",
+              "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWVZPYXI5Y25NbVlxYXQybjZST3ZIclFkdEs4TXJwMkl0YWk2Mi15a0JIcF9udmlaSjMtUjdQVTE1MzFJYlI1R0pkTmpoMG5wd2RreklzUjRZUk1TN3QwajNkUURVbGFZVE5JZEY1QmhvVXo5RWoxY1lOQVFZc0p4WVpOcmllcTE5S2dXZUhTamlwOFhjVHU2WVpQS216cF9kRFBic3VYMmtzbWVCdFFsckZXSUQtZm5kaDU0NFNYdDNNM0g5MWhDZGMzR3NDQdIB0wFBVV95cUxQSExOckVkai14cnptdGkxb0daRkdpcHdfQ1ktWnlUYlg4WkdXNGtsRWxsT1Z4dnk2Wmk2Y1RvWmFpbmZiZFZjcGJFa0d1RVltcnZDMmpHNEFTeFFzYmwxbm1iVlBueUpjWWJTQlRoQzFZclFubEJIdG9ZZWdOVkNrY3hzZFdLSWZTdzhZMU91MVNyUW55cnZWUnVBcUpJRGhoSVc0YTJiRF92YXlINUlTY21fVmlBemhNQ3VDOGk3RUFMM1hWazlFazhWNUI1MWtVV1Jv?oc=5",
+              "summary": "IT shares trade mixed post Accenture earnings; HCL Tech, Infy down up to 4% Business Standard",
+              "publisher_domain": "business-standard.com",
+              "cluster_id": 4,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEGATIVE",
+              "impact_reason": "Headline language contains negative market-impact signals.",
+              "affected": "BANKING",
+              "checked_at_utc": "2026-10-05T10:46:16.055984+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+              "research": {
+                "claim": "PSU banks in focus; Bank of India, PNB, Indian Bank, IOB rally up to 4%",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Business Standard",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            },
+            {
+              "title": "Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+              "source": "India Markets",
+              "publisher": "Hindustan Times",
+              "published": "Mon, 05 Oct 2026 03:46:15 GMT",
+              "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOZXF3ODZlOWJ0UHY4Qi1MRVRhczhCX2NDdEVIbG5IYl9RZm9FVm81eVhON09Xcl9PT01OZDhaQU9LQ082dnhqOVU1ZUpPc1ZQS0RaaWo4c1Vkc1FMeFE1Z1Vyb19YSElic2NRSGhZbjZ4ZjFaQ0VOZDFydE1hSXRZbzZvMTdrTGg4cGFGYTl2YlFfeGlNSnFEUFVOWHFOQnRwaGg3ZmRXZkl4aHI1VnplWnZNTjgzNG1nTUxNdG5nY1p1bk8wdlpJczNzck1USkRaSDh3TWY4ai1uWkYyUE84WTg5ejhFanM3SE90aUhiSVVGV3l1RzhR0gH8AUFVX3lxTE52NGdvaURGWkNFOUE3LWhLT1R0eUdaVWtRZElZWFl1MDNNRFRidGJrdHphUHF5a3BHTVRPczJfWUh6UVBKWUtrdzh1Y185RlowMks4LVo3T3dkb0JQU19vVTVWVDVDOVVMU0REb3NWNno4WHBiaEgwclZISER2U0ZQSWJzRXVVLTFCTWJBQmlhRWNROEtKd0FRcmh0LUx1NU9JODlVY2tCaUE5N2NRRVotcGs2RVBUaTJTUWNjcXVzYjdLa29rbmNmQVhKR3ZMU1BmOFJGYnhPcTNBb181cGJ6YlJfUVlCdjczX3A4cFVRdEhCSUd4UkVROEs0SQ?oc=5",
+              "summary": "",
+              "publisher_domain": "hindustantimes.com",
+              "cluster_id": 1,
+              "verification": "UNVERIFIED",
+              "verification_label": "UNVERIFIED",
+              "verification_detail": "Fresh independent cross-check was unavailable. MarketPilot will not label the claim as verified. Claim assessment: INSUFFICIENT EVIDENCE. No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone. Evidence strength: 10/100.",
+              "impact": "NEUTRAL",
+              "impact_reason": "No clear directional impact is established from the headline alone.",
+              "affected": "MARKET",
+              "checked_at_utc": "2026-10-05T10:46:16.731035+00:00",
+              "evidence_score": 10,
+              "evidence_count": 0,
+              "claim_status": "INSUFFICIENT EVIDENCE",
+              "claim_status_detail": "No independent cross-check was available. MarketPilot will not infer that the claim is true from the headline alone.",
+              "agent_status": "ARTICLE_UNAVAILABLE",
+              "verification_sources": [],
+              "display_title": "🟡 INSUFFICIENT EVIDENCE · Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+              "research": {
+                "claim": "Sensex and Nifty open higher after longest weekly decline in 25 years | Business News",
+                "evidence_state": "INSUFFICIENT",
+                "confidence": "LOW",
+                "independent_publishers": 0,
+                "evidence": [],
+                "attempts": [
+                  {
+                    "publisher": "Reuters",
+                    "domain": "news.google.com",
+                    "status": "ARTICLE_UNAVAILABLE"
+                  }
+                ],
+                "research_complete": false,
+                "research_policy": "discover -> read -> corroborate -> downgrade when uncertain",
+                "no_fabrication": true
+              },
+              "research_state": "INSUFFICIENT",
+              "research_confidence": "LOW"
+            }
+          ],
+          "mission": "Verify and summarize market-moving news from publisher evidence.",
+          "self_check": {
+            "confidence": "LOW",
+            "evidence_state": "INSUFFICIENT",
+            "verified_items": 0,
+            "missing": [],
+            "needs_retry": true
+          },
+          "autonomy": {
+            "source_selection": "SPECIALIZED_ENGINE",
+            "self_evaluation": true,
+            "retry_policy": "FALLBACK_WHEN_AVAILABLE",
+            "no_fabrication": true
+          }
+        }
+      },
+      "agent_count": 9,
+      "ready_count": 9,
+      "error_count": 0,
+      "execution": "PARALLEL",
+      "autonomous_protocol": "v4_research_debate",
+      "self_checks": 9,
+      "debates": [
+        {
+          "challenger": "Risk Agent",
+          "target": "Sector Agent",
+          "claim": "Uneven sector participation challenges a broad-market strength conclusion.",
+          "trigger": "Positive sectors do not represent a broad majority.",
+          "severity": "MEDIUM",
+          "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+          "resolution": "PENDING_CHIEF"
+        },
+        {
+          "challenger": "Risk Agent",
+          "target": "News Agent",
+          "claim": "News conclusions lack sufficient independent corroboration.",
+          "trigger": "No news item reached CROSS_CHECKED or CORROBORATED status.",
+          "severity": "MEDIUM",
+          "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+          "resolution": "PENDING_CHIEF"
+        }
+      ],
+      "challenges": [
+        {
+          "challenger": "Risk Agent",
+          "target": "Sector Agent",
+          "claim": "Uneven sector participation challenges a broad-market strength conclusion.",
+          "trigger": "Positive sectors do not represent a broad majority.",
+          "severity": "MEDIUM",
+          "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+          "resolution": "PENDING_CHIEF"
+        },
+        {
+          "challenger": "Risk Agent",
+          "target": "News Agent",
+          "claim": "News conclusions lack sufficient independent corroboration.",
+          "trigger": "No news item reached CROSS_CHECKED or CORROBORATED status.",
+          "severity": "MEDIUM",
+          "response_required": "TARGET_MUST_CONFIRM_OR_REVISE",
+          "resolution": "PENDING_CHIEF"
+        }
+      ],
+      "challenge_count": 2,
+      "debate_count": 2
+    },
+    "governance": {
+      "rule": "Specialists investigate, self-check, independently research, debate conflicting evidence, then the Chief adjudicates.",
+      "no_order_execution": true,
+      "conflicts_must_be_reported": true,
+      "no_fabrication": true
+    }
   },
   "ai_analysis": {
     "enabled": false,
-    "status": "MARKET CLOSED",
-    "bias": "WAIT",
-    "confidence": "N/A",
-    "market_regime": "UNKNOWN",
-    "thesis": "No market thesis generated because the NSE cash market is closed.",
-    "bull_case": "",
-    "base_case": "",
-    "bear_case": "",
+    "status": "CHIEF AI ANALYSIS ERROR",
+    "provider": "Gemini",
+    "model": "gemini-2.5-flash",
+    "market_regime": "STRONG DOWNTREND",
+    "bias": "BEARISH",
+    "confidence": "HIGH",
+    "decision_score": 25.0,
+    "thesis": "Chief AI reasoning is unavailable; the scenario framework below is generated from the independently calculated evidence.",
+    "bull_case": "Conditional bullish case: NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+    "base_case": "Base case: follow the current bearish rule-based framework (25.0/100) while waiting for fresh confirmation.",
+    "bear_case": "Conditional bearish case: NIFTY loses its 20D SMA while volatility expands.",
     "key_levels": [],
-    "invalidation": "",
-    "drivers": [],
-    "risks": [],
+    "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+    "drivers": [
+      "NIFTY below 20D SMA",
+      "NIFTY below 50D SMA",
+      "20D momentum negative",
+      "RSI signals weak momentum",
+      "News tone is mixed after evidence weighting",
+      "21 insufficient-evidence story/stories given reduced weight"
+    ],
+    "risks": [
+      "Chief AI adjudication is unavailable; verify fresh live evidence before acting."
+    ],
     "watchlist_focus": [],
     "conflicts": [],
-    "evidence_quality": "INSUFFICIENT",
-    "confidence_reasons": [],
-    "news_impact": []
+    "evidence_quality": "MODERATE",
+    "confidence_reasons": [
+      "Scenario cases are rule-based because the Chief AI call was unavailable."
+    ],
+    "news_impact": [],
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/d"
   }
 }
