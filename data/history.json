@@ -2922,5 +2922,82 @@
       "RSI14": 91.07,
       "range_position_%": 94.6
     }
+  },
+  {
+    "date_ist": "2026-11-12",
+    "generated_at": "2026-11-12 17:10:55 IST",
+    "rule_bias": "BULLISH",
+    "rule_confidence": "HIGH",
+    "ai": {
+      "enabled": false,
+      "status": "CHIEF AI ANALYSIS ERROR",
+      "provider": "Gemini",
+      "model": "gemini-2.5-flash",
+      "market_regime": "STRONG TREND",
+      "bias": "BULLISH",
+      "confidence": "HIGH",
+      "decision_score": 76.0,
+      "thesis": "Chief AI reasoning is unavailable; the scenario framework below is generated from the independently calculated evidence.",
+      "bull_case": "Conditional bullish case: NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+      "base_case": "Base case: follow the current bullish rule-based framework (76.0/100) while waiting for fresh confirmation.",
+      "bear_case": "Conditional bearish case: NIFTY loses its 20D SMA while volatility expands.",
+      "key_levels": [],
+      "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+      "drivers": [
+        "NIFTY above 20D SMA",
+        "NIFTY above 50D SMA",
+        "20D momentum positive",
+        "RSI indicates stretched conditions",
+        "Bank Nifty is outperforming",
+        "India VIX easing"
+      ],
+      "risks": [
+        "Chief AI adjudication is unavailable; verify fresh live evidence before acting."
+      ],
+      "watchlist_focus": [],
+      "conflicts": [],
+      "evidence_quality": "MODERATE",
+      "confidence_reasons": [
+        "Scenario cases are rule-based because the Chief AI call was unavailable."
+      ],
+      "news_impact": [],
+      "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://aistudio.google.com/docs/g"
+    },
+    "decision": {
+      "score": 76.0,
+      "bias": "BULLISH",
+      "confidence": "HIGH",
+      "regime": "STRONG TREND",
+      "positive_factors": 6,
+      "negative_factors": 2,
+      "evidence": [
+        "NIFTY above 20D SMA",
+        "NIFTY above 50D SMA",
+        "20D momentum positive",
+        "RSI indicates stretched conditions",
+        "Bank Nifty is outperforming",
+        "India VIX easing",
+        "Sector participation is weak",
+        "Evidence-weighted news tone is net positive",
+        "20 insufficient-evidence story/stories given reduced weight"
+      ],
+      "bull_trigger": "NIFTY holds above its 20D SMA and Bank Nifty confirms strength.",
+      "bear_trigger": "NIFTY loses its 20D SMA while volatility expands.",
+      "invalidation": "The market view is invalidated when price structure and volatility move materially against the evidence pack.",
+      "methodology": "Transparent rule-weighted evidence score. News direction is weighted by claim status; disputed claims are excluded and insufficient-evidence claims receive reduced weight. This is not a probability or trading recommendation."
+    },
+    "levels": {
+      "NIFTY close": 25299.35,
+      "Previous close": 25255.05,
+      "5D return %": 5.59,
+      "20D return %": 11.34,
+      "5D SMA": 25033.2,
+      "20D SMA": 23516.2,
+      "50D SMA": 23310.51,
+      "20D high": 25424.35,
+      "20D low": 22372.0,
+      "RSI14": 95.1,
+      "range_position_%": 95.9
+    }
   }
 ]
